@@ -14,7 +14,7 @@ On the back side it says 'Plug and Display' ... but that doesn't work if you are
 Following shady steps are required:
 
 1. Install the offical drivers
----------------------------
+------------------------------
 Get the `official drivers`_ and install them. The installer bash script (apparently generated using makeself_ contains an eval statement on a bunch of binary.. and it needs root permissions. Hmmm...
 
 The installer seems to be loading a kernel module. The following is taken from the official site:
@@ -28,7 +28,7 @@ The installer seems to be loading a kernel module. The following is taken from t
 
 
 3. Perfomance Issues / CPU Load
-----------------------------
+-------------------------------
 On top of that, CPU usage is extremely high:
 
 
@@ -48,7 +48,7 @@ healing!_.
 
 
 Appendix
-========
+--------
 
   .. code:: bash
 
