@@ -9,13 +9,13 @@ Personal wiki
 .. toctree::
    :maxdepth: 2
 
-   linux
-   web
+   (Spac)emacs <emacs>
    azure
    dotnet
-   (Spac)emacs <emacs>
    kubernetes
+   linux
    networking
+   web
 
 ..
   cloud
