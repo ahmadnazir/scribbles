@@ -4,7 +4,9 @@ netstat
 
 :Package: net-tools
 
-Find open tcp ports:
+
+What is my host listening for?
+------------------------------
 
 .. code::
 

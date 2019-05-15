@@ -1,13 +1,16 @@
 Getting started with Kubernetes
 ===============================
 
+Install
+-------
+
+
 Create a deployment
 -------------------
 
 .. code::
 
-   snap run kubectl create deployment dummy-deployment --image ahmadnazir/dummy-server:0.1
-
+   snap run microk8s.kubectl create deployment my-deployment --image=ahmadnazir/dummy-server:0.2
 
 Make sure that it is created
 ----------------------------
@@ -15,6 +18,7 @@ Make sure that it is created
 .. code::
 
    snap run kubectl get deployments
+   snap run kubectl describe deployments
 
 View the pod
 ------------
@@ -24,14 +28,14 @@ View the pod
    snap run kubectl get pods
 
    NAME                               READY   STATUS    RESTARTS   AGE
-   dummy-deployment-c5755fb5c-2n6s6   1/1     Running   0          13s
+   my-deployment-c5755fb5c-2n6s6   1/1     Running   0          13s
 
-Expose the service
+Expose deployment
 ------------------
 
 .. code::
 
-   snap run kubectl expose deployment dummy-deployment --type=NodePort --port=8088
+   snap run microk8s.kubectl expose deployment my-deployment --type=NodePort --port=8088 --name=my-service
 
 Get the services
 ----------------
@@ -41,11 +45,28 @@ Get the services
    snap run kubectl get services
 
    NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-   dummy-deployment   NodePort    10.152.183.73   <none>        8088:31821/TCP   20s
+   my-deployment      NodePort    10.152.183.73   <none>        8088:31821/TCP   20s
 
-Delete deployment
------------------
+
+Test service
+------------
 
 .. code::
 
-   snap run kubectl delete deployment dummy-deployment
+   IP=`snap run kubectl get services | grep my-service  | awk '{print $3}'`
+   curl -i -XGET "http://${IP}:8088"
+
+Cleanup
+-------
+
+.. code::
+
+   snap run kubectl delete service my-service
+   snap run kubectl delete deployment my-deployment
+
+References
+----------
+
+- `Install a local kubernetes with Microk8s`_
+
+.. _Install a local kubernetes with Microk8s: https://tutorials.ubuntu.com/tutorial/install-a-local-kubernetes-with-microk8s#4
