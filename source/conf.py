@@ -43,7 +43,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Ahmad Nazir'
+project = u'Scribbles'
 copyright = u'2019, Ahmad Nazir Raja'
 
 # The version info for the project you're documenting, acts as replacement for
