@@ -6,6 +6,12 @@ Git reflog contains the complete history of everything that happened. So if you 
 
 .. code::
 
+   git fsck --no-reflog | awk '/dangling commit/ {print $3}'
+
+or use `gitk`:
+
+.. code::
+
    gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
 
 
