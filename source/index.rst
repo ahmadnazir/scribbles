@@ -23,12 +23,12 @@ Content
    (Spac)emacs <emacs>
    azure
    dotnet
+   git
    kubernetes
    linux
    networking
    Package Management <provision>
    web
-
 ..
   cloud
 
