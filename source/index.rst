@@ -11,7 +11,7 @@ them* OR *too short for a blog post*. This is a **work in progress ... and will
 remain so** for the forseeable future.
 
 If you notice something off and want to contribute, feel free to create a PR at
-https://github.com/ahmadnazir/notes
+https://github.com/ahmadnazir/scribbles
 
 
 Content
