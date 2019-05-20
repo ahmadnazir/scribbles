@@ -1,7 +1,7 @@
 Split subtree
 =============
 
-Imagine you have the following repo:
+Consider you have the following repo:
 
 .. code::
 

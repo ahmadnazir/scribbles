@@ -1,7 +1,7 @@
 Split subtree
 =============
 
-Imagine you have the following repo:
+Consider you have the following repo:
 
 .. code::
 
@@ -40,4 +40,4 @@ and you want to get the git history of only the `src` directory, then you can ge
        Initial commit
 
 .. NOTE::
-   Synthetic log history is generated
+   The `split` subtree command generates a synthetic log history. You can see that the commit hashes do not match.
