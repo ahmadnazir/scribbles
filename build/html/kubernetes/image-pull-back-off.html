@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Failed to pull docker image in pod - Status: ImagePullBackOff &mdash; Scribbles 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: ''
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="next" title="Load Balancer" href="loadbalancer.html" />
+    <link rel="prev" title="Getting started with Kubernetes" href="getting-started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Scribbles
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../kubernetes.html">Kubernetes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started with Kubernetes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Failed to pull docker image in pod - Status: ImagePullBackOff</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-the-pods">List the pods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inspect-specific-pod">Inspect specific pod</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loadbalancer.html">Load Balancer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scribbles</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../kubernetes.html">Kubernetes</a> &raquo;</li>
+        
+      <li>Failed to pull docker image in pod - Status: ImagePullBackOff</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/kubernetes/image-pull-back-off.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="failed-to-pull-docker-image-in-pod-status-imagepullbackoff">
+<h1>Failed to pull docker image in pod - Status: ImagePullBackOff<a class="headerlink" href="#failed-to-pull-docker-image-in-pod-status-imagepullbackoff" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="list-the-pods">
+<h2>List the pods<a class="headerlink" href="#list-the-pods" title="Permalink to this headline">¶</a></h2>
+<div class="code highlight-python"><div class="highlight"><pre>snap run kubectl get pods
+
+NAME                     READY   STATUS             RESTARTS   AGE
+dummy-5dfb4dd68b-2k5lz   0/1     ImagePullBackOff   0          5m20s
+</pre></div>
+</div>
+</div>
+<div class="section" id="inspect-specific-pod">
+<h2>Inspect specific pod<a class="headerlink" href="#inspect-specific-pod" title="Permalink to this headline">¶</a></h2>
+<p>Why did that fail?</p>
+<div class="code highlight-python"><div class="highlight"><pre>snap run kubectl get describe pod dummy-5dfb4dd68b-2k5lz
+
+Events:
+  Type     Reason             Age                    From               Message
+  ----     ------             ----                   ----               -------
+  Normal   Scheduled          3m38s                  default-scheduler  Successfully assigned default/dummy-5dfb4dd68b-2k5lz to darkman
+  Normal   Pulling            2m57s (x3 over 3m37s)  kubelet, darkman   Pulling image &quot;ahmadnazir/dummy-server&quot;
+  Warning  Failed             2m56s (x3 over 3m36s)  kubelet, darkman   Failed to pull image &quot;ahmadnazir/dummy-server&quot;: rpc error: code = Unknown desc = failed to resolve image &quot;docker.io/ahmadnazir/dummy-server:latest&quot;: no available registry endpoint: docker.io/ahmadnazir/dummy-server:latest not found
+  Warning  Failed             2m56s (x3 over 3m36s)  kubelet, darkman   Error: ErrImagePull
+  Warning  MissingClusterDNS  2m33s (x8 over 3m37s)  kubelet, darkman   pod: &quot;dummy-5dfb4dd68b-2k5lz_default(b6b34966-7614-11e9-802c-482ae332735d)&quot;. kubelet does not have ClusterDNS IP configured and cannot create Pod using &quot;ClusterFirst&quot; policy. Falling back to &quot;Default&quot; policy.
+  Normal   BackOff            2m33s (x4 over 3m35s)  kubelet, darkman   Back-off pulling image &quot;ahmadnazir/dummy-server&quot;
+  Warning  Failed             2m33s (x4 over 3m35s)  kubelet, darkman   Error: ImagePullBackOff
+</pre></div>
+</div>
+<p>The image doesn&#8217;t exist. Now I realize that I was missing the tag. It should&#8217;ve been <cite>ahmadnazir/dummy-server:0.1</cite></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="loadbalancer.html" class="btn btn-neutral float-right" title="Load Balancer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral float-left" title="Getting started with Kubernetes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ahmad Nazir Raja
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
