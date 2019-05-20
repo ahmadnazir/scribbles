@@ -18,7 +18,7 @@ Why did that fail?
 
 .. code::
 
-   snap run kubectl get describe pod dummy-5dfb4dd68b-2k5lz
+   snap run kubectl describe pod dummy-5dfb4dd68b-2k5lz
 
    Events:
      Type     Reason             Age                    From               Message
