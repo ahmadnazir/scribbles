@@ -1,5 +1,5 @@
-F# on Emacs
-===========
+.NET on Emacs
+=============
 
 Install omnisharp
 -----------------
