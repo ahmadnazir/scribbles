@@ -95,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../kubernetes.html">Kubernetes</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started with Kubernetes</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Failed to pull docker image in pod - Status: ImagePullBackOff</a><ul>
@@ -189,7 +190,7 @@ dummy-5dfb4dd68b-2k5lz   0/1     ImagePullBackOff   0          5m20s
 <div class="section" id="inspect-specific-pod">
 <h2>Inspect specific pod<a class="headerlink" href="#inspect-specific-pod" title="Permalink to this headline">¶</a></h2>
 <p>Why did that fail?</p>
-<div class="code highlight-python"><div class="highlight"><pre>snap run kubectl get describe pod dummy-5dfb4dd68b-2k5lz
+<div class="code highlight-python"><div class="highlight"><pre>snap run kubectl describe pod dummy-5dfb4dd68b-2k5lz
 
 Events:
   Type     Reason             Age                    From               Message

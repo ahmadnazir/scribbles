@@ -11,6 +11,7 @@ Create a deployment
 .. code::
 
    snap run microk8s.kubectl create deployment my-deployment --image=ahmadnazir/dummy-server:0.2
+   snap run microk8s.kubectl create deployment my-deployment --image=mi-gateway
 
 Make sure that it is created
 ----------------------------
