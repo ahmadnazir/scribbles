@@ -102,7 +102,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../provision.html">Package Management</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ansible.html">Ansible</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Helm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-tiller-in-the-cluster">Install tiller in the cluster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-chart">Create a chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specify-the-image">Specify the image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-chart">Install chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#try-it-out">Try it out</a></li>
 </ul>
 </li>
 </ul>
@@ -178,6 +182,13 @@
 <h1>Helm<a class="headerlink" href="#helm" title="Permalink to this headline">¶</a></h1>
 <p><strong>Helm is the package manager for Kubernetes.</strong></p>
 <p>A package in helm is called a <strong>chart</strong>.</p>
+<p>In order to use helm, tiller needs to be installed in the cluster which <strong>manages installations of the charts</strong> in the cluster.</p>
+<div class="section" id="install-tiller-in-the-cluster">
+<h2>Install tiller in the cluster<a class="headerlink" href="#install-tiller-in-the-cluster" title="Permalink to this headline">¶</a></h2>
+<div class="code highlight-python"><div class="highlight"><pre>snap run helm init
+</pre></div>
+</div>
+</div>
 <div class="section" id="create-a-chart">
 <h2>Create a chart<a class="headerlink" href="#create-a-chart" title="Permalink to this headline">¶</a></h2>
 <div class="code highlight-python"><div class="highlight"><pre>snap run helm create my-service
@@ -198,6 +209,61 @@
 └── values.yaml
 
 3 directories, 8 files
+</pre></div>
+</div>
+</div>
+<div class="section" id="specify-the-image">
+<h2>Specify the image<a class="headerlink" href="#specify-the-image" title="Permalink to this headline">¶</a></h2>
+<p>Specify the docker image and tag in the <cite>values.yaml</cite> file.</p>
+<div class="code highlight-python"><div class="highlight"><pre>image:
+  repository: ahmadnazir/dummy-server
+  tag: 0.2
+  pullPolicy: IfNotPresent
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-chart">
+<h2>Install chart<a class="headerlink" href="#install-chart" title="Permalink to this headline">¶</a></h2>
+<div class="code highlight-python"><div class="highlight"><pre>snap run helm install --dry-run --debug ./my-service
+snap run helm install ./my-service
+</pre></div>
+</div>
+<p>This gives an output:</p>
+<div class="code highlight-python"><div class="highlight"><pre>NAME:   zealous-mongoose
+LAST DEPLOYED: Tue May 21 08:50:49 2019
+NAMESPACE: default
+STATUS: DEPLOYED
+
+RESOURCES:
+==&gt; v1/Deployment
+NAME                         READY  UP-TO-DATE  AVAILABLE  AGE
+zealous-mongoose-my-service  0/1    1           0          0s
+
+==&gt; v1/Pod(related)
+NAME                                         READY  STATUS             RESTARTS  AGE
+zealous-mongoose-my-service-7c6c94d45-b5pv5  0/1    ContainerCreating  0         0s
+
+==&gt; v1/Service
+NAME                         TYPE       CLUSTER-IP      EXTERNAL-IP  PORT(S)  AGE
+zealous-mongoose-my-service  ClusterIP  10.152.183.114  &lt;none&gt;       80/TCP   0s
+
+
+NOTES:
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=my-service,app.kubernetes.io/instance=zealous-mongoose&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
+  echo &quot;Visit http://127.0.0.1:8080 to use your application&quot;
+  kubectl port-forward $POD_NAME 8080:80
+</pre></div>
+</div>
+</div>
+<div class="section" id="try-it-out">
+<h2>Try it out<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h2>
+<p>In order to access the service, it needs to be exposed:</p>
+<div class="code highlight-python"><div class="highlight"><pre>export POD_NAME=$(snap run kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=my-service,app.kubernetes.io/instance=zealous-mongoose&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
+snap run kubectl port-forward $POD_NAME 8088:8088
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre>curl localhost:8088
 </pre></div>
 </div>
 </div>
