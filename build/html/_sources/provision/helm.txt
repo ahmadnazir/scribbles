@@ -12,14 +12,14 @@ Install tiller in the cluster
 
 .. code::
 
-   snap run helm init
+   helm init
 
 Create a chart
 --------------
 
 .. code::
 
-   snap run helm create my-service
+   helm create my-service
 
 which creates a directory structure:
 
@@ -59,9 +59,8 @@ Install chart
 
 .. code::
 
-   snap run helm install --dry-run --debug ./my-service
-   snap run helm install ./my-service
-
+   helm install --dry-run --debug ./my-service
+   helm install ./my-service
 
 This gives an output:
 
@@ -100,10 +99,17 @@ In order to access the service, it needs to be exposed:
 
 .. code::
 
-   export POD_NAME=$(snap run kubectl get pods --namespace default -l "app.kubernetes.io/name=my-service,app.kubernetes.io/instance=zealous-mongoose" -o jsonpath="{.items[0].metadata.name}")
-   snap run kubectl port-forward $POD_NAME 8088:8088
+   export POD_NAME=$(k get pods --namespace default -l "app.kubernetes.io/name=my-service,app.kubernetes.io/instance=zealous-mongoose" -o jsonpath="{.items[0].metadata.name}")
+   k port-forward $POD_NAME 8088:8088
 
 
 .. code::
 
    curl localhost:8088
+
+Appendix
+--------
+
+.. code::
+
+   alias k="/usr/bin/snap run kubectl $@"

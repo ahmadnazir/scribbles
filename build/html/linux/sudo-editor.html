@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Concepts &mdash; Scribbles 0.1 documentation</title>
+  <title>Default editor for sudo &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -42,8 +42,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="next" title="Getting started with Kubernetes" href="getting-started.html" />
-    <link rel="prev" title="Kubernetes" href="../kubernetes.html" /> 
+    <link rel="next" title="Swap space" href="swap-space.html" />
+    <link rel="prev" title="What is the RAM size?" href="ram-size.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,16 +94,22 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../kubernetes.html">Kubernetes</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Concepts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started with Kubernetes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image-pull-back-off.html">Failed to pull docker image in pod - Status: ImagePullBackOff</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loadbalancer.html">Load Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../linux.html">Linux</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="connect-windows.html">Connect to a windows machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaylink.html">Displaylink on Ubuntu 18.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnome-settings-on-xmonad.html">Open gnome settings on Xmonad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hibernate.html">Enable hibernate using a swap file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ram-size.html">What is the RAM size?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Default editor for sudo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap-space.html">Swap space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="touchpad-click.html">Click on tap doesn&#8217;t work</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
@@ -152,15 +158,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../kubernetes.html">Kubernetes</a> &raquo;</li>
+          <li><a href="../linux.html">Linux</a> &raquo;</li>
         
-      <li>Concepts</li>
+      <li>Default editor for sudo</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/kubernetes/concepts.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/sudo-editor.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -173,17 +179,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="concepts">
-<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
-<p>Everything within a kubernetes cluster runs inside <strong>pods</strong>.</p>
-<p>A <a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/pods/pod/">pod</a> is a group of one or more containers with shared network/storage. It is
-the atomic unit that can be scheduled. Pods are mortal - they can&#8217;t be
-resurrected once they die.</p>
-<p>There are two main concepts that allow you to control pods:</p>
-<ol class="arabic simple">
-<li><a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployments</a> : allows you to declaratively update pods</li>
-<li><a class="reference external" href="https://kubernetes.io/docs/concepts/services-networking/service/">Services</a> : abstraction which defines a logical set of pods</li>
-</ol>
+  <div class="section" id="default-editor-for-sudo">
+<h1>Default editor for sudo<a class="headerlink" href="#default-editor-for-sudo" title="Permalink to this headline">¶</a></h1>
+<div class="code highlight-python"><div class="highlight"><pre>sudo update-alternatives --config editor
+</pre></div>
+</div>
 </div>
 
 
@@ -194,10 +194,10 @@ resurrected once they die.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting started with Kubernetes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="swap-space.html" class="btn btn-neutral float-right" title="Swap space" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../kubernetes.html" class="btn btn-neutral float-left" title="Kubernetes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ram-size.html" class="btn btn-neutral float-left" title="What is the RAM size?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

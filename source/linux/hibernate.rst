@@ -1,0 +1,52 @@
+Enabling hibernate
+==================
+
+:reference: https://soulkiln.blog/2018/08/14/ubuntu-18-04-hibernate-and-suspend-fix/
+:uname: Linux darkman 4.18.0-18-generic #19~18.04.1-Ubuntu SMP Fri Apr 5 10:22:13 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+:status: Doesn't work for me :(
+
+Tried the following but didn't work:
+
+.. code::
+
+   grep UUID /etc/fstab
+
+   # device; this may be used with UUID= as a more robust way to name devices
+   UUID=5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f /               ext4    errors=remount-ro 0       1
+   UUID=6FE3-12FA  /boot/efi       vfat    umask=0077      0       1
+
+.. code::
+
+   sudo filefrag -v /swapfile
+
+   Filesystem type is: ef53
+   File size of /swapfile is 2147483648 (524288 blocks of 4096 bytes)
+    ext:     logical_offset:        physical_offset: length:   expected: flags:
+      0:        0..   32767:      34816..     67583:  32768:            
+      1:    32768..   63487:      67584..     98303:  30720:            
+      2:    63488..   96255:     100352..    133119:  32768:      98304:
+   ....
+
+
+Update the grub configuration:
+
+.. code::
+ 
+
+   sudo vim /etc/default/grub
+
+   GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f resume_offset=34816"
+
+
+Update grub and reboot:
+
+.. code::
+
+   sudo update-grub
+   sudo update-initramfs -u # got from the other article
+   sudo reboot
+
+References
+----------
+
+https://superuser.com/questions/1383173/how-to-fix-hibernate-on-lubuntu-18-04

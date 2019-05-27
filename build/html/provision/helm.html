@@ -107,6 +107,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#specify-the-image">Specify the image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-chart">Install chart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#try-it-out">Try it out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appendix">Appendix</a></li>
 </ul>
 </li>
 </ul>
@@ -185,13 +186,13 @@
 <p>In order to use helm, tiller needs to be installed in the cluster which <strong>manages installations of the charts</strong> in the cluster.</p>
 <div class="section" id="install-tiller-in-the-cluster">
 <h2>Install tiller in the cluster<a class="headerlink" href="#install-tiller-in-the-cluster" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-python"><div class="highlight"><pre>snap run helm init
+<div class="code highlight-python"><div class="highlight"><pre>helm init
 </pre></div>
 </div>
 </div>
 <div class="section" id="create-a-chart">
 <h2>Create a chart<a class="headerlink" href="#create-a-chart" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-python"><div class="highlight"><pre>snap run helm create my-service
+<div class="code highlight-python"><div class="highlight"><pre>helm create my-service
 </pre></div>
 </div>
 <p>which creates a directory structure:</p>
@@ -224,8 +225,8 @@
 </div>
 <div class="section" id="install-chart">
 <h2>Install chart<a class="headerlink" href="#install-chart" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-python"><div class="highlight"><pre>snap run helm install --dry-run --debug ./my-service
-snap run helm install ./my-service
+<div class="code highlight-python"><div class="highlight"><pre>helm install --dry-run --debug ./my-service
+helm install ./my-service
 </pre></div>
 </div>
 <p>This gives an output:</p>
@@ -259,11 +260,17 @@ NOTES:
 <div class="section" id="try-it-out">
 <h2>Try it out<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h2>
 <p>In order to access the service, it needs to be exposed:</p>
-<div class="code highlight-python"><div class="highlight"><pre>export POD_NAME=$(snap run kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=my-service,app.kubernetes.io/instance=zealous-mongoose&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
-snap run kubectl port-forward $POD_NAME 8088:8088
+<div class="code highlight-python"><div class="highlight"><pre>export POD_NAME=$(k get pods --namespace default -l &quot;app.kubernetes.io/name=my-service,app.kubernetes.io/instance=zealous-mongoose&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
+k port-forward $POD_NAME 8088:8088
 </pre></div>
 </div>
 <div class="code highlight-python"><div class="highlight"><pre>curl localhost:8088
+</pre></div>
+</div>
+</div>
+<div class="section" id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h2>
+<div class="code highlight-python"><div class="highlight"><pre>alias k=&quot;/usr/bin/snap run kubectl $@&quot;
 </pre></div>
 </div>
 </div>
