@@ -5,13 +5,13 @@ Ansible
 Create a play book
 -------------------
 
-If we want to isntall that `jq` is installed on a Debian machine, the following playbook can be used:
+If we want to install that `jq` is installed on a Debian machine, the following playbook can be used:
 
 .. code::
 
    ---
    - name: Provision my machine with goodies
-     hosts: all
+     hosts: localhost
    
      tasks:
      - name: Install jq

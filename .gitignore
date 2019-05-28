@@ -1,2 +1,6 @@
+*.bkp
 private
+private.txt
+private.rst
+private.html
 build/doctrees

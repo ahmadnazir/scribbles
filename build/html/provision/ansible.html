@@ -94,6 +94,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
@@ -180,10 +181,10 @@
 <h1>Ansible<a class="headerlink" href="#ansible" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="create-a-play-book">
 <h2>Create a play book<a class="headerlink" href="#create-a-play-book" title="Permalink to this headline">¶</a></h2>
-<p>If we want to isntall that <cite>jq</cite> is installed on a Debian machine, the following playbook can be used:</p>
+<p>If we want to install that <cite>jq</cite> is installed on a Debian machine, the following playbook can be used:</p>
 <div class="code highlight-python"><div class="highlight"><pre>---
 - name: Provision my machine with goodies
-  hosts: all
+  hosts: localhost
 
   tasks:
   - name: Install jq

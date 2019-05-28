@@ -22,6 +22,7 @@ Content
 
    (Spac)emacs <emacs>
    azure
+   database
    dotnet
    git
    kubernetes
@@ -29,8 +30,6 @@ Content
    networking
    Package Management <provision>
    web
-..
-  cloud
 
 ..
    Indices and tables
