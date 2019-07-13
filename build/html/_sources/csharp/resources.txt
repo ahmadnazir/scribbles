@@ -1,6 +1,8 @@
 C# Resources
 ============
 
+- `C# Coding Conventions (C# Programming Guide)`_
+
 Bootstrap web app
 -----------------
 
@@ -19,3 +21,4 @@ Secrets for local dev
 Reference_
 
 .. _Reference: https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.2&tabs=windows#how-the-secret-manager-tool-works
+.. _C# Coding Conventions (C# Programming Guide): https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions

@@ -94,6 +94,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
@@ -105,10 +107,14 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="">Enable hibernate using a swap file</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configure-grub">Configure GRUB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#uswsusp">USWSUSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#systemd-hibernate-service">SystemD hibernate service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image-grayscale.html">Convert images to gray scale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="increase-swap-size.html">Increase swap size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jwt-decode.html">Decode a JWT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ram-size.html">What is the RAM size?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sudo-editor.html">Default editor for sudo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-space.html">Swap space</a></li>
@@ -117,6 +123,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -189,13 +197,16 @@
 <div class="section" id="configure-grub">
 <h2>Configure GRUB<a class="headerlink" href="#configure-grub" title="Permalink to this headline">¶</a></h2>
 <div class="code highlight-python"><div class="highlight"><pre>sudo findmnt -no SOURCE,UUID -T /swapfile
+
 /dev/nvme0n1p2 5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f
 </pre></div>
 </div>
 <div class="code highlight-python"><div class="highlight"><pre>sudo swap-offset /swapfile
+
 resume offset = 36827136
 </pre></div>
 </div>
+<p>Update <cite>/etc/default/grub</cite>:</p>
 <div class="code highlight-python"><div class="highlight"><pre><span class="n">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s">&quot;quiet splash resume=UUID=5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f resume_offset=36827136&quot;</span>
 </pre></div>
 </div>
@@ -220,6 +231,20 @@ resume device = /dev/disk/by-uuid/5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f
 </div>
 <p>The following needs to be done since we made changes to /etc/uswsusp.conf</p>
 <div class="code highlight-python"><div class="highlight"><pre>sudo update-initramfs -u -k all
+</pre></div>
+</div>
+</div>
+<div class="section" id="systemd-hibernate-service">
+<h2>SystemD hibernate service<a class="headerlink" href="#systemd-hibernate-service" title="Permalink to this headline">¶</a></h2>
+<div class="code highlight-python"><div class="highlight"><pre>sudo systemctl edit systemd-hibernate.service
+</pre></div>
+</div>
+<p>with the following content:</p>
+<div class="code highlight-python"><div class="highlight"><pre>[Service]
+ExecStart=
+ExecStartPre=-/bin/run-parts -v -a pre /lib/systemd/system-sleep
+ExecStart=/usr/sbin/s2disk
+ExecStartPost=-/bin/run-parts -v --reverse -a post /lib/systemd/system-sleep
 </pre></div>
 </div>
 </div>

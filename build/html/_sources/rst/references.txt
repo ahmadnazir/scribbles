@@ -1,4 +1,0 @@
-References
-==========
-
-.. http://docutils.sourceforge.net/docs/ref/rst/directives.html

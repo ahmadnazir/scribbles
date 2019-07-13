@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>AWS and Azure terms &mdash; Scribbles 0.1 documentation</title>
+  <title>Testing collections &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -41,7 +41,9 @@
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="next" title="Test vs Check" href="test-vs-check.html" />
+    <link rel="prev" title="Pact" href="pact.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,9 +91,11 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
@@ -99,6 +103,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../testing.html">Testing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pact.html">Pact</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Testing collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-vs-check.html">Test vs Check</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -145,13 +156,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>AWS and Azure terms</li>
+          <li><a href="../testing.html">Testing</a> &raquo;</li>
+        
+      <li>Testing collections</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cloud/azure-vs-aws.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/testing/test-collections.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -164,9 +177,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="aws-and-azure-terms">
-<h1>AWS and Azure terms<a class="headerlink" href="#aws-and-azure-terms" title="Permalink to this headline">¶</a></h1>
-<p>IAM Policy : Service Principal</p>
+  <div class="section" id="testing-collections">
+<h1>Testing collections<a class="headerlink" href="#testing-collections" title="Permalink to this headline">¶</a></h1>
+<p>We have to test 5 things (<a class="reference external" href="https://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam">J.B. Rainsberger</a>):</p>
+<ul class="simple">
+<li>Getting zero items</li>
+<li>Getting one item</li>
+<li>Getting multiple items</li>
+<li>Getting lots of items</li>
+<li>Oops</li>
+</ul>
 </div>
 
 
@@ -174,6 +194,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="test-vs-check.html" class="btn btn-neutral float-right" title="Test vs Check" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pact.html" class="btn btn-neutral float-left" title="Pact" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

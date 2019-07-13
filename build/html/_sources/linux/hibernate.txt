@@ -6,13 +6,17 @@ Configure GRUB
 
 .. code::
 
-   sudo findmnt -no SOURCE,UUID -T /swapfile                                                                                                                                      
+   sudo findmnt -no SOURCE,UUID -T /swapfile
+   
    /dev/nvme0n1p2 5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f
 
 .. code::
    
-   sudo swap-offset /swapfile                                                                                                                                                     
+   sudo swap-offset /swapfile
+   
    resume offset = 36827136
+
+Update `/etc/default/grub`:
 
 .. code::
 
@@ -51,6 +55,23 @@ The following needs to be done since we made changes to /etc/uswsusp.conf
 .. code::
 
    sudo update-initramfs -u -k all
+
+SystemD hibernate service
+-------------------------
+
+.. code::
+
+   sudo systemctl edit systemd-hibernate.service
+
+with the following content:
+
+.. code::
+
+   [Service]
+   ExecStart=
+   ExecStartPre=-/bin/run-parts -v -a pre /lib/systemd/system-sleep
+   ExecStart=/usr/sbin/s2disk
+   ExecStartPost=-/bin/run-parts -v --reverse -a post /lib/systemd/system-sleep
 
 References
 ----------

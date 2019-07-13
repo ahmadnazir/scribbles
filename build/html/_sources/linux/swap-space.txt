@@ -9,7 +9,7 @@ I have a swap file `/swapfile` instead of a partition:
 
 .. code::
 
-   sudo swapon --show                                                                                                                                                             
+   sudo swapon --show
    NAME      TYPE SIZE USED PRIO
    /swapfile file   2G   0B   -2
 

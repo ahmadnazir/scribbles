@@ -31,7 +31,7 @@ Content
    linux
    networking
    Package Management <provision>
-   ReStructuredText Markup <rst>
+   ReStructuredText Markup <restructuredtext>
    testing
    web
 
