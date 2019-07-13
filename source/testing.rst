@@ -1,0 +1,7 @@
+Testing
+=======
+
+.. toctree::
+   :glob:
+
+   testing/*

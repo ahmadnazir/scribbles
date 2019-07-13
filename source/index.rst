@@ -22,6 +22,8 @@ Content
 
    (Spac)emacs <emacs>
    azure
+   csharp
+   identity
    database
    dotnet
    git
@@ -29,6 +31,7 @@ Content
    linux
    networking
    Package Management <provision>
+   testing
    web
 
 ..

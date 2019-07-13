@@ -4,3 +4,5 @@ private.txt
 private.rst
 private.html
 build/doctrees
+bin
+obj
