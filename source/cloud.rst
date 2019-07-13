@@ -1,7 +1,0 @@
-Cloud
-=====
-
-.. toctree::
-   :glob:
-
-   cloud/*

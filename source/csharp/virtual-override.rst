@@ -1,4 +1,4 @@
-How do keyworkds virtual and override work?
+How do keywords virtual and override work?
 ===========================================
 
 Consider the following classes:
@@ -29,12 +29,14 @@ Now if you initialize the variables:
 Also it throws a warning:
 
 .. code::
+
    warning CS0108: 'B.test()' hides inherited member 'A.test()'
 
 
-In order to override the function, `A::test` will have to be marked as `virtual` and `override` keyword is required for `B::test`:
+In order to override the function, `A's test` will have to be marked as `virtual` and `override` keyword is required for `B's test`:
 
 .. code::
+
    public class A {
        public virtual void test() {
            Console.WriteLine("This is class A");
