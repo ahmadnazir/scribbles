@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>What is the RAM size? &mdash; Scribbles 0.1 documentation</title>
+  <title>Variable assignment in bash &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -42,8 +42,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="next" title="Default editor for sudo" href="sudo-editor.html" />
-    <link rel="prev" title="Decode a JWT" href="jwt-decode.html" /> 
+    <link rel="next" title="Connect to a windows machine" href="connect-windows.html" />
+    <link rel="prev" title="Linux" href="../linux.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../linux.html">Linux</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bash-assignment.html">Variable assignment in bash</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Variable assignment in bash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect-windows.html">Connect to a windows machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="displaylink.html">Displaylink on Ubuntu 18.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generate-a-uuid.html">How to generate a UUID?</a></li>
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="image-grayscale.html">Convert images to gray scale</a></li>
 <li class="toctree-l2"><a class="reference internal" href="increase-swap-size.html">Increase swap size</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jwt-decode.html">Decode a JWT</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">What is the RAM size?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ram-size.html">What is the RAM size?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sudo-editor.html">Default editor for sudo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-space.html">Swap space</a></li>
 <li class="toctree-l2"><a class="reference internal" href="touchpad-click.html">Click on tap doesn&#8217;t work</a></li>
@@ -169,13 +169,13 @@
         
           <li><a href="../linux.html">Linux</a> &raquo;</li>
         
-      <li>What is the RAM size?</li>
+      <li>Variable assignment in bash</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/linux/ram-size.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/bash-assignment.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -188,11 +188,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="what-is-the-ram-size">
-<h1>What is the RAM size?<a class="headerlink" href="#what-is-the-ram-size" title="Permalink to this headline">¶</a></h1>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">free</span> <span class="o">-</span><span class="n">mh</span>
+  <div class="section" id="variable-assignment-in-bash">
+<h1>Variable assignment in bash<a class="headerlink" href="#variable-assignment-in-bash" title="Permalink to this headline">¶</a></h1>
+<div class="code highlight-python"><div class="highlight"><pre>echo ${VAR:=abc}
 </pre></div>
 </div>
+<p>is the same as</p>
+<div class="code highlight-python"><div class="highlight"><pre>VAR=${VAR:-abc}
+echo $VAR
+</pre></div>
+</div>
+<p>Notice the subtle difference of a <cite>:=</cite> vs the <cite>:-</cite>.</p>
 </div>
 
 
@@ -203,10 +209,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sudo-editor.html" class="btn btn-neutral float-right" title="Default editor for sudo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="connect-windows.html" class="btn btn-neutral float-right" title="Connect to a windows machine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jwt-decode.html" class="btn btn-neutral float-left" title="Decode a JWT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../linux.html" class="btn btn-neutral float-left" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
