@@ -21,17 +21,18 @@ Content
    :maxdepth: 2
 
    (Spac)emacs <emacs>
+   Package Management <provision>
+   ReStructuredText Markup <restructuredtext>
    azure
+   clojure
    csharp
-   identity
    database
    dotnet
    git
+   identity
    kubernetes
    linux
    networking
-   Package Management <provision>
-   ReStructuredText Markup <restructuredtext>
    testing
    web
 
