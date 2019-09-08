@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ansible &mdash; Scribbles 0.1 documentation</title>
+  <title>Terraform &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -42,8 +42,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="next" title="APT" href="apt.html" />
-    <link rel="prev" title="Package Management" href="../provision.html" /> 
+    <link rel="next" title="ReStructuredText Markup" href="../restructuredtext.html" />
+    <link rel="prev" title="Helm" href="helm.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,15 +94,14 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../provision.html">Package Management</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Ansible</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-play-book">Create a play book</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#removing-packages">Removing packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">Ansible</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apt.html">APT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helm.html">Helm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="terraform.html">Terraform</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Terraform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-state">The State!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-resources">Removing resources</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
@@ -165,13 +164,13 @@
         
           <li><a href="../provision.html">Package Management</a> &raquo;</li>
         
-      <li>Ansible</li>
+      <li>Terraform</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/provision/ansible.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/provision/terraform.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -184,42 +183,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ansible">
-<h1>Ansible<a class="headerlink" href="#ansible" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="create-a-play-book">
-<h2>Create a play book<a class="headerlink" href="#create-a-play-book" title="Permalink to this headline">¶</a></h2>
-<p>If we want that <cite>jq</cite> is installed on a Debian machine, the following playbook can be used:</p>
-<div class="code highlight-python"><div class="highlight"><pre>---
-- name: Provision my machine with goodies
-  hosts: localhost
-
-  tasks:
-  - name: Install jq
-    apt:
-      name: jq
-</pre></div>
-</div>
-<p>Run it:</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo ansible-playbook my-playbook.yml -vvvv
-</pre></div>
-</div>
-</div>
-<div class="section" id="removing-packages">
-<h2>Removing packages<a class="headerlink" href="#removing-packages" title="Permalink to this headline">¶</a></h2>
-<p>Ansible is stateless so it doesn&#8217;t know when a package is removed. If you want to remove a package, it needs to be explicitly stated in <strong>task</strong> the playbook:</p>
-<div class="code highlight-python"><div class="highlight"><pre>tasks:
-- name: Remove jq
-  apt:
-    name: jq
-    state: absent         # Make sure that the package isn&#39;t available
+  <div class="section" id="terraform">
+<h1>Terraform<a class="headerlink" href="#terraform" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>terraform init</dt>
+<dd>Initialize the state.</dd>
+<dt>terraform plan</dt>
+<dd>Dry run the plan</dd>
+<dt>terraform apply</dt>
+<dd>Perform the provisions by creating a plan using the terraform state.</dd>
+</dl>
+<div class="section" id="the-state">
+<h2>The State!<a class="headerlink" href="#the-state" title="Permalink to this headline">¶</a></h2>
+<p>Terraform keeps the view of the world (whatever has been provisioned) in the
+form of local state. It is kept offline and is not synced automatically. If the
+resources are already provisioned, then the state must be imported</p>
+<div class="code highlight-python"><div class="highlight"><pre>terraform import module.resource_group.azurerm_resource_group.resource_group /subscriptions/59d6db65-221b-45ce-8f2b-5689b25c4f28/resourceGroups/rg-dev1-westus2-universe
 </pre></div>
 </div>
 </div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html">Yaml Syntax for the Playbook</a></li>
-</ul>
+<div class="section" id="removing-resources">
+<h2>Removing resources<a class="headerlink" href="#removing-resources" title="Permalink to this headline">¶</a></h2>
+<p>You can only do this from the command line:</p>
+<div class="code highlight-python"><div class="highlight"><pre>terraform destroy -target=azurerm_storage_table.table
+terraform destroy -target=module.storage_account.azurerm_storage_account.storage_account
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -231,10 +220,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="apt.html" class="btn btn-neutral float-right" title="APT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../restructuredtext.html" class="btn btn-neutral float-right" title="ReStructuredText Markup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../provision.html" class="btn btn-neutral float-left" title="Package Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="helm.html" class="btn btn-neutral float-left" title="Helm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
