@@ -1,0 +1,12 @@
+Audio
+=====
+ 
+:Tool: pavucontrol
+:Description: A volume control for the PuseAudio sound server
+
+Debugging no sound
+------------------
+
+- `Playback` tab: Make sure that you can visually see the volume indicator.
+- `Configuration` tab: Select profile: `Analog Stereo Output`
+- `Output Devices` tab: Select port: `Headphones` or `Speakers`

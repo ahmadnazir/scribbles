@@ -9,7 +9,7 @@ Let's say you have the following 2 vectors:
    [2 4 6 8]
 
 
-How would you get:
+How would you the following result?
 
 .. code:: clojure
 
@@ -19,16 +19,16 @@ How would you get:
      [7 8] ]
 
 
-Interleave and partition
-------------------------
+Use `interleave` and `partition`
+--------------------------------
 
-Interleave zips the two collections and flattens the result:
+`interleave` zips the two collections and flattens the result:
 
 .. code:: clojure
 
    (interleave [1 3 5 7] [2 4 6 8]) ;; => (1 2 3 4 5 6 7 8)
 
-Partition creates collections every `n` steps:
+`partition` creates collections every `n` steps:
 
 .. code:: clojure
 
@@ -52,10 +52,10 @@ Using them both:
         )
    ;; => [[1 2] [3 4] [5 6] [7 8]]
 
-Map with multiple collections
------------------------------
+Use `map` with multiple collections
+-----------------------------------
 
-Alternatively, map can take more than one collection as an argument:
+Alternatively, `map` can take more than one collection as an argument:
 
 .. code:: clojure
 
