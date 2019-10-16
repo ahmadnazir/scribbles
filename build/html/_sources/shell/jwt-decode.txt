@@ -1,4 +1,4 @@
-Decode a JWT
+Decode a jwt
 ============
 
 Assuming that the jwt is in the `token.json` file:

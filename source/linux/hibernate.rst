@@ -1,80 +1,50 @@
-Enable hibernate using a swap file
-==================================
+Hibernate using a swap partition
+================================
+
+:OS: Ubuntu 18.10
+
+
+*I kept experiencing random issues in 18.04*
+
 
 Configure GRUB
 --------------
 
-.. code::
-
-   sudo findmnt -no SOURCE,UUID -T /swapfile
-   
-   /dev/nvme0n1p2 5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f
+Find the swap partition:
 
 .. code::
+
+   cat /etc/fstab | grep swap | awk '{print $1}' 
+
+Find the UUID
+
+.. code::
+
+   sudo blkid | grep swap
    
-   sudo swap-offset /swapfile
-   
-   resume offset = 36827136
+   /dev/nvme0n1p3: UUID="0b784ace-b11c-4e78-9a90-e4601d6a03c0" TYPE="swap" PARTLABEL="swap" PARTUUID="27c4a0d6-687d-4a29-a0d3-5304829dfbff"
 
 Update `/etc/default/grub`:
 
 .. code::
 
-   GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f resume_offset=36827136"
+   GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0"
 
 
 .. code::
 
    sudo update-grub
 
-USWSUSP
--------
+Hibernate
+---------
 
 .. code::
 
-   sudo apt install uswsusp
+   sudo systemctl hibernate
 
-   # I said NO to continuing without a valid swap space
-
-
-Update `/etc/uswsusp.conf` (requires update-initramfs):
+or
 
 .. code::
 
-   resume device = /dev/nvme0n1p2
+   sudo pm-hibernate
 
-   # to
-
-   resume device = /dev/disk/by-uuid/5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f
-
-
-
-The following needs to be done since we made changes to /etc/uswsusp.conf 
-
-
-.. code::
-
-   sudo update-initramfs -u -k all
-
-SystemD hibernate service
--------------------------
-
-.. code::
-
-   sudo systemctl edit systemd-hibernate.service
-
-with the following content:
-
-.. code::
-
-   [Service]
-   ExecStart=
-   ExecStartPre=-/bin/run-parts -v -a pre /lib/systemd/system-sleep
-   ExecStart=/usr/sbin/s2disk
-   ExecStartPost=-/bin/run-parts -v --reverse -a post /lib/systemd/system-sleep
-
-References
-----------
-
-https://askubuntu.com/a/1132154
-https://askubuntu.com/questions/6769/hibernate-and-resume-from-a-swap-file

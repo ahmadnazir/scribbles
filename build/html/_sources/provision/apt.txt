@@ -2,7 +2,7 @@
 APT
 ===
 
-:OS: Ubuntu 16.04
+:OS: Ubuntu 18.04
 
 Search for a package
 --------------------

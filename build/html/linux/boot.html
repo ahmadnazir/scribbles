@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Convert images to gray scale &mdash; Scribbles 0.1 documentation</title>
+  <title>Boot &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -42,8 +42,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="next" title="Increase swap size" href="increase-swap-size.html" />
-    <link rel="prev" title="Hibernate without Secure boot?" href="hibernate-without-secure-boot.html" /> 
+    <link rel="next" title="Connect to a windows machine" href="connect-windows.html" />
+    <link rel="prev" title="Linux" href="../linux.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,33 +93,44 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../linux.html">Linux</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bash-assignment.html">Variable assignment in bash</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grub">Grub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resume-after-hibernate">Resume after hibernate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#initramfs">initramfs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect-windows.html">Connect to a windows machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="displaylink.html">Displaylink on Ubuntu 18.04</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generate-a-uuid.html">How to generate a UUID?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dpkg.html">DPKG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="externalmonitors.html">Configuring External Monitors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnome-settings-on-xmonad.html">Open gnome settings on Xmonad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hibernate.html">Enable hibernate using a swap file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hibernate.html">Hibernate using a swap partition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hibernate-swapfile-FAIL.html">Hibernate using a swap file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Convert images to gray scale</a></li>
 <li class="toctree-l2"><a class="reference internal" href="increase-swap-size.html">Increase swap size</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt-decode.html">Decode a JWT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pavucontrol.html">pavucontrol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ram-size.html">What is the RAM size?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resize-partition.html">Resize the mounted parition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sudo-editor.html">Default editor for sudo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap-partition.html">Use the swap partition instead of the swap file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-space.html">Swap space</a></li>
 <li class="toctree-l2"><a class="reference internal" href="touchpad-click.html">Click on tap doesn&#8217;t work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-ubuntu.html">Upgrade Ubuntu Distribution</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
@@ -169,13 +180,13 @@
         
           <li><a href="../linux.html">Linux</a> &raquo;</li>
         
-      <li>Convert images to gray scale</li>
+      <li>Boot</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/linux/image-grayscale.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/boot.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -188,9 +199,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="convert-images-to-gray-scale">
-<h1>Convert images to gray scale<a class="headerlink" href="#convert-images-to-gray-scale" title="Permalink to this headline">¶</a></h1>
-<div class="code highlight-python"><div class="highlight"><pre>find ./ -name *.gif -print0 | xargs -0 -I _FN_ convert _FN_ -colorspace gray _FN_
+  <div class="section" id="boot">
+<h1>Boot<a class="headerlink" href="#boot" title="Permalink to this headline">¶</a></h1>
+<p>OS : Ubuntu 18.04</p>
+</div>
+<div class="section" id="grub">
+<h1>Grub<a class="headerlink" href="#grub" title="Permalink to this headline">¶</a></h1>
+<p>GRand Unified Bootloader</p>
+<p>Kernel params can be passed using the following in</p>
+<p>GRUB_CMDLINE_LINUX_DEFAULT=&#8221;quiet splash NAME=VALUE&#8221;</p>
+<div class="section" id="resume-after-hibernate">
+<h2>Resume after hibernate<a class="headerlink" href="#resume-after-hibernate" title="Permalink to this headline">¶</a></h2>
+<p>Use <cite>resume=UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0</cite></p>
+<p>Where the UUID points to to the swap disk.</p>
+</div>
+</div>
+<div class="section" id="initramfs">
+<h1>initramfs<a class="headerlink" href="#initramfs" title="Permalink to this headline">¶</a></h1>
+<p>&#8220;Once the Linux kernel has control over the system (which it gets after being loaded by the boot loader), it prepares its memory structures and drivers. It then hands over control to an application (usually init) whose task it is to further prepare the system and make sure that, at the end of the boot process, all necessary services are running and the user is able to log on...&#8221;
+<a class="reference external" href="https://wiki.gentoo.org/wiki/Initramfs/Guide">Initramfs Guid - Linux boot process</a></p>
+<p>If grub is configured to resume from e.g. UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0, then initramfs must be configured to resume from the same. This doesn&#8217;t have to be configured explicitly as <cite>update-initramfs</cite> figures it out automatically:</p>
+<div class="code highlight-python"><div class="highlight"><pre>sudo update-initramfs -u -k all
+
+I: The initramfs will attempt to resume from /dev/nvme0n1p3
+I: (UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0)
+I: Set the RESUME variable to override this.
+</pre></div>
+</div>
+<p>However, to avoid this message, you can create a file with the contents:</p>
+<div class="code highlight-python"><div class="highlight"><pre>cat /etc/initramfs-tools/conf.d/resume &amp;&amp; \
+echo RESUME=UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0 | sudo tee /etc/initramfs-tools/conf.d/resume
+
+sudo update-initramfs -u -k all
 </pre></div>
 </div>
 </div>
@@ -203,10 +243,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="increase-swap-size.html" class="btn btn-neutral float-right" title="Increase swap size" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="connect-windows.html" class="btn btn-neutral float-right" title="Connect to a windows machine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hibernate-without-secure-boot.html" class="btn btn-neutral float-left" title="Hibernate without Secure boot?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../linux.html" class="btn btn-neutral float-left" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

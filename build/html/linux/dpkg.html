@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Decode a JWT &mdash; Scribbles 0.1 documentation</title>
+  <title>DPKG &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -42,8 +42,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="next" title="What is the RAM size?" href="ram-size.html" />
-    <link rel="prev" title="Increase swap size" href="increase-swap-size.html" /> 
+    <link rel="next" title="Configuring External Monitors" href="externalmonitors.html" />
+    <link rel="prev" title="Displaylink on Ubuntu 18.04" href="displaylink.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,33 +93,44 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../linux.html">Linux</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bash-assignment.html">Variable assignment in bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boot.html">Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boot.html#grub">Grub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boot.html#initramfs">initramfs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect-windows.html">Connect to a windows machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="displaylink.html">Displaylink on Ubuntu 18.04</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generate-a-uuid.html">How to generate a UUID?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">DPKG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#find-installed-library">Find installed library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalmonitors.html">Configuring External Monitors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnome-settings-on-xmonad.html">Open gnome settings on Xmonad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hibernate.html">Enable hibernate using a swap file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hibernate.html">Hibernate using a swap partition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hibernate-swapfile-FAIL.html">Hibernate using a swap file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image-grayscale.html">Convert images to gray scale</a></li>
 <li class="toctree-l2"><a class="reference internal" href="increase-swap-size.html">Increase swap size</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Decode a JWT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pavucontrol.html">pavucontrol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ram-size.html">What is the RAM size?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resize-partition.html">Resize the mounted parition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sudo-editor.html">Default editor for sudo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap-partition.html">Use the swap partition instead of the swap file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-space.html">Swap space</a></li>
 <li class="toctree-l2"><a class="reference internal" href="touchpad-click.html">Click on tap doesn&#8217;t work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-ubuntu.html">Upgrade Ubuntu Distribution</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
@@ -169,13 +180,13 @@
         
           <li><a href="../linux.html">Linux</a> &raquo;</li>
         
-      <li>Decode a JWT</li>
+      <li>DPKG</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/linux/jwt-decode.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/dpkg.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -188,16 +199,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="decode-a-jwt">
-<h1>Decode a JWT<a class="headerlink" href="#decode-a-jwt" title="Permalink to this headline">¶</a></h1>
-<p>Assuming that the jwt is in the <cite>token.json</cite> file:</p>
-<div class="code highlight-python"><div class="highlight"><pre>cat token.json | cut -d&quot;.&quot; -f2 | base64 --decode -i | jq &quot;.&quot;
+  <div class="section" id="dpkg">
+<h1>DPKG<a class="headerlink" href="#dpkg" title="Permalink to this headline">¶</a></h1>
+<p>Debian&#8217;s package manager</p>
+<p>Instead of using <cite>dpkg</cite>, the convenient wrapper <cite>apt-get</cite> or even better <cite>apt</cite>. But sometimes, you have to fall back to using <cite>dpkg</cite>.</p>
+<div class="section" id="find-installed-library">
+<h2>Find installed library<a class="headerlink" href="#find-installed-library" title="Permalink to this headline">¶</a></h2>
+<div class="code highlight-python"><div class="highlight"><pre>dpkg -i | grep xorg
 </pre></div>
 </div>
-<p>Or create an alias:</p>
-<div class="code highlight-python"><div class="highlight"><pre>alias jwt-decode=&#39;cut -d&quot;.&quot; -f2 - | base64 --decode -i | jq &quot;.&quot;&#39;
-cat token.json | jwt-decode
-</pre></div>
 </div>
 </div>
 
@@ -209,10 +219,10 @@ cat token.json | jwt-decode
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ram-size.html" class="btn btn-neutral float-right" title="What is the RAM size?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="externalmonitors.html" class="btn btn-neutral float-right" title="Configuring External Monitors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="increase-swap-size.html" class="btn btn-neutral float-left" title="Increase swap size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="displaylink.html" class="btn btn-neutral float-left" title="Displaylink on Ubuntu 18.04" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

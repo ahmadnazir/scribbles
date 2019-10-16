@@ -33,6 +33,7 @@ Content
    kubernetes
    linux
    networking
+   shell
    testing
    web
 
