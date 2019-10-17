@@ -6,7 +6,7 @@ Hibernate using a swap file
 Before you begin
 ----------------
 
-*I tried the following on 18.04 with and without a swap partition (the following assumes you hav ea swap file). I couldn't get it to work due to random issues until I upgraded to 18.10. The following are only for reference. Please refer to the following working examples instead:*
+*I tried the following on 18.04 with and without a swap partition (the following assumes you have a swap file). I couldn't get it to work due to random issues until I upgraded to 19.04. The following are only for reference. Please refer to the following working examples instead:*
 
 .. toctree::
    :maxdepth: 1
