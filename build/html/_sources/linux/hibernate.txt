@@ -1,7 +1,7 @@
 Hibernate using a swap partition
 ================================
 
-:OS: Ubuntu 18.10
+:OS: Ubuntu 19.04
 
 
 *I kept experiencing random issues in 18.04*
