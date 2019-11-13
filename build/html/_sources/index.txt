@@ -25,6 +25,7 @@ Content
    ReStructuredText Markup <restructuredtext>
    azure
    clojure
+   clojurescript
    csharp
    database
    dotnet
