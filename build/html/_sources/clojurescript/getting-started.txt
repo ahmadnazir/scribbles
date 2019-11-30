@@ -1,20 +1,12 @@
-Emacs setup
-===========
-
+Getting started
+===============
 
 Emacs uses `CIDER` to work with clojure. There are quirks that I am getting used to but the following is good enough to get started. CIDER comes packaged with the spacemacs clojure layer.
 
-
-Build tool
-----------
+lein vs clj
+-----------
 
 I have been using `lein` for clojure but I couldn't make hot reloading and form evaluation within the editory work at the same time. `clj` tools seem to work better.
-
-.. code:: bash
-
-   curl -O https://download.clojure.org/install/linux-install-1.10.1.483.sh
-   chmod +x linux-install-1.10.1.483.sh
-   sudo ./linux-install-1.10.1.483.sh
 
 Reference: https://clojure.org/guides/getting_started#_installation_on_linux
 

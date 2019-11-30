@@ -21,6 +21,7 @@ Content
    :maxdepth: 2
 
    (Spac)emacs <emacs>
+   agile
    Package Management <provision>
    ReStructuredText Markup <restructuredtext>
    azure
@@ -36,6 +37,7 @@ Content
    networking
    shell
    testing
+   Visual studio <visualstudio>
    web
 
 ..
