@@ -1,0 +1,12 @@
+C4
+==
+
+Buildings have specific floor plans, site plans, etc. There is no standard for software architecture. C4 tries to solve this.
+
+
+Quick overview from `c4model.com`_:
+
+.. _c4model.com: https://c4model.com
+
+.. image:: https://c4model.com/img/c4-overview.png
+

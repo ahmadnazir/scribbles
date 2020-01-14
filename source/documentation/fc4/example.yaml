@@ -1,0 +1,67 @@
+link__for_use_with: https://structurizr.com/express
+link__diagram_scheme_description: https://c4model.com/
+---
+type: Container
+scope: Internet Banking System
+description: The container diagram for the Internet Banking System.
+
+elements:
+- type: Person
+  name: Customer
+  description: A customer of the bank.
+  position: '525,50'
+- type: Software System
+  name: Internet Banking System
+  description: Allows customers to view information about their bank accounts and make payments.
+  tags: Internal
+  containers:
+  - type: Container
+    name: Database
+    description: Stores interesting data.
+    technology: Relational Database Schema
+    tags: Database
+    position: '400,1200'
+  - type: Container
+    name: Web Application
+    description: Provides all of the Internet banking functionality to customers.
+    technology: Java and Spring MVC
+    position: '400,700'
+- type: Software System
+  name: Mainframe Banking System
+  description: Stores all of the core banking information about customers, accounts, transactions, etc.
+  tags: Internal
+  position: '1600,700'
+
+relationships:
+- source: Customer
+  description: uses
+  destination: Web Application
+  technology: HTTPS
+- source: Web Application
+  description: Reads from and writes to
+  destination: Database
+  technology: JDBC
+- source: Web Application
+  description: uses
+  destination: Mainframe Banking System
+  technology: XML/HTTPS
+
+styles:
+- type: element
+  tag: Container
+  background: '#438dd5'
+- type: element
+  tag: Database
+  shape: Cylinder
+- type: element
+  tag: Element
+  color: '#ffffff'
+- type: element
+  tag: Person
+  background: '#08427b'
+  shape: Person
+- type: element
+  tag: Software System
+  background: '#1168bd'
+
+size: A5_Landscape
