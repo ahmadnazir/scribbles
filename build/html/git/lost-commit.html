@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -42,6 +33,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Split subtree" href="split-subtree.html" />
     <link rel="prev" title="Line Ending" href="line-ending.html" /> 
 </head>
@@ -93,18 +86,22 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../git.html">Git</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="graph.html">Show commits in a graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interactive-discard.html">Interactively discard hunks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="line-ending.html">Line Ending</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Find a lost commit</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Find a lost commit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="split-subtree.html">Split subtree</a></li>
 </ul>
 </li>
@@ -114,7 +111,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -169,7 +165,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/git/lost-commit.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/git/lost-commit.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,11 +181,11 @@
   <div class="section" id="find-a-lost-commit">
 <h1>Find a lost commit<a class="headerlink" href="#find-a-lost-commit" title="Permalink to this headline">¶</a></h1>
 <p>Git reflog contains the complete history of everything that happened. So if you committed something and then lost the commit due to a <cite>reset</cite> or a <cite>rebase</cite>, you can still find the commit by looking into the reflog:</p>
-<div class="code highlight-python"><div class="highlight"><pre>git fsck --no-reflog | awk &#39;/dangling commit/ {print $3}&#39;
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fsck</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">reflog</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;/dangling commit/ {print $3}&#39;</span>
 </pre></div>
 </div>
 <p>or use <cite>gitk</cite>:</p>
-<div class="code highlight-python"><div class="highlight"><pre>gitk --all $( git fsck --no-reflog | awk &#39;/dangling commit/ {print $3}&#39; )
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>gitk --all $( git fsck --no-reflog | awk &#39;/dangling commit/ {print $3}&#39; )
 </pre></div>
 </div>
 <p>Check out the discussion here: <a class="reference external" href="http://stackoverflow.com/a/91795/1589512">http://stackoverflow.com/a/91795/1589512</a></p>

@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -42,8 +33,10 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Click on tap doesn’t work" href="touchpad-click.html" />
-    <link rel="prev" title="Use the swap partition instead of the swap file" href="swap-partition.html" /> 
+    <link rel="prev" title="Default editor for sudo" href="sudo-editor.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,14 +86,16 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
@@ -113,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="displaylink.html">Displaylink on Ubuntu 18.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dpkg.html">DPKG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="externalmonitors.html">Configuring External Monitors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gif.html">Create a fig from jpegs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnome-settings-on-xmonad.html">Open gnome settings on Xmonad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hibernate.html">Hibernate using a swap partition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hibernate-swapfile-FAIL.html">Hibernate using a swap file</a></li>
@@ -123,20 +119,19 @@
 <li class="toctree-l2"><a class="reference internal" href="resize-partition.html">Resize the mounted parition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sudo-editor.html">Default editor for sudo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-partition.html">Use the swap partition instead of the swap file</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Swap space</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Swap space</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-swap-partition">Create a swap partition?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#increase-the-swap-file-size">Increase the swap file size</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="touchpad-click.html">Click on tap doesn&#8217;t work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="touchpad-click.html">Click on tap doesn’t work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade-ubuntu.html">Upgrade Ubuntu Distribution</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -191,7 +186,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/linux/swap-space.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/swap-space.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -216,45 +211,45 @@
 </table>
 <p>Swap space can either use a file or a partition.</p>
 <p>I have a swap file <cite>/swapfile</cite> instead of a partition:</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo swapon --show
-NAME      TYPE SIZE USED PRIO
-/swapfile file   2G   0B   -2
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">swapon</span> <span class="o">--</span><span class="n">show</span>
+<span class="n">NAME</span>      <span class="n">TYPE</span> <span class="n">SIZE</span> <span class="n">USED</span> <span class="n">PRIO</span>
+<span class="o">/</span><span class="n">swapfile</span> <span class="n">file</span>   <span class="mi">2</span><span class="n">G</span>   <span class="mi">0</span><span class="n">B</span>   <span class="o">-</span><span class="mi">2</span>
 </pre></div>
 </div>
 <p>and also seen by checking the <cite>fstab</cite> file:</p>
-<div class="code highlight-python"><div class="highlight"><pre>cat /etc/fstab
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span>
 
-# /etc/fstab: static file system information.
-#
-# Use &#39;blkid&#39; to print the universally unique identifier for a
-# device; this may be used with UUID= as a more robust way to name devices
-# that works even if disks are added and removed. See fstab(5).
-#
-# &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
-# / was on /dev/nvme0n1p2 during installation
-UUID=5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f /               ext4    errors=remount-ro 0       1
-# /boot/efi was on /dev/nvme0n1p1 during installation
-UUID=6FE3-12FA  /boot/efi       vfat    umask=0077      0       1
-/swapfile                                 none            swap    sw              0       0
+<span class="c1"># /etc/fstab: static file system information.</span>
+<span class="c1">#</span>
+<span class="c1"># Use &#39;blkid&#39; to print the universally unique identifier for a</span>
+<span class="c1"># device; this may be used with UUID= as a more robust way to name devices</span>
+<span class="c1"># that works even if disks are added and removed. See fstab(5).</span>
+<span class="c1">#</span>
+<span class="c1"># &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span>
+<span class="c1"># / was on /dev/nvme0n1p2 during installation</span>
+<span class="n">UUID</span><span class="o">=</span><span class="mi">5</span><span class="n">c056ca5</span><span class="o">-</span><span class="mi">14</span><span class="n">ee</span><span class="o">-</span><span class="mi">4</span><span class="n">c9a</span><span class="o">-</span><span class="n">b3c7</span><span class="o">-</span><span class="mi">87</span><span class="n">f0c6998d8f</span> <span class="o">/</span>               <span class="n">ext4</span>    <span class="n">errors</span><span class="o">=</span><span class="n">remount</span><span class="o">-</span><span class="n">ro</span> <span class="mi">0</span>       <span class="mi">1</span>
+<span class="c1"># /boot/efi was on /dev/nvme0n1p1 during installation</span>
+<span class="n">UUID</span><span class="o">=</span><span class="mi">6</span><span class="n">FE3</span><span class="o">-</span><span class="mi">12</span><span class="n">FA</span>  <span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">efi</span>       <span class="n">vfat</span>    <span class="n">umask</span><span class="o">=</span><span class="mi">0077</span>      <span class="mi">0</span>       <span class="mi">1</span>
+<span class="o">/</span><span class="n">swapfile</span>                                 <span class="n">none</span>            <span class="n">swap</span>    <span class="n">sw</span>              <span class="mi">0</span>       <span class="mi">0</span>
 </pre></div>
 </div>
 <p>I would like to use a separate partition for swap which I can use for hibernation as well. I can use the file as well, but then it seems more complicated to get hibernation working that way.</p>
 <div class="section" id="create-a-swap-partition">
 <h2>Create a swap partition?<a class="headerlink" href="#create-a-swap-partition" title="Permalink to this headline">¶</a></h2>
 <p>This can be done with gparted:</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo apt install gparted
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">gparted</span>
 </pre></div>
 </div>
-<p>However, I can see that everything is allocated to my ext4 partition and I can&#8217;t resize it to make room for a swap partition.</p>
+<p>However, I can see that everything is allocated to my ext4 partition and I can’t resize it to make room for a swap partition.</p>
 </div>
 <div class="section" id="increase-the-swap-file-size">
 <h2>Increase the swap file size<a class="headerlink" href="#increase-the-swap-file-size" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-python"><div class="highlight"><pre>cat /etc/fstab # make sure that swap file is at /swapfile
-sudo swapoff -a
-sudo dd if=/dev/zero of=/swapfile bs=1G count=20
-sudo mkswap /swapfile
-sudo swapon /swapfile
-grep SwapTotal /proc/meminfo
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span> <span class="c1"># make sure that swap file is at /swapfile</span>
+<span class="n">sudo</span> <span class="n">swapoff</span> <span class="o">-</span><span class="n">a</span>
+<span class="n">sudo</span> <span class="n">dd</span> <span class="k">if</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">zero</span> <span class="n">of</span><span class="o">=/</span><span class="n">swapfile</span> <span class="n">bs</span><span class="o">=</span><span class="mi">1</span><span class="n">G</span> <span class="n">count</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">sudo</span> <span class="n">mkswap</span> <span class="o">/</span><span class="n">swapfile</span>
+<span class="n">sudo</span> <span class="n">swapon</span> <span class="o">/</span><span class="n">swapfile</span>
+<span class="n">grep</span> <span class="n">SwapTotal</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">meminfo</span>
 </pre></div>
 </div>
 </div>
@@ -275,7 +270,7 @@ grep SwapTotal /proc/meminfo
         <a href="touchpad-click.html" class="btn btn-neutral float-right" title="Click on tap doesn’t work" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="swap-partition.html" class="btn btn-neutral float-left" title="Use the swap partition instead of the swap file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sudo-editor.html" class="btn btn-neutral float-left" title="Default editor for sudo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

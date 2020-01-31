@@ -17,6 +17,14 @@ It works differently with vectors and seqs
    (conj [1] 2)       ;; [1 2]
    (conj (seq [1]) 2) ;; [2 1]
 
+or with an empty collection:
+
+.. code::
+
+   (conj (conj []  1) 2) ;; [1 2]
+   (conj (conj nil 1) 2) ;; (2 1)
+
+
 Be careful when using conj with functions that return a string:
 
 .. code::

@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -42,6 +33,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ReStructuredText Markup" href="../restructuredtext.html" />
     <link rel="prev" title="Helm" href="helm.html" /> 
 </head>
@@ -93,12 +86,11 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../provision.html">Package Management</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ansible.html">Ansible</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apt.html">APT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helm.html">Helm</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Terraform</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Terraform</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#the-state">The State!</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#removing-resources">Removing resources</a></li>
 </ul>
@@ -106,11 +98,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
@@ -119,7 +114,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -174,7 +168,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/provision/terraform.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/provision/terraform.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -202,15 +196,15 @@
 <p>Terraform keeps the view of the world (whatever has been provisioned) in the
 form of local state. It is kept offline and is not synced automatically. If the
 resources are already provisioned, then the state must be imported</p>
-<div class="code highlight-python"><div class="highlight"><pre>terraform import module.resource_group.azurerm_resource_group.resource_group /subscriptions/59d6db65-221b-45ce-8f2b-5689b25c4f28/resourceGroups/rg-dev1-westus2-universe
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">terraform</span> <span class="kn">import</span> <span class="nn">module.resource_group.azurerm_resource_group.resource_group</span> <span class="o">/</span><span class="n">subscriptions</span><span class="o">/</span><span class="mi">59</span><span class="n">d6db65</span><span class="o">-</span><span class="mi">221</span><span class="n">b</span><span class="o">-</span><span class="mi">45</span><span class="n">ce</span><span class="o">-</span><span class="mi">8</span><span class="n">f2b</span><span class="o">-</span><span class="mi">5689</span><span class="n">b25c4f28</span><span class="o">/</span><span class="n">resourceGroups</span><span class="o">/</span><span class="n">rg</span><span class="o">-</span><span class="n">dev1</span><span class="o">-</span><span class="n">westus2</span><span class="o">-</span><span class="n">universe</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="removing-resources">
 <h2>Removing resources<a class="headerlink" href="#removing-resources" title="Permalink to this headline">¶</a></h2>
 <p>You can only do this from the command line:</p>
-<div class="code highlight-python"><div class="highlight"><pre>terraform destroy -target=azurerm_storage_table.table
-terraform destroy -target=module.storage_account.azurerm_storage_account.storage_account
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">terraform</span> <span class="n">destroy</span> <span class="o">-</span><span class="n">target</span><span class="o">=</span><span class="n">azurerm_storage_table</span><span class="o">.</span><span class="n">table</span>
+<span class="n">terraform</span> <span class="n">destroy</span> <span class="o">-</span><span class="n">target</span><span class="o">=</span><span class="n">module</span><span class="o">.</span><span class="n">storage_account</span><span class="o">.</span><span class="n">azurerm_storage_account</span><span class="o">.</span><span class="n">storage_account</span>
 </pre></div>
 </div>
 </div>

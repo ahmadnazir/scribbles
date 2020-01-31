@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -41,7 +32,9 @@
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,14 +84,16 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
@@ -107,7 +102,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -160,7 +154,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/editorsnmore/keybindings.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/editorsnmore/keybindings.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -176,17 +170,66 @@
   <div class="section" id="at-your-fingertips">
 <h1>At your fingertips<a class="headerlink" href="#at-your-fingertips" title="Permalink to this headline">¶</a></h1>
 <p>Some operations should be extremely convenient - they should be second nature:</p>
+<p><strong>Conventions</strong></p>
+<p>Usually the following are true:
+- Commands starting with <cite>SPC</cite> are namespaced using nouns e.g. all commands
+starting with <cite>SPC f</cite> are file related
+_ Commands starting with the leader char i.e. <cite>,</cite> are namespaced using verbs /
+actions e.g. <cite>, g</cite> are related to Go actions e.g. go to definition etc</p>
 <div class="section" id="search">
 <h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
-<p>Find file (within a project)
-Find something in current file
-Find something in all files (within a project)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Find something in current file:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">/</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Find something in all files (within a project):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">SPC s a p</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Find file (within a project):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">SPC p h</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="file">
 <h2>File<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h2>
-<p>Previous file
-Next file
-Close file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Previous file:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Next file:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Close file:</th><td class="field-body">SPC b d</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="debug">
+<h2>Debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Debug current function:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">, d b</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Debug project/instance:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">, d i</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Toggle breakpoint:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">, d d</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Next error:</th><td class="field-body">SPC e n</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Show errors:</th><td class="field-body">, g e</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 

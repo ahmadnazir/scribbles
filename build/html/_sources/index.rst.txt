@@ -21,14 +21,16 @@ Content
    :maxdepth: 2
 
    (Spac)emacs <emacs>
-   agile
    Package Management <provision>
    ReStructuredText Markup <restructuredtext>
+   Visual studio <visualstudio>
+   agile
    azure
    clojure
    clojurescript
    csharp
    database
+   documentation
    dotnet
    git
    identity
@@ -37,7 +39,6 @@ Content
    networking
    shell
    testing
-   Visual studio <visualstudio>
    web
 
 ..

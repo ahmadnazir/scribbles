@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -42,6 +33,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Azure Service Fabric" href="service-fabric.html" />
     <link rel="prev" title="Azure Data Lake" href="data-lake.html" /> 
 </head>
@@ -93,12 +86,13 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../azure.html">Azure</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data-lake.html">Azure Data Lake</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Azure Key Vault</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Azure Key Vault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="service-fabric.html">Azure Service Fabric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wasb.html">WASB</a></li>
 </ul>
@@ -107,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
@@ -115,7 +110,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -170,7 +164,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/azure/resources.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/azure/resources.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -186,7 +180,7 @@
   <div class="section" id="azure-key-vault">
 <h1>Azure Key Vault<a class="headerlink" href="#azure-key-vault" title="Permalink to this headline">¶</a></h1>
 <p>Get the value of the secret:</p>
-<div class="code highlight-python"><div class="highlight"><pre>az keyvault secret show --name secret --vault-name my-kv
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">az</span> <span class="n">keyvault</span> <span class="n">secret</span> <span class="n">show</span> <span class="o">--</span><span class="n">name</span> <span class="n">secret</span> <span class="o">--</span><span class="n">vault</span><span class="o">-</span><span class="n">name</span> <span class="n">my</span><span class="o">-</span><span class="n">kv</span>
 </pre></div>
 </div>
 </div>

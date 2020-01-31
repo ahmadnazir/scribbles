@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -42,8 +33,10 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="next" title="Hibernate without Secure boot?" href="hibernate-without-secure-boot.html" />
-    <link rel="prev" title="Use the swap partition instead of the swap file" href="swap-partition.html" /> 
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Hibernate using a swap file" href="hibernate-swapfile-FAIL.html" />
+    <link rel="prev" title="Open gnome settings on Xmonad" href="gnome-settings-on-xmonad.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,14 +86,16 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
@@ -113,8 +108,9 @@
 <li class="toctree-l2"><a class="reference internal" href="displaylink.html">Displaylink on Ubuntu 18.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dpkg.html">DPKG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="externalmonitors.html">Configuring External Monitors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gif.html">Create a fig from jpegs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnome-settings-on-xmonad.html">Open gnome settings on Xmonad</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Hibernate using a swap partition</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hibernate using a swap partition</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configure-grub">Configure GRUB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#hibernate">Hibernate</a></li>
 </ul>
@@ -123,7 +119,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="hibernate-swapfile-FAIL.html#before-you-begin">Before you begin</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="resize-partition.html">[Optional] Shrink parition</a></li>
 <li class="toctree-l4"><a class="reference internal" href="swap-partition.html">Create a swap parition</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">Configure hibernate using swap parition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Configure hibernate using swap parition</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hibernate-swapfile-FAIL.html#configure-grub">Configure GRUB</a></li>
@@ -139,14 +135,13 @@
 <li class="toctree-l2"><a class="reference internal" href="sudo-editor.html">Default editor for sudo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-partition.html">Use the swap partition instead of the swap file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-space.html">Swap space</a></li>
-<li class="toctree-l2"><a class="reference internal" href="touchpad-click.html">Click on tap doesn&#8217;t work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="touchpad-click.html">Click on tap doesn’t work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade-ubuntu.html">Upgrade Ubuntu Distribution</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -195,15 +190,13 @@
         
           <li><a href="../linux.html">Linux</a> &raquo;</li>
         
-          <li><a href="hibernate-swapfile-FAIL.html">Hibernate using a swap file</a> &raquo;</li>
-        
       <li>Hibernate using a swap partition</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/linux/hibernate.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/hibernate.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -230,30 +223,30 @@
 <div class="section" id="configure-grub">
 <h2>Configure GRUB<a class="headerlink" href="#configure-grub" title="Permalink to this headline">¶</a></h2>
 <p>Find the swap partition:</p>
-<div class="code highlight-python"><div class="highlight"><pre>cat /etc/fstab | grep swap | awk &#39;{print $1}&#39;
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">swap</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{print $1}&#39;</span>
 </pre></div>
 </div>
 <p>Find the UUID</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo blkid | grep swap
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">blkid</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">swap</span>
 
-/dev/nvme0n1p3: UUID=&quot;0b784ace-b11c-4e78-9a90-e4601d6a03c0&quot; TYPE=&quot;swap&quot; PARTLABEL=&quot;swap&quot; PARTUUID=&quot;27c4a0d6-687d-4a29-a0d3-5304829dfbff&quot;
+<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p3</span><span class="p">:</span> <span class="n">UUID</span><span class="o">=</span><span class="s2">&quot;0b784ace-b11c-4e78-9a90-e4601d6a03c0&quot;</span> <span class="n">TYPE</span><span class="o">=</span><span class="s2">&quot;swap&quot;</span> <span class="n">PARTLABEL</span><span class="o">=</span><span class="s2">&quot;swap&quot;</span> <span class="n">PARTUUID</span><span class="o">=</span><span class="s2">&quot;27c4a0d6-687d-4a29-a0d3-5304829dfbff&quot;</span>
 </pre></div>
 </div>
 <p>Update <cite>/etc/default/grub</cite>:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s">&quot;quiet splash resume=UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0&quot;</span>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;quiet splash resume=UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0&quot;</span>
 </pre></div>
 </div>
-<div class="code highlight-python"><div class="highlight"><pre>sudo update-grub
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">grub</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="hibernate">
 <h2>Hibernate<a class="headerlink" href="#hibernate" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-python"><div class="highlight"><pre>sudo systemctl hibernate
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">hibernate</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo pm-hibernate
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pm</span><span class="o">-</span><span class="n">hibernate</span>
 </pre></div>
 </div>
 </div>
@@ -267,10 +260,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hibernate-without-secure-boot.html" class="btn btn-neutral float-right" title="Hibernate without Secure boot?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hibernate-swapfile-FAIL.html" class="btn btn-neutral float-right" title="Hibernate using a swap file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="swap-partition.html" class="btn btn-neutral float-left" title="Use the swap partition instead of the swap file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gnome-settings-on-xmonad.html" class="btn btn-neutral float-left" title="Open gnome settings on Xmonad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

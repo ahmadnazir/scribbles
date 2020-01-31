@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -42,7 +33,9 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="next" title="sed" href="sed.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="parallel" href="parallel.html" />
     <link rel="prev" title="Convert images to gray scale" href="image-grayscale.html" /> 
 </head>
 
@@ -93,14 +86,16 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
@@ -112,12 +107,12 @@
 <li class="toctree-l2"><a class="reference internal" href="bash-assignment.html">Variable assignment in bash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generate-a-uuid.html">Generate a UUID</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image-grayscale.html">Convert images to gray scale</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Decode a jwt</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Decode a jwt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallel.html">parallel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sed.html">sed</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -172,7 +167,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/shell/jwt-decode.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/shell/jwt-decode.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -188,12 +183,12 @@
   <div class="section" id="decode-a-jwt">
 <h1>Decode a jwt<a class="headerlink" href="#decode-a-jwt" title="Permalink to this headline">¶</a></h1>
 <p>Assuming that the jwt is in the <cite>token.json</cite> file:</p>
-<div class="code highlight-python"><div class="highlight"><pre>cat token.json | cut -d&quot;.&quot; -f2 | base64 --decode -i | jq &quot;.&quot;
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">token</span><span class="o">.</span><span class="n">json</span> <span class="o">|</span> <span class="n">cut</span> <span class="o">-</span><span class="n">d</span><span class="s2">&quot;.&quot;</span> <span class="o">-</span><span class="n">f2</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">--</span><span class="n">decode</span> <span class="o">-</span><span class="n">i</span> <span class="o">|</span> <span class="n">jq</span> <span class="s2">&quot;.&quot;</span>
 </pre></div>
 </div>
 <p>Or create an alias:</p>
-<div class="code highlight-python"><div class="highlight"><pre>alias jwt-decode=&#39;cut -d&quot;.&quot; -f2 - | base64 --decode -i | jq &quot;.&quot;&#39;
-cat token.json | jwt-decode
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">jwt</span><span class="o">-</span><span class="n">decode</span><span class="o">=</span><span class="s1">&#39;cut -d&quot;.&quot; -f2 - | base64 --decode -i | jq &quot;.&quot;&#39;</span>
+<span class="n">cat</span> <span class="n">token</span><span class="o">.</span><span class="n">json</span> <span class="o">|</span> <span class="n">jwt</span><span class="o">-</span><span class="n">decode</span>
 </pre></div>
 </div>
 </div>
@@ -206,7 +201,7 @@ cat token.json | jwt-decode
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sed.html" class="btn btn-neutral float-right" title="sed" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="parallel.html" class="btn btn-neutral float-right" title="parallel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="image-grayscale.html" class="btn btn-neutral float-left" title="Convert images to gray scale" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

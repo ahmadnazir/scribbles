@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -42,6 +33,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to map while retaining the index?" href="map-indexed.html" />
     <link rel="prev" title="Iterate a hash map" href="iterate-hashmap.html" /> 
 </head>
@@ -93,15 +86,18 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../clojure.html">Clojure</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="composition.html">Function composition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conj.html">conj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphs.html">Graphing (n more) Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterate-hashmap.html">Iterate a hash map</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Leiningen</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Leiningen</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-basic-app">Create a basic app</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#templates">Templates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#use-the-template-to-create-a-app">Use the template to create a app</a></li>
@@ -111,11 +107,13 @@
 <li class="toctree-l2"><a class="reference internal" href="map-indexed.html">How to <cite>map</cite> while retaining the index?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="project-dependency-graph.html">Generate project dependency graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spacemacs.html">Spacemacs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
@@ -124,7 +122,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 </ul>
 
@@ -179,7 +176,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/clojure/lein.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/clojure/lein.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -197,21 +194,21 @@
 <div class="section" id="create-a-basic-app">
 <h2>Create a basic app<a class="headerlink" href="#create-a-basic-app" title="Permalink to this headline">¶</a></h2>
 <p>Create a very minimal application using the <cite>default</cite> template</p>
-<div class="code highlight-python"><div class="highlight"><pre>lein new default app
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lein</span> <span class="n">new</span> <span class="n">default</span> <span class="n">app</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="templates">
 <h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
-<p>Create a new template - one that let&#8217;s you run the program from the cli.</p>
-<div class="code highlight-python"><div class="highlight"><pre>lein new template cli --to-dir cli-lein-template
+<p>Create a new template - one that let’s you run the program from the cli.</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lein</span> <span class="n">new</span> <span class="n">template</span> <span class="n">cli</span> <span class="o">--</span><span class="n">to</span><span class="o">-</span><span class="nb">dir</span> <span class="n">cli</span><span class="o">-</span><span class="n">lein</span><span class="o">-</span><span class="n">template</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="use-the-template-to-create-a-app">
 <h2>Use the template to create a app<a class="headerlink" href="#use-the-template-to-create-a-app" title="Permalink to this headline">¶</a></h2>
 <p>From the template directory, create an app:</p>
-<div class="code highlight-python"><div class="highlight"><pre>lein new cli app --to-dir /tmp/app
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lein</span> <span class="n">new</span> <span class="n">cli</span> <span class="n">app</span> <span class="o">--</span><span class="n">to</span><span class="o">-</span><span class="nb">dir</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">app</span>
 </pre></div>
 </div>
 </div>
