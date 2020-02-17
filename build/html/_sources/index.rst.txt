@@ -33,6 +33,7 @@ Content
    database
    documentation
    dotnet
+   java
    git
    identity
    kubernetes

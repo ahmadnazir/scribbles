@@ -48,18 +48,29 @@ Parse the grammar:
                    ))
 
 
+Test it:
+
+.. code::
+
+   (parse "1 + 2")
+   ;; [:EXPR [:NUMBER 1] [:OP [:ADD +]] [:NUMBER 3]]
+
+
 Generate the ast:
 
 .. code:: clojure
 
-   (defn evaluate-parse-tree
-     "Convert parse tree to abstract syntax tree
-     [:EXPR [:NUMBER 1] [:OP [:ADD +]] [:NUMBER 2]] "
+   (defn evaluate
+     "Convert parse tree to abstract syntax tree"
      [parsed]
-     (match parsed
-            [:EXPR
-             [:NUMBER left] [:OP op] [:NUMBER right]
-             ]
-            (+ (read-string left) (read-string right) ) ;; hardcode the operator
-            :else {:error (format "Matching rules incomplete for: %s" parsed)}
+     (match parsed [:EXPR [:NUMBER l] [:OP op] [:NUMBER r]] (+ (read-string l) (read-string r) ) ;; hardcode the operator
+            :else  {:error (format "Matching rules incomplete for: %s" parsed)}
             ))
+
+Evaluate:
+
+.. code::
+
+   (->> "1 + 2"
+        parse
+        evaluate)

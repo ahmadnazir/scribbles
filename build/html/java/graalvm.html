@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Images &mdash; Scribbles 0.1 documentation</title>
+  <title>GraalVM &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Links" href="links.html" />
-    <link rel="prev" title="Headings" href="headings.html" /> 
+    <link rel="next" title="Git" href="../git.html" />
+    <link rel="prev" title="Java" href="../java.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,16 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="code.html">Code Snippets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="headings.html">Headings</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="links.html">Links</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lists.html">Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tables.html">Tables</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
@@ -107,7 +98,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../java.html">Java</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GraalVM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-native-image">Install native-image</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
@@ -162,15 +159,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../restructuredtext.html">ReStructuredText Markup</a> &raquo;</li>
+          <li><a href="../java.html">Java</a> &raquo;</li>
         
-      <li>Images</li>
+      <li>GraalVM</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/restructuredtext/images.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/java/graalvm.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -183,16 +180,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="images">
-<h1>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h1>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="n">ImageLink</span><span class="o">|</span><span class="n">_</span>
-
-<span class="o">..</span> <span class="o">|</span><span class="n">ImageLink</span><span class="o">|</span> <span class="n">image</span><span class="p">::</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">brainonfire</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">seqs</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">colls</span><span class="o">/</span><span class="n">collection</span><span class="o">-</span><span class="n">properties</span><span class="o">-</span><span class="n">venn</span><span class="o">.</span><span class="n">png</span>
-<span class="o">..</span> <span class="n">_ImageLink</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">brainonfire</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">seqs</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">colls</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">html</span>
+  <div class="section" id="graalvm">
+<h1>GraalVM<a class="headerlink" href="#graalvm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-native-image">
+<h2>Install native-image<a class="headerlink" href="#install-native-image" title="Permalink to this headline">¶</a></h2>
+<p>From <a class="reference external" href="https://github.com/taylorwood/clj.native-image">https://github.com/taylorwood/clj.native-image</a></p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">zxvf</span> <span class="n">graalvm</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">-</span><span class="mf">19.3</span><span class="o">.</span><span class="mf">1.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">graalvm</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">-</span><span class="mf">19.3</span><span class="o">.</span><span class="mi">1</span>
+<span class="o">./</span><span class="nb">bin</span><span class="o">/</span><span class="n">gu</span> <span class="n">install</span> <span class="n">native</span><span class="o">-</span><span class="n">image</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">PATH_TO</span><span class="o">/</span><span class="n">graalvm</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="mf">19.3</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">native</span><span class="o">-</span><span class="n">image</span> <span class="n">native</span><span class="o">-</span><span class="n">image</span>
+<span class="n">which</span> <span class="n">native</span><span class="o">-</span><span class="n">image</span>
+<span class="n">native</span><span class="o">-</span><span class="n">image</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
-<p>renders to:</p>
-<p><a class="reference external" href="https://www.brainonfire.net/files/seqs-and-colls/main.html"><img alt="ImageLink" src="https://www.brainonfire.net/files/seqs-and-colls/collection-properties-venn.png" /></a></p>
+<p>Compile a clojure deps.edn project configured for native image:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clj</span> <span class="o">-</span><span class="n">A</span><span class="p">:</span><span class="n">native</span><span class="o">-</span><span class="n">image</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -203,10 +208,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="links.html" class="btn btn-neutral float-right" title="Links" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../git.html" class="btn btn-neutral float-right" title="Git" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="headings.html" class="btn btn-neutral float-left" title="Headings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../java.html" class="btn btn-neutral float-left" title="Java" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
