@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pavucontrol &mdash; Scribbles 0.1 documentation</title>
+  <title>Sound &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="What is the RAM size?" href="ram-size.html" />
-    <link rel="prev" title="Increase swap size" href="increase-swap-size.html" /> 
+    <link rel="next" title="Default editor for sudo" href="sudo-editor.html" />
+    <link rel="prev" title="What is the RAM size?" href="ram-size.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,6 +86,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
@@ -114,9 +115,13 @@
 <li class="toctree-l2"><a class="reference internal" href="hibernate-swapfile-FAIL.html">Hibernate using a swap file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="increase-swap-size.html">Increase swap size</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">pavucontrol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ram-size.html">What is the RAM size?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resize-partition.html">Resize the mounted parition</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Sound</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pavucontrol">pavucontrol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alsamixer">alsamixer</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="sudo-editor.html">Default editor for sudo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-partition.html">Use the swap partition instead of the swap file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-space.html">Swap space</a></li>
@@ -128,6 +133,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
 </ul>
 
             
@@ -175,13 +181,13 @@
         
           <li><a href="../linux.html">Linux</a> &raquo;</li>
         
-      <li>pavucontrol</li>
+      <li>Sound</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/linux/pavucontrol.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/sound.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -194,8 +200,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="pavucontrol">
-<h1>pavucontrol<a class="headerlink" href="#pavucontrol" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="sound">
+<h1>Sound<a class="headerlink" href="#sound" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pavucontrol">
+<h2>pavucontrol<a class="headerlink" href="#pavucontrol" title="Permalink to this headline">¶</a></h2>
 <p><cite>pavucontrol</cite> is a volume control for the PuseAudio sound server</p>
 <p>If you don’t hear sound, check the following:</p>
 <ul class="simple">
@@ -203,6 +211,11 @@
 <li><cite>Configuration</cite> tab: Select profile: <cite>Analog Stereo Output</cite></li>
 <li><cite>Output Devices</cite> tab: Select port: <cite>Headphones</cite> or <cite>Speakers</cite></li>
 </ul>
+</div>
+<div class="section" id="alsamixer">
+<h2>alsamixer<a class="headerlink" href="#alsamixer" title="Permalink to this headline">¶</a></h2>
+<p>Control the sound levels using <cite>alsamixer</cite></p>
+</div>
 </div>
 
 
@@ -213,10 +226,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ram-size.html" class="btn btn-neutral float-right" title="What is the RAM size?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sudo-editor.html" class="btn btn-neutral float-right" title="Default editor for sudo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="increase-swap-size.html" class="btn btn-neutral float-left" title="Increase swap size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ram-size.html" class="btn btn-neutral float-left" title="What is the RAM size?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

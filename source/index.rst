@@ -21,6 +21,7 @@ Content
    :maxdepth: 2
 
    (Spac)emacs <emacs>
+   business
    Package Management <provision>
    ReStructuredText Markup <restructuredtext>
    Visual studio <visualstudio>
@@ -32,6 +33,7 @@ Content
    database
    documentation
    dotnet
+   java
    git
    identity
    kubernetes
@@ -40,6 +42,7 @@ Content
    shell
    testing
    web
+   misc
 
 ..
    Indices and tables

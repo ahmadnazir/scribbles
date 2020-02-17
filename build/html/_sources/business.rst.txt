@@ -1,0 +1,7 @@
+Business
+========
+
+.. toctree::
+   :glob:
+
+   business/*

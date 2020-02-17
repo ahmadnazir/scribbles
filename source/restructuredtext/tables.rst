@@ -35,6 +35,22 @@ Two types of tables are supported:
 
 - **Simple**
 
+Really basic table:
+
+.. code::
+
+   +---------+---------+-----------+
+   | 1       |  2      |  3        |
+   +---------+---------+-----------+
+
+renders to:
+
++---------+---------+-----------+
+| 1       |  2      |  3        |
++---------+---------+-----------+
+
+Another way - with headers:
+
 .. code::
 
    =====  =====  ======
@@ -62,6 +78,13 @@ True   True   True
 =====  =====  ======
 
 
-**Reference**
+Emacs support
+-------------
+.. code::
+
+   M-x table-insert
+
+Reference
+---------
 
 http://docutils.sourceforge.net/docs/user/rst/quickref.html#tables

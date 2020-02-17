@@ -86,13 +86,20 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="code.html">Code Snippets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="headings.html">Headings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="links.html">Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lists.html">Lists</a></li>
 <li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Tables</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#emacs-support">Emacs support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
@@ -112,6 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
 </ul>
 
             
@@ -235,6 +243,27 @@ span rows.</td>
 <ul class="simple">
 <li><strong>Simple</strong></li>
 </ul>
+<p>Really basic table:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+---------+---------+-----------+</span>
+<span class="o">|</span> <span class="mi">1</span>       <span class="o">|</span>  <span class="mi">2</span>      <span class="o">|</span>  <span class="mi">3</span>        <span class="o">|</span>
+<span class="o">+---------+---------+-----------+</span>
+</pre></div>
+</div>
+<p>renders to:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="31%" />
+<col width="38%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Another way - with headers:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=====</span>  <span class="o">=====</span>  <span class="o">======</span>
    <span class="n">Inputs</span>     <span class="n">Output</span>
 <span class="o">------------</span>  <span class="o">------</span>
@@ -282,8 +311,16 @@ span rows.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Reference</strong></p>
+<div class="section" id="emacs-support">
+<h2>Emacs support<a class="headerlink" href="#emacs-support" title="Permalink to this headline">¶</a></h2>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">-</span><span class="n">x</span> <span class="n">table</span><span class="o">-</span><span class="n">insert</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html#tables">http://docutils.sourceforge.net/docs/user/rst/quickref.html#tables</a></p>
+</div>
 </div>
 
 

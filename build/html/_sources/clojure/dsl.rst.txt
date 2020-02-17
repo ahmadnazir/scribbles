@@ -1,0 +1,65 @@
+Writing a DSL
+=============
+
+Let us make a calculator that would evaluate expressions like:
+
+.. code::
+
+   1 + 2
+
+Dependencies:
+
+.. code::
+
+   [instaparse "1.4.10"]
+   [org.clojure/core.match "0.3.0-alpha5"]
+
+
+Update required libs:
+
+.. code::
+
+   [instaparse.core :as insta]
+   [clojure.core.match :refer [match]]
+
+Write the grammar as BNF (in the root of the project):
+
+.. code::
+
+   EXPR := NUMBER <ws*> OP <ws*> NUMBER
+   
+   OP := ADD | SUB
+   
+   ADD :=  "+"
+   SUB :=  "-"
+   NUMBER :=  #"[0-9]+"
+   
+   ws := #'\s+'   (* whitespace *)
+   
+
+Parse the grammar:
+
+.. code::
+
+   (def parse (->> (System/getProperty "user.dir")
+                   (format "%s/grammar.bnf" )
+                   slurp
+                   insta/parser
+                   ))
+
+
+Generate the ast:
+
+.. code:: clojure
+
+   (defn evaluate-parse-tree
+     "Convert parse tree to abstract syntax tree
+     [:EXPR [:NUMBER 1] [:OP [:ADD +]] [:NUMBER 2]] "
+     [parsed]
+     (match parsed
+            [:EXPR
+             [:NUMBER left] [:OP op] [:NUMBER right]
+             ]
+            (+ (read-string left) (read-string right) ) ;; hardcode the operator
+            :else {:error (format "Matching rules incomplete for: %s" parsed)}
+            ))
