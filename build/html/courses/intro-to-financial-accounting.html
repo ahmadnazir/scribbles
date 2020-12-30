@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to Financial Accounting &mdash; Scribbles 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Quantitative Modeling" href="quantitative-modeling.html" />
+    <link rel="prev" title="Financial Markets" href="financial-markets.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Scribbles
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../courses.html">Courses</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="financial-markets.html">Financial Markets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction to Financial Accounting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#balance-sheet-equation">Balance Sheet Equation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types-of-assets">Types of Assets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types-of-liabilities">Types of Liabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accounting-cycle">Accounting Cycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#statement-of-cash-flows">Statement of Cash Flows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ratio-analysis">Ratio Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quantitative-modeling.html">Introduction to Quantitative Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scribbles</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../courses.html">Courses</a> &raquo;</li>
+        
+      <li>Introduction to Financial Accounting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/courses/intro-to-financial-accounting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-financial-accounting">
+<h1>Introduction to Financial Accounting<a class="headerlink" href="#introduction-to-financial-accounting" title="Permalink to this headline">¶</a></h1>
+<p><strong>Accounting</strong>:</p>
+<ul class="simple">
+<li>recording transactions</li>
+<li>summary statements</li>
+<li>users who require such info</li>
+</ul>
+<p>So companies keep 3 sets of books.</p>
+<ul class="simple">
+<li>Financial accounting (external stakeholders) <em>this course</em></li>
+<li>Tax accounting</li>
+<li>Managerial accounting (internal decision making)</li>
+</ul>
+<p><strong>Financial Reporting Requirements</strong>:</p>
+<p>Securities and Excange Commission (SEC) requires:</p>
+<ul class="simple">
+<li>10-K : Annual Report (full set of financial statements and substantial disclosure)</li>
+<li>10-Q : less disclosure)</li>
+<li>8-K : material events, anything that moves the stock price)</li>
+</ul>
+<p>SEC requirements are needless to say required for public companies (but private companies that need to borrow money are also required to provide such reporting)</p>
+<p>US GAAP (US Generally Accepted Accounting Principles) vs IFRS (International Financial Reporting Standards): These are the two sets of principles. The SEC came out with a roadmap to move to IFRS in 2008 but financial crisis happened…</p>
+<p><strong>Required financial statements</strong>:</p>
+<ul class="simple">
+<li>Income statement: Results of operations over a period of time using accrual accounting</li>
+<li>Statement of Cash Flows</li>
+<li>Statement of Stockholder’s Equity</li>
+<li>Balance Sheet: Financial position (listing of resources and obligataions) on a specific date</li>
+</ul>
+<p><strong>Question</strong>: <em>Did the company make money in this month?</em></p>
+<p>There are two ways:</p>
+<ol class="arabic simple">
+<li><strong>Cash Flows</strong> using <em>Statement of Cash Flows</em></li>
+</ol>
+<p>To better answer that question, we can divide the transactions in the following cash flows:</p>
+<ul class="simple">
+<li>Operating</li>
+<li>Investing</li>
+<li>Financing</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><strong>Accounting Income</strong> using <em>Income Statement</em></li>
+</ol>
+<p>Another way to answer the same question is using Accounting Income i.e.</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>Profit = Expected revenue - Expenses
+
+where:
+
+Expected Revenue: we provided the services and this is the expected revenue
+Expenses: amortizing the cost of things used, assets?
+</pre></div>
+</div>
+<p>Accrual accounting is tied to business activities and not cash flows.</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>Revenues ≠ Cash inflows
+Expenses ≠ Cash outflows
+∴ Net income ≠ Net cash flow
+</pre></div>
+</div>
+<p><strong>Balance Sheet</strong>: Contains assets and liabilities and the sum need to balance out:</p>
+<ul class="simple">
+<li><strong>Assets</strong>: Resources owned by the business that are expected to provide future economic benefits</li>
+<li><strong>Liabilities</strong>: Claims on those assets by non-owners that represent an obligation to make future payment of cash, goods, or services. Benefits needs to be received already.</li>
+</ul>
+<p>Revenue is realized when: it is earned (goods provided) or realized (received cash / sent out an invoice)</p>
+<div class="section" id="balance-sheet-equation">
+<h2>Balance Sheet Equation<a class="headerlink" href="#balance-sheet-equation" title="Permalink to this headline">¶</a></h2>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Assets</span>          <span class="o">=</span> <span class="n">Liabilities</span> <span class="o">+</span> <span class="n">Stockholders</span><span class="s1">&#39; equity</span>
+<span class="n">Cash</span> <span class="o">+</span> <span class="n">Non</span> <span class="n">Cash</span> <span class="o">=</span> <span class="n">Liabilities</span> <span class="o">+</span> <span class="n">Contributed</span> <span class="n">Capital</span> <span class="o">+</span> <span class="n">Retained</span> <span class="n">Earnings</span>
+
+<span class="n">Retained</span> <span class="n">earning</span> <span class="o">=</span> <span class="n">Prior</span> <span class="n">Retained</span> <span class="n">Earnings</span> <span class="o">+</span> <span class="n">Net</span> <span class="n">Income</span> <span class="o">-</span> <span class="n">Dividends</span>
+</pre></div>
+</div>
+<p>Complete balance sheet equation:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Assets</span>          <span class="o">=</span> <span class="n">Liabilities</span> <span class="o">+</span> <span class="n">Contributed</span> <span class="n">Capital</span> <span class="o">+</span> <span class="n">Prior</span> <span class="n">Retained</span> <span class="n">Earnings</span> <span class="o">+</span> <span class="n">Net</span> <span class="n">Income</span> <span class="o">-</span> <span class="n">Dividends</span>
+<span class="n">Cash</span> <span class="o">+</span> <span class="n">Non</span> <span class="n">Cash</span> <span class="o">=</span> <span class="n">Liabilities</span> <span class="o">+</span> <span class="n">Contributed</span> <span class="n">Capital</span> <span class="o">+</span> <span class="n">Prior</span> <span class="n">Retained</span> <span class="n">Earnings</span> <span class="o">+</span> <span class="p">(</span><span class="n">Revenues</span> <span class="o">-</span> <span class="n">Expenses</span><span class="p">)</span> <span class="o">-</span> <span class="n">Dividends</span>
+</pre></div>
+</div>
+<p>Another simplified version used in practice where we don’t think of retained earning and dividends:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cash</span> <span class="o">+</span> <span class="n">Non</span> <span class="n">Cash</span> <span class="o">=</span> <span class="n">Liabilities</span> <span class="o">+</span> <span class="n">Owners</span><span class="s1">&#39; Equity</span>
+</pre></div>
+</div>
+<p>Also,</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>Ending Retained Earnings = Beginning Retained Earnings + Net Income – Dividends
+Net Income = Revenues – Expenses
+
+Net Income = 190 – 140
+
+Ending Retained Earnings = 30 + 50 – 10
+</pre></div>
+</div>
+</div>
+<div class="section" id="types-of-assets">
+<h2>Types of Assets<a class="headerlink" href="#types-of-assets" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><strong>Accounts Receivable</strong>: Type of asset. There has to be a transaction in the past and there is a promise that the customer will pay back.</li>
+<li><strong>Inventory</strong>: Raw materials that we can use.</li>
+<li><strong>Prepaid Rent</strong></li>
+<li><strong>Land</strong></li>
+<li><strong>Notes Receivable</strong>: Similar to accounts receivable but this is used when the money is paid by another entity than the customer e.g. when loaning money to an employee.</li>
+</ol>
+<p><strong>Others</strong>:</p>
+</div>
+<div class="section" id="types-of-liabilities">
+<h2>Types of Liabilities<a class="headerlink" href="#types-of-liabilities" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><strong>Accounts Payable</strong>: Anytime we owe money to anyone.</li>
+<li><strong>Income Tax Payable</strong></li>
+<li><strong>Salaries payable</strong>: Pay the employees for their services</li>
+<li><strong>Notes payable</strong>: Loan. Interest is not a liability - yet.</li>
+<li><strong>Dividend payable</strong>: paying out the dividends to the share holders. (This is an exception as the share holders are not external)</li>
+</ol>
+</div>
+<div class="section" id="accounting-cycle">
+<h2>Accounting Cycle<a class="headerlink" href="#accounting-cycle" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.coursera.org/learn/wharton-accounting/lecture/pQQPW/1-4-1-relic-spotter-case-part-1"><img alt="ImageLink" src="../_images/accounting-cycle.png" /></a></p>
+</div>
+<div class="section" id="statement-of-cash-flows">
+<h2>Statement of Cash Flows<a class="headerlink" href="#statement-of-cash-flows" title="Permalink to this headline">¶</a></h2>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Net</span> <span class="n">cash</span> <span class="kn">from</span> <span class="nn">operating</span> <span class="n">activities</span> <span class="o">+</span>
+<span class="n">Net</span> <span class="n">cash</span> <span class="kn">from</span> <span class="nn">investing</span> <span class="n">activities</span> <span class="o">+</span>
+<span class="n">Net</span> <span class="n">cash</span> <span class="kn">from</span> <span class="nn">financing</span> <span class="n">activities</span>
+<span class="o">-----------------------------------</span>
+<span class="n">Net</span> <span class="n">change</span> <span class="ow">in</span> <span class="n">cash</span> <span class="n">balance</span>
+</pre></div>
+</div>
+<p><strong>Rule of thumb</strong>: Any asset that we hold for more than a year is an <strong>Investing activity</strong> and less than a year is <strong>Operating activity</strong>.
+Cash paid for interest needs to be disclosed somewhere in the financial statement.</p>
+<p><a class="reference external" href="https://www.coursera.org/learn/wharton-accounting/lecture/g7ufp/3-1-1-operating-investing-and-financing-cash-flows"><img alt="CashFlow" src="../_images/cash-flow-activities.png" /></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Under US GAAP, interest and dividends are categorized under Operating Activities. However, under IFRS, they maybe classified as operating, investing, or financing activities.</p>
+</div>
+<p>Two ways to calculate cash flows, <strong>direct</strong> and <strong>indirect</strong>. Companies use the
+indirect method to calculate operating activity as it provides some kind
+of a benchmark to how much activity is expected starting with net income and then making adjustments.</p>
+<p><strong>EBITDA</strong>: A measure of cash flow. <strong>Earnings Before Interest, Taxes, Depreciation and Amortization</strong>.
+It is susceptible to the <strong>channel stuffing</strong> problem where the company can send invoices to increase the accounts receivable and increase the EBITDA. However, since no cash is collected, this measure of cash flow can be deceptive. Adjusting for account receivables on EBITDA can give a better picture.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Research shows that <strong>Earnings</strong> is a better predictor for future cash flow than <strong>current cash flow from operations</strong>, but using both gives the best predictions.</p>
+</div>
+<p><strong>Free Cash Flow</strong>: Generally means,</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FCF</span> <span class="o">=</span> <span class="n">Operating</span> <span class="n">cash</span> <span class="n">flow</span> <span class="o">-</span> <span class="n">Cash</span> <span class="k">for</span> <span class="n">long</span><span class="o">-</span><span class="n">term</span> <span class="n">investiments</span>
+</pre></div>
+</div>
+<p>There are valuation models that show that if you forecast company’s cash flow, discount them back to current value, then you get how much the company should be worth / what the stock price should be.</p>
+<p>Problem is that there is not standard measure for operating cash flow.</p>
+<p><a class="reference external" href="https://www.coursera.org/learn/wharton-accounting/lecture/whgzc/3-3-1-more-scf-topics-and-ebitda">https://www.coursera.org/learn/wharton-accounting/lecture/whgzc/3-3-1-more-scf-topics-and-ebitda</a> time: 13:30</p>
+</div>
+<div class="section" id="ratio-analysis">
+<h2>Ratio Analysis<a class="headerlink" href="#ratio-analysis" title="Permalink to this headline">¶</a></h2>
+<p>There is no standardization. They provide a good diagnostic tool allowing us to ask better questions.</p>
+<p><strong>ROE: Return on Equity</strong>:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ROE</span> <span class="o">=</span> <span class="n">Net</span> <span class="n">Income</span> <span class="o">/</span> <span class="n">Average</span> <span class="n">Shareholders</span><span class="s1">&#39; Equity</span>
+</pre></div>
+</div>
+<p>Two drivers for ROE:</p>
+<p><strong>1. Operating performance</strong>: How effectively do managers use company resources (assets) to generate profits. This is determined by <strong>Return on Assets</strong>:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ROA</span>  <span class="o">=</span> <span class="n">Net</span> <span class="n">Income</span> <span class="o">/</span> <span class="n">Average</span> <span class="n">Assets</span>
+</pre></div>
+</div>
+<p>or, mesuring operating performance independent of company’s financing decisions:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ROA</span>  <span class="o">=</span> <span class="n">De</span><span class="o">-</span><span class="n">Levered</span> <span class="n">Net</span> <span class="n">Income</span> <span class="o">/</span> <span class="n">Average</span> <span class="n">Assets</span>
+
+
+<span class="n">De</span><span class="o">-</span><span class="n">Levered</span> <span class="n">Net</span> <span class="n">Income</span> <span class="o">=</span> <span class="n">Net</span> <span class="n">Income</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">Interest</span> <span class="n">Expense</span>
+<span class="n">where</span><span class="p">:</span>
+  <span class="n">t</span> <span class="o">=</span> <span class="n">tax</span> <span class="n">rate</span>
+</pre></div>
+</div>
+<p>Keep in mind that if the following is used a correction factor will also need to be used to calculate the ROE in the end.</p>
+<p><strong>2. Financial Leverage</strong>: How much do the managers use debt to increase available assets for a given level of shareholder investment.</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Financial</span> <span class="n">leverage</span> <span class="o">=</span> <span class="n">Average</span> <span class="n">Assets</span> <span class="o">/</span> <span class="n">Average</span> <span class="n">Shareholders</span> <span class="n">Equity</span>
+</pre></div>
+</div>
+<p>This is different from Debt to Equity ratio.</p>
+<p><a class="reference external" href="https://www.coursera.org/learn/wharton-accounting/lecture/0mA3B/4-1-overview-of-ratio-analysis"><img alt="roe" src="../_images/roe-framework.png" /></a></p>
+<p>Two drivers for ROA:</p>
+<p><strong>1. Profitability</strong>: Profit earned on each dollar of sales, <strong>Return on Sales</strong>:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ROS</span> <span class="o">=</span> <span class="n">Net</span> <span class="n">Income</span> <span class="o">/</span> <span class="n">Sales</span>
+</pre></div>
+</div>
+<p><strong>2. Efficiency</strong>: Sales generated based on the available resources, <strong>Asset Turnover</strong>:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ATO</span> <span class="o">=</span> <span class="n">Sales</span> <span class="o">/</span> <span class="n">Average</span> <span class="n">Assets</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://www.coursera.org/learn/wharton-accounting/lecture/0mA3B/4-1-overview-of-ratio-analysis"><img alt="dupont" src="../_images/dupont.png" /></a></p>
+<p><strong>Asset Turnover Analysis</strong>:</p>
+<p>Better than looking at ratios, we look at number of days when something happens:</p>
+<ul class="simple">
+<li>Days Receivables: 365 * (Avg. AR / Sales)</li>
+<li>Days Inventory: 365 * (Avg. Inventory / COGS)</li>
+<li>Days Payable: 365 * (Avg. AP / Purchases)</li>
+<li>Net Trade Cycle: Days Receivable + Days Inventory - Days Payable</li>
+</ul>
+<p><a class="reference external" href="https://www.coursera.org/learn/wharton-accounting/lecture/ggAxl/4-4-plainview-technology-case-part-3"><img alt="lr" src="../_images/liquidity-ratios.png" /></a></p>
+<p><strong>Short Term Liquidity Ratios</strong>:</p>
+<p>Current Ratio: Current Assets /Current Liablities
+Quick Ratio: (Cash + AR) / Current Liablities
+CFO to Current Liabilities: Cash from Ops / Avg. Current Liablities</p>
+<p><strong>Interest Coverage Ratios</strong>:</p>
+<ul class="simple">
+<li>Interest Coverage: Ops Income before Depreciation / Interest Expense</li>
+<li>Cash Interest Coverage:  (Cash from Ops + Cash Interest Paid + Cash Taxes) / Cash Interest Paid</li>
+</ul>
+<p><strong>Long Term Debt Ratios</strong>:</p>
+<ul class="simple">
+<li>Debt to Equity: Total Liabilities / Shareholders’ Equity or Total Liabilities / Total Assets</li>
+<li>Long-Term-Debt to Equity: Total Long-Term Debt / Total Stockholders’ Equity</li>
+<li>Long-Term-Debt to Tangible Assets: Total Long Term Debt / (Total Assets - Intangible Assets). This is the borrowing power based on collatoralizable assets.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quantitative-modeling.html" class="btn btn-neutral float-right" title="Introduction to Quantitative Modeling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="financial-markets.html" class="btn btn-neutral float-left" title="Financial Markets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ahmad Nazir Raja
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

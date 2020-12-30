@@ -1,0 +1,7 @@
+Shell
+=====
+
+.. toctree::
+   :glob:
+
+   shell/*
