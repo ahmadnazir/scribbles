@@ -89,7 +89,7 @@ The following runs lazily and sequentially:
            ;
 
        Console.WriteLine($"Total number of partitions: {result.Count()}");
-}
+   }
 
 
 The output is:

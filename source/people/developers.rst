@@ -1,5 +1,5 @@
 `Alexander Lew`_
-====
+================
 
 - [Talk] Probabilistic scripts for automating common-sense tasks: https://www.youtube.com/watch?v=MiiWzJE0fEA&feature=youtu.be&ab_channel=StrangeLoop
 
@@ -12,12 +12,12 @@
   Interesting to see why we won't use 'prolog' i.e. we don't know the constraints of the system. https://youtu.be/MiiWzJE0fEA?t=480
 
 `Eric Shull`_
-====
+=============
 
 - [Talk] Communicating Sequential Processes in Go: https://www.youtube.com/watch?v=3gXWA6WEvOM&t=2047s&ab_channel=SoftwareGR
 
 `Jay Parlar`_
-====
+=============
 
 - [Talk] Finding bugs without running or even looking at code: https://www.youtube.com/watch?v=FvNRlE4E9QQ&feature=youtu.be&ab_channel=StrangeLoop
 
@@ -33,16 +33,17 @@
 
 
 `Nicholas Kariniemi`_
-====
+=====================
 
 - Clojure compilation: https://blog.ndk.io/clojure-compilation.html
 - Why CSP matters - Part I: https://blog.ndk.io/why-csp-matters1.html
 - Why CSP matters - Part II: https://blog.ndk.io/why-csp-matters2.html
+
 .. _Nicholas Kariniemi: https://blog.ndk.io/
 
 
 `Reid McKenzie`_ (`arrdem`_)
-====
+============================
 
 - Why Scala (and other static languages) don't have a repl like clojure: https://stackoverflow.com/a/27391533/1589512
 

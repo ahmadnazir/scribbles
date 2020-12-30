@@ -5,10 +5,10 @@ Plantuml
 OOP
 ---
 
-:aggregation: A o-- B
-:composition: A *-- B
-:inheritance: A <|-- B
-:association: A <-- B
+:aggregation: ``A o-- B``
+:composition: ``A *-- B``
+:inheritance: ``A <|-- B``
+:association: ``A <-- B``
 
 .. code::
 

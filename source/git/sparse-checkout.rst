@@ -1,5 +1,5 @@
 Sparse checkout
-====
+===============
 
 .. code::
 

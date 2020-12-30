@@ -38,6 +38,7 @@ Content
    git
    identity
    java
+   jobs
    kubernetes
    linux
    misc

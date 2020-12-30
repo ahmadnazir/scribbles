@@ -8,12 +8,12 @@ Here is my setup with emacs. It is a work in progress.
 Reference: https://emacsnotes.wordpress.com/2018/05/14/editing-html-textareas-with-emacs-bye-bye-its-all-text-hello-textern/
 
 Install firefox extension
-----
+-------------------------
 
 https://addons.mozilla.org/en-US/firefox/addon/textern/
 
 Install the backend
-----
+-------------------
 
 .. code::
 
@@ -22,8 +22,8 @@ Install the backend
    make native-install USER=1\n
 
 
-Emacs client:
-----
+Emacs client
+------------
 
 .. code::
 
@@ -31,7 +31,7 @@ Emacs client:
    emacsclient -c -a "" -- "$@"
 
 Textern browser extension preferences
-----
+-------------------------------------
 
 .. code::
 

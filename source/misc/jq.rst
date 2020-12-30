@@ -7,20 +7,20 @@ Considering we have `sample.json`:
 
 .. code::
 
-cat <<EOT | jq '.items[] | select(.key == "one")'
-{
-  "items": [
-    {
-      "key": "one",
-      "value": "value for one"
-    },
-    {
-      "key": "two",
-      "value": "value for two"
-    }
-  ]
-}
-EOT
+   cat <<EOT | jq '.items[] | select(.key == "one")'
+   {
+     "items": [
+       {
+         "key": "one",
+         "value": "value for one"
+       },
+       {
+         "key": "two",
+         "value": "value for two"
+       }
+     ]
+   }
+   EOT
 
 evaluates to:
 
@@ -43,19 +43,19 @@ This is how the following pipeline looks:
 
 .. code::
 
-cat <<EOT | jq '.items[] | .one | select(. != null) | .values[0]'
-{
-  "items": [
-    {
-      "one": {
-        "values": ["a", "b"]
-      }
-    },
-    {
-      "two": {
-        "values": ["c", "d"]
-      }
-    }
-  ]
-}
-EOT
+   cat <<EOT | jq '.items[] | .one | select(. != null) | .values[0]'
+   {
+     "items": [
+       {
+         "one": {
+           "values": ["a", "b"]
+         }
+       },
+       {
+         "two": {
+           "values": ["c", "d"]
+         }
+       }
+     ]
+   }
+   EOT

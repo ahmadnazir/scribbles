@@ -36,4 +36,5 @@ Connect to a network:
 Disconnect the device:
 
 .. code::
-nmcli dev disconnect wlp2s0
+
+   nmcli dev disconnect wlp2s0

@@ -1,5 +1,5 @@
 Improving Language Understanding by Generative Pre-Training
-====
+===========================================================
 
 :paper: https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf
 
@@ -7,7 +7,7 @@ Framework for achieving strong natural language understanding with a single
 task-agnostic model through generative pre-training and discriminative fine-tuning.
 
 Textual entailment
-----
+------------------
 
 - Premise: If you help the needy, God will reward you
 - Hypothesis: Giving money to the poor has good consequences.

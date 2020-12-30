@@ -1,7 +1,6 @@
 Getting Started
 ===============
 
-
 .. code::
 
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -11,7 +10,7 @@ Login again to make rustup available for all shells.
 
 
 Racer
-----
+-----
 
 Racer: Rust Auto CompletER
 
