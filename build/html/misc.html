@@ -97,7 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="courses.html">Courses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="csharp.html">C #</a></li>
-<li class="toctree-l1"><a class="reference internal" href="database.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
@@ -108,9 +108,13 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Misc</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="misc/021disrupt.html">021Disrupt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/build-systems.html">Build systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/colors.html">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/component-governance.html">Component Governance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/corecursion.html">Corecursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/fuzzy.html">Fuzzy *</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/game-of-life.html">Conway’s Game of Life</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/gdpr-dsr.html">GDPR Data Subject Rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html">Graph databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/hll.html">HyperLogLog sketch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/hugo.html">HUGO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/internetcomputer.html">Internet Computer</a></li>
@@ -118,14 +122,25 @@
 <li class="toctree-l2"><a class="reference internal" href="misc/jq-vs-jmespath.html">JMESPath</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/jupyter.html">Setting up Jupyter locally</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/markdown-vs-rest.html">Markdown vs Restructured Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/oop-principles.html">Principles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/performance-matters.html">Performance Matters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/powershell-vs-bash.html">Powershell vs Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/recommended-keybindings.html">At your fingertips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/shaan-puri.html">Shaan Puri’s Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/sniff.html">Traffic sniffing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/stm.html">Software Transactional Memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/tinker-nn.html">Tinker with the Neural Network in the Browser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/turing-machine.html">Turning Machine</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="people.html">People</a></li>
@@ -199,12 +214,27 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="misc/021disrupt.html">021Disrupt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/build-systems.html">Build systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/colors.html">Colors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/colors.html#colorblind">Colorblind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/colors.html#meaning">Meaning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/component-governance.html">Component Governance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/corecursion.html">Corecursion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/fuzzy.html">Fuzzy *</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="misc/fuzzy.html#fuzzy-join">Fuzzy join</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/game-of-life.html">Conway’s Game of Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/gdpr-dsr.html">GDPR Data Subject Rights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/graph-database.html">Graph databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#why">Why?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#why-not">Why not?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#references">References</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="misc/hll.html">HyperLogLog sketch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/hugo.html">HUGO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/internetcomputer.html">Internet Computer</a></li>
@@ -219,11 +249,29 @@
 <li class="toctree-l2"><a class="reference internal" href="misc/markdown-vs-rest.html#restructured-text">Restructured Text</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="misc/oop-principles.html">Principles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/oop-principles.html#association">Association</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/oop-principles.html#uml">UML</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="misc/performance-matters.html">Performance Matters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="misc/performance-matters.html#tools">Tools</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="misc/powershell-vs-bash.html">Powershell vs Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/recommended-keybindings.html">At your fingertips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/recommended-keybindings.html#search">Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/recommended-keybindings.html#file">File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/recommended-keybindings.html#debug">Debug</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="misc/shaan-puri.html">Shaan Puri’s Frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/sniff.html">Traffic sniffing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/sniff.html#mitmproxy">mitmproxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/sniff.html#httpry">httpry</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/stm.html">Software Transactional Memory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/tinker-nn.html">Tinker with the Neural Network in the Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/turing-machine.html">Turning Machine</a></li>
 </ul>

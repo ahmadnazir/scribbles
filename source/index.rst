@@ -32,7 +32,7 @@ Content
    clojurescript
    courses
    csharp
-   database
+   docker
    documentation
    dotnet
    git
@@ -42,7 +42,13 @@ Content
    linux
    misc
    networking
+   notes
+   python
    shell
+   scala
+   spark
+   rust
+   talks
    testing
    web
    people
