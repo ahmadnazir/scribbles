@@ -1,7 +1,0 @@
-Agile
-=====
-
-.. toctree::
-   :glob:
-
-   agile/*

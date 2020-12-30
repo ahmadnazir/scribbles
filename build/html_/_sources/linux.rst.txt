@@ -1,7 +1,0 @@
-Linux
-=====
-
-.. toctree::
-   :glob:
-
-   linux/*

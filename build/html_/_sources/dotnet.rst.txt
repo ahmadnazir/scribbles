@@ -1,7 +1,0 @@
-.NET
-====
-
-.. toctree::
-   :glob:
-
-   dotnet/*

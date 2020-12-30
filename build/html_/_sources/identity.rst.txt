@@ -1,7 +1,0 @@
-Identity
-========
-
-.. toctree::
-   :glob:
-
-   identity/*

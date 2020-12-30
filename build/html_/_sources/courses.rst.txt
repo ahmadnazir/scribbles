@@ -1,7 +1,0 @@
-Courses
-=======
-
-.. toctree::
-   :glob:
-
-   courses/*

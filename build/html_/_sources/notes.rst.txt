@@ -1,7 +1,0 @@
-Notes
-=====
-
-.. toctree::
-   :glob:
-
-   notes/*

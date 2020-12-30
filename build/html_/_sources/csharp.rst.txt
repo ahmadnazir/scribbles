@@ -1,7 +1,0 @@
-C #
-===
-
-.. toctree::
-   :glob:
-
-   csharp/*
