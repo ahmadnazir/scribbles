@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Linux &mdash; Scribbles 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bind mount" href="linux/bind-mount.html" />
+    <link rel="prev" title="Load Balancer" href="kubernetes/loadbalancer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Scribbles
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agile.html">Agile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ai.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business.html">Business</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure.html">Clojure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojurescript.html">Clojurescript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csharp.html">C #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotnet.html">.NET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identity.html">Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/bind-mount.html">Bind mount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/boot.html">Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/boot.html#grub">Grub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/boot.html#initramfs">initramfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/connect-windows.html">Connect to a windows machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/displaylink.html">Displaylink on Ubuntu 18.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/dpkg.html">DPKG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/externalmonitors.html">Configuring External Monitors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/firejail.html">Firejail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/format-usb.html">Format a usb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/gif.html">Create a fig from jpegs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/gnome-settings-on-xmonad.html">Open gnome settings on Xmonad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate.html">Hibernate using a swap partition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html">Hibernate using a swap file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/increase-swap-size.html">Increase swap size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/memory-usage.html">Track Memory Usage of a Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/ram-size.html">What is the RAM size?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/resize-partition.html">Resize the mounted parition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/sound.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/sudo-editor.html">Default editor for sudo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/swap-partition.html">Use the swap partition instead of the swap file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/swap-space.html">Swap space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/tapclick.html">Tap click not working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/touchscreent.html">Calibrate the touch input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/upgrade-ubuntu.html">Upgrade Ubuntu Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/vm.html">Virtual Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/wifi.html">Wifi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="talks.html">Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="people.html">People</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Scribbles</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Linux</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/linux.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linux">
+<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="linux/bind-mount.html">Bind mount</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/bind-mount.html#unable-to-umount-target-is-busy">Unable to umount: Target is busy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/boot.html">Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/boot.html#grub">Grub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/boot.html#resume-after-hibernate">Resume after hibernate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/boot.html#initramfs">initramfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/connect-windows.html">Connect to a windows machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/displaylink.html">Displaylink on Ubuntu 18.04</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/displaylink.html#install-the-offical-drivers">1. Install the offical drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/displaylink.html#disable-uefi-secure-boot">2. Disable UEFI/Secure Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/displaylink.html#perfomance-issues-cpu-load">3. Perfomance Issues / CPU Load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/displaylink.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/dpkg.html">DPKG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/dpkg.html#find-installed-library">Find installed library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/externalmonitors.html">Configuring External Monitors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/externalmonitors.html#how-to-resolve-xrandr-cannot-find-crtc-for-output-xxxx">How to resolve: <cite>xrandr: cannot find crtc for output XXXX</cite>?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/firejail.html">Firejail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/format-usb.html">Format a usb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/gif.html">Create a fig from jpegs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/gnome-settings-on-xmonad.html">Open gnome settings on Xmonad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/hibernate.html">Hibernate using a swap partition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate.html#configure-grub">Configure GRUB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate.html#hibernate">Hibernate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html">Hibernate using a swap file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html#before-you-begin">Before you begin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux/resize-partition.html">[Optional] Shrink parition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux/swap-partition.html">Create a swap parition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux/hibernate.html">Configure hibernate using swap parition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linux/hibernate.html#configure-grub">Configure GRUB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linux/hibernate.html#hibernate">Hibernate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html#configure-grub">Configure GRUB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html#uswsusp">USWSUSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/increase-swap-size.html">Increase swap size</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/memory-usage.html">Track Memory Usage of a Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/ram-size.html">What is the RAM size?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/resize-partition.html">Resize the mounted parition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/sound.html">Sound</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/sound.html#pavucontrol">pavucontrol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/sound.html#alsamixer">alsamixer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/sudo-editor.html">Default editor for sudo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/swap-partition.html">Use the swap partition instead of the swap file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/swap-space.html">Swap space</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/swap-space.html#create-a-swap-partition">Create a swap partition?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/swap-space.html#increase-the-swap-file-size">Increase the swap file size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/swap-space.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/tapclick.html">Tap click not working</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/touchscreent.html">Calibrate the touch input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/upgrade-ubuntu.html">Upgrade Ubuntu Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/vm.html">Virtual Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/wifi.html">Wifi</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="linux/bind-mount.html" class="btn btn-neutral float-right" title="Bind mount" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kubernetes/loadbalancer.html" class="btn btn-neutral float-left" title="Load Balancer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ahmad Nazir Raja
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

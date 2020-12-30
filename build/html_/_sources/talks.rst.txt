@@ -1,0 +1,7 @@
+Talks
+=====
+
+.. toctree::
+   :glob:
+
+   talks/*

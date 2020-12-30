@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to Quantitative Modeling &mdash; Scribbles 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C #" href="../csharp.html" />
+    <link rel="prev" title="Introduction to Financial Accounting" href="intro-to-financial-accounting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Scribbles
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../courses.html">Courses</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="financial-markets.html">Financial Markets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro-to-financial-accounting.html">Introduction to Financial Accounting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction to Quantitative Modeling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linear-models-and-optimization">Linear Models and Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intro-to-probabilistic-models">Intro to Probabilistic Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#probability-distributions">Probability Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#introduction-to-regression-model">Introduction to Regression Model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scribbles</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../courses.html">Courses</a> &raquo;</li>
+        
+      <li>Introduction to Quantitative Modeling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/courses/quantitative-modeling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-quantitative-modeling">
+<h1>Introduction to Quantitative Modeling<a class="headerlink" href="#introduction-to-quantitative-modeling" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Offered By:</th><td class="field-body">Wharton, University of Pennsylvania</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Website:</th><td class="field-body"><a class="reference external" href="https://www.coursera.org/learn/wharton-quantitative-modeling">https://www.coursera.org/learn/wharton-quantitative-modeling</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hours required:</th><td class="field-body">7</td>
+</tr>
+</tbody>
+</table>
+<p>The modeling activity is an iterative process.</p>
+<p>Different types of models:</p>
+<ul class="simple">
+<li>Linear</li>
+<li>Power</li>
+<li>Exponential</li>
+<li>Logarithmic</li>
+</ul>
+<p>Models are never exactly right - but they can be useful.</p>
+<p>Models approximate the reality so they help with forecasting, predictions, optimizations, etc.</p>
+<div class="section" id="linear-models-and-optimization">
+<h2>Linear Models and Optimization<a class="headerlink" href="#linear-models-and-optimization" title="Permalink to this headline">¶</a></h2>
+<p>Linear models are building blocks of all models - the simplest function.</p>
+<p><strong>Optimization</strong>: Which set of inputs give you the maximum or minimum of the output?</p>
+<p>In this course, it is done using a classical technique i.e. using calculus.</p>
+<p>Minima/maxima using calculus can be found by calculating a derivative of function f(x) and equating it to 0 to find x, or briefly: what is the value of x when f’(x) = 0.
+Example: If we have profit and price, then profit is maximized when the rate of change of profit with respect to price is 0.</p>
+<p>Another technique that uses linear functions and works with constraints is <strong>Linear Programming (LP)</strong>:</p>
+<ul class="simple">
+<li>Used to solve optimization problems</li>
+<li>Incorporates constraints</li>
+</ul>
+<p><strong>Present and Future Value</strong>
+Time value of Money!
+We need to create a time base line to compare value i.e. either convert to future value or convert to present value.</p>
+<p>“An <strong>annuity</strong> is a schedule of fixed payments, over a specified and finite time period.”</p>
+<p>“And so, to value an annuity, you need to do a present value calculation. You basically create the present value of each of the installments and sum up those present values, and that gives you the present value of an annuity.”</p>
+<p>Discounting is also used for comparing customers. Customers will generate different revenue at different times so if we need an apples to apples comparison, we need to discount the revenue / calculate the present value for the money and compare the customers.</p>
+<p><strong>Continuous Time Growth Function</strong>: if there are no intervals and growth is compounded, then we reach the limit <em>e</em> used as a constant in the growth function.</p>
+<p><strong>Nominal Value</strong>: Original, unadjusted value.</p>
+<p><strong>Price Elasticity</strong>: “.. is the degree to which the effective desire for something changes as its price changes” <a class="reference external" href="https://en.wikipedia.org/wiki/Price_elasticity_of_demand">https://en.wikipedia.org/wiki/Price_elasticity_of_demand</a></p>
+</div>
+<div class="section" id="intro-to-probabilistic-models">
+<h2>Intro to Probabilistic Models<a class="headerlink" href="#intro-to-probabilistic-models" title="Permalink to this headline">¶</a></h2>
+<p>Require <strong>random variables</strong> and <strong>probability distributions</strong>.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li>Regression Models</li>
+<li>Probability Trees</li>
+<li>Monte Carlo simulation</li>
+<li>Markov Models (dynamic model, looking at a process through various states)</li>
+</ul>
+<p><strong>Regression</strong>: “Regression is a statistical method used in finance, investing, and other disciplines that attempts to determine the strength and character of the relationship between one dependent variable (usually denoted by Y) and a series of other variables (known as independent variables).” <a class="reference external" href="https://www.investopedia.com/terms/r/regression.asp#:~:text=Regression%20is%20a%20statistical%20method,(known%20as%20independent%20variables).">Investopedia</a></p>
+<p>“The word ‘regression’ was used to Sir Francis Galton to describe the relationship between heights of parents and their children. Tall parents tend to have tall children, but shorter than themselves while short parents tend to have short children, but taller than themselves. He called this ‘regression towards mediocrity’. This is known as the ‘regression effect’ and generally applies to a regression when both explanatory and response variables are repeated measurements on the same object (in this case families). The strange thing is that we can exchange the words ‘parents’ and ‘children’ so, for example, tall children tend to have shorter parents and tall parents tend to have shorter children.” <a class="reference external" href="https://qr.ae/pN2io0">https://qr.ae/pN2io0</a></p>
+<p><strong>Probability Tree</strong>: Example, notice program to deter from sharing illegal content.</p>
+<p><strong>Markov Chain Models</strong>: Give a probability to every state change. Markov proper is lack of memory i.e. decisions are only based on the current state and not the previous states.</p>
+</div>
+<div class="section" id="probability-distributions">
+<h2>Probability Distributions<a class="headerlink" href="#probability-distributions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Bernoulli Distribution</strong>
+The most elemental of all distributions. The Bernoulli random variable X can one of two values.
+It is a building block of other distributions
+Example: customer buys or doesn’t buy the product.</p>
+<p><strong>Binomial Distribution</strong>
+Binomial random variable is the sum of n independent trials.</p>
+<p><strong>Normal Distribution</strong>
+Characterized by mean and standard deviation.</p>
+<dl class="docutils">
+<dt><strong>Empirical Rule</strong>: If you believe that the underlying process or data can be</dt>
+<dd>well-approximated with a normal distribution, then it helps to calculate
+probabilities. One sd, is 60%, Two sd is 95% and 3 sd is 99.7%.</dd>
+</dl>
+<p><strong>Z-score</strong>: How many sd something is away from the mean? Z = (value - mean) / sd</p>
+</div>
+<div class="section" id="introduction-to-regression-model">
+<h2>Introduction to Regression Model<a class="headerlink" href="#introduction-to-regression-model" title="Permalink to this headline">¶</a></h2>
+<p>Simple linear model: y = mx + b, but using a different notation for <strong>Expected value of Y given X</strong>:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">E</span><span class="p">(</span><span class="n">Y</span><span class="o">|</span><span class="n">X</span><span class="p">)</span> <span class="o">=</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">b1</span> <span class="n">X</span>
+</pre></div>
+</div>
+<p>This helps with multiple regression (many predictors) with multiple Xs so we need b2, b3, etc.</p>
+<p><strong>Correlation</strong>: -1 &lt; r &lt; 1. 0 Means no ‘linear’ correlation.
+How to calculate it?</p>
+<p><strong>Residuals</strong> (distance from the line to the actual data point) are an important part of the regression model. They can provide us with insight as to how we should update our model, what other predictors we need to incorporate to better fit the data.</p>
+<p><strong>Summarizing a linear regression</strong>: Two number summaries are:</p>
+<ul class="simple">
+<li><strong>R²</strong>: Proportion of variability and Y explained by X. Higher value is better. Measured in %. It is not an absolute summary (no units) but should be used for comparisons.</li>
+<li><strong>RMSE (Root Mean Squared Error)</strong>: Measures the standard deviation of the residuals. It has the units of Y. Lower values are preferable i.e. less deviation.</li>
+</ul>
+<p><em>How to approximate 95% prediction interval for a new observation</em>:
+- If the observation is within the range of the data (so as long as we are interpolating) that was used for the linear regression, and
+- relying on the empirical rule
+- then getting a 95% prediction interval will be 2 * sd i.e.</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>Predecition = ±2*RMSE
+</pre></div>
+</div>
+<p><strong>Regression equation for the log-log model</strong>: Expected log of Sales:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>E(log(Sales) | Price) = b₀ + b₁log(Price)
+</pre></div>
+</div>
+<p><strong>Linear vs Logistic Regression</strong>: Linear regression is used when the output is continuous. For discrete output or more specifically a dichotomous output, we use logistic regression. E.g. yes/no outcome i.e. bernoulli random variable.</p>
+<p>Logistic regrssion fits the data like a ‘S’ shaped curve giving us the outcomes between 0 to 1 probabilities.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../csharp.html" class="btn btn-neutral float-right" title="C #" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro-to-financial-accounting.html" class="btn btn-neutral float-left" title="Introduction to Financial Accounting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ahmad Nazir Raja
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
