@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Writing a DSL &mdash; Scribbles 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Graphing (n more) Libraries" href="graphs.html" />
+    <link rel="prev" title="conj" href="conj.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Scribbles
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../clojure.html">Clojure</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="babashka.html">Babashka</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clj-tools.html">clj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojars.html">Clojars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure-runner.html">Clojure runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections-vs-sequences.html">Collections vs Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html">Clojure compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="composition.html">Function composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conj.html">conj</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing a DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphs.html">Graphing (n more) Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterate-hashmap.html">Iterate a hash map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lein.html">Leiningen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map-indexed.html">How to <cite>map</cite> while retaining the index?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-dependency-graph.html">Generate project dependency graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflection.html">Reflection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spacemacs.html">Spacemacs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unmap-symbol.html">Unmap a symbol from a namespace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scribbles</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../clojure.html">Clojure</a> &raquo;</li>
+        
+      <li>Writing a DSL</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/clojure/dsl.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-a-dsl">
+<h1>Writing a DSL<a class="headerlink" href="#writing-a-dsl" title="Permalink to this headline">¶</a></h1>
+<p>Let us make a calculator that would evaluate expressions like:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Dependencies:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">instaparse</span> <span class="s2">&quot;1.4.10&quot;</span><span class="p">]</span>
+<span class="p">[</span><span class="n">org</span><span class="o">.</span><span class="n">clojure</span><span class="o">/</span><span class="n">core</span><span class="o">.</span><span class="n">match</span> <span class="s2">&quot;0.3.0-alpha5&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Update required libs:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">instaparse</span><span class="o">.</span><span class="n">core</span> <span class="p">:</span><span class="k">as</span> <span class="n">insta</span><span class="p">]</span>
+<span class="p">[</span><span class="n">clojure</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">match</span> <span class="p">:</span><span class="n">refer</span> <span class="p">[</span><span class="n">match</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Write the grammar as BNF (in the root of the project):</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EXPR</span> <span class="p">:</span><span class="o">=</span> <span class="n">NUMBER</span> <span class="o">&lt;</span><span class="n">ws</span><span class="o">*&gt;</span> <span class="n">OP</span> <span class="o">&lt;</span><span class="n">ws</span><span class="o">*&gt;</span> <span class="n">NUMBER</span>
+
+<span class="n">OP</span> <span class="p">:</span><span class="o">=</span> <span class="n">ADD</span> <span class="o">|</span> <span class="n">SUB</span>
+
+<span class="n">ADD</span> <span class="p">:</span><span class="o">=</span>  <span class="s2">&quot;+&quot;</span>
+<span class="n">SUB</span> <span class="p">:</span><span class="o">=</span>  <span class="s2">&quot;-&quot;</span>
+<span class="n">NUMBER</span> <span class="p">:</span><span class="o">=</span>  <span class="c1">#&quot;[0-9]+&quot;</span>
+
+<span class="n">ws</span> <span class="p">:</span><span class="o">=</span> <span class="c1">#&#39;\s+&#39;   (* whitespace *)</span>
+</pre></div>
+</div>
+<p>Parse the grammar:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def</span> <span class="nf">parse</span> <span class="p">(</span><span class="o">-&gt;&gt;</span> <span class="p">(</span><span class="n">System</span><span class="o">/</span><span class="n">getProperty</span> <span class="s2">&quot;user.dir&quot;</span><span class="p">)</span>
+                <span class="p">(</span><span class="nb">format</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/grammar.bnf&quot;</span> <span class="p">)</span>
+                <span class="n">slurp</span>
+                <span class="n">insta</span><span class="o">/</span><span class="n">parser</span>
+                <span class="p">))</span>
+</pre></div>
+</div>
+<p>Test it:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">parse</span> <span class="s2">&quot;1 + 2&quot;</span><span class="p">)</span>
+<span class="p">;;</span> <span class="p">[:</span><span class="n">EXPR</span> <span class="p">[:</span><span class="n">NUMBER</span> <span class="mi">1</span><span class="p">]</span> <span class="p">[:</span><span class="n">OP</span> <span class="p">[:</span><span class="n">ADD</span> <span class="o">+</span><span class="p">]]</span> <span class="p">[:</span><span class="n">NUMBER</span> <span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Generate the ast:</p>
+<div class="code clojure highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">defn</span> <span class="n">evaluate</span>
+  <span class="s2">&quot;Convert parse tree to abstract syntax tree&quot;</span>
+  <span class="p">[</span><span class="n">parsed</span><span class="p">]</span>
+  <span class="p">(</span><span class="n">match</span> <span class="n">parsed</span> <span class="p">[:</span><span class="n">EXPR</span> <span class="p">[:</span><span class="n">NUMBER</span> <span class="n">l</span><span class="p">]</span> <span class="p">[:</span><span class="n">OP</span> <span class="n">op</span><span class="p">]</span> <span class="p">[:</span><span class="n">NUMBER</span> <span class="n">r</span><span class="p">]]</span> <span class="p">(</span><span class="o">+</span> <span class="p">(</span><span class="n">read</span><span class="o">-</span><span class="n">string</span> <span class="n">l</span><span class="p">)</span> <span class="p">(</span><span class="n">read</span><span class="o">-</span><span class="n">string</span> <span class="n">r</span><span class="p">)</span> <span class="p">)</span> <span class="p">;;</span> <span class="n">hardcode</span> <span class="n">the</span> <span class="n">operator</span>
+         <span class="p">:</span><span class="k">else</span>  <span class="p">{:</span><span class="n">error</span> <span class="p">(</span><span class="nb">format</span> <span class="s2">&quot;Matching rules incomplete for: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="n">parsed</span><span class="p">)}</span>
+         <span class="p">))</span>
+</pre></div>
+</div>
+<p>Evaluate:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">-&gt;&gt;</span> <span class="s2">&quot;1 + 2&quot;</span>
+     <span class="n">parse</span>
+     <span class="n">evaluate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="graphs.html" class="btn btn-neutral float-right" title="Graphing (n more) Libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conj.html" class="btn btn-neutral float-left" title="conj" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ahmad Nazir Raja
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
