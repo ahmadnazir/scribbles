@@ -86,42 +86,50 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai.html">AI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database.html">Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../shell.html">Shell</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">awk</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#get-the-nth-column">Get the nth column</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#specify-a-delimier">Specify a delimier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#unbuffered-output">Unbuffered output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maintaining-column-alignment">Maintaining column alignment</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="bash-assignment.html">Variable assignment in bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditions.html">Conditionals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generate-a-uuid.html">Generate a UUID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-path.html">Get real path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image-grayscale.html">Convert images to gray scale</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jwt-decode.html">Decode a jwt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loop.html">Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parallel.html">parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="press-to-continue.html">Press enter to continue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sed.html">sed</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
 </ul>
 
             
@@ -215,6 +223,10 @@
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">nginx</span><span class="o">.</span><span class="n">log</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{print $4 &quot; &quot; $9; fflush(stdout)}&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/.//&#39;</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="maintaining-column-alignment">
+<h2>Maintaining column alignment<a class="headerlink" href="#maintaining-column-alignment" title="Permalink to this headline">¶</a></h2>
+<p>Check out the <cite>split</cite> function in <cite>awk</cite>. Here is a good discussion: <a class="reference external" href="https://stackoverflow.com/a/20836890/1589512">https://stackoverflow.com/a/20836890/1589512</a></p>
 </div>
 </div>
 

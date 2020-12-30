@@ -12,7 +12,8 @@ Consider the following:
 
 .. code::
 
-   A <|-- B
+   A o-- B
+
 
 In aggregation, `B` can live independently whereas in composition it can't. So, composition is stronger than aggregation. 
 

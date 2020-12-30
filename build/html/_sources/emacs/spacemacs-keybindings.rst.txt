@@ -15,3 +15,9 @@ Custom
 `SPC o o i` Clock in (for the selected note)
 `SPC o o o` Clock out
 `SPC o o r` Generate the report
+
+Compile / Custom Command for Current Buffer
+-------------------------------------------
+
+`SPC c C` Specify the compile/custom command
+`SPC c r` Re-run the compile/custom command

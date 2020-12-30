@@ -32,6 +32,8 @@ Rhizome
 
 Seems quite popular
 
+Also, you can group nodes together.
+
 ubergraph
 ---------
 

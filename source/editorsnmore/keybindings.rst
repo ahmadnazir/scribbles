@@ -22,9 +22,11 @@ Search
 File
 ----
 
-:Previous file:
-:Next file:
+:Previous file: SPC b p
+:Next file: SPC b f
 :Close file: SPC b d
+:File path: SPC f y
+:sudo-edit: SPC f E
 
 Debug
 -----
@@ -34,4 +36,4 @@ Debug
 :Toggle breakpoint: , d d
 
 :Next error: SPC e n
-:Show errors: , g e
+:Go to errors: , g e

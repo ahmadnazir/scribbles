@@ -21,28 +21,31 @@ Content
    :maxdepth: 2
 
    (Spac)emacs <emacs>
-   business
    Package Management <provision>
    ReStructuredText Markup <restructuredtext>
    Visual studio <visualstudio>
    agile
+   ai
    azure
+   business
    clojure
    clojurescript
+   courses
    csharp
    database
    documentation
    dotnet
-   java
    git
    identity
+   java
    kubernetes
    linux
+   misc
    networking
    shell
    testing
    web
-   misc
+   people
 
 ..
    Indices and tables

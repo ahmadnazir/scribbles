@@ -1,6 +1,8 @@
 Keybindings
 ===========
 
+:Sudo edit: SPC f E
+
 .. code::
 
    (spacemacs/declare-prefix "o" "custom")

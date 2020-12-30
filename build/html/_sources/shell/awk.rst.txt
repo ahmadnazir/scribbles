@@ -36,3 +36,9 @@ In the following example, `sed` is used to remove the first character from the o
 .. code::
 
    tail -f nginx.log | awk '{print $4 " " $9; fflush(stdout)}' | sed 's/.//'
+
+
+Maintaining column alignment
+----------------------------
+
+Check out the `split` function in `awk`. Here is a good discussion: https://stackoverflow.com/a/20836890/1589512
