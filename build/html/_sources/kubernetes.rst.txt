@@ -1,7 +1,0 @@
-Kubernetes
-==========
-
-.. toctree::
-   :glob:
-
-   kubernetes/*
