@@ -52,7 +52,6 @@ Content
    talks
    testing
    web
-   people
 
 ..
    Indices and tables
