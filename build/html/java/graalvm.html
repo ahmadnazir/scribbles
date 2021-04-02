@@ -1,40 +1,51 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>GraalVM &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: ''
+          };
+      </script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Maven" href="maven.html" />
     <link rel="prev" title="Java" href="../java.html" /> 
 </head>
@@ -77,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,7 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../java.html">Java</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GraalVM</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">GraalVM</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#install-native-image">Install native-image</a></li>
 </ul>
 </li>
@@ -117,19 +129,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -164,11 +177,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../java.html">Java</a> &raquo;</li>
         
@@ -177,8 +192,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="../_sources/java/graalvm.rst.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/java/graalvm.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,16 +211,16 @@
 <div class="section" id="install-native-image">
 <h2>Install native-image<a class="headerlink" href="#install-native-image" title="Permalink to this headline">¶</a></h2>
 <p>From <a class="reference external" href="https://github.com/taylorwood/clj.native-image">https://github.com/taylorwood/clj.native-image</a></p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">zxvf</span> <span class="n">graalvm</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">-</span><span class="mf">19.3</span><span class="o">.</span><span class="mf">1.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-<span class="n">cd</span> <span class="n">graalvm</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">-</span><span class="mf">19.3</span><span class="o">.</span><span class="mi">1</span>
-<span class="o">./</span><span class="nb">bin</span><span class="o">/</span><span class="n">gu</span> <span class="n">install</span> <span class="n">native</span><span class="o">-</span><span class="n">image</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">PATH_TO</span><span class="o">/</span><span class="n">graalvm</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="mf">19.3</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">native</span><span class="o">-</span><span class="n">image</span> <span class="n">native</span><span class="o">-</span><span class="n">image</span>
-<span class="n">which</span> <span class="n">native</span><span class="o">-</span><span class="n">image</span>
-<span class="n">native</span><span class="o">-</span><span class="n">image</span> <span class="o">--</span><span class="n">version</span>
+<div class="code highlight-python"><div class="highlight"><pre>tar zxvf graalvm-ce-java8-linux-amd64-19.3.1.tar.gz
+cd graalvm-ce-java8-linux-amd64-19.3.1
+./bin/gu install native-image
+ln -s /PATH_TO/graalvm-ce-java8-19.3.1/bin/native-image native-image
+which native-image
+native-image --version
 </pre></div>
 </div>
 <p>Compile a clojure deps.edn project configured for native image:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clj</span> <span class="o">-</span><span class="n">A</span><span class="p">:</span><span class="n">native</span><span class="o">-</span><span class="n">image</span>
+<div class="code highlight-python"><div class="highlight"><pre>clj -A:native-image
 </pre></div>
 </div>
 </div>
@@ -216,29 +231,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="maven.html" class="btn btn-neutral float-right" title="Maven" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../java.html" class="btn btn-neutral float-left" title="Java" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="maven.html" class="btn btn-neutral float-right" title="Maven" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../java.html" class="btn btn-neutral float-left" title="Java" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Ahmad Nazir Raja
+        &#169; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -246,7 +261,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

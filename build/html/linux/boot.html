@@ -1,40 +1,51 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Boot &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: ''
+          };
+      </script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Connect to a windows machine" href="connect-windows.html" />
     <link rel="prev" title="Bind mount" href="bind-mount.html" /> 
 </head>
@@ -77,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -107,7 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../linux.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bind-mount.html">Bind mount</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Boot</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Boot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#grub">Grub</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#resume-after-hibernate">Resume after hibernate</a></li>
 </ul>
@@ -125,6 +137,7 @@
 <li class="toctree-l2"><a class="reference internal" href="hibernate-swapfile-FAIL.html">Hibernate using a swap file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="increase-swap-size.html">Increase swap size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-arch.html">Install Arch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory-usage.html">Track Memory Usage of a Process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ram-size.html">What is the RAM size?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resize-partition.html">Resize the mounted parition</a></li>
@@ -143,19 +156,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -190,11 +204,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../linux.html">Linux</a> &raquo;</li>
         
@@ -203,8 +219,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="../_sources/linux/boot.rst.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/linux/boot.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -225,7 +241,7 @@
 <h1>Grub<a class="headerlink" href="#grub" title="Permalink to this headline">¶</a></h1>
 <p>GRand Unified Bootloader</p>
 <p>Kernel params can be passed using the following in</p>
-<p>GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash NAME=VALUE”</p>
+<p>GRUB_CMDLINE_LINUX_DEFAULT=&#8221;quiet splash NAME=VALUE&#8221;</p>
 <div class="section" id="resume-after-hibernate">
 <h2>Resume after hibernate<a class="headerlink" href="#resume-after-hibernate" title="Permalink to this headline">¶</a></h2>
 <p>Use <cite>resume=UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0</cite></p>
@@ -234,21 +250,21 @@
 </div>
 <div class="section" id="initramfs">
 <h1>initramfs<a class="headerlink" href="#initramfs" title="Permalink to this headline">¶</a></h1>
-<p>“Once the Linux kernel has control over the system (which it gets after being loaded by the boot loader), it prepares its memory structures and drivers. It then hands over control to an application (usually init) whose task it is to further prepare the system and make sure that, at the end of the boot process, all necessary services are running and the user is able to log on…”
+<p>&#8220;Once the Linux kernel has control over the system (which it gets after being loaded by the boot loader), it prepares its memory structures and drivers. It then hands over control to an application (usually init) whose task it is to further prepare the system and make sure that, at the end of the boot process, all necessary services are running and the user is able to log on...&#8221;
 <a class="reference external" href="https://wiki.gentoo.org/wiki/Initramfs/Guide">Initramfs Guid - Linux boot process</a></p>
-<p>If grub is configured to resume from e.g. UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0, then initramfs must be configured to resume from the same. This doesn’t have to be configured explicitly as <cite>update-initramfs</cite> figures it out automatically:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">initramfs</span> <span class="o">-</span><span class="n">u</span> <span class="o">-</span><span class="n">k</span> <span class="nb">all</span>
+<p>If grub is configured to resume from e.g. UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0, then initramfs must be configured to resume from the same. This doesn&#8217;t have to be configured explicitly as <cite>update-initramfs</cite> figures it out automatically:</p>
+<div class="code highlight-python"><div class="highlight"><pre>sudo update-initramfs -u -k all
 
-<span class="n">I</span><span class="p">:</span> <span class="n">The</span> <span class="n">initramfs</span> <span class="n">will</span> <span class="n">attempt</span> <span class="n">to</span> <span class="n">resume</span> <span class="kn">from</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p3</span>
-<span class="n">I</span><span class="p">:</span> <span class="p">(</span><span class="n">UUID</span><span class="o">=</span><span class="mi">0</span><span class="n">b784ace</span><span class="o">-</span><span class="n">b11c</span><span class="o">-</span><span class="mf">4e78</span><span class="o">-</span><span class="mi">9</span><span class="n">a90</span><span class="o">-</span><span class="n">e4601d6a03c0</span><span class="p">)</span>
-<span class="n">I</span><span class="p">:</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">RESUME</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">override</span> <span class="n">this</span><span class="o">.</span>
+I: The initramfs will attempt to resume from /dev/nvme0n1p3
+I: (UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0)
+I: Set the RESUME variable to override this.
 </pre></div>
 </div>
 <p>However, to avoid this message, you can create a file with the contents:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">initramfs</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">resume</span> <span class="o">&amp;&amp;</span> \
-<span class="n">echo</span> <span class="n">RESUME</span><span class="o">=</span><span class="n">UUID</span><span class="o">=</span><span class="mi">0</span><span class="n">b784ace</span><span class="o">-</span><span class="n">b11c</span><span class="o">-</span><span class="mf">4e78</span><span class="o">-</span><span class="mi">9</span><span class="n">a90</span><span class="o">-</span><span class="n">e4601d6a03c0</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">initramfs</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">resume</span>
+<div class="code highlight-python"><div class="highlight"><pre>cat /etc/initramfs-tools/conf.d/resume &amp;&amp; \
+echo RESUME=UUID=0b784ace-b11c-4e78-9a90-e4601d6a03c0 | sudo tee /etc/initramfs-tools/conf.d/resume
 
-<span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">initramfs</span> <span class="o">-</span><span class="n">u</span> <span class="o">-</span><span class="n">k</span> <span class="nb">all</span>
+sudo update-initramfs -u -k all
 </pre></div>
 </div>
 </div>
@@ -258,29 +274,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="connect-windows.html" class="btn btn-neutral float-right" title="Connect to a windows machine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="bind-mount.html" class="btn btn-neutral float-left" title="Bind mount" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="connect-windows.html" class="btn btn-neutral float-right" title="Connect to a windows machine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bind-mount.html" class="btn btn-neutral float-left" title="Bind mount" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Ahmad Nazir Raja
+        &#169; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -288,7 +304,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

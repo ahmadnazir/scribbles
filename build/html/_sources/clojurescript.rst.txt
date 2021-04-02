@@ -1,7 +1,0 @@
-Clojurescript
-=============
-
-.. toctree::
-   :glob:
-
-   clojurescript/*

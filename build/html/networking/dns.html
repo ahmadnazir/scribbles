@@ -1,40 +1,51 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Name resolution &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: ''
+          };
+      </script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="What is my public IP?" href="my-ip.html" />
     <link rel="prev" title="Check for open port" href="check-port.html" /> 
 </head>
@@ -77,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -109,7 +121,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../networking.html">Networking</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="check-port.html">Check for open port</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Name resolution</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Name resolution</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#how-is-information-stored-in-a-dns-server">How is information stored in a DNS server?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#finding-dns-records">Finding DNS records</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#add-to-list-of-dns-servers">Add to list of DNS servers</a></li>
@@ -123,19 +135,20 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -170,11 +183,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../networking.html">Networking</a> &raquo;</li>
         
@@ -183,8 +198,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="../_sources/networking/dns.rst.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/networking/dns.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -204,53 +219,53 @@
 <p>Information is stored in the form of <strong>DNS records</strong>. There are different types of records and some of them required for our discussion are mentioned below:</p>
 <p><em>A</em></p>
 <p>Map a name to an IP adderss e.g.</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">acme</span><span class="o">.</span><span class="n">com</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span>
+<div class="code highlight-python"><div class="highlight"><pre>acme.com -&gt; x.x.x.x
 </pre></div>
 </div>
 <p>The same name can point to different ip addresses e.g:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">acme</span><span class="o">.</span><span class="n">com</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span>
-<span class="n">acme</span><span class="o">.</span><span class="n">com</span> <span class="o">-&gt;</span> <span class="n">y</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">y</span>
+<div class="code highlight-python"><div class="highlight"><pre>acme.com -&gt; x.x.x.x
+acme.com -&gt; y.y.y.y
 </pre></div>
 </div>
 <p>_is the above round robined?_</p>
 <p><em>CNAME</em></p>
 <p>Map a name to another name e.g.</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blog</span><span class="o">.</span><span class="n">acme</span><span class="o">.</span><span class="n">com</span> <span class="o">-&gt;</span> <span class="n">acme</span><span class="o">.</span><span class="n">com</span>
+<div class="code highlight-python"><div class="highlight"><pre>blog.acme.com -&gt; acme.com
 </pre></div>
 </div>
 <p>There should be only one such mapping. Mapping two names to the same name is not
 allowed but you can create a chain of cnames:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eng</span><span class="o">.</span><span class="n">blog</span><span class="o">.</span><span class="n">acme</span><span class="o">.</span><span class="n">com</span> <span class="o">-&gt;</span> <span class="n">blog</span><span class="o">.</span><span class="n">acme</span><span class="o">.</span><span class="n">com</span>
-<span class="n">blog</span><span class="o">.</span><span class="n">acme</span><span class="o">.</span><span class="n">com</span>     <span class="o">-&gt;</span> <span class="n">acme</span><span class="o">.</span><span class="n">com</span>
+<div class="code highlight-python"><div class="highlight"><pre>eng.blog.acme.com -&gt; blog.acme.com
+blog.acme.com     -&gt; acme.com
 </pre></div>
 </div>
 </div>
 <div class="section" id="finding-dns-records">
 <h2>Finding DNS records<a class="headerlink" href="#finding-dns-records" title="Permalink to this headline">¶</a></h2>
 <p>2 tools come to mind: <cite>dig</cite> and <cite>nslookup</cite>.</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="n">acme</span><span class="o">.</span><span class="n">com</span>
+<div class="code highlight-python"><div class="highlight"><pre>dig acme.com
 </pre></div>
 </div>
 <p>The default dns name used is in <cite>/etc/resolv.conf</cite></p>
 <p>However, you can overwrite the DNS server to use for querying a domain name e.g.
-if you explicitly want Google’s DNS server <cite>8.8.8.8</cite> to fetch information from,
+if you explicitly want Google&#8217;s DNS server <cite>8.8.8.8</cite> to fetch information from,
 then use can specify it as:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig</span> <span class="o">@</span><span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span> <span class="n">acme</span><span class="o">.</span><span class="n">com</span>
+<div class="code highlight-python"><div class="highlight"><pre>dig @8.8.8.8 acme.com
 </pre></div>
 </div>
 <p>With <cite>nslookup</cite>:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the default server</span>
-<span class="n">nslookup</span> <span class="n">acme</span><span class="o">.</span><span class="n">com</span>
+<div class="code highlight-python"><div class="highlight"><pre># use the default server
+nslookup acme.com
 
-<span class="c1"># explicitly specify a server</span>
-<span class="n">nslookup</span> <span class="n">acme</span><span class="o">.</span><span class="n">com</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span>
+# explicitly specify a server
+nslookup acme.com 8.8.8.8
 </pre></div>
 </div>
 </div>
 <div class="section" id="add-to-list-of-dns-servers">
 <h2>Add to list of DNS servers<a class="headerlink" href="#add-to-list-of-dns-servers" title="Permalink to this headline">¶</a></h2>
 <p>Add or update <cite>/etc/resolv.conf</cite>:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nameserver</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span>
+<div class="code highlight-python"><div class="highlight"><pre>nameserver 8.8.8.8
 </pre></div>
 </div>
 </div>
@@ -265,29 +280,29 @@ then use can specify it as:</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="my-ip.html" class="btn btn-neutral float-right" title="What is my public IP?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="check-port.html" class="btn btn-neutral float-left" title="Check for open port" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="my-ip.html" class="btn btn-neutral float-right" title="What is my public IP?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="check-port.html" class="btn btn-neutral float-left" title="Check for open port" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Ahmad Nazir Raja
+        &#169; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -295,7 +310,6 @@ then use can specify it as:</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

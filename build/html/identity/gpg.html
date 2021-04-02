@@ -1,40 +1,51 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>GPG &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: ''
+          };
+      </script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="OAuth 2.0 vs OpenID Connect" href="oauth-vs-openidconnect.html" />
     <link rel="prev" title="Identity" href="../identity.html" /> 
 </head>
@@ -77,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -102,7 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../identity.html">Identity</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GPG</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">GPG</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-new-gpg-key">Create a new gpg key</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-to-upload-it">How to upload it?</a></li>
 </ul>
@@ -119,19 +131,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -166,11 +179,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../identity.html">Identity</a> &raquo;</li>
         
@@ -179,8 +194,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="../_sources/identity/gpg.rst.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/identity/gpg.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -197,11 +212,11 @@
 <h1>GPG<a class="headerlink" href="#gpg" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="create-a-new-gpg-key">
 <h2>Create a new gpg key<a class="headerlink" href="#create-a-new-gpg-key" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="n">default</span><span class="o">-</span><span class="n">new</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="n">algo</span> <span class="n">rsa4096</span> <span class="o">--</span><span class="n">gen</span><span class="o">-</span><span class="n">key</span>
+<div class="code highlight-python"><div class="highlight"><pre>gpg --default-new-key-algo rsa4096 --gen-key
 </pre></div>
 </div>
 <p>For me, it looked like:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
+<div class="code highlight-python"><div class="highlight"><pre>gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
@@ -235,54 +250,54 @@ uid
 <div class="section" id="how-to-upload-it">
 <h2>How to upload it?<a class="headerlink" href="#how-to-upload-it" title="Permalink to this headline">¶</a></h2>
 <p>List all the keys:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">-</span><span class="n">K</span> <span class="o">--</span><span class="n">keyid</span><span class="o">-</span><span class="nb">format</span> <span class="n">long</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">colons</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">fingerprint</span>
+<div class="code highlight-python"><div class="highlight"><pre>gpg -K --keyid-format long --with-colons --with-fingerprint
 
-<span class="n">gpg</span><span class="p">:</span> <span class="n">checking</span> <span class="n">the</span> <span class="n">trustdb</span>
-<span class="n">gpg</span><span class="p">:</span> <span class="n">marginals</span> <span class="n">needed</span><span class="p">:</span> <span class="mi">3</span>  <span class="n">completes</span> <span class="n">needed</span><span class="p">:</span> <span class="mi">1</span>  <span class="n">trust</span> <span class="n">model</span><span class="p">:</span> <span class="n">pgp</span>
-<span class="n">gpg</span><span class="p">:</span> <span class="n">depth</span><span class="p">:</span> <span class="mi">0</span>  <span class="n">valid</span><span class="p">:</span>   <span class="mi">1</span>  <span class="n">signed</span><span class="p">:</span>   <span class="mi">0</span>  <span class="n">trust</span><span class="p">:</span> <span class="mi">0</span><span class="o">-</span><span class="p">,</span> <span class="mi">0</span><span class="n">q</span><span class="p">,</span> <span class="mi">0</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="n">u</span>
-<span class="n">gpg</span><span class="p">:</span> <span class="nb">next</span> <span class="n">trustdb</span> <span class="n">check</span> <span class="n">due</span> <span class="n">at</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span>
-<span class="n">sec</span><span class="p">:</span><span class="n">u</span><span class="p">:</span><span class="mi">4096</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">E28E7DA5BE1BAEBF</span><span class="p">:</span><span class="mi">1569933698</span><span class="p">:</span><span class="mi">1633005698</span><span class="p">::</span><span class="n">u</span><span class="p">:::</span><span class="n">scSC</span><span class="p">:::</span><span class="o">+</span><span class="p">:::</span><span class="mi">23</span><span class="p">::</span><span class="mi">0</span><span class="p">:</span>
-<span class="n">fpr</span><span class="p">:::::::::</span><span class="mi">1</span><span class="n">F7BFED782E9E540432E3F48E28E7DA5BE1BAEBF</span><span class="p">:</span>
-<span class="n">grp</span><span class="p">:::::::::</span><span class="mi">45</span><span class="n">D28293F15DFB2DE4663E44DEA18F4F33C92699</span><span class="p">:</span>
-<span class="n">uid</span><span class="p">:</span><span class="n">u</span><span class="p">::::</span><span class="mi">1569933698</span><span class="p">::</span><span class="mf">1E30</span><span class="n">CAFF6B377D6AA40084AD05AB03C0642341C6</span><span class="p">::</span><span class="n">Ahmad</span> <span class="n">Nazir</span> <span class="n">Raja</span> <span class="o">&lt;</span><span class="n">ahmadnazir</span><span class="nd">@gmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="p">::::::::::</span><span class="mi">0</span><span class="p">:</span>
+gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: next trustdb check due at 2021-09-30
+sec:u:4096:1:E28E7DA5BE1BAEBF:1569933698:1633005698::u:::scSC:::+:::23::0:
+fpr:::::::::1F7BFED782E9E540432E3F48E28E7DA5BE1BAEBF:
+grp:::::::::45D28293F15DFB2DE4663E44DEA18F4F33C92699:
+uid:u::::1569933698::1E30CAFF6B377D6AA40084AD05AB03C0642341C6::Ahmad Nazir Raja &lt;ahmadnazir@gmail.com&gt;::::::::::0:
 </pre></div>
 </div>
 <p>Export the one that is called fpr (no idea what that means):</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="n">export</span> <span class="o">-</span><span class="n">a</span> <span class="mi">1</span><span class="n">F7BFED782E9E540432E3F48E28E7DA5BE1BAEBF</span>
+<div class="code highlight-python"><div class="highlight"><pre>gpg --export -a 1F7BFED782E9E540432E3F48E28E7DA5BE1BAEBF
 
 
-<span class="o">-----</span><span class="n">BEGIN</span> <span class="n">PGP</span> <span class="n">PUBLIC</span> <span class="n">KEY</span> <span class="n">BLOCK</span><span class="o">-----</span>
+-----BEGIN PGP PUBLIC KEY BLOCK-----
 
-<span class="n">mQINBF2TSYIBEADd8oPe7acT2zMmlZvcJMLAboWB5VAMLEmzLh07WK</span><span class="o">/</span><span class="n">MgRWPNuoR</span>
-<span class="n">TdbFdbrSUe6Zhlz4kqVGr6tzWRUzKzJnE2qLCtLHpcMFit0dCHYuTkOIlsPT4N</span><span class="o">+</span><span class="n">E</span>
-<span class="mi">95</span><span class="n">YmEEBnGDPHBgyQvbsItUKIDVGFZQG0Bn7LiliBHxv3SYEWM2bnltf5s4OO3mdV</span>
-<span class="mi">5</span><span class="n">DhS</span><span class="o">/</span><span class="n">dTUerkim85UK8eoo67N1P7GN44FL1ScfMPK6jexlA0MqgLqMBBNX4palEsy</span>
-<span class="n">BdYqXolOLTDFQb27JgeAaONZJPy0liFd</span><span class="o">+</span><span class="n">auvZslgkF49hkNDaG</span><span class="o">/</span><span class="n">U9vDdOM1Jk7TF</span>
-<span class="mi">8</span><span class="n">illEfa6IG</span><span class="o">/</span><span class="n">zOJlYbNJ2r2s</span><span class="o">/</span><span class="n">QXfwEO30RlRRzDwElPipYxMyp4tzQKyolTjCgbTP</span>
-<span class="n">seDjP</span><span class="o">+</span><span class="mi">937</span><span class="n">FTdNf</span><span class="o">/</span><span class="n">luNkH</span><span class="o">/</span><span class="n">h3vn1geSgGF6</span><span class="o">+</span><span class="n">PjStp9uHrsOywRkknxKBsTIgNshB6v</span>
-<span class="n">Ce8W7</span><span class="o">/</span><span class="n">Q0GD3AEhRYJfs2DOikdVcXqyUbgtRxJBt</span><span class="o">+</span><span class="n">ac004yli9Qx1P7QLrkVW8b</span><span class="o">+</span><span class="n">u</span>
-<span class="mf">4E0</span><span class="n">P8UyJuC</span><span class="o">/</span><span class="n">iHOEfzGOtVSlQJacR4RyCScy</span><span class="o">+</span><span class="mi">6</span><span class="n">Ank1svuKsFrYOrc5AKJ2TMNRR3d</span>
-<span class="n">j2whRgcjrWJ8agYSSQ53cAj3I0nhLYTAvjJdn</span><span class="o">+</span><span class="n">Wk5Q756xXV7tsUH</span><span class="o">/</span><span class="n">jw1Da</span><span class="o">+</span><span class="n">fQNh</span>
-<span class="n">IxpA</span><span class="o">/</span><span class="n">lnIC32VvVfb</span><span class="o">+</span><span class="n">wfdVAgnSV0iMm8AsSDacJCSSnZ0JfBJwUOMQph5NQARAQAB</span>
-<span class="n">tCdBaG1hZCBOYXppciBSYWphIDxhaG1hZG5hemlyQGdtYWlsLmNvbT6JAlQEEwEK</span>
-<span class="n">AD4WIQQfe</span><span class="o">/</span><span class="mi">7</span><span class="n">XgunlQEMuP0jijn2lvhuuvwUCXZNJggIbAwUJA8JnAAULCQgHAgYV</span>
-<span class="n">CgkICwIEFgIDAQIeAQIXgAAKCRDijn2lvhuuv8xPEACL8yZXsun82RwCzs6nOucY</span>
-<span class="n">wUVHIBeBd29ocwy30HPIALvAX</span><span class="o">/</span><span class="n">NiDcOblrzEiiHwDQrz4zSRR0SScOcO7EFBJ6zE</span>
-<span class="n">GSlZWUIWfHgwpMR8YKrGAKVwkbLU0mooXAKUIw6ALZrpgwCqBmbVbdnpUeX92Cbl</span>
-<span class="n">Y4n5U2ejrEYs62I6</span><span class="o">/</span><span class="mi">5</span><span class="n">W</span><span class="o">/</span><span class="n">VQu7O6A5Gsh7qyBkAxZWUMtq58VQBJI</span><span class="o">/</span><span class="mi">4</span><span class="n">qA6CqORdxCo</span>
-<span class="n">zDxQW8Ck97MoztY1oHs1FAk3EF5VamYwovpa4NQxBzn1QZ2EVVmdVXMKQ14hCx8w</span>
-<span class="mi">6</span><span class="n">ZMzZ17lMf4Tu2P2Oxk1W9</span><span class="o">/</span><span class="n">pcpt</span><span class="o">+</span><span class="n">h58h2yl2sVagKhegOSJ0DwCMykaewbuohCbZ</span>
-<span class="n">RzVGlcqedST1go</span><span class="o">+</span><span class="n">vQAOim50WcgTrpvwcI9OzO6uNs</span><span class="o">+</span><span class="n">rF</span><span class="o">/</span><span class="n">Vyn0tBFu9tZqpvsulyf</span>
-<span class="n">FnJ</span><span class="o">/</span><span class="n">Hsbbl0ZD7WzZhL1TFqsX</span><span class="o">+</span><span class="mi">6</span><span class="n">FrjuYo6zJ8Bg0awswb4VAs2HsPPkuzpMbib0KQ</span>
-<span class="mi">4</span><span class="n">XmyeV694ziBB2s4FO97VTV95O8yYpfUWlvDgsRRBCjUNbiWi2DszpzmhSkWtjuV</span>
-<span class="n">K9WO8QnW1GlQAPiH0neU</span><span class="o">+</span><span class="n">HgmXusfRZ5</span><span class="o">/</span><span class="n">hEZ3ze6kUy</span><span class="o">+</span><span class="n">rLQRz3MgNgLWn</span><span class="o">/</span><span class="n">KqgwXW9</span>
-<span class="n">JDgiu4fKO</span><span class="o">+</span><span class="n">fYaNw1XCN</span><span class="o">/</span><span class="mi">5</span><span class="n">ANRaLZp0o1ODbUVXluHnVrXCOtxKvF6jgL8Cbyee8qK</span>
-<span class="n">IWx</span><span class="o">/</span><span class="n">qzolRyGKbp4fJTHAaA</span><span class="o">==</span>
-<span class="o">=</span><span class="n">kQXR</span>
-<span class="o">-----</span><span class="n">END</span> <span class="n">PGP</span> <span class="n">PUBLIC</span> <span class="n">KEY</span> <span class="n">BLOCK</span><span class="o">-----</span>
+mQINBF2TSYIBEADd8oPe7acT2zMmlZvcJMLAboWB5VAMLEmzLh07WK/MgRWPNuoR
+TdbFdbrSUe6Zhlz4kqVGr6tzWRUzKzJnE2qLCtLHpcMFit0dCHYuTkOIlsPT4N+E
+95YmEEBnGDPHBgyQvbsItUKIDVGFZQG0Bn7LiliBHxv3SYEWM2bnltf5s4OO3mdV
+5DhS/dTUerkim85UK8eoo67N1P7GN44FL1ScfMPK6jexlA0MqgLqMBBNX4palEsy
+BdYqXolOLTDFQb27JgeAaONZJPy0liFd+auvZslgkF49hkNDaG/U9vDdOM1Jk7TF
+8illEfa6IG/zOJlYbNJ2r2s/QXfwEO30RlRRzDwElPipYxMyp4tzQKyolTjCgbTP
+seDjP+937FTdNf/luNkH/h3vn1geSgGF6+PjStp9uHrsOywRkknxKBsTIgNshB6v
+Ce8W7/Q0GD3AEhRYJfs2DOikdVcXqyUbgtRxJBt+ac004yli9Qx1P7QLrkVW8b+u
+4E0P8UyJuC/iHOEfzGOtVSlQJacR4RyCScy+6Ank1svuKsFrYOrc5AKJ2TMNRR3d
+j2whRgcjrWJ8agYSSQ53cAj3I0nhLYTAvjJdn+Wk5Q756xXV7tsUH/jw1Da+fQNh
+IxpA/lnIC32VvVfb+wfdVAgnSV0iMm8AsSDacJCSSnZ0JfBJwUOMQph5NQARAQAB
+tCdBaG1hZCBOYXppciBSYWphIDxhaG1hZG5hemlyQGdtYWlsLmNvbT6JAlQEEwEK
+AD4WIQQfe/7XgunlQEMuP0jijn2lvhuuvwUCXZNJggIbAwUJA8JnAAULCQgHAgYV
+CgkICwIEFgIDAQIeAQIXgAAKCRDijn2lvhuuv8xPEACL8yZXsun82RwCzs6nOucY
+wUVHIBeBd29ocwy30HPIALvAX/NiDcOblrzEiiHwDQrz4zSRR0SScOcO7EFBJ6zE
+GSlZWUIWfHgwpMR8YKrGAKVwkbLU0mooXAKUIw6ALZrpgwCqBmbVbdnpUeX92Cbl
+Y4n5U2ejrEYs62I6/5W/VQu7O6A5Gsh7qyBkAxZWUMtq58VQBJI/4qA6CqORdxCo
+zDxQW8Ck97MoztY1oHs1FAk3EF5VamYwovpa4NQxBzn1QZ2EVVmdVXMKQ14hCx8w
+6ZMzZ17lMf4Tu2P2Oxk1W9/pcpt+h58h2yl2sVagKhegOSJ0DwCMykaewbuohCbZ
+RzVGlcqedST1go+vQAOim50WcgTrpvwcI9OzO6uNs+rF/Vyn0tBFu9tZqpvsulyf
+FnJ/Hsbbl0ZD7WzZhL1TFqsX+6FrjuYo6zJ8Bg0awswb4VAs2HsPPkuzpMbib0KQ
+4XmyeV694ziBB2s4FO97VTV95O8yYpfUWlvDgsRRBCjUNbiWi2DszpzmhSkWtjuV
+K9WO8QnW1GlQAPiH0neU+HgmXusfRZ5/hEZ3ze6kUy+rLQRz3MgNgLWn/KqgwXW9
+JDgiu4fKO+fYaNw1XCN/5ANRaLZp0o1ODbUVXluHnVrXCOtxKvF6jgL8Cbyee8qK
+IWx/qzolRyGKbp4fJTHAaA==
+=kQXR
+-----END PGP PUBLIC KEY BLOCK-----
 </pre></div>
 </div>
-<p>I uploaded my key in firebase. I couldn’t use the command <cite>gpg –keyserver certserver.pgp.com –send-key E28E7DA5BE1BAEBF</cite></p>
+<p>I uploaded my key in firebase. I couldn&#8217;t use the command <cite>gpg &#8211;keyserver certserver.pgp.com &#8211;send-key E28E7DA5BE1BAEBF</cite></p>
 </div>
 </div>
 
@@ -291,29 +306,29 @@ uid
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="oauth-vs-openidconnect.html" class="btn btn-neutral float-right" title="OAuth 2.0 vs OpenID Connect" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../identity.html" class="btn btn-neutral float-left" title="Identity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="oauth-vs-openidconnect.html" class="btn btn-neutral float-right" title="OAuth 2.0 vs OpenID Connect" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../identity.html" class="btn btn-neutral float-left" title="Identity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Ahmad Nazir Raja
+        &#169; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -321,7 +336,6 @@ uid
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

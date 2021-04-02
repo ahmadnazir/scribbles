@@ -45,12 +45,13 @@ Content
    networking
    notes
    python
-   shell
-   scala
-   spark
    rust
+   scala
+   shell
+   spark
    talks
    testing
+   vim
    web
 
 ..
