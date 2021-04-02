@@ -1,0 +1,7 @@
+Web
+===
+
+.. toctree::
+   :glob:
+
+   web/*

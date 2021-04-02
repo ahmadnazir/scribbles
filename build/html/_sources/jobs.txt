@@ -1,0 +1,7 @@
+Jobs
+====
+
+.. toctree::
+   :glob:
+
+   jobs/*

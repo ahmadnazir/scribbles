@@ -1,0 +1,7 @@
+Azure
+=====
+
+.. toctree::
+   :glob:
+
+   azure/*
