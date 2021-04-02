@@ -47,6 +47,7 @@ Content
    python
    rust
    scala
+   security
    shell
    spark
    talks

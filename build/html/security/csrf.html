@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Cross site request forgery (CSRF) &mdash; Scribbles 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: ''
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="next" title="Shell" href="../shell.html" />
+    <link rel="prev" title="Security" href="../security.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Scribbles
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../security.html">Security</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Cross site request forgery (CSRF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scribbles</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../security.html">Security</a> &raquo;</li>
+        
+      <li>Cross site request forgery (CSRF)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/security/csrf.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cross-site-request-forgery-csrf">
+<h1>Cross site request forgery (CSRF)<a class="headerlink" href="#cross-site-request-forgery-csrf" title="Permalink to this headline">¶</a></h1>
+<p>An exploit when the attacker lures the victim on a legit domain e.g. <cite>acme.com</cite>,
+to a domain they control e.g. <cite>evil.com</cite>, and tricks them into clicking a button
+that sends a request to the legit domain.</p>
+<p>If the authentication token is stored in the cookie and <cite>acme.com</cite> isn&#8217;t protected
+against this attack, the default behavior is that the auth token is sent along
+with the request and it can lead to altering of some state on <cite>acme.com</cite>.</p>
+<p>For clarity, here are the steps:</p>
+<ol class="arabic simple">
+<li>Victim authenticates to <cite>acme.com</cite></li>
+<li>Auth token gets stored in the cookie</li>
+<li>Victim goes to <cite>evil.com</cite> (e.g. gets an email with the link, etc)</li>
+<li>Victim clicks the link or a button that sends a request to <cite>acme.com</cite></li>
+<li>The request also contains the cookies including the auth token</li>
+</ol>
+<p>So how to protect against it?</p>
+<p><strong>Use something else than cookies - like local storage?</strong></p>
+<p>The most obvious thing that comes to mind is to avoid storing auth tokens in cookies and use something like local storage.</p>
+<p>This is however not recommended. This is because local storage can be accessed by javascript and browsers have no settings to disallow this. So, if you can claim that your application is protected from XSS, then yes, you can storage the auth token in local storage. In reality, web applications use a ton of 3rd party libraries and it is not recommended to count on the fact that all libraries are completely secure. Hence, we need to add protections so that even if XSS is a possibility, how can we minimize the extent of the exploit.</p>
+<p>Cookies on the other hand allow attributes that restrict access from javascript. However using them is not enough. Here are some measures to protect against csrf:</p>
+<p><strong>Measure 1: Use `HttpOnly` attribute for cookies</strong></p>
+<p>This makes sure that the cookie is inaccessible to JavaScript and helps mitigate XSS attacks.</p>
+<p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies">https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies</a></p>
+<p><strong>Measure 2: Use `SameSite` attribute for cookies</strong></p>
+<p>This restricts the cookie to a first-party or same-site context.</p>
+<p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite</a></p>
+<p>Allowed values for the attribute are:</p>
+<ul class="simple">
+<li><cite>Lax</cite>: Cookies are sent when navigating to first-party site</li>
+<li><cite>Strict</cite>: Cookies are never sent</li>
+<li><cite>None</cite>: Cookies will always be sent</li>
+</ul>
+<p>I think that <cite>Lax</cite> should be a safe choice, but this depends on browser comatibility. Only modern browsers support this: <a class="reference external" href="https://caniuse.com/same-site-cookie-attribute">https://caniuse.com/same-site-cookie-attribute</a></p>
+<p>Furthermore and apparently, this is not bullet proof as the attacker can use work arounds e.g. <cite>&lt;link rel=&#8217;prerender&#8217;&gt;</cite> can be exploited: <a class="reference external" href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-02#section-5.3.7.1">https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-02#section-5.3.7.1</a></p>
+<p>However, keep in mind many web applications accept requests from other domains. In that case, we can&#8217;t rely solely on the auth token to be transferred via the cookie. In that case the authentication header can be used as an alternate mechanism for specifying the auth token.</p>
+<p><strong>Measure 3: Cross Origin Request Sharing (CORS) configuration</strong></p>
+<p>The server should be configured for CORS which can allow whitelisted sites to access the first-party site.</p>
+<p>This can&#8217;t protect in all cases e.g. if an application has GET endpoints that alter the state, then CORS won&#8217;t be able to protect against that as no pre-flight requests are generated for <cite>simple requests</cite>: <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests">https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests</a></p>
+<p><strong>Measure 4: CSRF Tokens</strong></p>
+<p>All above measures rely on the browser for providing the security. If the victim
+is using an old browser, they are still susceptible to an attack. Furthermore, if we only rely on CORS for protection, depending on the web application, some GET endpoints</p>
+<p>Hence, as the
+precautionary measure, we should have server side protection as well. This can
+be done by the server generating csrf tokens which should be stored by the
+client and should be included for requests. If the CSRF token is stored in the
+cookie, then it should be double submitted probably as a header. Otherwise, the
+attacker can rely on the csrf token to be auto-submitted as the cookie,
+defeating the purpose (<cite>SameSite</cite> attribute for the cookie would make this
+difficult though).</p>
+<p><a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie">https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../shell.html" class="btn btn-neutral float-right" title="Shell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../security.html" class="btn btn-neutral float-left" title="Security" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019, Ahmad Nazir Raja.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
