@@ -1,7 +1,0 @@
-Rust
-====
-
-.. toctree::
-   :glob:
-
-   rust/*

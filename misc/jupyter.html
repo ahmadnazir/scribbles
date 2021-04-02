@@ -1,40 +1,51 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Setting up Jupyter locally &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: ''
+          };
+      </script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Markdown vs Restructured Text" href="markdown-vs-rest.html" />
     <link rel="prev" title="JMESPath" href="jq-vs-jmespath.html" /> 
 </head>
@@ -77,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -108,12 +120,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../misc.html">Misc</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="021disrupt.html">021Disrupt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="angel-investing.html">Angel Investing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="build-systems.html">Build systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="colors.html">Colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="component-governance.html">Component Governance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="corecursion.html">Corecursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fuzzy.html">Fuzzy *</a></li>
-<li class="toctree-l2"><a class="reference internal" href="game-of-life.html">Conway’s Game of Life</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-of-life.html">Conway&#8217;s Game of Life</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gdpr-dsr.html">GDPR Data Subject Rights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="graph-database.html">Graph databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hll.html">HyperLogLog sketch</a></li>
@@ -121,13 +134,14 @@
 <li class="toctree-l2"><a class="reference internal" href="internetcomputer.html">Internet Computer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jq.html">jq</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jq-vs-jmespath.html">JMESPath</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Setting up Jupyter locally</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Setting up Jupyter locally</a></li>
 <li class="toctree-l2"><a class="reference internal" href="markdown-vs-rest.html">Markdown vs Restructured Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microservices.html">Microservices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oop-principles.html">Principles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="performance-matters.html">Performance Matters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="powershell-vs-bash.html">Powershell vs Bash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recommended-keybindings.html">At your fingertips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shaan-puri.html">Shaan Puri’s Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaan-puri.html">Shaan Puri&#8217;s Frameworks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sniff.html">Traffic sniffing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stm.html">Software Transactional Memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="terms.html">Stocks vs Options vs Futures vs Bonds</a></li>
@@ -138,19 +152,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -185,11 +200,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../misc.html">Misc</a> &raquo;</li>
         
@@ -198,8 +215,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="../_sources/misc/jupyter.rst.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/misc/jupyter.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -214,7 +231,7 @@
             
   <div class="section" id="setting-up-jupyter-locally">
 <h1>Setting up Jupyter locally<a class="headerlink" href="#setting-up-jupyter-locally" title="Permalink to this headline">¶</a></h1>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>docker run -it -p 8888:8888 -p 4040:4040 \
+<div class="code highlight-python"><div class="highlight"><pre>docker run -it -p 8888:8888 -p 4040:4040 \
   --name jupyter \
   --user root \
   jupyter/pyspark-notebook bash
@@ -227,35 +244,35 @@ jupyter serverextension enable --py sparkmagic
 </pre></div>
 </div>
 <p>Configuration:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;kernel_python_credentials&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{USERNAME}</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;base64_password&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{BASE64ENCODEDPASSWORD}</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://</span><span class="si">{CLUSTERDNSNAME}</span><span class="s2">.azurehdinsight.net/livy&quot;</span>
+<div class="code highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;kernel_python_credentials&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;{USERNAME}&quot;</span><span class="p">,</span>
+    <span class="s">&quot;base64_password&quot;</span><span class="p">:</span> <span class="s">&quot;{BASE64ENCODEDPASSWORD}&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;https://{CLUSTERDNSNAME}.azurehdinsight.net/livy&quot;</span>
   <span class="p">},</span>
 
-  <span class="s2">&quot;kernel_scala_credentials&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{USERNAME}</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;base64_password&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{BASE64ENCODEDPASSWORD}</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://</span><span class="si">{CLUSTERDNSNAME}</span><span class="s2">.azurehdinsight.net/livy&quot;</span>
+  <span class="s">&quot;kernel_scala_credentials&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;{USERNAME}&quot;</span><span class="p">,</span>
+    <span class="s">&quot;base64_password&quot;</span><span class="p">:</span> <span class="s">&quot;{BASE64ENCODEDPASSWORD}&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;https://{CLUSTERDNSNAME}.azurehdinsight.net/livy&quot;</span>
   <span class="p">},</span>
 
-  <span class="s2">&quot;custom_headers&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;X-Requested-By&quot;</span><span class="p">:</span> <span class="s2">&quot;livy&quot;</span>
+  <span class="s">&quot;custom_headers&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;X-Requested-By&quot;</span><span class="p">:</span> <span class="s">&quot;livy&quot;</span>
   <span class="p">},</span>
 
-  <span class="s2">&quot;heartbeat_refresh_seconds&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-  <span class="s2">&quot;livy_server_heartbeat_timeout_seconds&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
-  <span class="s2">&quot;heartbeat_retry_seconds&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="s">&quot;heartbeat_refresh_seconds&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s">&quot;livy_server_heartbeat_timeout_seconds&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+  <span class="s">&quot;heartbeat_retry_seconds&quot;</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Start the process:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">--</span><span class="n">allow</span><span class="o">-</span><span class="n">root</span> <span class="o">&amp;</span>
+<div class="code highlight-python"><div class="highlight"><pre>jupyter notebook --allow-root &amp;
 </pre></div>
 </div>
 <p>Web login:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{print $1}&#39;</span> <span class="o">|</span> <span class="n">awk</span> <span class="o">-</span><span class="n">F</span> <span class="o">=</span> <span class="s1">&#39;{print $2}&#39;</span>
+<div class="code highlight-python"><div class="highlight"><pre>jupyter notebook list | awk &#39;{print $1}&#39; | awk -F = &#39;{print $2}&#39;
 </pre></div>
 </div>
 </div>
@@ -265,29 +282,29 @@ jupyter serverextension enable --py sparkmagic
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="markdown-vs-rest.html" class="btn btn-neutral float-right" title="Markdown vs Restructured Text" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="jq-vs-jmespath.html" class="btn btn-neutral float-left" title="JMESPath" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="markdown-vs-rest.html" class="btn btn-neutral float-right" title="Markdown vs Restructured Text" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jq-vs-jmespath.html" class="btn btn-neutral float-left" title="JMESPath" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Ahmad Nazir Raja
+        &#169; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -295,7 +312,6 @@ jupyter serverextension enable --py sparkmagic
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

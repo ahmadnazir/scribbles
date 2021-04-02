@@ -1,40 +1,51 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Laziness &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: ''
+          };
+      </script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="C# Resources" href="resources.html" />
     <link rel="prev" title="Exception Handling" href="exceptions.html" /> 
 </head>
@@ -77,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -98,7 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../csharp.html">C #</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="exceptions.html">Exception Handling</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Laziness</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Laziness</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-lazy-list">Create a lazy list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#working-on-chunks-at-a-time">Working on chunks at a time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#working-asynchronously-on-partitions">Working asynchronously on partitions</a></li>
@@ -122,19 +134,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -169,11 +182,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../csharp.html">C #</a> &raquo;</li>
         
@@ -182,8 +197,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="../_sources/csharp/laziness.rst.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/csharp/laziness.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -200,23 +215,23 @@
 <h1>Laziness<a class="headerlink" href="#laziness" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="create-a-lazy-list">
 <h2>Create a lazy list<a class="headerlink" href="#create-a-lazy-list" title="Permalink to this headline">¶</a></h2>
-<p>Let’s create a lazy list of numbers, only realized as we ask for the values. The <cite>IEnumerable</cite> interface in conjunction with the <cite>yield</cite> operator allows this.</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">Main</span><span class="p">(</span><span class="n">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">foreach</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Range</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">))</span> <span class="o">//</span> <span class="mi">1</span> <span class="n">million</span> <span class="n">numbers</span> <span class="ow">in</span> <span class="nb">list</span>
-    <span class="p">{</span>
-        <span class="n">Thread</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>              <span class="o">//</span> <span class="mi">1</span> <span class="n">second</span> <span class="n">delay</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<p>Let&#8217;s create a lazy list of numbers, only realized as we ask for the values. The <cite>IEnumerable</cite> interface in conjunction with the <cite>yield</cite> operator allows this.</p>
+<div class="code highlight-python"><div class="highlight"><pre>static void Main(string[] args)
+{
+    foreach (var i in Range(1000000000)) // 1 million numbers in list
+    {
+        Thread.Sleep(1000);              // 1 second delay
+        Console.WriteLine(i);
+    }
+}
 
-<span class="n">public</span> <span class="n">static</span> <span class="n">IEnumerable</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">Range</span><span class="p">(</span><span class="nb">int</span> <span class="n">limit</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">yield</span> <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+public static IEnumerable&lt;int&gt; Range(int limit)
+{
+    for (var i = 0; i &lt; limit; i++ )
+    {
+        yield return i;
+    }
+}
 </pre></div>
 </div>
 <p>Each number is printed after a delay and is loaded into memory when needed.</p>
@@ -225,37 +240,37 @@
 <h2>Working on chunks at a time<a class="headerlink" href="#working-on-chunks-at-a-time" title="Permalink to this headline">¶</a></h2>
 <p>Why work on a chunk at a time? There are 2 reasons that I can think of:</p>
 <ul class="simple">
-<li>For efficient memory usage we don’t want to keep loading the elements in the memory. Let’s work on chunks of the sequence at a time and let the garbage collector cleanup chunks that are no longer needed.</li>
+<li>For efficient memory usage we don&#8217;t want to keep loading the elements in the memory. Let&#8217;s work on chunks of the sequence at a time and let the garbage collector cleanup chunks that are no longer needed.</li>
 <li>If fetching the items one by one is expensive (e.g. every read has a latency, etc), it would make sense to do batch processing.</li>
 </ul>
-<p>Let’s partition the list:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;&gt;</span> <span class="n">Partition</span><span class="p">(</span><span class="n">this</span> <span class="n">IEnumerable</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">sequence</span><span class="p">,</span> <span class="nb">int</span> <span class="n">limit</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">partition</span> <span class="o">=</span> <span class="n">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span><span class="p">();</span>
-    <span class="n">var</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">foreach</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">count</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">partition</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="n">limit</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">yield</span> <span class="k">return</span> <span class="n">partition</span><span class="p">;</span>
+<p>Let&#8217;s partition the list:</p>
+<div class="code highlight-python"><div class="highlight"><pre>public static IEnumerable&lt;List&lt;int&gt;&gt; Partition(this IEnumerable&lt;int&gt; sequence, int limit)
+{
+    var partition = new List&lt;int&gt;();
+    var count = 0;
+    foreach (var i in sequence)
+    {
+        count++;
+        partition.Add(i);
+        if (count &gt;= limit)
+        {
+            yield return partition;
 
-            <span class="o">//</span> <span class="n">reset</span>
-            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-            <span class="n">partition</span> <span class="o">=</span> <span class="n">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span><span class="p">();</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+            // reset
+            count = 0;
+            partition = new List&lt;int&gt;();
+        }
+    }
 
-    <span class="o">//</span> <span class="k">return</span> <span class="n">the</span> <span class="n">last</span> <span class="n">partition</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">partition</span><span class="o">.</span><span class="n">Count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">yield</span> <span class="k">return</span> <span class="n">partition</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    // return the last partition
+    if (partition.Count &gt; 0) {
+        yield return partition;
+    }
+}
 </pre></div>
 </div>
-<p>Let’s add functions that will operate on the partitions:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>public static IEnumerable&lt;int&gt; Increment(IEnumerable&lt;int&gt; list)
+<p>Let&#8217;s add functions that will operate on the partitions:</p>
+<div class="code highlight-python"><div class="highlight"><pre>public static IEnumerable&lt;int&gt; Increment(IEnumerable&lt;int&gt; list)
 {
     Console.WriteLine($&quot;Incrementing...&quot;);
     Thread.Sleep(500);
@@ -264,7 +279,7 @@
 </pre></div>
 </div>
 <p>The following runs lazily and sequentially:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>static void Main(string[] args)
+<div class="code highlight-python"><div class="highlight"><pre>static void Main(string[] args)
 {
     var result = Range(105)
         .Partition(20)
@@ -276,55 +291,55 @@
 </pre></div>
 </div>
 <p>The output is:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Incrementing</span><span class="o">...</span>
-<span class="n">Incrementing</span><span class="o">...</span>
-<span class="n">Incrementing</span><span class="o">...</span>
-<span class="n">Incrementing</span><span class="o">...</span>
-<span class="n">Incrementing</span><span class="o">...</span>
-<span class="n">Incrementing</span><span class="o">...</span>
-<span class="n">Total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">partitions</span><span class="p">:</span> <span class="mi">6</span>
+<div class="code highlight-python"><div class="highlight"><pre>Incrementing...
+Incrementing...
+Incrementing...
+Incrementing...
+Incrementing...
+Incrementing...
+Total number of partitions: 6
 </pre></div>
 </div>
 </div>
 <div class="section" id="working-asynchronously-on-partitions">
 <h2>Working asynchronously on partitions<a class="headerlink" href="#working-asynchronously-on-partitions" title="Permalink to this headline">¶</a></h2>
-<p>Let’s say our batch process is an asynchronous operation e.g. sending the items in the batch to a server, db etc. How do we update our pipeline and keep everything lazy so that we don’t load everything in memory?</p>
+<p>Let&#8217;s say our batch process is an asynchronous operation e.g. sending the items in the batch to a server, db etc. How do we update our pipeline and keep everything lazy so that we don&#8217;t load everything in memory?</p>
 <p>Consider the async function:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="k">async</span> <span class="n">Task</span> <span class="n">Main</span><span class="p">(</span><span class="n">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">Partition</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">ToAsync</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">IncrementAsync</span><span class="p">)</span>
-        <span class="p">;</span>
+<div class="code highlight-python"><div class="highlight"><pre>static async Task Main(string[] args)
+{
+    var result = Range(10)
+        .Partition(3)
+        .Select(ToAsync)
+        .Select(IncrementAsync)
+        ;
 
-    <span class="n">foreach</span> <span class="p">(</span><span class="n">var</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">result</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">var</span> <span class="n">partition</span> <span class="o">=</span> <span class="k">await</span> <span class="n">t</span><span class="p">;</span>
-        <span class="n">foreach</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">partition</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+    foreach (var t in result)
+    {
+        var partition = await t;
+        foreach (var i in partition)
+        {
+            Console.WriteLine(i);
+        }
+    }
 
-<span class="p">}</span>
+}
 
-<span class="n">public</span> <span class="n">static</span> <span class="k">async</span> <span class="n">Task</span><span class="o">&lt;</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;&gt;</span> <span class="n">ToAsync</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="nb">list</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="k">await</span> <span class="n">Task</span><span class="o">.</span><span class="n">Run</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nb">list</span><span class="p">);</span>
-<span class="p">}</span>
+public static async Task&lt;IEnumerable&lt;int&gt;&gt; ToAsync(IEnumerable&lt;int&gt; list)
+{
+    return await Task.Run(() =&gt; list);
+}
 
-<span class="n">public</span> <span class="n">static</span> <span class="k">async</span> <span class="n">Task</span><span class="o">&lt;</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;&gt;</span> <span class="n">IncrementAsync</span><span class="p">(</span><span class="n">Task</span><span class="o">&lt;</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;&gt;</span> <span class="n">task</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s2">&quot;Incrementing...&quot;</span><span class="p">);</span>
-    <span class="n">Thread</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-    <span class="n">var</span> <span class="nb">list</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">i</span> <span class="o">=&gt;</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
+public static async Task&lt;IEnumerable&lt;int&gt;&gt; IncrementAsync(Task&lt;IEnumerable&lt;int&gt;&gt; task)
+{
+    Console.WriteLine(&quot;Incrementing...&quot;);
+    Thread.Sleep(500);
+    var list = await task;
+    return list.Select(i =&gt; i+1);
+}
 </pre></div>
 </div>
 <p>which gives the output:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Incrementing</span><span class="o">...</span>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">Incrementing</span><span class="o">...</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="mi">3</span>
@@ -344,7 +359,7 @@
 </div>
 <div class="section" id="how-to-flat-map">
 <h2>How to Flat Map ?!<a class="headerlink" href="#how-to-flat-map" title="Permalink to this headline">¶</a></h2>
-<p>The pipeline returns a lazy sequence of Tasks that return lists on completion. We want to do a flat map (<cite>.SelectMany</cite> in Linq) so that we get one lazy sequence instead of many lists. Unfortunately, <cite>yield</cite> doesn’t work when dealing with asynchronous streams (<cite>The feature ‘async streams’ is currently in Preview and *unsupported*</cite>) - async streams are supported in C# 8.0 and .NET Core 3.0.</p>
+<p>The pipeline returns a lazy sequence of Tasks that return lists on completion. We want to do a flat map (<cite>.SelectMany</cite> in Linq) so that we get one lazy sequence instead of many lists. Unfortunately, <cite>yield</cite> doesn&#8217;t work when dealing with asynchronous streams (<cite>The feature &#8216;async streams&#8217; is currently in Preview and *unsupported*</cite>) - async streams are supported in C# 8.0 and .NET Core 3.0.</p>
 <p>At this time, the only thing I can think of is to keep the pipeline as it is (<cite>IEnumerable&lt;Task&lt;List&lt;int&gt;&gt;&gt;</cite>) or create an instance of <cite>IObservable</cite> and delegate the work. Any ideas?</p>
 </div>
 </div>
@@ -354,29 +369,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="resources.html" class="btn btn-neutral float-right" title="C# Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="exceptions.html" class="btn btn-neutral float-left" title="Exception Handling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="resources.html" class="btn btn-neutral float-right" title="C# Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="exceptions.html" class="btn btn-neutral float-left" title="Exception Handling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Ahmad Nazir Raja
+        &#169; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -384,7 +399,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

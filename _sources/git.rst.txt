@@ -1,7 +1,0 @@
-Git
-===
-
-.. toctree::
-   :glob:
-
-   git/*
