@@ -54,6 +54,7 @@ Content
    testing
    vim
    web
+   questions
 
 ..
    Indices and tables

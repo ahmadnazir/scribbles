@@ -1,6 +1,8 @@
 Textern
 =======
 
+**NOTE**: I've been using surfkeys which seems to work.
+
 Edit any text area (firefox) with the editor of your choice.
 
 Here is my setup with emacs. It is a work in progress.

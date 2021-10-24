@@ -9,7 +9,7 @@ I guess for a symlink, we can do:
 
 .. code::
 
-   reallink $0
+   readlink $0
 
 
 One liner to go to the directory where the file lives:
