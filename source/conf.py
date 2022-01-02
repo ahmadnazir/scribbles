@@ -227,8 +227,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'ahmadnazir', u'Ahmad Nazir Documentation',
-     [u'Ahmad Nazir Raja'], 1)
+    ('Index', 'scribbles', u'Scribbles',
+     [u'Ahmad Nazir Raja'], 7)
 ]
 
 # If true, show URL addresses after external links.

@@ -1,5 +1,7 @@
 ## Build
 
+### Compile
+
 ```
 docker run -it --rm \
   -v /etc/passwd:/etc/passwd \
@@ -7,11 +9,10 @@ docker run -it --rm \
   -v $HOME:$HOME \
   -w `pwd` -v `pwd`:`pwd` \
   -u $UID:$GID \
-  ahmadnazir/sphinx make html
-
+  suttang/sphinx-rtd-theme make html man
 ```
 
-Clean up!
+### Cleanup
 
 ```
 cd build
@@ -22,6 +23,8 @@ rm html_ -r
 scribbles-compile
 cd -
 ```
+
+where `scribbles-compile` is the bash function for the compile step.
 
 ## Sync
 
