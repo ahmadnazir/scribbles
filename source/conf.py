@@ -227,7 +227,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('Index', 'scribbles', u'Scribbles',
+    ('index', 'scribbles', u'Scribbles',
      [u'Ahmad Nazir Raja'], 7)
 ]
 

@@ -43,7 +43,8 @@ Content
    linux
    misc
    networking
-   notes
+   note
+   people
    python
    rust
    scala

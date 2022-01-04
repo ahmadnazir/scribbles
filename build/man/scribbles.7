@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "SCRIBBLES" "7" "Jan 02, 2022" "0.1" "Scribbles"
+.TH "SCRIBBLES" "7" "Jan 04, 2022" "0.1" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .
@@ -741,12 +741,6 @@ Two types of tables are supported:
 +============+============+===========+
 | body row 1 | column 2   | column 3  |
 +\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-+
-| body row 2 | Cells may span columns.|
-+\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-+
-| body row 3 | Cells may  | \- Cells   |
-+\-\-\-\-\-\-\-\-\-\-\-\-+ span rows. | \- contain |
-| body row 4 |            | \- blocks. |
-+\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-+
 .ft P
 .fi
 .UNINDENT
@@ -771,32 +765,6 @@ T}	T{
 column 2
 T}	T{
 column 3
-T}
-_
-T{
-body row 2
-T}	T{
-Cells may span columns.
-T}
-_
-T{
-body row 3
-T}	T{
-Cells may
-span rows.
-T}	T{
-.INDENT 0.0
-.IP \(bu 2
-Cells
-.IP \(bu 2
-contain
-.IP \(bu 2
-blocks.
-.UNINDENT
-T}
-_
-T{
-body row 4
 T}
 _
 .TE
@@ -841,8 +809,6 @@ Another way \- with headers:
 .nf
 .ft C
 =====  =====  ======
-   Inputs     Output
-\-\-\-\-\-\-\-\-\-\-\-\-  \-\-\-\-\-\-
   A      B    A or B
 =====  =====  ======
 False  False  False
@@ -859,12 +825,6 @@ True   True   True
 .TS
 center;
 |l|l|l|.
-_
-T{
-Inputs
-T}	T{
-Output
-T}
 _
 T{
 A
@@ -6073,6 +6033,64 @@ Datasets, like textbooks, also have human authors.
 .IP 12. 4
 Seek a diversity of perspectives
 .UNINDENT
+.SS People
+.sp
+List of people who have done interesting work or written something useful.
+.SS \fI\%Alexander Lew\fP
+.INDENT 0.0
+.IP \(bu 2
+[Talk] Probabilistic scripts for automating common\-sense tasks: \fI\%https://www.youtube.com/watch?v=MiiWzJE0fEA&feature=youtu.be&ab_channel=StrangeLoop\fP
+.UNINDENT
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+How can we use probablistic methods for cleaning data using the data that is being fixed.
+A declarative (instead of implerative) and principled (instead of heuristical) approacht to the problem.
+A different take on ‘declarative’ programing.
+Interesting to see why we won’t use ‘prolog’ i.e. we don’t know the constraints of the system. \fI\%https://youtu.be/MiiWzJE0fEA?t=480\fP
+.UNINDENT
+.UNINDENT
+.SS \fI\%Eric Shull\fP
+.INDENT 0.0
+.IP \(bu 2
+[Talk] Communicating Sequential Processes in Go: \fI\%https://www.youtube.com/watch?v=3gXWA6WEvOM&t=2047s&ab_channel=SoftwareGR\fP
+.UNINDENT
+.SS \fI\%Jay Parlar\fP
+.INDENT 0.0
+.IP \(bu 2
+[Talk] Finding bugs without running or even looking at code: \fI\%https://www.youtube.com/watch?v=FvNRlE4E9QQ&feature=youtu.be&ab_channel=StrangeLoop\fP
+.UNINDENT
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+Bottom line, if you write stuff down, it helps you find problems. The more
+specific you are about your design, the more problems you find. The best you can
+do is to use formal methods to specify the systems. This is where alloy comes
+in.
+.sp
+Jay Parlar goes through a simple example and uses alloy to find counter examples
+in the system that doesn’t satisfy the checks.
+.UNINDENT
+.UNINDENT
+.SS \fI\%Nicholas Kariniemi\fP
+.INDENT 0.0
+.IP \(bu 2
+Clojure compilation: \fI\%https://blog.ndk.io/clojure\-compilation.html\fP
+.IP \(bu 2
+Why CSP matters \- Part I: \fI\%https://blog.ndk.io/why\-csp\-matters1.html\fP
+.IP \(bu 2
+Why CSP matters \- Part II: \fI\%https://blog.ndk.io/why\-csp\-matters2.html\fP
+.UNINDENT
+.SS \fI\%Reid McKenzie\fP (\fI\%arrdem\fP)
+.INDENT 0.0
+.IP \(bu 2
+Why Scala (and other static languages) don’t have a repl like clojure: \fI\%https://stackoverflow.com/a/27391533/1589512\fP
+.UNINDENT
+.SS \fI\%Syed Balkhi\fP
+.sp
+Heard about him on The Hustle MFM as owner of a number of wordpress plugins and generating a revenue of 30\-40 Million DKK. It seems like that intro is a bit simplified when you look at his website.
 .SS Python
 .SS Format string
 .sp
