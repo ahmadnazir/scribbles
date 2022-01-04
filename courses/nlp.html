@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NLP &mdash; Scribbles 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Courses" href="../courses.html"/>
+        <link rel="next" title="Introduction to Quantitative Modeling" href="quantitative-modeling.html"/>
+        <link rel="prev" title="Introduction to Financial Accounting" href="intro-to-financial-accounting.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Scribbles
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../courses.html">Courses</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="financial-markets.html">Financial Markets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro-to-financial-accounting.html">Introduction to Financial Accounting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NLP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-extraction">Feature extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text-descriptors">Text descriptors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#perplexity">Perplexity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#smoothing">Smoothing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quantitative-modeling.html">Introduction to Quantitative Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scribbles</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../courses.html">Courses</a> &raquo;</li>
+        
+      <li>NLP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/courses/nlp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nlp">
+<h1>NLP<a class="headerlink" href="#nlp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
+<p>Hyponum/hypernym: Hierarchical relationships e.g. types of fruits and then peach, apple, etc.
+Meronym: Relationshiop between Part and whole e.g. wheel and car.
+Coreference: she is the same as ‘Mary’
+Constituency trees: another way to represent syntax
+Stemming: removing/replacing suffixes to get the root form
+Lemmatization: base form of a word e.g. ‘good’ is a lemma of better’</p>
+</div>
+<div class="section" id="feature-extraction">
+<h2>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Bag of words: vector for all the words in the corpus and have 0,1 to indicate presence of that word in a vector. Results in a really long vector which is sparse (i.e. lots of 0s)</li>
+<li>Neural network: create a word embeding - leads to a dense representation. e.g. we can do this with <cite>word2vec</cite>. Similar words are colinear i.e. vectors point in the same direction.</li>
+</ul>
+</div>
+<div class="section" id="text-descriptors">
+<h2>Text descriptors<a class="headerlink" href="#text-descriptors" title="Permalink to this headline">¶</a></h2>
+<p>For both types of features mentioned above, we can sum the vectors and get a good text descriptor e.g.</p>
+<p>this  1 0 0
+good  0 1 0
+thing 0 0 1</p>
+<p>so good thing would be the sum of the relevant vectors i.e. 0 1 1</p>
+<p>Text decriptors using ‘Convolutions and maximum pooling over time’ … need to look a bit more to get the intuition right.
+- once we have the resulting vector, apply more layers … multi-layer perceptron.. I lost track.</p>
+</div>
+<div class="section" id="perplexity">
+<h2>Perplexity<a class="headerlink" href="#perplexity" title="Permalink to this headline">¶</a></h2>
+<p>perplexity is inversely proportional to likelihood. The lower it is, the better it is</p>
+<p>language modelling : helps us predict the next words in a sequence of words
+Makov chains test us that we don’t need to keep track of all the previous words, only n of them.
+Which that in mind, we can have a mathematical model like this:</p>
+<p>p(word) = p(w1|&lt;start&gt;) . p(w2|w1) . p(w3|w2) . … p(&lt;end&gt; | w n)</p>
+<p>Perplexity is inversely proportional to the above.</p>
+</div>
+<div class="section" id="smoothing">
+<h2>Smoothing<a class="headerlink" href="#smoothing" title="Permalink to this headline">¶</a></h2>
+<p>If any one of the probablities is 0, the whole thing breaks down. So we need to apply smoothing.</p>
+<p>Laplacian is 1-plus smoothing. We make the 0s into 1s and increase the counts for everything else to balance for what we have added.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quantitative-modeling.html" class="btn btn-neutral float-right" title="Introduction to Quantitative Modeling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro-to-financial-accounting.html" class="btn btn-neutral" title="Introduction to Financial Accounting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ahmad Nazir Raja.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

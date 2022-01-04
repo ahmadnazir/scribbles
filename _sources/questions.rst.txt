@@ -1,0 +1,7 @@
+Questions
+=========
+
+.. toctree::
+   :glob:
+
+   questions/*

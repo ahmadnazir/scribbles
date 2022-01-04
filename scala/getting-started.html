@@ -1,63 +1,59 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Getting started / Emacs setup &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
   
-  
-
   
   
 
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-    
-    <link rel="next" title="Language" href="lang.html" />
-    <link rel="prev" title="Scala" href="../scala.html" /> 
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Scala" href="../scala.html"/>
+        <link rel="next" title="Language" href="lang.html"/>
+        <link rel="prev" title="Scala" href="../scala.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -88,7 +84,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -124,7 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../scala.html">Scala</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Getting started / Emacs setup</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting started / Emacs setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#metals">Metals</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#spacemacs-layer">Spacemacs layer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scala-build-tool">Scala build tool</a></li>
@@ -143,19 +138,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
 </ul>
 
             
           
         </div>
-        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Scribbles</a>
@@ -163,13 +158,10 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
-
-
 
 
 
@@ -189,7 +181,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../scala.html">Scala</a> &raquo;</li>
         
@@ -198,8 +190,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/scala/getting-started.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/scala/getting-started.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -218,18 +210,18 @@
 <div class="section" id="metals">
 <h2>Metals<a class="headerlink" href="#metals" title="Permalink to this headline">¶</a></h2>
 <p>Binary is needed:</p>
-<div class="code highlight-python"><div class="highlight"><pre>cd /tmp
-curl -L -o coursier https://git.io/coursier-cli
-chmod +x coursier
-./coursier bootstrap \
-  --java-opt -Xss4m \
-  --java-opt -Xms100m \
-  --java-opt -Dmetals.client=emacs \
-  org.scalameta:metals_2.12:0.9.6 \
-  -r bintray:scalacenter/releases \
-  -r sonatype:snapshots \
-  -o ~/bin/metals-emacs -f
-cd -
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span>
+<span class="n">curl</span> <span class="o">-</span><span class="n">L</span> <span class="o">-</span><span class="n">o</span> <span class="n">coursier</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">coursier</span><span class="o">-</span><span class="n">cli</span>
+<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">coursier</span>
+<span class="o">./</span><span class="n">coursier</span> <span class="n">bootstrap</span> \
+  <span class="o">--</span><span class="n">java</span><span class="o">-</span><span class="n">opt</span> <span class="o">-</span><span class="n">Xss4m</span> \
+  <span class="o">--</span><span class="n">java</span><span class="o">-</span><span class="n">opt</span> <span class="o">-</span><span class="n">Xms100m</span> \
+  <span class="o">--</span><span class="n">java</span><span class="o">-</span><span class="n">opt</span> <span class="o">-</span><span class="n">Dmetals</span><span class="o">.</span><span class="n">client</span><span class="o">=</span><span class="n">emacs</span> \
+  <span class="n">org</span><span class="o">.</span><span class="n">scalameta</span><span class="p">:</span><span class="n">metals_2</span><span class="o">.</span><span class="mi">12</span><span class="p">:</span><span class="mf">0.9</span><span class="o">.</span><span class="mi">6</span> \
+  <span class="o">-</span><span class="n">r</span> <span class="n">bintray</span><span class="p">:</span><span class="n">scalacenter</span><span class="o">/</span><span class="n">releases</span> \
+  <span class="o">-</span><span class="n">r</span> <span class="n">sonatype</span><span class="p">:</span><span class="n">snapshots</span> \
+  <span class="o">-</span><span class="n">o</span> <span class="o">~/</span><span class="nb">bin</span><span class="o">/</span><span class="n">metals</span><span class="o">-</span><span class="n">emacs</span> <span class="o">-</span><span class="n">f</span>
+<span class="n">cd</span> <span class="o">-</span>
 </pre></div>
 </div>
 <p>Once this is done and spacemacs layer is installed (see next step), then opening a scala file should use the metals backend.</p>
@@ -242,7 +234,7 @@ cd -
 </div>
 <div class="section" id="scala-build-tool">
 <h2>Scala build tool<a class="headerlink" href="#scala-build-tool" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-python"><div class="highlight"><pre>docker run -it \
+<div class="code highlight-default"><div class="highlight"><pre><span></span>docker run -it \
        --rm \
        -v $HOME:$HOME \
        -v $HOME:$HOME \
@@ -255,19 +247,19 @@ cd -
 <p>Getting started with sbt:</p>
 <p><a class="reference external" href="https://docs.scala-lang.org/getting-started/sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html">https://docs.scala-lang.org/getting-started/sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html</a></p>
 <p>Once in the container:</p>
-<div class="code highlight-python"><div class="highlight"><pre>sbt new scala/hello-world.g8
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sbt</span> <span class="n">new</span> <span class="n">scala</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">.</span><span class="n">g8</span>
 </pre></div>
 </div>
 <p>Start shell for sbt:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">sbt</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sbt</span>
 </pre></div>
 </div>
 <p>Now watch and run:</p>
-<div class="code highlight-python"><div class="highlight"><pre>sbt:hello-world&gt; ~run
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sbt</span><span class="p">:</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">&gt;</span> <span class="o">~</span><span class="n">run</span>
 </pre></div>
 </div>
 <p>Or Watch and run without having to create a sbt shell:</p>
-<div class="code highlight-python"><div class="highlight"><pre>sbt &#39;~run&#39;
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sbt</span> <span class="s1">&#39;~run&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -275,8 +267,8 @@ cd -
 <h2>Giter8 tempates<a class="headerlink" href="#giter8-tempates" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://www.scala-sbt.org/1.x/docs/sbt-new-and-Templates.html#Giter8+support">https://www.scala-sbt.org/1.x/docs/sbt-new-and-Templates.html#Giter8+support</a></p>
 <p>Examples:</p>
-<div class="code highlight-python"><div class="highlight"><pre>scala/scala-seed.g8 (Seed template for Scala)
-scala/hello-world.g8 (A template to demonstrate a minimal Scala application)
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">scala</span><span class="o">/</span><span class="n">scala</span><span class="o">-</span><span class="n">seed</span><span class="o">.</span><span class="n">g8</span> <span class="p">(</span><span class="n">Seed</span> <span class="n">template</span> <span class="k">for</span> <span class="n">Scala</span><span class="p">)</span>
+<span class="n">scala</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">.</span><span class="n">g8</span> <span class="p">(</span><span class="n">A</span> <span class="n">template</span> <span class="n">to</span> <span class="n">demonstrate</span> <span class="n">a</span> <span class="n">minimal</span> <span class="n">Scala</span> <span class="n">application</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -284,32 +276,34 @@ scala/hello-world.g8 (A template to demonstrate a minimal Scala application)
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="lang.html" class="btn btn-neutral float-right" title="Language" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../scala.html" class="btn btn-neutral float-left" title="Scala" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="lang.html" class="btn btn-neutral float-right" title="Language" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../scala.html" class="btn btn-neutral" title="Scala" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019, Ahmad Nazir Raja.
+        &copy; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -318,15 +312,37 @@ scala/hello-world.g8 (A template to demonstrate a minimal Scala application)
   </div>
   
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

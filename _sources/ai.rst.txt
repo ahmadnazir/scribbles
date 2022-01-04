@@ -1,0 +1,7 @@
+AI
+==
+
+.. toctree::
+   :glob:
+
+   ai/*

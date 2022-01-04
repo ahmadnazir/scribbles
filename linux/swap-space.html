@@ -1,63 +1,59 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Swap space &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
   
-  
-
   
   
 
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-    
-    <link rel="next" title="Tap click not working" href="tapclick.html" />
-    <link rel="prev" title="Use the swap partition instead of the swap file" href="swap-partition.html" /> 
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Linux" href="../linux.html"/>
+        <link rel="next" title="Tap click not working" href="tapclick.html"/>
+        <link rel="prev" title="Default editor for sudo" href="sudo-editor.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -88,7 +84,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -123,8 +118,10 @@
 <li class="toctree-l2"><a class="reference internal" href="boot.html#grub">Grub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="boot.html#initramfs">initramfs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect-windows.html">Connect to a windows machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="disk-space.html">Disk space</a></li>
 <li class="toctree-l2"><a class="reference internal" href="displaylink.html">Displaylink on Ubuntu 18.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dpkg.html">DPKG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressvpn.html">Express VPN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="externalmonitors.html">Configuring External Monitors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="firejail.html">Firejail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="format-usb.html">Format a usb</a></li>
@@ -135,13 +132,14 @@
 <li class="toctree-l2"><a class="reference internal" href="hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="increase-swap-size.html">Increase swap size</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-arch.html">Install Arch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lsof.html">lsof</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory-usage.html">Track Memory Usage of a Process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ram-size.html">What is the RAM size?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resize-partition.html">Resize the mounted parition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sound.html">Sound</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sudo-editor.html">Default editor for sudo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swap-partition.html">Use the swap partition instead of the swap file</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Swap space</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Swap space</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-swap-partition">Create a swap partition?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#increase-the-swap-file-size">Increase the swap file size</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
@@ -149,6 +147,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tapclick.html">Tap click not working</a></li>
 <li class="toctree-l2"><a class="reference internal" href="touchscreent.html">Calibrate the touch input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update-arch.html">Update Arch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade-ubuntu.html">Upgrade Ubuntu Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vm.html">Virtual Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wifi.html">Wifi</a></li>
@@ -167,19 +166,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
 </ul>
 
             
           
         </div>
-        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Scribbles</a>
@@ -187,13 +186,10 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
-
-
 
 
 
@@ -213,7 +209,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../linux.html">Linux</a> &raquo;</li>
         
@@ -222,8 +218,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/linux/swap-space.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/linux/swap-space.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -248,45 +244,45 @@
 </table>
 <p>Swap space can either use a file or a partition.</p>
 <p>I have a swap file <cite>/swapfile</cite> instead of a partition:</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo swapon --show
-NAME      TYPE SIZE USED PRIO
-/swapfile file   2G   0B   -2
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">swapon</span> <span class="o">--</span><span class="n">show</span>
+<span class="n">NAME</span>      <span class="n">TYPE</span> <span class="n">SIZE</span> <span class="n">USED</span> <span class="n">PRIO</span>
+<span class="o">/</span><span class="n">swapfile</span> <span class="n">file</span>   <span class="mi">2</span><span class="n">G</span>   <span class="mi">0</span><span class="n">B</span>   <span class="o">-</span><span class="mi">2</span>
 </pre></div>
 </div>
 <p>and also seen by checking the <cite>fstab</cite> file:</p>
-<div class="code highlight-python"><div class="highlight"><pre>cat /etc/fstab
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span>
 
-# /etc/fstab: static file system information.
-#
-# Use &#39;blkid&#39; to print the universally unique identifier for a
-# device; this may be used with UUID= as a more robust way to name devices
-# that works even if disks are added and removed. See fstab(5).
-#
-# &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
-# / was on /dev/nvme0n1p2 during installation
-UUID=5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f /               ext4    errors=remount-ro 0       1
-# /boot/efi was on /dev/nvme0n1p1 during installation
-UUID=6FE3-12FA  /boot/efi       vfat    umask=0077      0       1
-/swapfile                                 none            swap    sw              0       0
+<span class="c1"># /etc/fstab: static file system information.</span>
+<span class="c1">#</span>
+<span class="c1"># Use &#39;blkid&#39; to print the universally unique identifier for a</span>
+<span class="c1"># device; this may be used with UUID= as a more robust way to name devices</span>
+<span class="c1"># that works even if disks are added and removed. See fstab(5).</span>
+<span class="c1">#</span>
+<span class="c1"># &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span>
+<span class="c1"># / was on /dev/nvme0n1p2 during installation</span>
+<span class="n">UUID</span><span class="o">=</span><span class="mi">5</span><span class="n">c056ca5</span><span class="o">-</span><span class="mi">14</span><span class="n">ee</span><span class="o">-</span><span class="mi">4</span><span class="n">c9a</span><span class="o">-</span><span class="n">b3c7</span><span class="o">-</span><span class="mi">87</span><span class="n">f0c6998d8f</span> <span class="o">/</span>               <span class="n">ext4</span>    <span class="n">errors</span><span class="o">=</span><span class="n">remount</span><span class="o">-</span><span class="n">ro</span> <span class="mi">0</span>       <span class="mi">1</span>
+<span class="c1"># /boot/efi was on /dev/nvme0n1p1 during installation</span>
+<span class="n">UUID</span><span class="o">=</span><span class="mi">6</span><span class="n">FE3</span><span class="o">-</span><span class="mi">12</span><span class="n">FA</span>  <span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">efi</span>       <span class="n">vfat</span>    <span class="n">umask</span><span class="o">=</span><span class="mi">0077</span>      <span class="mi">0</span>       <span class="mi">1</span>
+<span class="o">/</span><span class="n">swapfile</span>                                 <span class="n">none</span>            <span class="n">swap</span>    <span class="n">sw</span>              <span class="mi">0</span>       <span class="mi">0</span>
 </pre></div>
 </div>
 <p>I would like to use a separate partition for swap which I can use for hibernation as well. I can use the file as well, but then it seems more complicated to get hibernation working that way.</p>
 <div class="section" id="create-a-swap-partition">
 <h2>Create a swap partition?<a class="headerlink" href="#create-a-swap-partition" title="Permalink to this headline">¶</a></h2>
 <p>This can be done with gparted:</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo apt install gparted
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">gparted</span>
 </pre></div>
 </div>
-<p>However, I can see that everything is allocated to my ext4 partition and I can&#8217;t resize it to make room for a swap partition.</p>
+<p>However, I can see that everything is allocated to my ext4 partition and I can’t resize it to make room for a swap partition.</p>
 </div>
 <div class="section" id="increase-the-swap-file-size">
 <h2>Increase the swap file size<a class="headerlink" href="#increase-the-swap-file-size" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-python"><div class="highlight"><pre>cat /etc/fstab # make sure that swap file is at /swapfile
-sudo swapoff -a
-sudo dd if=/dev/zero of=/swapfile bs=1G count=20
-sudo mkswap /swapfile
-sudo swapon /swapfile
-grep SwapTotal /proc/meminfo
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span> <span class="c1"># make sure that swap file is at /swapfile</span>
+<span class="n">sudo</span> <span class="n">swapoff</span> <span class="o">-</span><span class="n">a</span>
+<span class="n">sudo</span> <span class="n">dd</span> <span class="k">if</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">zero</span> <span class="n">of</span><span class="o">=/</span><span class="n">swapfile</span> <span class="n">bs</span><span class="o">=</span><span class="mi">1</span><span class="n">G</span> <span class="n">count</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">sudo</span> <span class="n">mkswap</span> <span class="o">/</span><span class="n">swapfile</span>
+<span class="n">sudo</span> <span class="n">swapon</span> <span class="o">/</span><span class="n">swapfile</span>
+<span class="n">grep</span> <span class="n">SwapTotal</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">meminfo</span>
 </pre></div>
 </div>
 </div>
@@ -298,32 +294,34 @@ grep SwapTotal /proc/meminfo
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="tapclick.html" class="btn btn-neutral float-right" title="Tap click not working" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="swap-partition.html" class="btn btn-neutral float-left" title="Use the swap partition instead of the swap file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="tapclick.html" class="btn btn-neutral float-right" title="Tap click not working" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sudo-editor.html" class="btn btn-neutral" title="Default editor for sudo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019, Ahmad Nazir Raja.
+        &copy; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -332,15 +330,37 @@ grep SwapTotal /proc/meminfo
   </div>
   
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

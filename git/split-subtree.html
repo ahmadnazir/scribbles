@@ -1,63 +1,59 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Split subtree &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
   
-  
-
   
   
 
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-    
-    <link rel="next" title="Identity" href="../identity.html" />
-    <link rel="prev" title="Sparse checkout" href="sparse-checkout.html" /> 
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Git" href="../git.html"/>
+        <link rel="next" title="Identity" href="../identity.html"/>
+        <link rel="prev" title="Sparse checkout" href="sparse-checkout.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -88,7 +84,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -118,7 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="line-ending.html">Line Ending</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lost-commit.html">Find a lost commit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sparse-checkout.html">Sparse checkout</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Split subtree</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Split subtree</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
@@ -139,19 +134,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
 </ul>
 
             
           
         </div>
-        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Scribbles</a>
@@ -159,13 +154,10 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
-
-
 
 
 
@@ -185,7 +177,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../git.html">Git</a> &raquo;</li>
         
@@ -194,8 +186,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/git/split-subtree.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/git/split-subtree.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -211,7 +203,7 @@
   <div class="section" id="split-subtree">
 <h1>Split subtree<a class="headerlink" href="#split-subtree" title="Permalink to this headline">¶</a></h1>
 <p>Consider you have the following repo:</p>
-<div class="code highlight-python"><div class="highlight"><pre>.
+<div class="code highlight-default"><div class="highlight"><pre><span></span>.
 ├── resources
 │   ├── default.css
 │   └── main.css
@@ -220,24 +212,24 @@
 </pre></div>
 </div>
 <p>and the git history is:</p>
-<div class="code highlight-python"><div class="highlight"><pre>commit 3010
-    Default css
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">commit</span> <span class="mi">3010</span>
+    <span class="n">Default</span> <span class="n">css</span>
 
-commit da1d
-    Added hashbang
+<span class="n">commit</span> <span class="n">da1d</span>
+    <span class="n">Added</span> <span class="n">hashbang</span>
 
-commit 7cd1
-    Initial commit
+<span class="n">commit</span> <span class="mi">7</span><span class="n">cd1</span>
+    <span class="n">Initial</span> <span class="n">commit</span>
 </pre></div>
 </div>
 <p>and you want to get the git history of only the <cite>src</cite> directory, then you can get it by splitting the git tree:</p>
-<div class="code highlight-python"><div class="highlight"><pre>git subtree split --prefix src
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">subtree</span> <span class="n">split</span> <span class="o">--</span><span class="n">prefix</span> <span class="n">src</span>
 
-commit 44a3
-    Added hashbang
+<span class="n">commit</span> <span class="mi">44</span><span class="n">a3</span>
+    <span class="n">Added</span> <span class="n">hashbang</span>
 
-commit 69ec
-    Initial commit
+<span class="n">commit</span> <span class="mi">69</span><span class="n">ec</span>
+    <span class="n">Initial</span> <span class="n">commit</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -248,32 +240,34 @@ commit 69ec
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../identity.html" class="btn btn-neutral float-right" title="Identity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="sparse-checkout.html" class="btn btn-neutral float-left" title="Sparse checkout" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="../identity.html" class="btn btn-neutral float-right" title="Identity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sparse-checkout.html" class="btn btn-neutral" title="Sparse checkout" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019, Ahmad Nazir Raja.
+        &copy; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -282,15 +276,37 @@ commit 69ec
   </div>
   
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
