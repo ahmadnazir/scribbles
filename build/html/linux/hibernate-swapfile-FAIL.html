@@ -1,63 +1,59 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Hibernate using a swap file &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
   
-  
-
   
   
 
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-    
-    <link rel="next" title="Resize the mounted parition" href="resize-partition.html" />
-    <link rel="prev" title="Hibernate using a swap partition" href="hibernate.html" /> 
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Linux" href="../linux.html"/>
+        <link rel="next" title="Resize the mounted parition" href="resize-partition.html"/>
+        <link rel="prev" title="Hibernate using a swap partition" href="hibernate.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -88,7 +84,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -123,15 +118,17 @@
 <li class="toctree-l2"><a class="reference internal" href="boot.html#grub">Grub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="boot.html#initramfs">initramfs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect-windows.html">Connect to a windows machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="disk-space.html">Disk space</a></li>
 <li class="toctree-l2"><a class="reference internal" href="displaylink.html">Displaylink on Ubuntu 18.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dpkg.html">DPKG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressvpn.html">Express VPN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="externalmonitors.html">Configuring External Monitors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="firejail.html">Firejail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="format-usb.html">Format a usb</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gif.html">Create a fig from jpegs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnome-settings-on-xmonad.html">Open gnome settings on Xmonad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hibernate.html">Hibernate using a swap partition</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Hibernate using a swap file</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hibernate using a swap file</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#before-you-begin">Before you begin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="resize-partition.html">[Optional] Shrink parition</a></li>
 <li class="toctree-l4"><a class="reference internal" href="swap-partition.html">Create a swap parition</a></li>
@@ -146,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="increase-swap-size.html">Increase swap size</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-arch.html">Install Arch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lsof.html">lsof</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory-usage.html">Track Memory Usage of a Process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ram-size.html">What is the RAM size?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resize-partition.html">Resize the mounted parition</a></li>
@@ -155,6 +153,7 @@
 <li class="toctree-l2"><a class="reference internal" href="swap-space.html">Swap space</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tapclick.html">Tap click not working</a></li>
 <li class="toctree-l2"><a class="reference internal" href="touchscreent.html">Calibrate the touch input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update-arch.html">Update Arch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade-ubuntu.html">Upgrade Ubuntu Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vm.html">Virtual Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wifi.html">Wifi</a></li>
@@ -173,19 +172,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
 </ul>
 
             
           
         </div>
-        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Scribbles</a>
@@ -193,13 +192,10 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
-
-
 
 
 
@@ -219,7 +215,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../linux.html">Linux</a> &raquo;</li>
         
@@ -228,8 +224,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/linux/hibernate-swapfile-FAIL.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/linux/hibernate-swapfile-FAIL.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -254,7 +250,7 @@
 </table>
 <div class="section" id="before-you-begin">
 <h2>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this headline">¶</a></h2>
-<p><em>I tried the following on 18.04 with and without a swap partition (the following assumes you have a swap file). I couldn&#8217;t get it to work due to random issues until I upgraded to 19.04. The following are only for reference. Please refer to the following working examples instead:</em></p>
+<p><em>I tried the following on 18.04 with and without a swap partition (the following assumes you have a swap file). I couldn’t get it to work due to random issues until I upgraded to 19.04. The following are only for reference. Please refer to the following working examples instead:</em></p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="resize-partition.html">[Optional] Shrink parition</a></li>
@@ -265,54 +261,54 @@
 </div>
 <div class="section" id="configure-grub">
 <h2>Configure GRUB<a class="headerlink" href="#configure-grub" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-python"><div class="highlight"><pre>sudo findmnt -no SOURCE,UUID -T /swapfile
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">findmnt</span> <span class="o">-</span><span class="n">no</span> <span class="n">SOURCE</span><span class="p">,</span><span class="n">UUID</span> <span class="o">-</span><span class="n">T</span> <span class="o">/</span><span class="n">swapfile</span>
 
-/dev/nvme0n1p2 5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f
+<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p2</span> <span class="mi">5</span><span class="n">c056ca5</span><span class="o">-</span><span class="mi">14</span><span class="n">ee</span><span class="o">-</span><span class="mi">4</span><span class="n">c9a</span><span class="o">-</span><span class="n">b3c7</span><span class="o">-</span><span class="mi">87</span><span class="n">f0c6998d8f</span>
 </pre></div>
 </div>
-<div class="code highlight-python"><div class="highlight"><pre>sudo swap-offset /swapfile
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">swap</span><span class="o">-</span><span class="n">offset</span> <span class="o">/</span><span class="n">swapfile</span>
 
-resume offset = 36827136
+<span class="n">resume</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">36827136</span>
 </pre></div>
 </div>
 <p>Update <cite>/etc/default/grub</cite>:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s">&quot;quiet splash resume=UUID=5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f resume_offset=36827136&quot;</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;quiet splash resume=UUID=5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f resume_offset=36827136&quot;</span>
 </pre></div>
 </div>
-<div class="code highlight-python"><div class="highlight"><pre>sudo update-grub
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">grub</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="uswsusp">
 <h2>USWSUSP<a class="headerlink" href="#uswsusp" title="Permalink to this headline">¶</a></h2>
 <p>Userspace software suspend. This relies on a tool called <cite>s2disk</cite>.</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo apt install uswsusp
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">uswsusp</span>
 
-# I said NO to continuing without a valid swap space
+<span class="c1"># I said NO to continuing without a valid swap space</span>
 </pre></div>
 </div>
 <p>Update <cite>/etc/uswsusp.conf</cite> (requires update-initramfs):</p>
-<div class="code highlight-python"><div class="highlight"><pre>resume device = /dev/nvme0n1p2
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">resume</span> <span class="n">device</span> <span class="o">=</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p2</span>
 
-# to
+<span class="c1"># to</span>
 
-resume device = /dev/disk/by-uuid/5c056ca5-14ee-4c9a-b3c7-87f0c6998d8f
+<span class="n">resume</span> <span class="n">device</span> <span class="o">=</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">uuid</span><span class="o">/</span><span class="mi">5</span><span class="n">c056ca5</span><span class="o">-</span><span class="mi">14</span><span class="n">ee</span><span class="o">-</span><span class="mi">4</span><span class="n">c9a</span><span class="o">-</span><span class="n">b3c7</span><span class="o">-</span><span class="mi">87</span><span class="n">f0c6998d8f</span>
 </pre></div>
 </div>
 <p>The following needs to be done since we made changes to /etc/uswsusp.conf</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo update-initramfs -u -k all
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">initramfs</span> <span class="o">-</span><span class="n">u</span> <span class="o">-</span><span class="n">k</span> <span class="nb">all</span>
 </pre></div>
 </div>
 <p>Updated systemd hibernate service:</p>
-<div class="code highlight-python"><div class="highlight"><pre>sudo systemctl edit systemd-hibernate.service
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">edit</span> <span class="n">systemd</span><span class="o">-</span><span class="n">hibernate</span><span class="o">.</span><span class="n">service</span>
 </pre></div>
 </div>
 <p>with the following content:</p>
-<div class="code highlight-python"><div class="highlight"><pre>[Service]
-ExecStart=
-ExecStartPre=-/bin/run-parts -v -a pre /lib/systemd/system-sleep
-ExecStart=/usr/sbin/s2disk
-ExecStartPost=-/bin/run-parts -v --reverse -a post /lib/systemd/system-sleep
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">ExecStart</span><span class="o">=</span>
+<span class="n">ExecStartPre</span><span class="o">=-/</span><span class="nb">bin</span><span class="o">/</span><span class="n">run</span><span class="o">-</span><span class="n">parts</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">a</span> <span class="n">pre</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">-</span><span class="n">sleep</span>
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">s2disk</span>
+<span class="n">ExecStartPost</span><span class="o">=-/</span><span class="nb">bin</span><span class="o">/</span><span class="n">run</span><span class="o">-</span><span class="n">parts</span> <span class="o">-</span><span class="n">v</span> <span class="o">--</span><span class="n">reverse</span> <span class="o">-</span><span class="n">a</span> <span class="n">post</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">-</span><span class="n">sleep</span>
 </pre></div>
 </div>
 </div>
@@ -325,32 +321,34 @@ ExecStartPost=-/bin/run-parts -v --reverse -a post /lib/systemd/system-sleep
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="resize-partition.html" class="btn btn-neutral float-right" title="Resize the mounted parition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="hibernate.html" class="btn btn-neutral float-left" title="Hibernate using a swap partition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="resize-partition.html" class="btn btn-neutral float-right" title="Resize the mounted parition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hibernate.html" class="btn btn-neutral" title="Hibernate using a swap partition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019, Ahmad Nazir Raja.
+        &copy; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -359,15 +357,37 @@ ExecStartPost=-/bin/run-parts -v --reverse -a post /lib/systemd/system-sleep
   </div>
   
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

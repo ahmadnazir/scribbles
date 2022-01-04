@@ -1,0 +1,7 @@
+Scala
+=====
+
+.. toctree::
+   :glob:
+
+   scala/*

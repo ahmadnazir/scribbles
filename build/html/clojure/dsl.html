@@ -1,63 +1,59 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Writing a DSL &mdash; Scribbles 0.1 documentation</title>
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
   
-  
-
   
   
 
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'0.1',
-              LANGUAGE:'',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: ''
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-    
-    <link rel="next" title="Graphing (n more) Libraries" href="graphs.html" />
-    <link rel="prev" title="conj" href="conj.html" /> 
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Clojure" href="../clojure.html"/>
+        <link rel="next" title="Graphing (n more) Libraries" href="graphs.html"/>
+        <link rel="prev" title="Clojure in docker" href="docker.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -88,7 +84,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -111,11 +106,13 @@
 <li class="toctree-l2"><a class="reference internal" href="clj-tools.html">clj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clojars.html">Clojars</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clojure-runner.html">Clojure runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure-spec.html">Clojure Spec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="collections-vs-sequences.html">Collections vs Sequences</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compilation.html">Clojure compilation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="composition.html">Function composition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conj.html">conj</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Writing a DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Clojure in docker</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing a DSL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="graphs.html">Graphing (n more) Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterate-hashmap.html">Iterate a hash map</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lein.html">Leiningen</a></li>
@@ -152,19 +149,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
 </ul>
 
             
           
         </div>
-        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Scribbles</a>
@@ -172,13 +169,10 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
-
-
 
 
 
@@ -198,7 +192,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../clojure.html">Clojure</a> &raquo;</li>
         
@@ -207,8 +201,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/clojure/dsl.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/clojure/dsl.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -224,89 +218,91 @@
   <div class="section" id="writing-a-dsl">
 <h1>Writing a DSL<a class="headerlink" href="#writing-a-dsl" title="Permalink to this headline">¶</a></h1>
 <p>Let us make a calculator that would evaluate expressions like:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p>Dependencies:</p>
-<div class="code highlight-python"><div class="highlight"><pre>[instaparse &quot;1.4.10&quot;]
-[org.clojure/core.match &quot;0.3.0-alpha5&quot;]
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">instaparse</span> <span class="s2">&quot;1.4.10&quot;</span><span class="p">]</span>
+<span class="p">[</span><span class="n">org</span><span class="o">.</span><span class="n">clojure</span><span class="o">/</span><span class="n">core</span><span class="o">.</span><span class="n">match</span> <span class="s2">&quot;0.3.0-alpha5&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Update required libs:</p>
-<div class="code highlight-python"><div class="highlight"><pre>[instaparse.core :as insta]
-[clojure.core.match :refer [match]]
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">instaparse</span><span class="o">.</span><span class="n">core</span> <span class="p">:</span><span class="k">as</span> <span class="n">insta</span><span class="p">]</span>
+<span class="p">[</span><span class="n">clojure</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">match</span> <span class="p">:</span><span class="n">refer</span> <span class="p">[</span><span class="n">match</span><span class="p">]]</span>
 </pre></div>
 </div>
 <p>Write the grammar as BNF (in the root of the project):</p>
-<div class="code highlight-python"><div class="highlight"><pre>EXPR := NUMBER &lt;ws*&gt; OP &lt;ws*&gt; NUMBER
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">EXPR</span> <span class="p">:</span><span class="o">=</span> <span class="n">NUMBER</span> <span class="o">&lt;</span><span class="n">ws</span><span class="o">*&gt;</span> <span class="n">OP</span> <span class="o">&lt;</span><span class="n">ws</span><span class="o">*&gt;</span> <span class="n">NUMBER</span>
 
-OP := ADD | SUB
+<span class="n">OP</span> <span class="p">:</span><span class="o">=</span> <span class="n">ADD</span> <span class="o">|</span> <span class="n">SUB</span>
 
-ADD :=  &quot;+&quot;
-SUB :=  &quot;-&quot;
-NUMBER :=  #&quot;[0-9]+&quot;
+<span class="n">ADD</span> <span class="p">:</span><span class="o">=</span>  <span class="s2">&quot;+&quot;</span>
+<span class="n">SUB</span> <span class="p">:</span><span class="o">=</span>  <span class="s2">&quot;-&quot;</span>
+<span class="n">NUMBER</span> <span class="p">:</span><span class="o">=</span>  <span class="c1">#&quot;[0-9]+&quot;</span>
 
-ws := #&#39;\s+&#39;   (* whitespace *)
+<span class="n">ws</span> <span class="p">:</span><span class="o">=</span> <span class="c1">#&#39;\s+&#39;   (* whitespace *)</span>
 </pre></div>
 </div>
 <p>Parse the grammar:</p>
-<div class="code highlight-python"><div class="highlight"><pre>(def parse (-&gt;&gt; (System/getProperty &quot;user.dir&quot;)
-                (format &quot;%s/grammar.bnf&quot; )
-                slurp
-                insta/parser
-                ))
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def</span> <span class="nf">parse</span> <span class="p">(</span><span class="o">-&gt;&gt;</span> <span class="p">(</span><span class="n">System</span><span class="o">/</span><span class="n">getProperty</span> <span class="s2">&quot;user.dir&quot;</span><span class="p">)</span>
+                <span class="p">(</span><span class="nb">format</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/grammar.bnf&quot;</span> <span class="p">)</span>
+                <span class="n">slurp</span>
+                <span class="n">insta</span><span class="o">/</span><span class="n">parser</span>
+                <span class="p">))</span>
 </pre></div>
 </div>
 <p>Test it:</p>
-<div class="code highlight-python"><div class="highlight"><pre>(parse &quot;1 + 2&quot;)
-;; [:EXPR [:NUMBER 1] [:OP [:ADD +]] [:NUMBER 3]]
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">parse</span> <span class="s2">&quot;1 + 2&quot;</span><span class="p">)</span>
+<span class="p">;;</span> <span class="p">[:</span><span class="n">EXPR</span> <span class="p">[:</span><span class="n">NUMBER</span> <span class="mi">1</span><span class="p">]</span> <span class="p">[:</span><span class="n">OP</span> <span class="p">[:</span><span class="n">ADD</span> <span class="o">+</span><span class="p">]]</span> <span class="p">[:</span><span class="n">NUMBER</span> <span class="mi">3</span><span class="p">]]</span>
 </pre></div>
 </div>
 <p>Generate the ast:</p>
-<div class="code clojure highlight-python"><div class="highlight"><pre>(defn evaluate
-  &quot;Convert parse tree to abstract syntax tree&quot;
-  [parsed]
-  (match parsed [:EXPR [:NUMBER l] [:OP op] [:NUMBER r]] (+ (read-string l) (read-string r) ) ;; hardcode the operator
-         :else  {:error (format &quot;Matching rules incomplete for: %s&quot; parsed)}
-         ))
+<div class="code clojure highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">defn</span> <span class="n">evaluate</span>
+  <span class="s2">&quot;Convert parse tree to abstract syntax tree&quot;</span>
+  <span class="p">[</span><span class="n">parsed</span><span class="p">]</span>
+  <span class="p">(</span><span class="n">match</span> <span class="n">parsed</span> <span class="p">[:</span><span class="n">EXPR</span> <span class="p">[:</span><span class="n">NUMBER</span> <span class="n">l</span><span class="p">]</span> <span class="p">[:</span><span class="n">OP</span> <span class="n">op</span><span class="p">]</span> <span class="p">[:</span><span class="n">NUMBER</span> <span class="n">r</span><span class="p">]]</span> <span class="p">(</span><span class="o">+</span> <span class="p">(</span><span class="n">read</span><span class="o">-</span><span class="n">string</span> <span class="n">l</span><span class="p">)</span> <span class="p">(</span><span class="n">read</span><span class="o">-</span><span class="n">string</span> <span class="n">r</span><span class="p">)</span> <span class="p">)</span> <span class="p">;;</span> <span class="n">hardcode</span> <span class="n">the</span> <span class="n">operator</span>
+         <span class="p">:</span><span class="k">else</span>  <span class="p">{:</span><span class="n">error</span> <span class="p">(</span><span class="nb">format</span> <span class="s2">&quot;Matching rules incomplete for: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="n">parsed</span><span class="p">)}</span>
+         <span class="p">))</span>
 </pre></div>
 </div>
 <p>Evaluate:</p>
-<div class="code highlight-python"><div class="highlight"><pre>(-&gt;&gt; &quot;1 + 2&quot;
-     parse
-     evaluate)
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">-&gt;&gt;</span> <span class="s2">&quot;1 + 2&quot;</span>
+     <span class="n">parse</span>
+     <span class="n">evaluate</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="graphs.html" class="btn btn-neutral float-right" title="Graphing (n more) Libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="conj.html" class="btn btn-neutral float-left" title="conj" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="graphs.html" class="btn btn-neutral float-right" title="Graphing (n more) Libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="docker.html" class="btn btn-neutral" title="Clojure in docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019, Ahmad Nazir Raja.
+        &copy; Copyright 2019, Ahmad Nazir Raja.
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -315,15 +311,37 @@ ws := #&#39;\s+&#39;   (* whitespace *)
   </div>
   
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

@@ -1,0 +1,39 @@
+At your fingertips
+==================
+
+Some operations should be extremely convenient - they should be second nature:
+
+**Conventions**
+
+Usually the following are true:
+- Commands starting with `SPC` are namespaced using nouns e.g. all commands
+starting with `SPC f` are file related
+_ Commands starting with the leader char i.e. `,` are namespaced using verbs /
+actions e.g. `, g` are related to Go actions e.g. go to definition etc
+
+
+Search
+------
+
+:Find something in current file: /
+:Find something in all files (within a project): SPC s a p
+:Find file (within a project):  SPC p h
+
+File
+----
+
+:Previous file: SPC b p
+:Next file: SPC b f
+:Close file: SPC b d
+:File path: SPC f y
+:sudo-edit: SPC f E
+
+Debug
+-----
+
+:Debug current function: , d b
+:Debug project/instance: , d i
+:Toggle breakpoint: , d d
+
+:Next error: SPC e n
+:Go to errors: , g e

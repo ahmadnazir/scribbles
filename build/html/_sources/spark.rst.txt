@@ -1,0 +1,7 @@
+Spark
+=====
+
+.. toctree::
+   :glob:
+
+   spark/*

@@ -1,0 +1,6988 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "SCRIBBLES" "7" "Jan 02, 2022" "0.1" "Scribbles"
+.SH NAME
+scribbles \- Scribbles
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.sp
+This is where I keep all the notes that are either \fItoo long that I would forget
+them\fP OR \fItoo short for a blog post\fP\&. This is a \fBwork in progress … and will
+remain so\fP for the forseeable future.
+.sp
+If you notice something off and want to contribute, feel free to create a pull
+request at \fI\%https://github.com/ahmadnazir/scribbles\fP
+.SH CONTENT
+.SS Emacs
+.SS \&.NET on Emacs
+.SS Install omnisharp
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+M\-x omnisharp\-install\-server
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Enable intellisense
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+fsharp\-ac\-intellisense\-enabled
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Auto\-complete
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+M\-x omnisharp\-auto\-complete
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Terminology
+.sp
+\fBBuffer\fP When you open a file in emacs, it creates a \fIbuffer\fP to \fIvisit\fP that file.
+\fBFrame\fP This is what I call a floating window. Emacs had a different meaning for window.
+\fBWindow\fP It is that space on the screen or view that shows you the buffer. It might be that multiple buffers are open but only a few windows are showing those buffers.
+.SS Buffer
+.sp
+\fBOpen a file in the current buffer\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+;; fn \-> f \-> b!
+(find\-file "/tmp/..")
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBOpen a file in another buffer\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(switch\-to\-buffer\-other\-window b)                             ;; same buffer in another window
+(switch\-to\-buffer\-other\-window (current\-buffer))              ;; same buffer in another window
+(switch\-to\-buffer\-other\-window (find\-file\-noselect filename)) ;; a file in another windoe
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBIs buffer visible?\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+;; fn \-> b \-> w
+(get\-buffer\-window b)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBGet the buffer that is visiting a file\fP
+\fBIs there any buffer visiting a file?\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+;; fn \-> f \-> b
+(get\-file\-buffer filename) ;; returns nil if none exists
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+You can create a buffer for a file if it doesn’t exist (and then \fIget\-file\-buffer\fP will return the buffer):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+;; fn \-> f \-> b
+(find\-file\-noselect filename)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBShow the file in another window\fP
+.sp
+If any buffer is visiting a file, show that buffer in another window,
+otherwise, create a buffer and show it in another window.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(let ((b (get\-file\-buffer filename)))
+  (if b (switch\-to\-buffer\-other\-window b)
+    (switch\-to\-buffer\-other\-window (find\-file\-noselect filename))))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Helm
+.sp
+Selection narrowing framework for emacs.
+.sp
+Write an extension: \fI\%http://wikemacs.org/wiki/How_to_write_helm_extensions\fP
+.sp
+Simple usage:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(helm :sources \(aq((name . "Action:")
+                 (candidates . ( "a" "b" "c"))
+                 (action . (lambda (candidate)
+                             (message candidate)))))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS HTTP functions
+.sp
+To encode values use \fIurl\-hexify\-string\fP (which is similar to \fIencodeURIComponent\fP in JS)
+.SS Keybindings
+.INDENT 0.0
+.TP
+.B Sudo edit
+SPC f E
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(spacemacs/declare\-prefix "o" "custom")
+(spacemacs/declare\-prefix "op" "pumlator")
+(spacemacs/set\-leader\-keys "opr" \(aqanr\-pumlator\-\-render)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fI\%https://develop.spacemacs.org/doc/DOCUMENTATION.html#binding\-keys\fP
+.SS PlantUML
+.sp
+Spacemacs comes with a \fBplantuml\fP layer which has a major mode for modifying such files.
+.sp
+Files with extension \fB\&.pum\fP are recognized.
+.sp
+Once installed, set the output type to \fBpng\fP (\fBM\-x plantuml\-set\-output\-type\fP)
+Generate a preview: \fBplantuml\-preview\fP or \fB, c c\fP
+.SS Local rendering
+.INDENT 0.0
+.IP \(bu 2
+Make sure \fBgraphviz\fP is installed
+.IP \(bu 2
+Download the jar: \fBplantuml\-download\-jar\fP\&.
+.UNINDENT
+.sp
+A few more variables that might need customizing:
+.INDENT 0.0
+.IP \(bu 2
+\fBplantuml\-default\-exec\-mode\fP : \fBjar\fP (instead of \fBserver\fP)
+.IP \(bu 2
+\fBplantuml\-jar\-path\fP : path where you download the jar. If you want to manually download the jar, checkout: \fI\%https://plantuml.com/download\fP
+.UNINDENT
+.sp
+Now the preview will be generated locally.
+.SS Spacemacs Keybindings
+.sp
+\fISPC t m c\fP toggle mode\-line org\-clock
+.sp
+\fISPC v v\fP expand
+\fISPC v V\fP contract
+.sp
+\fISPC f t\fP neo tree
+.SS Custom
+.sp
+\fISPC o o n\fP new entry in the journal (before I clock in)
+\fISPC o o i\fP Clock in (for the selected note)
+\fISPC o o o\fP Clock out
+\fISPC o o r\fP Generate the report
+.SS Compile / Custom Command for Current Buffer
+.sp
+\fISPC c C\fP Specify the compile/custom command
+\fISPC c r\fP Re\-run the compile/custom command
+.SS Textern
+.sp
+\fBNOTE\fP: I’ve been using surfkeys which seems to work.
+.sp
+Edit any text area (firefox) with the editor of your choice.
+.sp
+Here is my setup with emacs. It is a work in progress.
+.sp
+Reference: \fI\%https://emacsnotes.wordpress.com/2018/05/14/editing\-html\-textareas\-with\-emacs\-bye\-bye\-its\-all\-text\-hello\-textern/\fP
+.SS Install firefox extension
+.sp
+\fI\%https://addons.mozilla.org/en\-US/firefox/addon/textern/\fP
+.SS Install the backend
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+git clone \-\-recurse\-submodules https://github.com/jlebon/textern
+cd textern
+make native\-install USER=1\en
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Emacs client
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+#!/bin/sh
+emacsclient \-c \-a "" \-\- "$@"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Textern browser extension preferences
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+["emacsclient.sh", "%s", "\-\-eval", "(progn (goto\-line %l) (move\-to\-column (1\- %c)))"]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS TODO
+.sp
+Need to create a dedicated emacs daemon for this otherwise it affects the other frames.
+.SS Package Management
+.SS Ansible
+.SS Create a play book
+.sp
+If we want that \fIjq\fP is installed on a Debian machine, the following playbook can be used:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\-\-\-
+\- name: Provision my machine with goodies
+  hosts: localhost
+
+  tasks:
+  \- name: Install jq
+    apt:
+      name: jq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Run it:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo ansible\-playbook my\-playbook.yml \-vvvv
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Removing packages
+.sp
+Ansible is stateless so it doesn’t know when a package is removed. If you want to remove a package, it needs to be explicitly stated in \fBtask\fP the playbook:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+tasks:
+\- name: Remove jq
+  apt:
+    name: jq
+    state: absent         # Make sure that the package isn\(aqt available
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS References
+.INDENT 0.0
+.IP \(bu 2
+\fI\%Yaml Syntax for the Playbook\fP
+.UNINDENT
+.SS APT
+.INDENT 0.0
+.TP
+.B OS
+Ubuntu 18.04
+.UNINDENT
+.SS Search for a package
+.sp
+I want to see if I can install powershell:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt search powershell
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Details for a package
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt show powershell
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Helm
+.sp
+\fBHelm is the package manager for Kubernetes.\fP
+.sp
+A package in helm is called a \fBchart\fP\&.
+.sp
+In order to use helm, tiller needs to be installed in the cluster which \fBmanages installations of the charts\fP in the cluster.
+.SS Install tiller in the cluster
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+helm init
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Create a chart
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+helm create my\-service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+which creates a directory structure:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+my\-service
+├── charts
+├── Chart.yaml
+├── templates
+│\ \  ├── deployment.yaml
+│\ \  ├── _helpers.tpl
+│\ \  ├── ingress.yaml
+│\ \  ├── NOTES.txt
+│\ \  ├── service.yaml
+│\ \  └── tests
+│\ \      └── test\-connection.yaml
+└── values.yaml
+
+3 directories, 8 files
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Specify the image
+.sp
+Specify the docker image and tag in the \fIvalues.yaml\fP file.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+image:
+  repository: ahmadnazir/dummy\-server
+  tag: 0.2
+  pullPolicy: IfNotPresent
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Install chart
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+helm install \-\-dry\-run \-\-debug ./my\-service
+helm install ./my\-service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This gives an output:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+NAME:   zealous\-mongoose
+LAST DEPLOYED: Tue May 21 08:50:49 2019
+NAMESPACE: default
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/Deployment
+NAME                         READY  UP\-TO\-DATE  AVAILABLE  AGE
+zealous\-mongoose\-my\-service  0/1    1           0          0s
+
+==> v1/Pod(related)
+NAME                                         READY  STATUS             RESTARTS  AGE
+zealous\-mongoose\-my\-service\-7c6c94d45\-b5pv5  0/1    ContainerCreating  0         0s
+
+==> v1/Service
+NAME                         TYPE       CLUSTER\-IP      EXTERNAL\-IP  PORT(S)  AGE
+zealous\-mongoose\-my\-service  ClusterIP  10.152.183.114  <none>       80/TCP   0s
+
+
+NOTES:
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods \-\-namespace default \-l "app.kubernetes.io/name=my\-service,app.kubernetes.io/instance=zealous\-mongoose" \-o jsonpath="{.items[0].metadata.name}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl port\-forward $POD_NAME 8080:80
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Try it out
+.sp
+In order to access the service, it needs to be exposed:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+export POD_NAME=$(k get pods \-\-namespace default \-l "app.kubernetes.io/name=my\-service,app.kubernetes.io/instance=zealous\-mongoose" \-o jsonpath="{.items[0].metadata.name}")
+k port\-forward $POD_NAME 8088:8088
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+curl localhost:8088
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Appendix
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+alias k="/usr/bin/snap run kubectl $@"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Terraform
+.INDENT 0.0
+.TP
+.B terraform init
+Initialize the state.
+.TP
+.B terraform plan
+Dry run the plan
+.TP
+.B terraform apply
+Perform the provisions by creating a plan using the terraform state.
+.UNINDENT
+.SS The State!
+.sp
+Terraform keeps the view of the world (whatever has been provisioned) in the
+form of local state. It is kept offline and is not synced automatically. If the
+resources are already provisioned, then the state must be imported
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+terraform import module.resource_group.azurerm_resource_group.resource_group /subscriptions/59d6db65\-221b\-45ce\-8f2b\-5689b25c4f28/resourceGroups/rg\-dev1\-westus2\-universe
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Removing resources
+.sp
+You can only do this from the command line:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+terraform destroy \-target=azurerm_storage_table.table
+terraform destroy \-target=module.storage_account.azurerm_storage_account.storage_account
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS ReStructuredText Markup
+.SS Code Snippets
+.sp
+Use 3 chars to indent the code snippet.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\&.. code::
+
+   public static void main()
+   {
+     System.out.println("Hello World");
+   }
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fIrenders to:\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+public static void main()
+{
+  System.out.println("Hello World");
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Headings
+.sp
+From \fI\%https://thomas\-cokelaer.info/tutorials/sphinx/rest_syntax.html#headings\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# with overline, for parts
+* with overline, for chapters
+=, for sections
+\-, for subsections
+^, for subsubsections
+“, for paragraphs
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This project uses \fI=\fP and \fI\-\fP as there are no parts or chapters.
+.SS Images
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+|ImageLink|_
+
+\&.. |ImageLink| image:: https://www.brainonfire.net/files/seqs\-and\-colls/collection\-properties\-venn.png
+\&.. _ImageLink: https://www.brainonfire.net/files/seqs\-and\-colls/main.html
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+renders to:
+.sp
+\fI\%ImageLink\fP
+.SS Links
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\(gaOfficial docs\(ga_ have more details
+
+\&.. _Official docs: https://docs.acme.com
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fIrenders to:\fP
+.sp
+\fI\%Official docs\fP have more details
+.SS Lists
+.SS Numbering
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+#. Item A
+#. Item B
+#. Item C
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fIrenders to:\fP
+.INDENT 0.0
+.IP 1. 3
+Item A
+.IP 2. 3
+Item B
+.IP 3. 3
+Item C
+.UNINDENT
+.SS Nested List
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\- **Here is a nested list**:
+
+  \- Item A
+  \- Item B
+  \- Item C
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fIrenders to:\fP
+.INDENT 0.0
+.IP \(bu 2
+\fBHere is a nested list\fP:
+.INDENT 2.0
+.IP \(bu 2
+Item A
+.IP \(bu 2
+Item B
+.IP \(bu 2
+Item C
+.UNINDENT
+.UNINDENT
+.SS References
+.sp
+\fI\%http://docutils.sourceforge.net/docs/ref/rst/directives.html\fP
+.SS Tables
+.sp
+Two types of tables are supported:
+.INDENT 0.0
+.IP \(bu 2
+\fBGrid\fP
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
++\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-+
+| Header 1   | Header 2   | Header 3  |
++============+============+===========+
+| body row 1 | column 2   | column 3  |
++\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-+
+| body row 2 | Cells may span columns.|
++\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-+
+| body row 3 | Cells may  | \- Cells   |
++\-\-\-\-\-\-\-\-\-\-\-\-+ span rows. | \- contain |
+| body row 4 |            | \- blocks. |
++\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-+
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fIrenders to:\fP
+.TS
+center;
+|l|l|l|.
+_
+T{
+Header 1
+T}	T{
+Header 2
+T}	T{
+Header 3
+T}
+_
+T{
+body row 1
+T}	T{
+column 2
+T}	T{
+column 3
+T}
+_
+T{
+body row 2
+T}	T{
+Cells may span columns.
+T}
+_
+T{
+body row 3
+T}	T{
+Cells may
+span rows.
+T}	T{
+.INDENT 0.0
+.IP \(bu 2
+Cells
+.IP \(bu 2
+contain
+.IP \(bu 2
+blocks.
+.UNINDENT
+T}
+_
+T{
+body row 4
+T}
+_
+.TE
+.INDENT 0.0
+.IP \(bu 2
+\fBSimple\fP
+.UNINDENT
+.sp
+Really basic table:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
++\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-+
+| 1       |  2      |  3        |
++\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-+
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+renders to:
+.TS
+center;
+|l|l|l|.
+_
+T{
+1
+T}	T{
+2
+T}	T{
+3
+T}
+_
+.TE
+.sp
+Another way \- with headers:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+=====  =====  ======
+   Inputs     Output
+\-\-\-\-\-\-\-\-\-\-\-\-  \-\-\-\-\-\-
+  A      B    A or B
+=====  =====  ======
+False  False  False
+True   False  True
+False  True   True
+True   True   True
+=====  =====  ======
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fIrenders to:\fP
+.TS
+center;
+|l|l|l|.
+_
+T{
+Inputs
+T}	T{
+Output
+T}
+_
+T{
+A
+T}	T{
+B
+T}	T{
+A or B
+T}
+_
+T{
+False
+T}	T{
+False
+T}	T{
+False
+T}
+_
+T{
+True
+T}	T{
+False
+T}	T{
+True
+T}
+_
+T{
+False
+T}	T{
+True
+T}	T{
+True
+T}
+_
+T{
+True
+T}	T{
+True
+T}	T{
+True
+T}
+_
+.TE
+.SS Emacs support
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+M\-x table\-insert
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Reference
+.sp
+\fI\%http://docutils.sourceforge.net/docs/user/rst/quickref.html#tables\fP
+.SS Visual Studio
+.SS VsVim
+.INDENT 0.0
+.TP
+.B Version
+Visual Studio 2019
+.UNINDENT
+.sp
+\fIVsVim\fP is an extension for visual studio for vim keybindings
+.SS Chrome tab navigation
+.sp
+Use a \fI\&.vimrc\fP file in the \fI$HOME\fP directory:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nnoremap <C\-PageDown>  :tabnext<CR>
+nnoremap <C\-PageUp>    :tabprev<CR>
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Reload settings
+.sp
+\fICtrl\-Shift\-F12\fP: \fI\%https://github.com/VsVim/VsVim/wiki/FAQ#how\-can\-i\-temporarily\-disable\-vsvim\fP
+.SS Agile
+.SS Rules for the Daily Stand\-up
+.sp
+Rules for the meeting:
+.INDENT 0.0
+.IP \(bu 2
+\fBKeep it short\fP \- max 2 minutes. Keep standing to enforce this
+.IP \(bu 2
+\fBFormat\fP should be
+.INDENT 2.0
+.IP \(bu 2
+What did you do since last meeting
+.IP \(bu 2
+What are you planning on accomplishing until next meeting
+.IP \(bu 2
+What is blocking you?
+.UNINDENT
+.IP \(bu 2
+\fBFocus on what you want to achieve\fP instead of what is keeping you busy
+.UNINDENT
+.sp
+Make sure that you avoid some bad habits:
+.INDENT 0.0
+.IP \(bu 2
+\fBDon’t wait for everyone to start the meeting\fP\&. Start on time and stick to a schedule
+.IP \(bu 2
+\fBDon’t introduce new topics\fP Stick to what was planned \- wait till the end to fork a different discussion if needed
+.IP \(bu 2
+\fBDon’t let people ramble\fP\&. Everyone should have the to interrupt in a polite way if the discussion is going off topic
+.UNINDENT
+.SS AI
+.SS Improving Language Understanding by Generative Pre\-Training
+.INDENT 0.0
+.TP
+.B paper
+\fI\%https://cdn.openai.com/research\-covers/language\-unsupervised/language_understanding_paper.pdf\fP
+.UNINDENT
+.sp
+Framework for achieving strong natural language understanding with a single
+task\-agnostic model through generative pre\-training and discriminative fine\-tuning.
+.SS Textual entailment
+.INDENT 0.0
+.IP \(bu 2
+Premise: If you help the needy, God will reward you
+.IP \(bu 2
+Hypothesis: Giving money to the poor has good consequences.
+.UNINDENT
+.sp
+Example from \fI\%https://demo.allennlp.org/textual\-entailment/MjMxNzU3MA==\fP
+.sp
+\fI\%image\fP
+.SS SciKit vs PyTorch
+.sp
+SciKit it for classical machine learning, easier to use, not as configurable.
+PyTorch is for deep learning, relatively difficult to start using, more configurable
+.sp
+\fI\%https://blog.paperspace.com/why\-use\-pytorch\-deep\-learning\-framework/#:~:text=PyTorch%20vs%20Scikit%2DLearn&text=Sklearn%20is%20built%20on%20top,is%20designed%20for%20deep%20learning.&text=Sklearn%20is%20relatively%20difficult%20to%20customize\fP\&.
+.SS Azure
+.SS Az Module (Powershell) vs az cli
+.sp
+\fI\%https://millerb.co.uk/2019/12/07/Az\-CLI\-vs\-Az\-PowerShell.html\fP
+.SS Azure Data Lake
+.sp
+Azure data lake can be used to store any type of data whether it is:
+.INDENT 0.0
+.IP \(bu 2
+\fBUnstructured data\fP json, txt, csv, you name it
+.IP \(bu 2
+\fBSemi\-structured data\fP: json or xml, along with schema definition that is read at run\-time
+.IP \(bu 2
+\fBStructured data\fP: databases
+.UNINDENT
+.sp
+Azure Data Lake helps users to take the LET (Load Extract Transform) approach instead of the ETL approach (Extract Transform Load).
+.sp
+SQL language that you can use with Azure Data Lake is U\-SQL (hybrid of T\-SQL and C#). Extensible and modules can be written using C#.
+.sp
+Data Lakes sit on HDFS.
+.sp
+Azure data lake databases are not relational. Relationships are virtual.
+.sp
+\fBData Skew\fP happens when data is partitioned in a what that one or more vertices have significantly more work to do than other vertices.
+.SS Extents
+.INDENT 0.0
+.IP \(bu 2
+When uploading data, the file is split into \fBExtents\fP
+.IP \(bu 2
+usually 250MB
+.IP \(bu 2
+Normally, replicated 3 times
+.UNINDENT
+.SS Vertices
+.sp
+U\-SQL jobs are processed by vertices
+\- A vertix is a virtual machine (dual core processor and 6GB RAM \- at the point of writing)
+\- Each vertix performs a particular task
+\- Each vertix works on around 1 GB of data
+\- resulting in about 4 Extents
+\- A job normally used 5 vertices to execute the task. This number is configurable.
+\- A vertex must complete in 5 hours
+\- Maximum memory : 5 GB
+.SS Azure Data Lake Accounts
+.sp
+Consists of:
+.INDENT 0.0
+.IP \(bu 2
+Store account
+.IP \(bu 2
+Analytics account
+.UNINDENT
+.sp
+Azure Data Lake Analytics can also query data in other stores e.g. Azure Blob Storage, SQL Server in Azure etc.
+.SS Partitioning
+.INDENT 0.0
+.IP \(bu 2
+\fBHorizontal\fP
+.UNINDENT
+.sp
+Also known as:
+.INDENT 0.0
+.IP \(bu 2
+sharding
+.IP \(bu 2
+fine grained partitioning
+.IP \(bu 2
+automatic partitioning
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Metropolitan
+North Wales
+Manchester
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.IP \(bu 2
+\fBVertical\fP (coarse grained partitioning or manual partitioning)
+.UNINDENT
+.sp
+Also known as:
+.INDENT 0.0
+.IP \(bu 2
+coarse grained partitioning
+.IP \(bu 2
+manual partitioning
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Metropolitan  | North Wales | Manchester
+Metropolitan  |             | Manchester
+              |             | Manchester
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Normalization can also be used to do vertical partitioning but this goes one step further and can be used to partition data that is already normalized (for reasons like performance, availability, etc).
+.INDENT 0.0
+.IP \(bu 2
+\fBFunctional\fP
+.UNINDENT
+.sp
+Data is grouped according to how it is used by each bounded context e.g. for an e\-commerce system partition invoice data and product inventory data
+.sp
+MS recommends that partition size should be 1GB in size for maximum performance
+.SS Distribution Scheme
+.sp
+Partitioning determines how the data is stored. Distribution determines where the data is stored and you can control that when working with Databases/U\-SQL.
+.sp
+In Azure Data Lake, distribution means how horizontal partitioning separates the data.
+.sp
+4 ways to horizontally partition the data:
+.INDENT 0.0
+.IP \(bu 2
+Hash Keys: Data Lake hashes the values and distributes the data based on the hash value
+.IP \(bu 2
+Direct Hash: We are responsible for providing a numeric value and then generate a hash value using an analytics function like rank or dense rank. More control this way.
+.IP \(bu 2
+Range Keys
+.IP \(bu 2
+Round robin: no keys are needed. Data is distributed evenly.
+.UNINDENT
+.sp
+Data skew can happen with hash keys, direct hash, and range keys. Round robin fixes this but can lead to more data reads as the data might not be sitting together.
+.SS Data Lake Gen1 vs Gen2
+.INDENT 0.0
+.IP \(bu 2
+Gen1 is basically HDFS on the cloud
+.IP \(bu 2
+Gen2 is Azure Blob storage on HDFS
+.UNINDENT
+.SS Azure Key Vault
+.sp
+Get the value of the secret:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+az keyvault secret show \-\-name secret \-\-vault\-name my\-kv
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Azure Service Fabric
+.sp
+Plural site course (focusing on ‘Reliable Services’)
+\fI\%https://app.pluralsight.com/course\-player?clipId=ec014437\-6f1b\-49e0\-a70f\-47878c055bcb\fP
+.sp
+4 approaches to create micro services in service fabric:
+.INDENT 0.0
+.IP 1. 3
+Reliable services (stateless / stateful)
+.IP 2. 3
+Reliable actodflsdfrs
+.IP 3. 3
+Guest executables
+.IP 4. 3
+Containers
+.UNINDENT
+.SS Reliable Services
+.sp
+Reliable services are like normal apps with the difference that they are exposed to Service Fabric APIs so that orchestration can happen on them.
+.INDENT 0.0
+.IP 1. 3
+Stateless reliable services
+.UNINDENT
+.sp
+State is stored locally (no need to talk to a database).
+What if a server crashes? replicas are being used.
+Minimum set of replicas to achieve data consistency is called a Quorum.
+.SS Service Communication
+.sp
+The following are supported by service fabric out of the box:
+.INDENT 0.0
+.IP 1. 3
+WCF (Windows Communication Foundation)
+.IP 2. 3
+HTTP
+.IP 3. 3
+Service Remoting
+.UNINDENT
+.sp
+Service Remoting is default and recommended. Supports:
+.INDENT 0.0
+.IP \(bu 2
+Auto address resolution
+.IP \(bu 2
+Establishing connection
+.IP \(bu 2
+Retries
+.IP \(bu 2
+Error handling
+.IP \(bu 2
+Strong types
+.IP \(bu 2
+Fast
+.IP \(bu 2
+C# and Java support
+.UNINDENT
+.SS WASB
+.sp
+Windows Azure Storage Blob (WASB) is a filesystem on top of HDFS. This allows persistence of the data in Azure Storage Accounts instead of local disk. This way the hadoop cluster can be shut down when no computation is taking place.
+.SS WASB vs ABFS
+.sp
+WASB has certain deficiencies e.g. renaming/moving large number of files. An improved driver is Azure Block File System (ABFS).
+.sp
+Reference: \fI\%https://docs.microsoft.com/en\-us/azure/storage/blobs/data\-lake\-storage\-abfs\-driver#prior\-capability\-the\-windows\-azure\-storage\-blob\-driver\fP
+.SS Business
+.SS Glossary
+.sp
+Equity: “Value of shares issues by a company”
+.sp
+Liquidation Preference: ?
+.sp
+Rachet: ?
+.sp
+Short\-setting: Betting on the stock price to go down
+.SS The Penneo Incident
+.sp
+Penneo started trading on the 2nd June, 2020.
+.SS Timeline of events
+.sp
+\fI\%timeline\fP
+.INDENT 0.0
+.TP
+.B Offer price (corrected)
+11.06
+.UNINDENT
+.SS Pre\-subscription
+.sp
+This is where Grant Thornton reaches out to cornerstone investors and pitches
+the company to them. Having good profile investors enables Penneo to carry out
+an effective marketing campaign (with whatever company they hired to do that).
+.sp
+\fI\%summary\fP
+.INDENT 0.0
+.TP
+.B Pre\-subscribed
+35,975 Million DKK
+.UNINDENT
+.sp
+\fI\%presub\fP
+.SS Subscription
+.sp
+From 5th May 2020 to 26th May 2020, we ask the public to subscribe to the shares. This doesn’t mean that the public investors get their shares. Only after the subscription period Penneo announces who gets the shares.
+.INDENT 0.0
+.INDENT 3.5
+\fIIn total, this amounts to an oversubscription of the new shares offered of 4.7x of the total offering, and an oversubscription of 19.4x of the new shares available in the public offering.\fP [1]
+.sp
+\fIAfter completion of the offering the share capital of the Company will be increased from nominally DKK 412,198.64 distributed on 20,609,932 shares of DKK 0.02 to nominally DKK 502,614.56 distributed on 25,130,728 shares of DKK 0.0.\fP [1]
+.UNINDENT
+.UNINDENT
+.IP [1] 5
+\fI\%https://newsclient.omxgroup.com/cdsPublic/viewDisclosure.action?disclosureId=942009&lang=en\fP
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+\fBLayman’s analysis\fP
+.sp
+Since the offering was 4.7 times, this means that
+there is at least 230 Million DKK (25,130,728 * 4.7) in the market so it is safe to assume that
+there is enough money to sustain a price of 9.15 DKK/share (230 million / 25,130,728) even if
+all the shares are sold at the same time.
+.UNINDENT
+.UNINDENT
+.SS Trading begins
+.sp
+Opened at around 27. Don’t remember the exact price.
+.SS Ratios : Liquidity vs Solvency
+.SS Liquidity
+.sp
+It is \fIhow easily can the assets be converted to cash.\fP
+.sp
+2 ratios to measure liquidity. Higher ratio is better:
+.sp
+\fBCurrent Ratio\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Current Assets / Current Liabilities
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBQuick Ratio\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(Current Assets \- Inventory) / Current Liabilities
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Solvency
+.sp
+It is \fIhow easily can the assets be converted to cash.\fP
+.sp
+\fBInterest Coverage Ratio\fP
+.sp
+Higher ratio is better.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Operating Income / Interest Expense
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBDebt to Equity Ratio\fP
+.sp
+Lower ratio is better.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Debt / Equity
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBSoliditetsgrad\fP from Proff.dk
+.sp
+“The solvency ratio is a key figure that you can use to get an overview of how large a share of your company’s assets is invested in debt, seen in relation to the size of your company’s equity. The solvency ratio is a measure of how strong your company will be in a possible financial crisis.” \fI\%https://dinero.dk/ordbog/soliditetsgrad/\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Equity * 100 / Assets
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Clojure
+.SS Babashka
+.sp
+Shell scripting in clojure.
+.SS Sample clj file
+.sp
+\fItest.clj\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+#!/usr/bin/env bb
+
+(\->> *command\-line\-args*
+     first)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Make the file executable and run the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\&./test.clj Hello World # "Hello"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Emacs
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+bb \-\-nrepl\-server 1667
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+From emacs \fIM\-x cider\-connect\fP / spacemacs \fISPC s c\fP\&.
+.SS Benchmarking
+.sp
+\fI\%https://github.com/hugoduncan/criterium\fP
+.SS clj
+.sp
+Here is an example how you can enhance the vanilla clj tool:
+\fI\%https://github.com/seancorfield/clj\-new\fP
+.SS Clojars
+.sp
+Clojars is a repository for clojure libraries (like \fImaven\fP for java)
+.SS Deploying
+.sp
+From a clojure project:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lein deploy clojars
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This will ask your username and password to authenticate to \fIclojars.org\fP\&. It will also ask you to sign the jar with you \fIgpg\fP key.
+.sp
+Reference: I have this setup for \fIclj\-lein\-template\fP project.
+.SS Clojure runner
+.sp
+The runner, invoked by calling \fIclojure\fP or simply \fIclj\fP is a tool/script to invoke the clojure compiler and the repl.
+.sp
+Side note: With the \fItools.deps\fP library, dependencies can be resolved. With this functionality, this can act as a replacement for \fIlein\fP / \fIboot\fP\&.
+.SS Create a new project
+.sp
+The \fI\%clj\-new\fP library can be used to create a new project:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+clj \-A:new app ahmadnazir/cosmosdb\-client
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Add a dependency
+.sp
+Update the \fIdeps.edn\fP file and invoke the runner.
+.SS Clojure Spec
+.SS Instrumentation
+.sp
+Note: Instrumentation only works for \fI:args\fP in a function definition. \fI:fn\fP and \fI:ret\fP are only used during generative / property based testing.
+.sp
+Here is an example of how this works.
+.sp
+Create a function definitions
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(defn adder [x y]
+  (+ x y))
+
+(s/fdef adder
+  :args (s/cat :x int? :y int?))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If we call \fIadder\fP without instrumentation, we get the following error:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+1. Unhandled clojure.lang.ArityException
+   Wrong number of args (3) passed to: pine.db.postgres/adder
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+However, if we need to enable instrumentation:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(ns acme.app
+  (:require [clojure.spec.test.alpha :as stest]))
+
+(stest/instrument [\(gaadder])
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Now, when we call \fIadder\fP with the wrong arguments, we get a relatively helpful message:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+1. Unhandled clojure.lang.ExceptionInfo
+   Spec assertion failed.
+
+         Spec: #object[clojure.spec.alpha$regex_spec_impl$reify__2510 0x6c0f16e3 "clojure.spec.alpha$regex_spec_impl$reify__2510@6c0f16e3"]
+        Value: (1 2 4)
+
+     Problems:
+
+            val: (4)
+             in: [2]
+         failed: (cat :x int? :y int?)
+         reason: Extra input
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Collections vs Sequences
+.sp
+Taken from \fI\%Brain on fire blog\fP:
+.sp
+\fI\%ImageLink\fP
+.SS Clojure compilation
+.sp
+\fI\%https://blog.ndk.io/clojure\-compilation.html\fP
+.SS Function composition
+.sp
+Here are a few ways to create new functions from existing functions:
+.SS comp
+.sp
+Give a collection of functions: \fI[ fa fb fc ]\fP and a value \fIx\fP, \fIcomp\fP does this:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(\->> x
+    fc
+    fb
+    fa)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Note that the order of the functions is reversed, e.g:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(\->> { :a {:in\-a "a\(aqs value"} :c "c\(aqs value"}
+    ((comp :in\-a :a)))
+;; "a\(aqs value"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS juxt
+.sp
+Given a collection of functions: \fI[ fa fb ]\fP and a value \fIx\fP, juxt applies all the functions to x and return a collection of the results:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(\->> { :a {:in\-a "a\(aqs value"} :c "c\(aqs value"}
+     ((juxt :a :c)))
+;; [{:in\-a "a\(aqs value"} "c\(aqs value"]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS conj
+.sp
+Append to list.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(conj [1] 2) ;; [1 2]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS conj seq vs conj vector
+.sp
+It works differently with vectors and seqs
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(conj [1] 2)       ;; [1 2]
+(conj (seq [1]) 2) ;; [2 1]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+or with an empty collection:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(conj (conj []  1) 2) ;; [1 2]
+(conj (conj nil 1) 2) ;; (2 1)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Be careful when using conj with functions that return a string:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(conj (drop\-last [ 1 "_" ]) 2)       ;; [2 1]
+(conj (vec (drop\-last [ 1 "_" ])) 2) ;; [1 2]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Clojure in docker
+.sp
+Container:
+.sp
+todo : this runs as root
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+docker run \-\-rm \-it \e
+  \-w \(gapwd\(ga \e
+  \-v \(gapwd\(ga:\(gapwd\(ga \e
+  \-\-name lein \e
+  \-p 33333:33333 \e
+  \-\-add\-host host.docker.internal:host\-gateway \e
+  clojure:lein\-2.8.1 \e
+  bash
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Install dependencies:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lein deps
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Run repl:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lein repl :start :host 0.0.0.0 :port 33333
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Connect from a different container:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lein repl :connect host.docker.internal:33333
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Writing a DSL
+.sp
+Let us make a calculator that would evaluate expressions like:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+1 + 2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Dependencies:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[instaparse "1.4.10"]
+[org.clojure/core.match "0.3.0\-alpha5"]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update required libs:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[instaparse.core :as insta]
+[clojure.core.match :refer [match]]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Write the grammar as BNF (in the root of the project):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+EXPR := NUMBER <ws*> OP <ws*> NUMBER
+
+OP := ADD | SUB
+
+ADD :=  "+"
+SUB :=  "\-"
+NUMBER :=  #"[0\-9]+"
+
+ws := #\(aq\es+\(aq   (* whitespace *)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Parse the grammar:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(def parse (\->> (System/getProperty "user.dir")
+                (format "%s/grammar.bnf" )
+                slurp
+                insta/parser
+                ))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Test it:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(parse "1 + 2")
+;; [:EXPR [:NUMBER 1] [:OP [:ADD +]] [:NUMBER 3]]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Generate the ast:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(defn evaluate
+  "Convert parse tree to abstract syntax tree"
+  [parsed]
+  (match parsed [:EXPR [:NUMBER l] [:OP op] [:NUMBER r]] (+ (read\-string l) (read\-string r) ) ;; hardcode the operator
+         :else  {:error (format "Matching rules incomplete for: %s" parsed)}
+         ))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Evaluate:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(\->> "1 + 2"
+     parse
+     evaluate)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Graphing (n more) Libraries
+.sp
+Here are some of the graphing libraries that I have found:
+.SS Loom
+.INDENT 0.0
+.TP
+.B author
+aysylu
+.TP
+.B status
+inactive
+.TP
+.B url
+\fI\%https://github.com/aysylu/loom\fP
+.UNINDENT
+.sp
+Seems to be a \fI\%very important library\fP in the clojure ecosystem.
+.SS Vijual
+.INDENT 0.0
+.TP
+.B author
+lisperati
+.TP
+.B url
+\fI\%http://lisperati.com/vijual/\fP
+.UNINDENT
+.sp
+Supports ASCII art as well
+.SS Rhizome
+.INDENT 0.0
+.TP
+.B author
+ztellman
+.TP
+.B dependencies
+graphviz
+.TP
+.B status
+inactive
+.TP
+.B url
+\fI\%https://github.com/ztellman/rhizome\fP
+.UNINDENT
+.sp
+Seems quite popular
+.sp
+Also, you can group nodes together.
+.SS ubergraph
+.INDENT 0.0
+.TP
+.B author
+engelberg
+.TP
+.B dependencies
+graphviz [optional]
+.TP
+.B status
+active
+.TP
+.B url
+\fI\%https://github.com/ztellman/rhizome\fP
+.UNINDENT
+.sp
+Supports loom protocols.
+.SS FC4
+.sp
+Tool (and methodology) for generating C4 diagrams using \fIstructurizr\fP schema.
+.SS lein\-plantuml
+.sp
+A lein plugin to generate visualizations from \fIplantuml\fP source
+.INDENT 0.0
+.TP
+.B url
+\fI\%https://github.com/vbauer/lein\-plantuml\fP
+.UNINDENT
+.SS Iterate a hash map
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(seq {:a "one" :b "two"}) ;; => ([:a "one"] [:b "two"])
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Leiningen
+.SS Create a basic app
+.sp
+Create a very minimal application using the \fIdefault\fP template
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lein new default app
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Templates
+.sp
+Create a new template \- one that let’s you run the program from the cli.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lein new template cli \-\-to\-dir cli\-lein\-template
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Use the template to create a app
+.sp
+From the template directory, create an app:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lein new cli app \-\-to\-dir /tmp/app
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Publish the template
+.sp
+To use the template outside the directory of the template, it can be installed. More on this later
+.SS How to \fImap\fP while retaining the index?
+.sp
+todo
+.SS Pivot
+.sp
+Let’s say you have the following 2 vectors:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[1 3 5 7]
+[2 4 6 8]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+How would you the following result?
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[ [1 2]
+  [3 4]
+  [5 6]
+  [7 8] ]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Use \fIinterleave\fP and \fIpartition\fP
+.sp
+\fIinterleave\fP zips the two collections and flattens the result:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(interleave [1 3 5 7] [2 4 6 8]) ;; => (1 2 3 4 5 6 7 8)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fIpartition\fP creates collections every \fIn\fP steps:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(partition [1 2 3 4 5 6 7 8]) ;; => ((1 2) (3 4) (5 6) (7 8))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Using them both:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(\->> (list [1 3 5 7] [2 4 6 8] )
+     (apply interleave)
+     (partition 2)
+     )
+;; => ((1 2) (3 4) (5 6) (7 8))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(\->> (list [1 3 5 7] [2 4 6 8] )
+     (apply interleave)
+     (partition 2)
+     )
+;; => [[1 2] [3 4] [5 6] [7 8]]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Use \fImap\fP with multiple collections
+.sp
+Alternatively, \fImap\fP can take more than one collection as an argument:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(map list [1 3 5 7] [2 4 6 8]) ;; => ((1 2) (3 4) (5 6) (7 8))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Generate project dependency graph
+.sp
+\fI\%ns\-dep\-graph\fP is a \fIlein\fP plugin for visualizing the dependency graph of a project.
+.INDENT 0.0
+.IP \(bu 2
+Install graphviz
+.IP \(bu 2
+Update the project.clj file with the \fI:plugins [[lein\-ns\-dep\-graph “0.2.0\-SNAPSHOT”]]\fP
+.IP \(bu 2
+Run \fIlein ns\-dep\-graph\fP which will genarate a png file with the graph
+.UNINDENT
+.SS Reflection
+.sp
+Get all the methods on a symbol \- like the auto\-complete functionality:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(require \(aq[clojure.reflect :as r])
+(defn ac [x]
+  (\->>
+  (r/reflect x)
+  :members
+  (filter (comp not :type))
+  (map #(select\-keys %1 [:name]))
+  clojure.pprint/print\-table
+  )  )
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Let’s see what methods are available on a string with value “foo”:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(ac "foo")
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Spacemacs
+.sp
+A lot of cool cider goodies!
+.INDENT 0.0
+.TP
+.B cider\-debug\-defun\-at\-point
+, d b
+.UNINDENT
+.SS Unmap a symbol from a namespace
+.sp
+The simplest would be to update the expression that loads everything e.g.:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(ns me.app
+  (:require
+   [environ.core :refer [env]]  ;; comment this
+   ;; [me.env :refer [env]]     ;; uncomment, exit repl and connect again
+   ))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+But this can also be done without exiting the repl:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(ns\-unmap \(aqme.app \(aqenv)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Clojurescript
+.SS Getting started
+.sp
+Emacs uses \fICIDER\fP to work with clojure. There are quirks that I am getting used to but the following is good enough to get started. CIDER comes packaged with the spacemacs clojure layer.
+.SS lein vs clj
+.sp
+I have been using \fIlein\fP for clojure but I couldn’t make hot reloading and form evaluation within the editory work at the same time. \fIclj\fP tools seem to work better.
+.sp
+Reference: \fI\%https://clojure.org/guides/getting_started#_installation_on_linux\fP
+.SS Create a new project
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+clj \-A:new figwheel\-main app.core \-\- \-\-reagent
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Create and connect to a repl
+.sp
+Create a \fI\&.dir\-locals.el\fP file in the root of the project:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+((clojurescript\-mode . ((cider\-default\-cljs\-repl . figwheel\-main)
+                        (cider\-clojure\-cli\-global\-options . "\-A:fig")
+                        )))
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Create a repl and connect to it:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(cider\-jack\-in\-cljs)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Courses
+.SS Financial Markets
+.sp
+\fBVaR\fP: Value at Risk
+.sp
+“For example, if a portfolio of stocks has a one\-day 5% VaR of $1 million, that means that there is a 0.05 probability that the portfolio will fall in value by more than $1 million over a one\-day period” \fI\%https://en.wikipedia.org/wiki/Value_at_risk\fP
+.sp
+\fBS&P\fP: Standard and Poor’s Index. Average of 500 stocks. Law of Large numbers isn’t working here because if the stocks are independent of each other, then law of large numbers would make it as a whole constant.
+.SS Introduction to Financial Accounting
+.sp
+\fBAccounting\fP:
+.INDENT 0.0
+.IP \(bu 2
+recording transactions
+.IP \(bu 2
+summary statements
+.IP \(bu 2
+users who require such info
+.UNINDENT
+.sp
+So companies keep 3 sets of books.
+.INDENT 0.0
+.IP \(bu 2
+Financial accounting (external stakeholders) \fIthis course\fP
+.IP \(bu 2
+Tax accounting
+.IP \(bu 2
+Managerial accounting (internal decision making)
+.UNINDENT
+.sp
+\fBFinancial Reporting Requirements\fP:
+.sp
+Securities and Excange Commission (SEC) requires:
+.INDENT 0.0
+.IP \(bu 2
+10\-K : Annual Report (full set of financial statements and substantial disclosure)
+.IP \(bu 2
+10\-Q : less disclosure)
+.IP \(bu 2
+8\-K : material events, anything that moves the stock price)
+.UNINDENT
+.sp
+SEC requirements are needless to say required for public companies (but private companies that need to borrow money are also required to provide such reporting)
+.sp
+US GAAP (US Generally Accepted Accounting Principles) vs IFRS (International Financial Reporting Standards): These are the two sets of principles. The SEC came out with a roadmap to move to IFRS in 2008 but financial crisis happened…
+.sp
+\fBRequired financial statements\fP:
+.INDENT 0.0
+.IP \(bu 2
+Income statement: Results of operations over a period of time using accrual accounting
+.IP \(bu 2
+Statement of Cash Flows
+.IP \(bu 2
+Statement of Stockholder’s Equity
+.IP \(bu 2
+Balance Sheet: Financial position (listing of resources and obligataions) on a specific date
+.UNINDENT
+.sp
+\fBQuestion\fP: \fIDid the company make money in this month?\fP
+.sp
+There are two ways:
+.INDENT 0.0
+.IP 1. 3
+\fBCash Flows\fP using \fIStatement of Cash Flows\fP
+.UNINDENT
+.sp
+To better answer that question, we can divide the transactions in the following cash flows:
+.INDENT 0.0
+.IP \(bu 2
+Operating
+.IP \(bu 2
+Investing
+.IP \(bu 2
+Financing
+.UNINDENT
+.INDENT 0.0
+.IP 2. 3
+\fBAccounting Income\fP using \fIIncome Statement\fP
+.UNINDENT
+.sp
+Another way to answer the same question is using Accounting Income i.e.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Profit = Expected revenue \- Expenses
+
+where:
+
+Expected Revenue: we provided the services and this is the expected revenue
+Expenses: amortizing the cost of things used, assets?
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Accrual accounting is tied to business activities and not cash flows.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Revenues ≠ Cash inflows
+Expenses ≠ Cash outflows
+∴ Net income ≠ Net cash flow
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBBalance Sheet\fP: Contains assets and liabilities and the sum need to balance out:
+.INDENT 0.0
+.IP \(bu 2
+\fBAssets\fP: Resources owned by the business that are expected to provide future economic benefits
+.IP \(bu 2
+\fBLiabilities\fP: Claims on those assets by non\-owners that represent an obligation to make future payment of cash, goods, or services. Benefits needs to be received already.
+.UNINDENT
+.sp
+Revenue is realized when: it is earned (goods provided) or realized (received cash / sent out an invoice)
+.SS Balance Sheet Equation
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Assets          = Liabilities + Stockholders\(aq equity
+Cash + Non Cash = Liabilities + Contributed Capital + Retained Earnings
+
+Retained earning = Prior Retained Earnings + Net Income \- Dividends
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Complete balance sheet equation:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Assets          = Liabilities + Contributed Capital + Prior Retained Earnings + Net Income \- Dividends
+Cash + Non Cash = Liabilities + Contributed Capital + Prior Retained Earnings + (Revenues \- Expenses) \- Dividends
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Another simplified version used in practice where we don’t think of retained earning and dividends:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Cash + Non Cash = Liabilities + Owners\(aq Equity
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Also,
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Ending Retained Earnings = Beginning Retained Earnings + Net Income – Dividends
+Net Income = Revenues – Expenses
+
+Net Income = 190 – 140
+
+Ending Retained Earnings = 30 + 50 – 10
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Types of Assets
+.INDENT 0.0
+.IP 1. 3
+\fBAccounts Receivable\fP: Type of asset. There has to be a transaction in the past and there is a promise that the customer will pay back.
+.IP 2. 3
+\fBInventory\fP: Raw materials that we can use.
+.IP 3. 3
+\fBPrepaid Rent\fP
+.IP 4. 3
+\fBLand\fP
+.IP 5. 3
+\fBNotes Receivable\fP: Similar to accounts receivable but this is used when the money is paid by another entity than the customer e.g. when loaning money to an employee.
+.UNINDENT
+.sp
+\fBOthers\fP:
+.SS Types of Liabilities
+.INDENT 0.0
+.IP 1. 3
+\fBAccounts Payable\fP: Anytime we owe money to anyone.
+.IP 2. 3
+\fBIncome Tax Payable\fP
+.IP 3. 3
+\fBSalaries payable\fP: Pay the employees for their services
+.IP 4. 3
+\fBNotes payable\fP: Loan. Interest is not a liability \- yet.
+.IP 5. 3
+\fBDividend payable\fP: paying out the dividends to the share holders. (This is an exception as the share holders are not external)
+.UNINDENT
+.SS Accounting Cycle
+.sp
+\fI\%ImageLink\fP
+.SS Statement of Cash Flows
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Net cash from operating activities +
+Net cash from investing activities +
+Net cash from financing activities
+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+Net change in cash balance
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBRule of thumb\fP: Any asset that we hold for more than a year is an \fBInvesting activity\fP and less than a year is \fBOperating activity\fP\&.
+Cash paid for interest needs to be disclosed somewhere in the financial statement.
+.sp
+\fI\%CashFlow\fP
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+Under US GAAP, interest and dividends are categorized under Operating Activities. However, under IFRS, they maybe classified as operating, investing, or financing activities.
+.UNINDENT
+.UNINDENT
+.sp
+Two ways to calculate cash flows, \fBdirect\fP and \fBindirect\fP\&. Companies use the
+indirect method to calculate operating activity as it provides some kind
+of a benchmark to how much activity is expected starting with net income and then making adjustments.
+.sp
+\fBEBITDA\fP: A measure of cash flow. \fBEarnings Before Interest, Taxes, Depreciation and Amortization\fP\&.
+It is susceptible to the \fBchannel stuffing\fP problem where the company can send invoices to increase the accounts receivable and increase the EBITDA. However, since no cash is collected, this measure of cash flow can be deceptive. Adjusting for account receivables on EBITDA can give a better picture.
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+Research shows that \fBEarnings\fP is a better predictor for future cash flow than \fBcurrent cash flow from operations\fP, but using both gives the best predictions.
+.UNINDENT
+.UNINDENT
+.sp
+\fBFree Cash Flow\fP: Generally means,
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+FCF = Operating cash flow \- Cash for long\-term investiments
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+There are valuation models that show that if you forecast company’s cash flow, discount them back to current value, then you get how much the company should be worth / what the stock price should be.
+.sp
+Problem is that there is not standard measure for operating cash flow.
+.sp
+\fI\%https://www.coursera.org/learn/wharton\-accounting/lecture/whgzc/3\-3\-1\-more\-scf\-topics\-and\-ebitda\fP time: 13:30
+.SS Ratio Analysis
+.sp
+There is no standardization. They provide a good diagnostic tool allowing us to ask better questions.
+.sp
+\fBROE: Return on Equity\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ROE = Net Income / Average Shareholders\(aq Equity
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Two drivers for ROE:
+.sp
+\fB1. Operating performance\fP: How effectively do managers use company resources (assets) to generate profits. This is determined by \fBReturn on Assets\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ROA  = Net Income / Average Assets
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+or, mesuring operating performance independent of company’s financing decisions:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ROA  = De\-Levered Net Income / Average Assets
+
+
+De\-Levered Net Income = Net Income + (1\-t) * Interest Expense
+where:
+  t = tax rate
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Keep in mind that if the following is used a correction factor will also need to be used to calculate the ROE in the end.
+.sp
+\fB2. Financial Leverage\fP: How much do the managers use debt to increase available assets for a given level of shareholder investment.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Financial leverage = Average Assets / Average Shareholders Equity
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This is different from Debt to Equity ratio.
+.sp
+\fI\%roe\fP
+.sp
+Two drivers for ROA:
+.sp
+\fB1. Profitability\fP: Profit earned on each dollar of sales, \fBReturn on Sales\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ROS = Net Income / Sales
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fB2. Efficiency\fP: Sales generated based on the available resources, \fBAsset Turnover\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ATO = Sales / Average Assets
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fI\%dupont\fP
+.sp
+\fBAsset Turnover Analysis\fP:
+.sp
+Better than looking at ratios, we look at number of days when something happens:
+.INDENT 0.0
+.IP \(bu 2
+Days Receivables: 365 * (Avg. AR / Sales)
+.IP \(bu 2
+Days Inventory: 365 * (Avg. Inventory / COGS)
+.IP \(bu 2
+Days Payable: 365 * (Avg. AP / Purchases)
+.IP \(bu 2
+Net Trade Cycle: Days Receivable + Days Inventory \- Days Payable
+.UNINDENT
+.sp
+\fI\%lr\fP
+.sp
+\fBShort Term Liquidity Ratios\fP:
+.sp
+Current Ratio: Current Assets /Current Liablities
+Quick Ratio: (Cash + AR) / Current Liablities
+CFO to Current Liabilities: Cash from Ops / Avg. Current Liablities
+.sp
+\fBInterest Coverage Ratios\fP:
+.INDENT 0.0
+.IP \(bu 2
+Interest Coverage: Ops Income before Depreciation / Interest Expense
+.IP \(bu 2
+Cash Interest Coverage:  (Cash from Ops + Cash Interest Paid + Cash Taxes) / Cash Interest Paid
+.UNINDENT
+.sp
+\fBLong Term Debt Ratios\fP:
+.INDENT 0.0
+.IP \(bu 2
+Debt to Equity: Total Liabilities / Shareholders’ Equity or Total Liabilities / Total Assets
+.IP \(bu 2
+Long\-Term\-Debt to Equity: Total Long\-Term Debt / Total Stockholders’ Equity
+.IP \(bu 2
+Long\-Term\-Debt to Tangible Assets: Total Long Term Debt / (Total Assets \- Intangible Assets). This is the borrowing power based on collatoralizable assets.
+.UNINDENT
+.SS NLP
+.SS Terminology
+.sp
+Hyponum/hypernym: Hierarchical relationships e.g. types of fruits and then peach, apple, etc.
+Meronym: Relationshiop between Part and whole e.g. wheel and car.
+Coreference: she is the same as ‘Mary’
+Constituency trees: another way to represent syntax
+Stemming: removing/replacing suffixes to get the root form
+Lemmatization: base form of a word e.g. ‘good’ is a lemma of better’
+.SS Feature extraction
+.INDENT 0.0
+.IP \(bu 2
+Bag of words: vector for all the words in the corpus and have 0,1 to indicate presence of that word in a vector. Results in a really long vector which is sparse (i.e. lots of 0s)
+.IP \(bu 2
+Neural network: create a word embeding \- leads to a dense representation. e.g. we can do this with \fIword2vec\fP\&. Similar words are colinear i.e. vectors point in the same direction.
+.UNINDENT
+.SS Text descriptors
+.sp
+For both types of features mentioned above, we can sum the vectors and get a good text descriptor e.g.
+.sp
+this  1 0 0
+good  0 1 0
+thing 0 0 1
+.sp
+so good thing would be the sum of the relevant vectors i.e. 0 1 1
+.sp
+Text decriptors using ‘Convolutions and maximum pooling over time’ … need to look a bit more to get the intuition right.
+\- once we have the resulting vector, apply more layers … multi\-layer perceptron.. I lost track.
+.SS Perplexity
+.sp
+perplexity is inversely proportional to likelihood. The lower it is, the better it is
+.sp
+language modelling : helps us predict the next words in a sequence of words
+Makov chains test us that we don’t need to keep track of all the previous words, only n of them.
+Which that in mind, we can have a mathematical model like this:
+.sp
+p(word) = p(w1|<start>) . p(w2|w1) . p(w3|w2) . … p(<end> | w n)
+.sp
+Perplexity is inversely proportional to the above.
+.SS Smoothing
+.sp
+If any one of the probablities is 0, the whole thing breaks down. So we need to apply smoothing.
+.sp
+Laplacian is 1\-plus smoothing. We make the 0s into 1s and increase the counts for everything else to balance for what we have added.
+.SS Introduction to Quantitative Modeling
+.INDENT 0.0
+.TP
+.B Offered By
+Wharton, University of Pennsylvania
+.TP
+.B Website
+\fI\%https://www.coursera.org/learn/wharton\-quantitative\-modeling\fP
+.TP
+.B Hours required
+7
+.UNINDENT
+.sp
+The modeling activity is an iterative process.
+.sp
+Different types of models:
+.INDENT 0.0
+.IP \(bu 2
+Linear
+.IP \(bu 2
+Power
+.IP \(bu 2
+Exponential
+.IP \(bu 2
+Logarithmic
+.UNINDENT
+.sp
+Models are never exactly right \- but they can be useful.
+.sp
+Models approximate the reality so they help with forecasting, predictions, optimizations, etc.
+.SS Linear Models and Optimization
+.sp
+Linear models are building blocks of all models \- the simplest function.
+.sp
+\fBOptimization\fP: Which set of inputs give you the maximum or minimum of the output?
+.sp
+In this course, it is done using a classical technique i.e. using calculus.
+.sp
+Minima/maxima using calculus can be found by calculating a derivative of function f(x) and equating it to 0 to find x, or briefly: what is the value of x when f’(x) = 0.
+Example: If we have profit and price, then profit is maximized when the rate of change of profit with respect to price is 0.
+.sp
+Another technique that uses linear functions and works with constraints is \fBLinear Programming (LP)\fP:
+.INDENT 0.0
+.IP \(bu 2
+Used to solve optimization problems
+.IP \(bu 2
+Incorporates constraints
+.UNINDENT
+.sp
+\fBPresent and Future Value\fP
+Time value of Money!
+We need to create a time base line to compare value i.e. either convert to future value or convert to present value.
+.sp
+“An \fBannuity\fP is a schedule of fixed payments, over a specified and finite time period.”
+.sp
+“And so, to value an annuity, you need to do a present value calculation. You basically create the present value of each of the installments and sum up those present values, and that gives you the present value of an annuity.”
+.sp
+Discounting is also used for comparing customers. Customers will generate different revenue at different times so if we need an apples to apples comparison, we need to discount the revenue / calculate the present value for the money and compare the customers.
+.sp
+\fBContinuous Time Growth Function\fP: if there are no intervals and growth is compounded, then we reach the limit \fIe\fP used as a constant in the growth function.
+.sp
+\fBNominal Value\fP: Original, unadjusted value.
+.sp
+\fBPrice Elasticity\fP: “.. is the degree to which the effective desire for something changes as its price changes” \fI\%https://en.wikipedia.org/wiki/Price_elasticity_of_demand\fP
+.SS Intro to Probabilistic Models
+.sp
+Require \fBrandom variables\fP and \fBprobability distributions\fP\&.
+.sp
+Examples:
+.INDENT 0.0
+.IP \(bu 2
+Regression Models
+.IP \(bu 2
+Probability Trees
+.IP \(bu 2
+Monte Carlo simulation
+.IP \(bu 2
+Markov Models (dynamic model, looking at a process through various states)
+.UNINDENT
+.sp
+\fBRegression\fP: “Regression is a statistical method used in finance, investing, and other disciplines that attempts to determine the strength and character of the relationship between one dependent variable (usually denoted by Y) and a series of other variables (known as independent variables).” \fI\%Investopedia\fP
+.sp
+“The word ‘regression’ was used to Sir Francis Galton to describe the relationship between heights of parents and their children. Tall parents tend to have tall children, but shorter than themselves while short parents tend to have short children, but taller than themselves. He called this ‘regression towards mediocrity’. This is known as the ‘regression effect’ and generally applies to a regression when both explanatory and response variables are repeated measurements on the same object (in this case families). The strange thing is that we can exchange the words ‘parents’ and ‘children’ so, for example, tall children tend to have shorter parents and tall parents tend to have shorter children.” \fI\%https://qr.ae/pN2io0\fP
+.sp
+\fBProbability Tree\fP: Example, notice program to deter from sharing illegal content.
+.sp
+\fBMarkov Chain Models\fP: Give a probability to every state change. Markov proper is lack of memory i.e. decisions are only based on the current state and not the previous states.
+.SS Probability Distributions
+.sp
+\fBBernoulli Distribution\fP
+The most elemental of all distributions. The Bernoulli random variable X can one of two values.
+It is a building block of other distributions
+Example: customer buys or doesn’t buy the product.
+.sp
+\fBBinomial Distribution\fP
+Binomial random variable is the sum of n independent trials.
+.sp
+\fBNormal Distribution\fP
+Characterized by mean and standard deviation.
+.INDENT 0.0
+.TP
+\fBEmpirical Rule\fP: If you believe that the underlying process or data can be
+well\-approximated with a normal distribution, then it helps to calculate
+probabilities. One sd, is 60%, Two sd is 95% and 3 sd is 99.7%.
+.UNINDENT
+.sp
+\fBZ\-score\fP: How many sd something is away from the mean? Z = (value \- mean) / sd
+.SS Introduction to Regression Model
+.sp
+Simple linear model: y = mx + b, but using a different notation for \fBExpected value of Y given X\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+E(Y|X) = b0 + b1 X
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This helps with multiple regression (many predictors) with multiple Xs so we need b2, b3, etc.
+.sp
+\fBCorrelation\fP: \-1 < r < 1. 0 Means no ‘linear’ correlation.
+How to calculate it?
+.sp
+\fBResiduals\fP (distance from the line to the actual data point) are an important part of the regression model. They can provide us with insight as to how we should update our model, what other predictors we need to incorporate to better fit the data.
+.sp
+\fBSummarizing a linear regression\fP: Two number summaries are:
+.INDENT 0.0
+.IP \(bu 2
+\fBR²\fP: Proportion of variability and Y explained by X. Higher value is better. Measured in %. It is not an absolute summary (no units) but should be used for comparisons.
+.IP \(bu 2
+\fBRMSE (Root Mean Squared Error)\fP: Measures the standard deviation of the residuals. It has the units of Y. Lower values are preferable i.e. less deviation.
+.UNINDENT
+.sp
+\fIHow to approximate 95% prediction interval for a new observation\fP:
+\- If the observation is within the range of the data (so as long as we are interpolating) that was used for the linear regression, and
+\- relying on the empirical rule
+\- then getting a 95% prediction interval will be 2 * sd i.e.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Predecition = ±2*RMSE
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBRegression equation for the log\-log model\fP: Expected log of Sales:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+E(log(Sales) | Price) = b₀ + b₁log(Price)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBLinear vs Logistic Regression\fP: Linear regression is used when the output is continuous. For discrete output or more specifically a dichotomous output, we use logistic regression. E.g. yes/no outcome i.e. bernoulli random variable.
+.sp
+Logistic regrssion fits the data like a ‘S’ shaped curve giving us the outcomes between 0 to 1 probabilities.
+.SS C #
+.SS Exception Handling
+.SS Async functions
+.sp
+When using \fIawait\fP the first exception is bubbled up.
+.sp
+When using \fI\&.Result\fP the \fIAggregateException\fP is thrown.
+.SS Laziness
+.SS Create a lazy list
+.sp
+Let’s create a lazy list of numbers, only realized as we ask for the values. The \fIIEnumerable\fP interface in conjunction with the \fIyield\fP operator allows this.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+static void Main(string[] args)
+{
+    foreach (var i in Range(1000000000)) // 1 million numbers in list
+    {
+        Thread.Sleep(1000);              // 1 second delay
+        Console.WriteLine(i);
+    }
+}
+
+public static IEnumerable<int> Range(int limit)
+{
+    for (var i = 0; i < limit; i++ )
+    {
+        yield return i;
+    }
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Each number is printed after a delay and is loaded into memory when needed.
+.SS Working on chunks at a time
+.sp
+Why work on a chunk at a time? There are 2 reasons that I can think of:
+.INDENT 0.0
+.IP \(bu 2
+For efficient memory usage we don’t want to keep loading the elements in the memory. Let’s work on chunks of the sequence at a time and let the garbage collector cleanup chunks that are no longer needed.
+.IP \(bu 2
+If fetching the items one by one is expensive (e.g. every read has a latency, etc), it would make sense to do batch processing.
+.UNINDENT
+.sp
+Let’s partition the list:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+public static IEnumerable<List<int>> Partition(this IEnumerable<int> sequence, int limit)
+{
+    var partition = new List<int>();
+    var count = 0;
+    foreach (var i in sequence)
+    {
+        count++;
+        partition.Add(i);
+        if (count >= limit)
+        {
+            yield return partition;
+
+            // reset
+            count = 0;
+            partition = new List<int>();
+        }
+    }
+
+    // return the last partition
+    if (partition.Count > 0) {
+        yield return partition;
+    }
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Let’s add functions that will operate on the partitions:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+public static IEnumerable<int> Increment(IEnumerable<int> list)
+{
+    Console.WriteLine($"Incrementing...");
+    Thread.Sleep(500);
+    return list.Select(i => i+1);
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The following runs lazily and sequentially:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+static void Main(string[] args)
+{
+    var result = Range(105)
+        .Partition(20)
+        .Select(Increment)
+        ;
+
+    Console.WriteLine($"Total number of partitions: {result.Count()}");
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The output is:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Incrementing...
+Incrementing...
+Incrementing...
+Incrementing...
+Incrementing...
+Incrementing...
+Total number of partitions: 6
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Working asynchronously on partitions
+.sp
+Let’s say our batch process is an asynchronous operation e.g. sending the items in the batch to a server, db etc. How do we update our pipeline and keep everything lazy so that we don’t load everything in memory?
+.sp
+Consider the async function:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+static async Task Main(string[] args)
+{
+    var result = Range(10)
+        .Partition(3)
+        .Select(ToAsync)
+        .Select(IncrementAsync)
+        ;
+
+    foreach (var t in result)
+    {
+        var partition = await t;
+        foreach (var i in partition)
+        {
+            Console.WriteLine(i);
+        }
+    }
+
+}
+
+public static async Task<IEnumerable<int>> ToAsync(IEnumerable<int> list)
+{
+    return await Task.Run(() => list);
+}
+
+public static async Task<IEnumerable<int>> IncrementAsync(Task<IEnumerable<int>> task)
+{
+    Console.WriteLine("Incrementing...");
+    Thread.Sleep(500);
+    var list = await task;
+    return list.Select(i => i+1);
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+which gives the output:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Incrementing...
+1
+2
+3
+Incrementing...
+4
+5
+6
+Incrementing...
+7
+8
+9
+Incrementing...
+10
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Even though the operations are asynchronous, they run sequentially.
+.SS How to Flat Map ?!
+.sp
+The pipeline returns a lazy sequence of Tasks that return lists on completion. We want to do a flat map (\fI\&.SelectMany\fP in Linq) so that we get one lazy sequence instead of many lists. Unfortunately, \fIyield\fP doesn’t work when dealing with asynchronous streams (\fIThe feature ‘async streams’ is currently in Preview and *unsupported*\fP) \- async streams are supported in C# 8.0 and .NET Core 3.0.
+.sp
+At this time, the only thing I can think of is to keep the pipeline as it is (\fIIEnumerable<Task<List<int>>>\fP) or create an instance of \fIIObservable\fP and delegate the work. Any ideas?
+.SS C# Resources
+.INDENT 0.0
+.IP \(bu 2
+\fI\%C# Coding Conventions (C# Programming Guide)\fP
+.UNINDENT
+.SS Bootstrap web app
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dotnet new webapi \-lang c#
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Secrets for local dev
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fI\%Reference\fP
+.SS How do keywords virtual and override work?
+.sp
+Consider the following classes:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+public class A {
+  public void test() {
+    Console.WriteLine("This is class A");
+  }
+}
+public class B : A {
+  public void test() {
+    Console.WriteLine("This is class B");
+  }
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Now if you initialize the variables:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+A a = new A();
+A b = new B(); // Note that the type is A not B
+
+a.test(); // This is class A
+b.test(); // This is class A (calls base class\(aqs function)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Also it throws a warning:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+warning CS0108: \(aqB.test()\(aq hides inherited member \(aqA.test()\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+In order to override the function, \fIA’s test\fP will have to be marked as \fIvirtual\fP and \fIoverride\fP keyword is required for \fIB’s test\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+public class A {
+    public virtual void test() {
+        Console.WriteLine("This is class A");
+    }
+}
+public class B : A {
+    public override void test() {
+        Console.WriteLine("This is class B");
+    }
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Docker
+.SS Cheat sheet
+.SS Volumes
+.sp
+A volume is automatically created if a path is not given e.g:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+docker run \-\-rm \-v data:/tmp/data ubuntu echo hi
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Common commands:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+docker volumes ls
+docker volumes prune # remove unused
+docker volumes rm VOLUME_NAME # remove specific volume
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Networking
+.SS How to forward traffic from Container A’s localhost port to Container B’s port?
+.sp
+Use \fIhost\fP network bridge.
+.SS Documentation
+.SS C4 model
+.sp
+Buildings have specific floor plans, site plans, etc. There is no standard for software architecture. C4 tries to solve this.
+.sp
+It uses the following levels of abstraction (top down):
+.INDENT 0.0
+.IP \(bu 2
+Context (Software system): e.g. banking system etc
+.IP \(bu 2
+Containers: e.g. webapps, databases, file systems, shell scripts etc
+.IP \(bu 2
+Components: e.g. collection of implementation classes
+.IP \(bu 2
+Code: e.g. classes, interfaces, objects, functions etc
+.UNINDENT
+.sp
+In a nutshell (from \fI\%c4model.com\fP):
+[image]
+.SS C4 PlantUML
+.sp
+PlantUML samples: \fI\%https://real\-world\-plantuml.com/?type=activity\fP
+.SS FC4
+.sp
+A tool and methodology that builds on top of C4 methodology.
+.sp
+Run as follows \- change the \fIexample.yaml\fP and watch the images as it updates:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\&./fc4 \-\-format \-\-snap \-\-render \-\-watch example
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Plantuml
+.SS OOP
+.INDENT 0.0
+.TP
+.B aggregation
+\fBA o\-\- B\fP
+.TP
+.B composition
+\fBA *\-\- B\fP
+.TP
+.B inheritance
+\fBA <|\-\- B\fP
+.TP
+.B association
+\fBA <\-\- B\fP
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+@startuml
+
+A *\-right\- B : Composition
+C o\-right\- D : Aggregation
+E <|\-right\- F : Inheritance
+
+A \-[hidden]\-> C
+B \-[hidden]\-> D
+
+hide class circle
+hide class members
+hide class methods
+
+@enduml
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Samples
+.sp
+Checkout samples:
+\- \fI\%https://real\-world\-plantuml.com/?type=class\fP
+\- \fI\%https://real\-world\-plantuml.com/?type=activity\fP
+.SS Legend
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+legend
+|= field |= method |=  |
+|  \-     |   \-     | private |
+|  #     |   #     | protected |
+|  ~     |   ~     | package private |
+|  +     |   +     | public |
+endlegend
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \&.NET
+.SS Authentication
+.sp
+Validating tokens:
+\fI\%https://docs.microsoft.com/en\-us/azure/active\-directory/develop/access\-tokens#validating\-tokens\fP
+.sp
+Samples (not sure if I found something relevant for me there)
+\fI\%https://docs.microsoft.com/en\-us/azure/active\-directory/develop/sample\-v1\-code\fP
+.sp
+Okta’s overview of authentication in dotnet:
+\fI\%https://developer.okta.com/blog/2018/03/23/token\-authentication\-aspnetcore\-complete\-guide\fP
+.sp
+Configuring a dotnet core app to authenticate JWTs:
+\fI\%https://devblogs.microsoft.com/aspnet/jwt\-validation\-and\-authorization\-in\-asp\-net\-core/\fP
+.SS Durable Task Framework
+.sp
+\fI\%https://www.youtube.com/watch?v=11a4FMm5BHU\fP
+.SS F# Resources
+.SS Bootstrap web app
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dotnet new webapi \-lang f#
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS References
+.INDENT 0.0
+.IP \(bu 2
+\fI\%Cheat Sheet\fP
+.UNINDENT
+.SS Intermediate Language (IL)
+.sp
+Also referred to CIL (Common IL) or MSIL (Microsoft IL).
+.sp
+I think ILAsm (IL Assembly Language) is also the same thing but not really sure. (not ILASM, the assembler)
+.SS Common Language Infrastructure (CLI)
+.sp
+It is an open specification developed by Microsoft and standardized by ISO and Ecma.
+.sp
+Examples: .NET Framework, .NET Core, Mono
+.sp
+Among other things, CLI describes the following 4 aspects:
+.INDENT 0.0
+.IP \(bu 2
+\fBCTS\fP or Common Type System
+.IP \(bu 2
+Metadata: Info about language structure
+.IP \(bu 2
+\fBCLS\fP or Common Language Specification: For inter\-operability between languages
+.IP \(bu 2
+\fBVES\fP or Virtual Execution Engine: For compiling IL to native code and running it.
+.UNINDENT
+.SS MAGIC
+.sp
+Morgan And Grand Iron Compiler \- runs on the common runtime!
+.sp
+\fI\%https://github.com/nasser/magic\fP
+.INDENT 0.0
+.TP
+.B repl
+nostrand
+.UNINDENT
+.SS Getting Started
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# Go to magic directory
+nos repl
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Mage
+.sp
+Generate IL code using clojure!
+.sp
+Magic uses mage to emit bytecode \- and probably also optimizes it before emitting it.
+.SS Install Mono
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo apt install gnupg ca\-certificates\ensudo apt\-key adv \-\-keyserver hkp://keyserver.ubuntu.com:80 \-\-recv\-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb https://download.mono\-project.com/repo/ubuntu stable\-bionic main" | sudo tee /etc/apt/sources.list.d/mono\-official\-stable.list\ensudo apt update
+sudo apt install mono\-devel
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Git
+.SS Show commits in a graph
+.sp
+Use \fIadog\fP switches:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+git log \-\-all \-\-decorate \-\-oneline \-\-graph
+git log \-adog
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fI–decorate\fP controls how the names of the commits (tags / branch names) are shown
+\fI–one line\fP is the same as \fI–pretty=oneline\fP
+.SS Interactively discard hunks
+.SS Unstaging hunks
+.sp
+With the following command, the staged changes can be unstaged:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+git reset \-\-patch
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+It is the opposite of \fIgit add –patch\fP i.e. selectively staging hunks.
+.SS Discarding hunks
+.sp
+If you want to throw away hunks i.e. completely discard them without leaving any history, use:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+git checkout \-\-patch
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Line Ending
+.SS Force line\-endings to LF
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+git config core.autocrlf false
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+or either in \fI\&.gitignore\fP or \fI\&./git/config\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[core]
+  autocrlf = false
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Keep the same line\-endings
+.sp
+Keep the no matter you are working on Windows or Linux:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+git config core.autocrlf input
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+or either in \fI\&.gitignore\fP or \fI\&./git/config\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[core]
+  autocrlf = input
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Find a lost commit
+.sp
+Git reflog contains the complete history of everything that happened. So if you committed something and then lost the commit due to a \fIreset\fP or a \fIrebase\fP, you can still find the commit by looking into the reflog:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+git fsck \-\-no\-reflog | awk \(aq/dangling commit/ {print $3}\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+or use \fIgitk\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+gitk \-\-all $( git fsck \-\-no\-reflog | awk \(aq/dangling commit/ {print $3}\(aq )
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Check out the discussion here: \fI\%http://stackoverflow.com/a/91795/1589512\fP
+.SS Sparse checkout
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+URL=" ... "
+DIR=" ... "
+FOLDERS="a/test.txt b/test.txt"
+git clone $URL \-\-no\-checkout $DIR
+cd $DIR
+git sparse\-checkout init \-\-cone # to fetch only root files
+git sparse\-checkout set ${FOLDERS}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Split subtree
+.sp
+Consider you have the following repo:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\&.
+├── resources
+│   ├── default.css
+│   └── main.css
+└── src
+    └── run.sh
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and the git history is:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+commit 3010
+    Default css
+
+commit da1d
+    Added hashbang
+
+commit 7cd1
+    Initial commit
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and you want to get the git history of only the \fIsrc\fP directory, then you can get it by splitting the git tree:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+git subtree split \-\-prefix src
+
+commit 44a3
+    Added hashbang
+
+commit 69ec
+    Initial commit
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+The \fIsplit\fP subtree command generates a synthetic log history. You can see that the commit hashes do not match.
+.UNINDENT
+.UNINDENT
+.SS Identity
+.SS GPG
+.SS Create a new gpg key
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+gpg \-\-default\-new\-key\-algo rsa4096 \-\-gen\-key
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+For me, it looked like:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Note: Use "gpg \-\-full\-generate\-key" for a full featured key generation dialog.
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: Ahmad Nazir Raja
+Email address: ahmadnazir@gmail.com
+You selected this USER\-ID:
+    "Ahmad Nazir Raja <ahmadnazir@gmail.com>"
+
+Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+gpg: key E28E7DA5BE1BAEBF marked as ultimately trusted
+gpg: directory \(aq~/.gnupg/openpgp\-revocs.d\(aq created
+gpg: revocation certificate stored as \(aq~/.gnupg/openpgp\-revocs.d/1F7BFED782E9E540432E3F48E28E7DA5BE1BAEBF.rev\(aq
+public and secret key created and signed.
+
+Note that this key cannot be used for encryption.  You may want to use
+the command "\-\-edit\-key" to generate a subkey for this purpose.
+pub   rsa4096 2019\-10\-01 [SC] [expires: 2021\-09\-30]
+      1F7BFED782E9E540432E3F48E28E7DA5BE1BAEBF
+uid
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS How to upload it?
+.sp
+List all the keys:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+gpg \-K \-\-keyid\-format long \-\-with\-colons \-\-with\-fingerprint
+
+gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   0  trust: 0\-, 0q, 0n, 0m, 0f, 1u
+gpg: next trustdb check due at 2021\-09\-30
+sec:u:4096:1:E28E7DA5BE1BAEBF:1569933698:1633005698::u:::scSC:::+:::23::0:
+fpr:::::::::1F7BFED782E9E540432E3F48E28E7DA5BE1BAEBF:
+grp:::::::::45D28293F15DFB2DE4663E44DEA18F4F33C92699:
+uid:u::::1569933698::1E30CAFF6B377D6AA40084AD05AB03C0642341C6::Ahmad Nazir Raja <ahmadnazir@gmail.com>::::::::::0:
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Export the one that is called fpr (no idea what that means):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+gpg \-\-export \-a 1F7BFED782E9E540432E3F48E28E7DA5BE1BAEBF
+
+
+\-\-\-\-\-BEGIN PGP PUBLIC KEY BLOCK\-\-\-\-\-
+
+mQINBF2TSYIBEADd8oPe7acT2zMmlZvcJMLAboWB5VAMLEmzLh07WK/MgRWPNuoR
+TdbFdbrSUe6Zhlz4kqVGr6tzWRUzKzJnE2qLCtLHpcMFit0dCHYuTkOIlsPT4N+E
+95YmEEBnGDPHBgyQvbsItUKIDVGFZQG0Bn7LiliBHxv3SYEWM2bnltf5s4OO3mdV
+5DhS/dTUerkim85UK8eoo67N1P7GN44FL1ScfMPK6jexlA0MqgLqMBBNX4palEsy
+BdYqXolOLTDFQb27JgeAaONZJPy0liFd+auvZslgkF49hkNDaG/U9vDdOM1Jk7TF
+8illEfa6IG/zOJlYbNJ2r2s/QXfwEO30RlRRzDwElPipYxMyp4tzQKyolTjCgbTP
+seDjP+937FTdNf/luNkH/h3vn1geSgGF6+PjStp9uHrsOywRkknxKBsTIgNshB6v
+Ce8W7/Q0GD3AEhRYJfs2DOikdVcXqyUbgtRxJBt+ac004yli9Qx1P7QLrkVW8b+u
+4E0P8UyJuC/iHOEfzGOtVSlQJacR4RyCScy+6Ank1svuKsFrYOrc5AKJ2TMNRR3d
+j2whRgcjrWJ8agYSSQ53cAj3I0nhLYTAvjJdn+Wk5Q756xXV7tsUH/jw1Da+fQNh
+IxpA/lnIC32VvVfb+wfdVAgnSV0iMm8AsSDacJCSSnZ0JfBJwUOMQph5NQARAQAB
+tCdBaG1hZCBOYXppciBSYWphIDxhaG1hZG5hemlyQGdtYWlsLmNvbT6JAlQEEwEK
+AD4WIQQfe/7XgunlQEMuP0jijn2lvhuuvwUCXZNJggIbAwUJA8JnAAULCQgHAgYV
+CgkICwIEFgIDAQIeAQIXgAAKCRDijn2lvhuuv8xPEACL8yZXsun82RwCzs6nOucY
+wUVHIBeBd29ocwy30HPIALvAX/NiDcOblrzEiiHwDQrz4zSRR0SScOcO7EFBJ6zE
+GSlZWUIWfHgwpMR8YKrGAKVwkbLU0mooXAKUIw6ALZrpgwCqBmbVbdnpUeX92Cbl
+Y4n5U2ejrEYs62I6/5W/VQu7O6A5Gsh7qyBkAxZWUMtq58VQBJI/4qA6CqORdxCo
+zDxQW8Ck97MoztY1oHs1FAk3EF5VamYwovpa4NQxBzn1QZ2EVVmdVXMKQ14hCx8w
+6ZMzZ17lMf4Tu2P2Oxk1W9/pcpt+h58h2yl2sVagKhegOSJ0DwCMykaewbuohCbZ
+RzVGlcqedST1go+vQAOim50WcgTrpvwcI9OzO6uNs+rF/Vyn0tBFu9tZqpvsulyf
+FnJ/Hsbbl0ZD7WzZhL1TFqsX+6FrjuYo6zJ8Bg0awswb4VAs2HsPPkuzpMbib0KQ
+4XmyeV694ziBB2s4FO97VTV95O8yYpfUWlvDgsRRBCjUNbiWi2DszpzmhSkWtjuV
+K9WO8QnW1GlQAPiH0neU+HgmXusfRZ5/hEZ3ze6kUy+rLQRz3MgNgLWn/KqgwXW9
+JDgiu4fKO+fYaNw1XCN/5ANRaLZp0o1ODbUVXluHnVrXCOtxKvF6jgL8Cbyee8qK
+IWx/qzolRyGKbp4fJTHAaA==
+=kQXR
+\-\-\-\-\-END PGP PUBLIC KEY BLOCK\-\-\-\-\-
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+I uploaded my key in firebase. I couldn’t use the command \fIgpg –keyserver certserver.pgp.com –send\-key E28E7DA5BE1BAEBF\fP
+.SS OAuth 2.0 vs OpenID Connect
+.sp
+These are different tools for different jobs, you can use both of them at the same time:
+.INDENT 0.0
+.IP \(bu 2
+OAuth was designed for authorization
+.IP \(bu 2
+OpenID Connect used OAuth to provide authentication
+.UNINDENT
+.sp
+Really good summary of what these technologies do by Nate Barbettini: \fI\%https://www.youtube.com/watch?v=996OiexHze0\fP
+Speak deck slides: \fI\%https://speakerdeck.com/nbarbettini/oauth\-and\-openid\-connect\-in\-plain\-english\fP
+.sp
+From an implementation point of view, when you authenticate yourself against an
+Authorization server (google, facebook, github, etc), the \fIid_token\fP identifies
+you and the \fIaccess_token\fP authorizes you. In experience, I have seen them to be
+exactly the same but they can differ because they serve difference purposes.
+.SS SSH Key
+.sp
+Generate an ssh key:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ssh\-keygen \-t rsa \-C "ahmadnazir@gmail.com"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Remembering the password for the session:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+eval "$(ssh\-agent \-s)"
+ssh\-add ~/.ssh/id_rsa
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Do it for all the shells: \fI\%https://unix.stackexchange.com/a/132117/98943\fP
+.SS Java
+.SS GraalVM
+.SS Install native\-image
+.sp
+From \fI\%https://github.com/taylorwood/clj.native\-image\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+tar zxvf graalvm\-ce\-java8\-linux\-amd64\-19.3.1.tar.gz
+cd graalvm\-ce\-java8\-linux\-amd64\-19.3.1
+\&./bin/gu install native\-image
+ln \-s /PATH_TO/graalvm\-ce\-java8\-19.3.1/bin/native\-image native\-image
+which native\-image
+native\-image \-\-version
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Compile a clojure deps.edn project configured for native image:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+clj \-A:native\-image
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Maven
+.sp
+Create new project
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+mvn archetype:generate \-DgroupId=com.acme.soup \e
+   \-DartifactId=soup \e
+   \-DinteractiveMode=false
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Only resolve dependencies:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+mvn dependency:resolve
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Jobs
+.SS Market places for free lancers in Copenhagen
+.sp
+\fI\%https://www.itkonsulentjobs.dk\fP
+.sp
+7n.dk
+They charge 25% hourly rate
+But they invest a lot on the consultants (courses, lawyers, yearly trip)
+.sp
+\fI\%http://mind4it.dk\fP
+They charge 10% \- 15%
+.sp
+\fI\%http://zenit.dk/\fP
+They charge 10% \- 15%
+.SS Kubernetes
+.SS Concepts
+.sp
+Everything within a kubernetes cluster runs inside \fBpods\fP\&.
+.sp
+A \fI\%pod\fP is a group of one or more containers with shared network/storage. It is
+the atomic unit that can be scheduled. Pods are mortal \- they can’t be
+resurrected once they die.
+.sp
+There are two main concepts that allow you to control pods:
+.INDENT 0.0
+.IP 1. 3
+\fI\%Deployments\fP : allows you to declaratively update pods
+.IP 2. 3
+\fI\%Services\fP : abstraction which defines a logical set of pods
+.UNINDENT
+.SS Getting started with Kubernetes
+.SS Install
+.SS Create a deployment
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+snap run microk8s.kubectl create deployment my\-deployment \-\-image=ahmadnazir/dummy\-server:0.2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Make sure that it is created
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+k get deployments
+k describe deployments
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS View the pod
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+k get pods
+
+NAME                               READY   STATUS    RESTARTS   AGE
+my\-deployment\-c5755fb5c\-2n6s6   1/1     Running   0          13s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Expose deployment
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+snap run microk8s.kubectl expose deployment my\-deployment \-\-type=NodePort \-\-port=8088 \-\-name=my\-service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Get the services
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+k get services
+
+NAME               TYPE        CLUSTER\-IP      EXTERNAL\-IP   PORT(S)          AGE
+my\-deployment      NodePort    10.152.183.73   <none>        8088:31821/TCP   20s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Test service
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+IP=\(gak get services | grep my\-service  | awk \(aq{print $3}\(aq\(ga
+curl \-i \-XGET "http://${IP}:8088"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Cleanup
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+k delete service my\-service
+k delete deployment my\-deployment
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS References
+.INDENT 0.0
+.IP \(bu 2
+\fI\%Install a local kubernetes with Microk8s\fP
+.UNINDENT
+.SS Appendix
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+alias k="/usr/bin/snap run kubectl $@"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Failed to pull docker image in pod \- Status: ImagePullBackOff
+.SS List the pods
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+snap run kubectl get pods
+
+NAME                     READY   STATUS             RESTARTS   AGE
+dummy\-5dfb4dd68b\-2k5lz   0/1     ImagePullBackOff   0          5m20s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Inspect specific pod
+.sp
+Why did that fail?
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+snap run kubectl describe pod dummy\-5dfb4dd68b\-2k5lz
+
+Events:
+  Type     Reason             Age                    From               Message
+  \-\-\-\-     \-\-\-\-\-\-             \-\-\-\-                   \-\-\-\-               \-\-\-\-\-\-\-
+  Normal   Scheduled          3m38s                  default\-scheduler  Successfully assigned default/dummy\-5dfb4dd68b\-2k5lz to darkman
+  Normal   Pulling            2m57s (x3 over 3m37s)  kubelet, darkman   Pulling image "ahmadnazir/dummy\-server"
+  Warning  Failed             2m56s (x3 over 3m36s)  kubelet, darkman   Failed to pull image "ahmadnazir/dummy\-server": rpc error: code = Unknown desc = failed to resolve image "docker.io/ahmadnazir/dummy\-server:latest": no available registry endpoint: docker.io/ahmadnazir/dummy\-server:latest not found
+  Warning  Failed             2m56s (x3 over 3m36s)  kubelet, darkman   Error: ErrImagePull
+  Warning  MissingClusterDNS  2m33s (x8 over 3m37s)  kubelet, darkman   pod: "dummy\-5dfb4dd68b\-2k5lz_default(b6b34966\-7614\-11e9\-802c\-482ae332735d)". kubelet does not have ClusterDNS IP configured and cannot create Pod using "ClusterFirst" policy. Falling back to "Default" policy.
+  Normal   BackOff            2m33s (x4 over 3m35s)  kubelet, darkman   Back\-off pulling image "ahmadnazir/dummy\-server"
+  Warning  Failed             2m33s (x4 over 3m35s)  kubelet, darkman   Error: ImagePullBackOff
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The image doesn’t exist. Now I realize that I was missing the tag. It should’ve been \fIahmadnazir/dummy\-server:0.1\fP
+.SS Load Balancer
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+snap run microk8s.kubectl scale deployment my\-deployment \-\-replicas=2
+snap run microk8s.kubectl expose deployment my\-deployment \-\-type=LoadBalancer \-\-port=8088 \-\-name=my\-service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Linux
+.SS Bind mount
+.sp
+Using a bind mount might seem to accomplish what a symlink does but it happens at a lower level and changes the \fI\%underlying topology of the filesystem\fP (and hence it requires root privileges).
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+mount \-\-bind /path/to/existing /path/to/target
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+To persist changes, update the \fIfstab\fP file. Here is an example of how I bind mounted my home directory from another partition that I mounted:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+UUID=5c056ca5\-14ee\-4c9a\-b3c7\-87f0c6998d8f   /media/legacy    ext4          defaults       0       2
+/media/legacy/home/darkman                  /home/darkman    none          bind           0       2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Apply changes:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo mount \-a # or reboot
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Un\-mount:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo umount /home/darkman
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Unable to umount: Target is busy
+.sp
+Make sure there are no processes that have the files opened in that mount. This can be found as:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lsof | grep \(aq /home/darkman\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Boot
+.sp
+OS : Ubuntu 18.04
+.SS Grub
+.sp
+GRand Unified Bootloader
+.sp
+Kernel params can be passed using the following in
+.sp
+GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash NAME=VALUE”
+.SS Resume after hibernate
+.sp
+Use \fIresume=UUID=0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0\fP
+.sp
+Where the UUID points to to the swap disk.
+.SS initramfs
+.sp
+“Once the Linux kernel has control over the system (which it gets after being loaded by the boot loader), it prepares its memory structures and drivers. It then hands over control to an application (usually init) whose task it is to further prepare the system and make sure that, at the end of the boot process, all necessary services are running and the user is able to log on…”
+\fI\%Initramfs Guid \- Linux boot process\fP
+.sp
+If grub is configured to resume from e.g. UUID=0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0, then initramfs must be configured to resume from the same. This doesn’t have to be configured explicitly as \fIupdate\-initramfs\fP figures it out automatically:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo update\-initramfs \-u \-k all
+
+I: The initramfs will attempt to resume from /dev/nvme0n1p3
+I: (UUID=0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0)
+I: Set the RESUME variable to override this.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+However, to avoid this message, you can create a file with the contents:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat /etc/initramfs\-tools/conf.d/resume && \e
+echo RESUME=UUID=0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0 | sudo tee /etc/initramfs\-tools/conf.d/resume
+
+sudo update\-initramfs \-u \-k all
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Connect to a windows machine
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xfreerdp \-\-no\-nla                           \e
+    \-grab\-keyboard                          \e
+    /f                                      \e
+    /fonts                                  \e
+    /aero                                   \e
+    /window\-drag                            \e
+    /scale:180                              \e
+    /smart\-sizing                           \e
+    /menu\-anims                             \e
+    /bpp:32                                 \e
+    /gdi:sw                                 \e
+    /gfx                                    \e
+    /gfx\-progressive                        \e
+    /clipboard                              \e
+    /cert\-ignore                            \e
+    /auto\-reconnect                         \e
+    /auto\-reconnect\-max\-retries:3           \e
+    /u:"$user"                              \e
+    /v:"$url"                               \e
+    /p:"$password"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Disk space
+.sp
+\fIncdu\fP \- NCurses Disk Usage.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ncdu
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+To check the memory for the file system you are on:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ncdu \-x
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Displaylink on Ubuntu 18.04
+.sp
+I want to use additional monitors and I got a \fI\%ThinkPad Hybrid USB\-C with USB\-A Dock\fP
+It looks like this:
+[image]
+.sp
+On the back side it says ‘Plug and Display’ … but that doesn’t work if you are linux.
+.sp
+Following shady steps are required:
+.SS 1. Install the offical drivers
+.sp
+Get the \fI\%official drivers\fP and install them. The installer bash script (apparently generated using \fI\%makeself\fP contains an eval statement on a bunch of binary.. and it needs root permissions. Hmmm…
+.sp
+The installer seems to be loading a kernel module. The following is taken from the official site:
+[image]
+.SS 2. Disable \fI\%UEFI/Secure Boot\fP
+.sp
+\fI\%UEFI/Secure Boot\fP needs to be disabled from the BIOS setup. This means that we are allowing untrusted code to be run.
+.SS 3. Perfomance Issues / CPU Load
+.sp
+On top of that, CPU usage is extremely high:
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ ps \-p \(gaget\-pid displaylink\(ga \-o %cpu,%mem,cmd
+%CPU %MEM CMD
+35\&.8  0\&.7 /opt/displaylink/DisplayLinkManager
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+And when I tap a few keys on the keyboard, it goes up to 50% and sometimes even
+more. Not sure what is going on.
+.sp
+I really want to use additional monitors but I am not sure if I should use this
+product. Maybe someone more wiser out there can help. _I need
+healing!_.
+.SS Appendix
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+get\-pid () {
+  local name=$1
+  ps aux | grep \-i $name | grep \-v grep | awk \(aq{print $2}\(aq
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SS DPKG
+.sp
+Debian’s package manager
+.sp
+Instead of using \fIdpkg\fP, the convenient wrapper \fIapt\-get\fP or even better \fIapt\fP\&. But sometimes, you have to fall back to using \fIdpkg\fP\&.
+.SS Find installed library
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dpkg \-i | grep xorg
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Express VPN
+.sp
+Get package from \fI\%https://www.expressvpn.com/setup#linux\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo pacman \-U /path/to/expressvpn.package.tar.xz
+expressvpn activate # and enter code from the website
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Connect / check status from the command line:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+expressvpn connect smart
+expressvpn status
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Or, install chrome extension manually.
+.SS Configuring External Monitors
+.sp
+\fIxrandr\fP is a popular lib. For a GUI version, use \fIarandr\fP which lets you create a screen layout and save it as a bash script.
+.SS How to resolve: \fIxrandr: cannot find crtc for output XXXX\fP?
+.sp
+Try \fIxrandr –auto\fP\&. More instructions here:
+.sp
+\fI\%https://bugzilla.redhat.com/show_bug.cgi?id=1179924#c78\fP
+.SS Firejail
+.sp
+Run linux apps in a sandbox:
+.sp
+\fI\%https://github.com/netblue30/firejail\fP
+.SS Format a usb
+.INDENT 0.0
+.TP
+.B OS
+Ubuntu 19.04
+.UNINDENT
+.sp
+Use the GUI untity \fIgparted\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo gparted
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+I also tried this but the process got stuck for some reason:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo mkfs.ntfs /dev/sdc1 # Got stuck at volume creation
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Create a fig from jpegs
+.sp
+\fIImageMagick\fP can be used from the command line as follows:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+convert \-delay 400 \-loop 0 *.jpg output.gif
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Open gnome settings on Xmonad
+.sp
+On xmonad
+.sp
+Ubuntu 18.04
+.sp
+XDG_CURRENT_DESKTOP=GNOME gnome\-control\-center
+.SS Hibernate using a swap partition
+.INDENT 0.0
+.TP
+.B OS
+Ubuntu 19.04
+.UNINDENT
+.sp
+\fII kept experiencing random issues in 18.04\fP
+.SS Configure GRUB
+.sp
+Find the swap partition:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat /etc/fstab | grep swap | awk \(aq{print $1}\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Find the UUID
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo blkid | grep swap
+
+/dev/nvme0n1p3: UUID="0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0" TYPE="swap" PARTLABEL="swap" PARTUUID="27c4a0d6\-687d\-4a29\-a0d3\-5304829dfbff"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update \fI/etc/default/grub\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo update\-grub
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Hibernate
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo systemctl hibernate
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+or
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo pm\-hibernate
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Hibernate using a swap file
+.INDENT 0.0
+.TP
+.B OS
+Ubuntu 18.04
+.UNINDENT
+.SS Before you begin
+.sp
+\fII tried the following on 18.04 with and without a swap partition (the following assumes you have a swap file). I couldn’t get it to work due to random issues until I upgraded to 19.04. The following are only for reference. Please refer to the following working examples instead:\fP
+.SS Resize the mounted parition
+.sp
+Start the machine using a ‘recovery’ usb. This makes it possible to work with the partition as it is not mounted.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+e2fsck \-f /dev/nvme0n1p2
+resize2fs /dev/nvme0n1p2 300G # This can be used to expand or shrink the partition
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Shrink the partition using gparted (GUI tool):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+gparted
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Make sure to apply the changes
+.SS Use the swap partition instead of the swap file
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo swapon \-\-show
+sudo swapoff /swapfile
+sudo mkswap /dev/nvme0n1p3
+sudo swapon /dev/nvme0n1p3
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+To persist these changes across reboots, update the fstab file and edit \fI/swapfile\fP to \fI/dev/nvme0n1p3\fP
+.SS Configure GRUB
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo findmnt \-no SOURCE,UUID \-T /swapfile
+
+/dev/nvme0n1p2 5c056ca5\-14ee\-4c9a\-b3c7\-87f0c6998d8f
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo swap\-offset /swapfile
+
+resume offset = 36827136
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update \fI/etc/default/grub\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=5c056ca5\-14ee\-4c9a\-b3c7\-87f0c6998d8f resume_offset=36827136"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo update\-grub
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS USWSUSP
+.sp
+Userspace software suspend. This relies on a tool called \fIs2disk\fP\&.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo apt install uswsusp
+
+# I said NO to continuing without a valid swap space
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update \fI/etc/uswsusp.conf\fP (requires update\-initramfs):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+resume device = /dev/nvme0n1p2
+
+# to
+
+resume device = /dev/disk/by\-uuid/5c056ca5\-14ee\-4c9a\-b3c7\-87f0c6998d8f
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The following needs to be done since we made changes to /etc/uswsusp.conf
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo update\-initramfs \-u \-k all
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Updated systemd hibernate service:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo systemctl edit systemd\-hibernate.service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+with the following content:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[Service]
+ExecStart=
+ExecStartPre=\-/bin/run\-parts \-v \-a pre /lib/systemd/system\-sleep
+ExecStart=/usr/sbin/s2disk
+ExecStartPost=\-/bin/run\-parts \-v \-\-reverse \-a post /lib/systemd/system\-sleep
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS References
+.sp
+\fI\%https://askubuntu.com/a/1132154\fP
+\fI\%https://askubuntu.com/questions/6769/hibernate\-and\-resume\-from\-a\-swap\-file\fP
+.SS Hibernate without Secure boot?
+.sp
+Apparently, this can’t be done with kernel
+.sp
+\fI\%https://askubuntu.com/questions/1106105/18\-04\-hibernate\-with\-uefi\-and\-secure\-boot\-enabled/1125038#1125038\fP
+.sp
+It also points to a discussion that Linus is having with the developer trying to fix this.
+.SS Increase swap size
+.sp
+GUI tool that I used on Ubuntu: \fIgparted\fP
+.sp
+But that doesn’t work if your swap is a file instead of a partition.
+.SS Install Arch
+.INDENT 0.0
+.TP
+.B machine
+x1 carbon, 7th gen
+.UNINDENT
+.SS Bootloader
+.sp
+I need to dual boot with Windows using \fIUEFI\fP and using a \fIGPT\fP partition system.
+The \fIESP\fP (EFI System Partition) already existed so I used it for booting linux as well.
+.sp
+I used GRUB for the bootloader as it seems to have to most functionality.
+.SS Packages
+.sp
+Install the following with \fIpacstrap\fP:
+.INDENT 0.0
+.IP \(bu 2
+\fIbase\fP
+.IP \(bu 2
+\fIbase\-devel\fP: gcc, etc
+.IP \(bu 2
+\fIintel\-ucode\fP: microcode \- stability and security updates for the processor
+.IP \(bu 2
+\fIiwd\fP
+.IP \(bu 2
+\fIsudo\fP
+.IP \(bu 2
+\fIansible\fP
+.IP \(bu 2
+\fIgit\fP
+.UNINDENT
+.SS Wifi
+.INDENT 0.0
+.TP
+.B Package
+iwd
+.UNINDENT
+.sp
+iwd configuration: \fI/etc/iwd/main.conf\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[General]
+EnableNetworkConfiguration=true
+
+[Network]
+# EnableIPv6=true
+NameResolvingService=systemd
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+DNS resoution: \fI/etc/resolv.conf\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nameserver 8.8.8.8
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Enable at boot (and start):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+systemctl enable \-\-now iwd
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Users and Access Control
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+useradd \-m mandark
+passwd mandark
+usermod \-aG wheel mandark
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Uncomment permissions for \fIwheel\fP using \fIEDITOR=vim visudo\fP\&.
+.sp
+Lock login for \fIroot\fP user:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+passwd \-l root
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Display
+.INDENT 0.0
+.TP
+.B packages
+xorg xorg\-xinit xmonad xmonad\-contrib
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat \(aqexec xmonad\(aq >> ~/.xinitrc
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Starting x server will run xmonads:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+startx
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS SSH
+.INDENT 0.0
+.IP \(bu 2
+\fIopenssh\fP
+.UNINDENT
+.sp
+Generate key:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ssh\-keygen \-t rsa \-C "mandark"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS lsof
+.sp
+\fBFind all ports\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lsof \-i \-P
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fI\-P\fP suppresses the conversion between port number to port name.
+.sp
+\fBList Open files\fP
+.sp
+Find the listing of  files who match the port .e.g Find file that has the port \fI9229\fP open.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lsof \-i :9229
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Track Memory Usage of a Process
+.sp
+Image that you want to track the memory usage of \fIdotnet\fP, use the \fIwatch\fP command with \fIps\fP to get an overview of the memory usage:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+watch \-n 0.5 \(aqps aux | grep \-E \e(^USER\e|dotnet\e) | grep \-v grep\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Let’s show \fIRSS\fP in \fIMB\(gas. Create a script and invoke it as \(gawatch \-n 0.4 ‘bash script.sh’\fP (so that don’t have to handle escaping of the quotes when working with awk).
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ps \-ao %mem,rss,command | grep $1 | grep \-v grep | awk \(aq{$2=int($2/(1024))"MB";}{ print; }\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS What is the RAM size?
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+free \-mh
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Sound
+.SS pavucontrol
+.sp
+\fIpavucontrol\fP is a volume control for the PuseAudio sound server
+.sp
+If you don’t hear sound, check the following:
+.INDENT 0.0
+.IP \(bu 2
+\fIPlayback\fP tab: Select \fIBuild\-in Audio Analog Stereo\fP\&. Make sure that you can visually see the volume indicator.
+.IP \(bu 2
+\fIConfiguration\fP tab: Select profile: \fIAnalog Stereo Output\fP [Update: the microphone doesn’t work \- \fIAnalog Stereo Duplex\fP seems to work with that]
+.IP \(bu 2
+\fIOutput Devices\fP tab: Select port: \fIHeadphones\fP or \fISpeakers\fP
+.UNINDENT
+.SS alsamixer
+.sp
+Control the sound levels using \fIalsamixer\fP
+.SS Default editor for sudo
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo update\-alternatives \-\-config editor
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Swap space
+.INDENT 0.0
+.TP
+.B OS
+Ubuntu 18.04
+.UNINDENT
+.sp
+Swap space can either use a file or a partition.
+.sp
+I have a swap file \fI/swapfile\fP instead of a partition:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo swapon \-\-show
+NAME      TYPE SIZE USED PRIO
+/swapfile file   2G   0B   \-2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and also seen by checking the \fIfstab\fP file:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat /etc/fstab
+
+# /etc/fstab: static file system information.
+#
+# Use \(aqblkid\(aq to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/nvme0n1p2 during installation
+UUID=5c056ca5\-14ee\-4c9a\-b3c7\-87f0c6998d8f /               ext4    errors=remount\-ro 0       1
+# /boot/efi was on /dev/nvme0n1p1 during installation
+UUID=6FE3\-12FA  /boot/efi       vfat    umask=0077      0       1
+/swapfile                                 none            swap    sw              0       0
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+I would like to use a separate partition for swap which I can use for hibernation as well. I can use the file as well, but then it seems more complicated to get hibernation working that way.
+.SS Create a swap partition?
+.sp
+This can be done with gparted:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo apt install gparted
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+However, I can see that everything is allocated to my ext4 partition and I can’t resize it to make room for a swap partition.
+.SS Increase the swap file size
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat /etc/fstab # make sure that swap file is at /swapfile
+sudo swapoff \-a
+sudo dd if=/dev/zero of=/swapfile bs=1G count=20
+sudo mkswap /swapfile
+sudo swapon /swapfile
+grep SwapTotal /proc/meminfo
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS References
+.sp
+\fI\%https://bogdancornianu.com/change\-swap\-size\-in\-ubuntu/\fP
+.SS Tap click not working
+.INDENT 0.0
+.TP
+.B OS
+Ubuntu 20.04
+.UNINDENT
+.sp
+Find the id of the input device:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xinput | grep \-i touchpad
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Get the properties for the input device:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xinput list\-props 23
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If the tap click is disabled, enable it like this (property name can obviously be different):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xinput set\-prop 23 "libinput Tapping Enabled" 1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Calibrate the touch input
+.sp
+This is a problem when dual screen is being used.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xinput | grep \-i touch
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+I am interested in the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+⎜   ↳ Raydium Corporation Raydium Touch System       id=18   [slave  pointer  (2)]
+⎜   ↳ SYNA8004:00 06CB:CD8B Touchpad                 id=22   [slave  pointer  (2)]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Let’s get the primary display:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xrandr
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+I am interested in \fIeDP\-1\fP\&.
+.sp
+Calibrate:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xinput map\-to\-output 18 eDP\-1
+xinput map\-to\-output 22 eDP\-1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Update Arch
+.sp
+[Optional] Clean the cache:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo pacman \-Sc
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update pacakges:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo pacman \-Syu
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Optionally, re\-compile packages that were updated e.g. \fIxmonad\fP
+.SS Upgrade Ubuntu Distribution
+.sp
+Check the current release:
+.sp
+more /etc/lsb\-release
+.sp
+sudo apt update
+sudo apt upgrade
+sudo apt dist\-upgrade
+sudo apt autoremove
+.sp
+Update the value of prompt from \fIlts\fP to \fInormal\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo vim /etc/update\-manager/release\-upgrades
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Do upgrade
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo do\-release\-upgrade
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Virtual Machine
+.sp
+I’ve tried virtual box before. I’ve heard that KVM is faster so I want to give it a try:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo apt\-get install qemu\-kvm libvirt\-daemon\-system libvirt\-clients bridge\-utils virt\-manager
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Enable kvm on boot (haven’t tried this):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo systemctl enable \-\-now libvirtd
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Create vm:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# 12 GB RAM
+sudo virt\-install \-\-name=win10 \-\-os\-variant=win10 \-\-vcpu=4 \-\-ram=12288 \-\-graphics spice \-\-location=/home/darkman/Downloads/Win10_20H2_v2_EnglishInternational_x64.iso \-\-network bridge:vibr0
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Wifi
+.sp
+Restart wifi:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo service network\-manager restart
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Scan the network:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo iwlist wlp2s0 scan | grep SSID
+
+# or maybe use the newer:
+
+nmcli \-\-ask dev wifi rescan
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+List the networks
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nmcli dev wifi list
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Connect to a network:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nmcli \-\-ask dev wifi connect
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Disconnect the device:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nmcli dev disconnect wlp2s0
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Misc
+.SS 021Disrupt
+.sp
+\fI\%p@sha\fP : Pakistan Software Houses Association
+.sp
+rnnr.co Delivery service
+.sp
+\fI\%https://savvy.ae/\fP premium market place
+.sp
+\fI\%https://www.auratraaj.co/\fP : Helping women on taboo topics
+.sp
+\fI\%https://www.linkedin.com/in/muneeb1/?originalSubdomain=pk\fP
+Muneeb Maayr: Founder of Daraz.pk and Bykea
+.sp
+\fI\%https://luxcapital.com/team/bilal\-zuberi/\fP
+.sp
+\fI\%https://www.afiniti.com/what\-we\-do/pairing\-better\fP
+pair individuals on the basis of behaviour
+.sp
+\fI\%https://www.linkedin.com/in/sidraqasim/\fP
+Co\-founder of Markhor and Atoms. Great story of a girl from Okara getting
+accepted to Y\-combinator and building a successful business.
+“How you overcome your boundaries defines you”
+.SS Angel Investing
+.sp
+Best way to get into it is to get involved into a fund managed by someone else.
+According to angel list, there are 3 options:
+.INDENT 0.0
+.IP \(bu 2
+Rolling funds
+.IP \(bu 2
+Mutual funds
+.IP \(bu 2
+Syndicates
+.UNINDENT
+.sp
+Rolling funds are the most convenient. No deal selection. Consider Shaan Puri’s
+fund \- the minimum contribution for a quarter is USD 6,250. Drawback is that you
+don’t get visibility to the deals.
+\fI\%https://angel.co/v/back/shaans\-all\-access\-fund\fP
+.sp
+Mutual funds have higher contribution requirements. Same draw back \- no deal selection.
+\fI\%https://angel.co/v/back/angellist\-access\-fund\fP
+.sp
+Syndicates give you deal selection. It is managed by a proven angel.
+\- Jason Calacanis’s setup: \fI\%https://www.thesyndicate.com/\fP
+\- Angel list deal\-by\-deal investing: \fI\%https://angel.co/invest/start\fP
+.sp
+Not sure if you show up as an LP in any of the investments for the above
+options. Not sure about angel list deal\-by\-deal investing. My application is
+pending \- will know in some time.
+.SS Build systems
+.sp
+Reid McKenzie’s talk about ‘Tools, Deps, Magic Balls’: \fI\%https://www.youtube.com/watch?v=ze7OI9iVCiI\fP
+.sp
+Paper by Simon Peyton Jones et. al. recommended by Reid McKenzie
+\fI\%https://www.microsoft.com/en\-us/research/uploads/prod/2018/03/build\-systems.pdf\fP
+.INDENT 0.0
+.IP 1. 3
+Minimality
+.IP 2. 3
+Early cutoff
+.IP 3. 3
+Cloud build
+.IP 4. 3
+Dynamic dependencies
+.UNINDENT
+.SS Colors
+.SS Colorblind
+.sp
+Are you using colors that work for color blind people as well?
+.INDENT 0.0
+.IP \(bu 2
+Vischeck: \fI\%http://vischeck.com/\fP
+.IP \(bu 2
+Color Oracle: \fI\%http://colororacle.org/\fP
+.IP \(bu 2
+CheckMyColours: \fI\%https://www.checkmycolours.com/\fP
+.UNINDENT
+.SS Meaning
+.sp
+Colors have different meanings in different cultures:
+.sp
+\fI\%https://informationisbeautiful.net/visualizations/colours\-in\-cultures/\fP
+.SS Component Governance
+.sp
+Microsoft Componnent Governance:
+.sp
+\fI\%https://aka.ms/cgdemovideo\fP
+\fI\%https://aka.ms/cgdocs\fP
+\fI\%https://aka.ms/cgapidocs\fP
+.sp
+Microsoft binary scanning:
+.sp
+\fI\%https://github.com/microsoft/binskim\fP
+.sp
+Microsoft CredScan:
+.sp
+\fI\%https://secdevtools.azurewebsites.net/helpcredscan.html\fP
+.SS Corecursion
+.sp
+It is a dual to recursion \- think of recursive implementation of greedy algorithm for the coin change problem: \fIchange :: int \-> [ int ]\fP
+.sp
+Other names for the same concept:
+.TS
+center;
+|l|l|.
+_
+T{
+recursion
+T}	T{
+corecursion
+T}
+_
+T{
+fold
+T}	T{
+unfold
+T}
+_
+T{
+catamorphism
+T}	T{
+anamorphism
+T}
+_
+.TE
+.sp
+\fI\%https://corecursive.com/046\-don\-and\-adam\-folds/\fP
+.SS Fuzzy *
+.SS Fuzzy join
+.sp
+Jaccard Similarity
+.SS Conway’s Game of Life
+.sp
+Dylan Beattie on Game of Life:
+\fI\%https://www.youtube.com/watch?v=6avJHaC3C2U&feature=youtu.be&t=264\fP
+.SS GDPR Data Subject Rights
+.sp
+\fI\%https://www.hipaajournal.com/rights\-of\-data\-subjects\-under\-gdpr/\fP
+.sp
+There are 8 of them:
+.INDENT 0.0
+.IP 1. 3
+Right to Access Personal Data
+.IP 2. 3
+Right to Rectification
+.IP 3. 3
+Right to Erasure
+.IP 4. 3
+Right to Restrict Data Processing
+.IP 5. 3
+Right to be Notified
+.IP 6. 3
+Right to Data Portability
+.IP 7. 3
+Right to Object
+.IP 8. 3
+Right to Reject Automated Individual Decision\-Making
+.UNINDENT
+.SS Graph databases
+.SS Why?
+.INDENT 0.0
+.IP \(bu 2
+Graph databases make sense when you want to \fBcreate relationships between
+data and quickly query them\fP\&.
+.IP \(bu 2
+In graph databases, \fBrelationships between nodes are first class citizens\fP
+in a graph database. \fBThey are persisted \- not just calculated dynamically\fP
+when needed.
+.IP \(bu 2
+For faster look ups, native graph databases provide \fI\%Index free adjacency\fP\&.
+This means that the neighbor’s actual physical location is kept with the node
+when the data is loaded (not just the pointer to the location). This makes it
+possible to walk through the relationships really quickly.
+.IP \(bu 2
+Graph databases also make sense if the \fBrelationship between different types
+of nodes can vary a lot\fP and there is not need to define in the domain what
+can be related to what.
+.IP \(bu 2
+Another argument for using graph databases is if your \fBschema is not
+defined\fP upfront. Imagine linking blobs of unstructured data \- something that
+relational databases were not primarily designed for.
+.UNINDENT
+.sp
+Check out a \fI\%really good explanation of why graph databases make sense\fP over
+relational databases.
+.SS Why not?
+.INDENT 0.0
+.IP \(bu 2
+A graph database really pays off of you have more than a few hundred thousand
+nodes. For less number of nodes, using a relational db would work fine.
+.IP \(bu 2
+Keep in mind that if a node has a large number of relationships and that node
+needs to be deleted, then all the relationships will have to be updated (which
+probably will be a slow operation).
+.IP \(bu 2
+If you want to query a lot of rows of the same type, then maybe a conventional
+relation database might be a better fit. With a graph database, you look at a
+specific node and then walk the graph by looking up the relationships. On the
+contrary, relation databases let you query a large amount of rows in bulk and
+lets you find related data by joining on a property.
+.UNINDENT
+.SS Examples
+.INDENT 0.0
+.IP \(bu 2
+neo4j
+.IP \(bu 2
+Azure Cosmos DB
+.IP \(bu 2
+\fI\%Amazon Neptune\fP
+.UNINDENT
+.SS Use Cases
+.INDENT 0.0
+.IP \(bu 2
+Social networks
+.IP \(bu 2
+Recommendations (e.g. buyers of this product also bought this)
+.IP \(bu 2
+Knowledge graphs
+.UNINDENT
+.SS References
+.INDENT 0.0
+.IP \(bu 2
+\fI\%Amazon Neptune\fP description has a few really nice use cases.
+.IP \(bu 2
+A good example of modelling data: \fI\%https://neo4j.com/blog/data\-modeling\-pitfalls/\fP
+.UNINDENT
+.SS HyperLogLog sketch
+.INDENT 0.0
+.INDENT 3.5
+HyperLogLog is an algorithm for the count\-distinct problem, approximating the number of distinct elements in a multiset. [1]
+.UNINDENT
+.UNINDENT
+.sp
+Transform Data by Example [DMX]
+.sp
+What part of X is in Y?
+.IP [1] 5
+\fI\%http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf\fP
+.IP [DMX] 5
+\fI\%http://www.vldb.org/pvldb/vol11/p1165\-he.pdf\fP
+.SS HUGO
+.sp
+Static site generator.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+hugo new site my\-project
+cd my\-project
+git init .
+git submodule add https://github.com/mitrichius/hugo\-theme\-anubis.git themes/anubis
+echo \(aqtheme = "anubis"\(aq >> config.toml
+hugo new section/topic.md
+hugo server \-w \-D
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Internet Computer
+.sp
+Inflation?
+\-
+.sp
+Creating ICPT is inflationary
+Burning cycles is deflationary
+.sp
+Data Privacy
+\-
+.sp
+How is data kept private?
+.sp
+Concurrency
+\-
+.sp
+“As you would expect, the calls run within a consistent global ordering of calls, using mechanisms that allow for concurrent execution within a fully deterministic execution environment. Update calls complete in just two seconds.”
+.sp
+How is this acieved?
+.SS jq
+.sp
+\fIFiltering\fP
+.sp
+Considering we have \fIsample.json\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat <<EOT | jq \(aq.items[] | select(.key == "one")\(aq
+{
+  "items": [
+    {
+      "key": "one",
+      "value": "value for one"
+    },
+    {
+      "key": "two",
+      "value": "value for two"
+    }
+  ]
+}
+EOT
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+evaluates to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{
+  "key": "one",
+  "value": "one value"
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fIPiping\fP
+.sp
+This is how the following pipeline looks:
+\- Select \fIitems\fP
+\- Select \fIone\fP
+\- Filter out nulls
+\- Get the first element from \fIvalues\fP : \fI\&.values | .[0]\fP or simply \fI\&.values[0]\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat <<EOT | jq \(aq.items[] | .one | select(. != null) | .values[0]\(aq
+{
+  "items": [
+    {
+      "one": {
+        "values": ["a", "b"]
+      }
+    },
+    {
+      "two": {
+        "values": ["c", "d"]
+      }
+    }
+  ]
+}
+EOT
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS JMESPath
+.sp
+JMESPath is a query language for JSON.
+.sp
+\fI\%https://gatling.io/2019/07/31/introducing\-jmespath\-support/\fP
+.SS Why not jq
+.sp
+\fIjq\fP is a cli tool and popular but lacks the specification.
+.SS Setting up Jupyter locally
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+docker run \-it \-p 8888:8888 \-p 4040:4040 \e
+  \-\-name jupyter \e
+  \-\-user root \e
+  jupyter/pyspark\-notebook bash
+
+pip install sparkmagic==0.13.1
+jupyter nbextension enable \-\-py \-\-sys\-prefix widgetsnbextension # ensure that the extension is installed
+cd \(gapip show sparkmagic | grep Location | awk \(aq{print $2}\(aq\(ga
+jupyter\-kernelspec install sparkmagic/kernels/pysparkkernel
+jupyter serverextension enable \-\-py sparkmagic
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Configuration:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{
+  "kernel_python_credentials" : {
+    "username": "{USERNAME}",
+    "base64_password": "{BASE64ENCODEDPASSWORD}",
+    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
+  },
+
+  "kernel_scala_credentials" : {
+    "username": "{USERNAME}",
+    "base64_password": "{BASE64ENCODEDPASSWORD}",
+    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
+  },
+
+  "custom_headers" : {
+    "X\-Requested\-By": "livy"
+  },
+
+  "heartbeat_refresh_seconds": 5,
+  "livy_server_heartbeat_timeout_seconds": 60,
+  "heartbeat_retry_seconds": 1
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Start the process:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+jupyter notebook \-\-allow\-root &
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Web login:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+jupyter notebook list | awk \(aq{print $1}\(aq | awk \-F = \(aq{print $2}\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Markdown vs Restructured Text
+.SS Markdown
+.sp
+Emacs has good support for markdown:
+\- folding
+\- create tables
+.sp
+It is easier to document in markdown \- less verbose.
+.sp
+Hugo:
+\- Seems really easy to work with
+\- Nice support for taxonomies i.e. tags, categories, etc
+\- I don’t have to deal with the built output \- very convenient for writing local documentation
+.SS Restructured Text
+.sp
+Emacs support not as good as with markdown.
+.sp
+Seems like this is for technical documentation.
+.sp
+I miss the markdown setup at times and might consider moving back.
+.sp
+Sphinx:
+\- Search functionality out of the box
+.SS Microservices
+.sp
+Use it if you care about independent deployability!
+.sp
+This requires the following:
+\- Information hiding
+\- Low coupling
+\- Strong cohesion
+.sp
+Cohesion: code that changes together, stays together
+.sp
+We need the following property in our system:
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+“A structure is stable if cohesion is strong and coupling is low” \- Constantine S. Law
+.UNINDENT
+.UNINDENT
+.sp
+Types of coupling (in order of increasing coupling):
+.INDENT 0.0
+.IP \(bu 2
+Domain: Behaviour coupling (Service A depends on Service B)
+.IP \(bu 2
+Common: Data coupling (Services sharing the same resource e.g. database)
+.IP \(bu 2
+Content: Even worse data coupling aka pathalogical coupling (Service depends on the internals of another service e.g. database)
+.UNINDENT
+.SS Principles
+.sp
+\fIjust a brain dump \- in progress\fP
+.SS Association
+.sp
+Two types of association: aggregation and composition
+.sp
+Consider the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+A o\-\- B
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+In aggregation, \fIB\fP can live independently whereas in composition it can’t. So, composition is stronger than aggregation.
+.SS UML
+.sp
+\fI\%https://images.app.goo.gl/FFLUmsrpPQ1spsKr6\fP
+.SS Performance Matters
+.sp
+\fI\%Emery D. Berger\fP
+.sp
+Layout affects performance! and we should use probablistic methods to determine if one version of the code is better than the other.
+.sp
+\fI\%https://youtu.be/r\-TLSBdHe1A\fP
+.SS Tools
+.INDENT 0.0
+.IP \(bu 2
+Sound Performance Analysis: \fI\%Stablizer\fP
+.IP \(bu 2
+Effective Performance Profiling: Use the \fI\%Coz\fP
+.UNINDENT
+.SS Powershell vs Bash
+.sp
+\fI\%https://mathieubuisson.github.io/powershell\-linux\-bash/\fP
+.SS At your fingertips
+.sp
+Some operations should be extremely convenient \- they should be second nature:
+.sp
+\fBConventions\fP
+.sp
+Usually the following are true:
+\- Commands starting with \fISPC\fP are namespaced using nouns e.g. all commands
+starting with \fISPC f\fP are file related
+_ Commands starting with the leader char i.e. \fI,\fP are namespaced using verbs /
+actions e.g. \fI, g\fP are related to Go actions e.g. go to definition etc
+.SS Search
+.INDENT 0.0
+.TP
+.B Find something in current file
+/
+.TP
+.B Find something in all files (within a project)
+SPC s a p
+.TP
+.B Find file (within a project)
+SPC p h
+.UNINDENT
+.SS File
+.INDENT 0.0
+.TP
+.B Previous file
+SPC b p
+.TP
+.B Next file
+SPC b f
+.TP
+.B Close file
+SPC b d
+.TP
+.B File path
+SPC f y
+.TP
+.B sudo\-edit
+SPC f E
+.UNINDENT
+.SS Debug
+.INDENT 0.0
+.TP
+.B Debug current function
+, d b
+.TP
+.B Debug project/instance
+, d i
+.TP
+.B Toggle breakpoint
+, d d
+.TP
+.B Next error
+SPC e n
+.TP
+.B Go to errors
+, g e
+.UNINDENT
+.SS Shaan Puri’s Frameworks
+.sp
+\fI\%https://docsend.com/view/u2i5y4g3wxubpvt7\fP
+.SS Traffic sniffing
+.sp
+When all fails, wireshark is the tool. However, I just found out about mitmproxy which seems to be the winner … hands down!
+.SS mitmproxy
+.INDENT 0.0
+.TP
+.B url
+\fI\%https://mitmproxy.org/\fP
+.TP
+.B github
+\fI\%https://github.com/mitmproxy/mitmproxy\fP
+.UNINDENT
+.sp
+Example: Access \fIhttps://ahmadnazir.github.io\fP at \fIlocalhost:5001\fP, and intercept the traffic:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+mitmproxy \-\-mode reverse:https://ahmadnazir.github.io \-p 5001
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS httpry
+.sp
+I wasn’t able to sniff traffic on local host with this:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo httpry \-i lo
+python3 \-m http.server 5001
+curl localhost:5001
+# Nothing shows up for httpry :(
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Software Transactional Memory
+.sp
+A high level abstraction to simplify concurrent programming. It allows a group of read/write instructions to execute in an atomic way.
+.sp
+It is optimistic.
+.sp
+It is an alternative to lock\-based synchronization, which is pessimistic (and a lower level construct?).
+.SS Stocks vs Options vs Futures vs Bonds
+.sp
+Simple definition from: \fI\%https://www.quora.com/What\-are\-the\-differences\-between\-stock\-options\-futures\-bonds\-ETFs\-forex\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Stock: A piece of ownership of a corporation. Owners of stock (called stockholders) are entitled to the company’s profits in the form of dividends, as well as voting rights for company management.
+
+Options: A type of derivative that gives a buyer the choice to buy/sell a position by a certain date. The seller of the option gets a premium and keeps his/her position if the option expires worthless.
+
+Futures: A type of derivative that fixes a set price for a buyer and a seller at a future date.
+
+Bonds: A type of fixed\-income investment which is debt for the issuer and an asset for the buyer. Payments (called coupons) are paid in regular intervals, and the principals is repaid when the bond reaches maturity.
+
+ETF: Acronym for exchange\-traded fund. Usually a group of assets, but sells very similarly to a single stock.
+
+Forex: Short for foreign exchange. Trading currencies. Usually highly leveraged and risky.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Tinker with the Neural Network in the Browser
+.sp
+\fI\%https://playground.tensorflow.org\fP
+.SS Turning Machine
+.sp
+\fI\%https://www.youtube.com/watch?v=PLVCscCY4xI\fP
+.SS Networking
+.SS Check for open port
+.sp
+Use \fInetcat\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nc \-zv localhost 24224
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Name resolution
+.SS How is information stored in a DNS server?
+.sp
+Information is stored in the form of \fBDNS records\fP\&. There are different types of records and some of them required for our discussion are mentioned below:
+.sp
+\fIA\fP
+.sp
+Map a name to an IP adderss e.g.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+acme.com \-> x.x.x.x
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The same name can point to different ip addresses e.g:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+acme.com \-> x.x.x.x
+acme.com \-> y.y.y.y
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+_is the above round robined?_
+.sp
+\fICNAME\fP
+.sp
+Map a name to another name e.g.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+blog.acme.com \-> acme.com
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+There should be only one such mapping. Mapping two names to the same name is not
+allowed but you can create a chain of cnames:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+eng.blog.acme.com \-> blog.acme.com
+blog.acme.com     \-> acme.com
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Finding DNS records
+.sp
+2 tools come to mind: \fIdig\fP and \fInslookup\fP\&.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dig acme.com
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The default dns name used is in \fI/etc/resolv.conf\fP
+.sp
+However, you can overwrite the DNS server to use for querying a domain name e.g.
+if you explicitly want Google’s DNS server \fI8.8.8.8\fP to fetch information from,
+then use can specify it as:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dig @8.8.8.8 acme.com
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+With \fInslookup\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# use the default server
+nslookup acme.com
+
+# explicitly specify a server
+nslookup acme.com 8.8.8.8
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Add to list of DNS servers
+.sp
+Add or update \fI/etc/resolv.conf\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nameserver 8.8.8.8
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Cache
+.sp
+DNS records are cached. For chrome, reset it from \fIchrome://net\-internals/#dns\fP
+.SS What is my public IP?
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dig +short myip.opendns.com @resolver1.opendns.com
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS netstat
+.INDENT 0.0
+.TP
+.B Package
+net\-tools
+.UNINDENT
+.SS What is my host listening for?
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+netstat \-tulpn
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Nginx
+.sp
+Good article for tuning the proxy buffer sizes:
+.sp
+\fI\%https://www.getpagespeed.com/server\-setup/nginx/tuning\-proxy_buffer_size\-in\-nginx\fP
+.sp
+In order to find the header size of the requests:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\-w \e%{size_header} \-o /dev/null \-s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS CLI
+.sp
+Enable / disable wifi:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nmcli device connect wlp2s0
+nmcli device disconnect wlp2s0
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Connect to a wifi:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nmcli \-\-ask dev wifi connect
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Notes
+.SS AI \- 12 rules for a safer AI future
+.INDENT 0.0
+.TP
+.B speaker
+Cassie Kozyrkov
+.TP
+.B url
+\fI\%https://youtu.be/EjBXZrQ7fTs\fP
+.UNINDENT
+.INDENT 0.0
+.IP 1. 4
+Don’t be distracted by science fiction
+.INDENT 4.0
+.INDENT 3.5
+Science fiction version of AI has to do with person hood \- autonomous
+entities. Instead, AI comes from humans like all technologies.
+.sp
+All tools are better than humans be it paper/pencil as it has more memory, a
+bucket of water as it can hold more water etc. The question is to identify
+what is it specifically that AI is better at.
+.sp
+It is about “Explain by \-instructions\- examples”
+.UNINDENT
+.UNINDENT
+.IP 2. 4
+Remember that the objective is subjective
+.INDENT 4.0
+.INDENT 3.5
+The decision is subjective to some context e.g. detecting cat / not\-cat will
+work differently for a tiger if the context is that “The detected cats need
+to be used as pets”
+.UNINDENT
+.UNINDENT
+.IP 3. 4
+Strive for decision intelligence
+.INDENT 4.0
+.INDENT 3.5
+\fI\%https://youtu.be/EjBXZrQ7fTs?t=494\fP
+Amplify the decision maker of the human
+.UNINDENT
+.UNINDENT
+.IP 4. 4
+Wish responsibly
+.sp
+This is about choice of data sets and choice of objective. We need to be
+careful of how one expresses the wish so that the true spirit of the wish is
+captured.
+.IP 5. 4
+Think like a site reliability engineer
+.IP 6. 4
+Test everything!
+.IP 7. 4
+Always use pristine data for testing
+.sp
+Just like we test humans by giving them questions they haven’t seen before in
+an exam, AI systems need to be tested in the same way.
+.IP 8. 4
+Get in the habit of splitting your data
+.IP 9. 4
+Avoid jumping to conclusions
+.IP 10. 4
+Make sure your data are representative
+.IP 11. 4
+Open the textbook with analytics
+.sp
+If the author of a textbook is prejudiced, the student will also pick up the
+same prejudices. The teacher needs to make sure that they analyze the
+textbook before giving it to the student for learning.
+.sp
+Datasets, like textbooks, also have human authors.
+.IP 12. 4
+Seek a diversity of perspectives
+.UNINDENT
+.SS Python
+.SS Format string
+.sp
+\fI\%https://pyformat.info/\fP
+.SS Create a new python project
+.INDENT 0.0
+.TP
+.B pip module
+project_cli
+.UNINDENT
+.SS Simple http server
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# Python 2
+python \-m SimpleHttpServer 5001
+
+# Python 3
+python \-m http.server 5001
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Virtual environments
+.sp
+Python 3.3+ comes with \fIvenv\fP\&. Prevously, it was required to install \fIvirtualenv\fP using \fIpip\fP\&.
+.sp
+Create:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+python \-m venv env
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Activate:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+source env/bin/activate
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Rust
+.SS Getting Started
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+curl \-\-proto \(aq=https\(aq \-\-tlsv1.2 \-sSf https://sh.rustup.rs | sh
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Login again to make rustup available for all shells.
+.SS Racer
+.sp
+Racer: Rust Auto CompletER
+.sp
+\fI\%https://github.com/racer\-rust/racer#configuration\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+rustup component add rust\-src
+rustup toolchain add nightly
+cargo +nightly install racer
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Scala
+.SS Getting started / Emacs setup
+.sp
+This is for Spacemacs.
+.SS Metals
+.sp
+Binary is needed:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cd /tmp
+curl \-L \-o coursier https://git.io/coursier\-cli
+chmod +x coursier
+\&./coursier bootstrap \e
+  \-\-java\-opt \-Xss4m \e
+  \-\-java\-opt \-Xms100m \e
+  \-\-java\-opt \-Dmetals.client=emacs \e
+  org.scalameta:metals_2.12:0.9.6 \e
+  \-r bintray:scalacenter/releases \e
+  \-r sonatype:snapshots \e
+  \-o ~/bin/metals\-emacs \-f
+cd \-
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Once this is done and spacemacs layer is installed (see next step), then opening a scala file should use the metals backend.
+.sp
+\fI\%https://scalameta.org/metals\fP
+.SS Spacemacs layer
+.sp
+Clone \fI\%https://github.com/zheli/scala\-lsp\fP into \fI~/.emacs.d/private\fP
+.sp
+Add \fIscala\-lsp\fP layer to \fI\&.spacemacs\fP
+.SS Scala build tool
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+docker run \-it \e
+       \-\-rm \e
+       \-v $HOME:$HOME \e
+       \-v $HOME:$HOME \e
+       \-w \(gapwd\(ga \e
+       \-v \(gapwd\(ga:\(gapwd\(ga \e
+       \-u $UID:$GID \e
+       mozilla/sbt sbt "$@"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Getting started with sbt:
+.sp
+\fI\%https://docs.scala\-lang.org/getting\-started/sbt\-track/getting\-started\-with\-scala\-and\-sbt\-on\-the\-command\-line.html\fP
+.sp
+Once in the container:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sbt new scala/hello\-world.g8
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Start shell for sbt:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sbt
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Now watch and run:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sbt:hello\-world> ~run
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Or Watch and run without having to create a sbt shell:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sbt \(aq~run\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Giter8 tempates
+.sp
+\fI\%https://www.scala\-sbt.org/1.x/docs/sbt\-new\-and\-Templates.html#Giter8+support\fP
+.sp
+Examples:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+scala/scala\-seed.g8 (Seed template for Scala)
+scala/hello\-world.g8 (A template to demonstrate a minimal Scala application)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Language
+.INDENT 0.0
+.IP \(bu 2
+def: defines an immutable label for the right side content which is lazily evaluated \- evaluate by name.
+.IP \(bu 2
+val: defines an immutable label for the right side content which is eagerly/immediately evaluated \- evaluated by value.
+.IP \(bu 2
+var: defines a mutable variable, initially set to the evaluated right side content.
+.UNINDENT
+.sp
+\fI\%https://stackoverflow.com/a/33066906/1589512\fP
+.SS Execution
+.sp
+left to right
+call\-by\-value
+call\-by\-name
+call\-by\-need
+.SS Local setup
+.sp
+\fI\%https://hub.docker.com/r/bitnami/spark/\fP
+.sp
+curl \-LO \fI\%https://raw.githubusercontent.com/bitnami/bitnami\-docker\-spark/master/docker\-compose.yml\fP
+.SS Tools
+.sp
+Generate scala diagrams:
+.sp
+\fI\%https://github.com/mikeyhu/scaladiagrams\fP
+.SS Security
+.SS Cross site request forgery (CSRF)
+.sp
+An exploit when the attacker lures the victim on a legit domain e.g. \fIacme.com\fP,
+to a domain they control e.g. \fIevil.com\fP, and tricks them into clicking a button
+that sends a request to the legit domain.
+.sp
+If the authentication token is stored in the cookie and \fIacme.com\fP isn’t protected
+against this attack, the default behavior is that the auth token is sent along
+with the request and it can lead to altering of some state on \fIacme.com\fP\&.
+.sp
+For clarity, here are the steps:
+.INDENT 0.0
+.IP 1. 3
+Victim authenticates to \fIacme.com\fP
+.IP 2. 3
+Auth token gets stored in the cookie
+.IP 3. 3
+Victim goes to \fIevil.com\fP (e.g. gets an email with the link, etc)
+.IP 4. 3
+Victim clicks the link or a button that sends a request to \fIacme.com\fP
+.IP 5. 3
+The request also contains the cookies including the auth token
+.UNINDENT
+.sp
+So how to protect against it?
+.sp
+\fBUse something else than cookies \- like local storage?\fP
+.sp
+The most obvious thing that comes to mind is to avoid storing auth tokens in
+cookies and use something like local storage.
+.sp
+This is however not recommended. This is because local storage can be accessed
+by javascript and browsers have no settings to disallow this. So, if you can
+claim that your application is protected from XSS, then yes, you can storage the
+auth token in local storage. In reality, web applications use a ton of 3rd party
+libraries and it is not recommended to count on the fact that all libraries are
+completely secure. Hence, we need to add protections so that even if XSS is a
+possibility, the extent of the exploit is minimized.
+.sp
+Cookies on the other hand allow attributes that restrict access from javascript.
+However using them is not enough as they lead to the above mentioned csrf issue.
+.sp
+How to mitigate?
+.sp
+\fBDoesn’t \(gaHttpOnly\(ga attribute protect us?\fP
+.sp
+This makes sure that the cookie is inaccessible to JavaScript and helps mitigate
+XSS attacks. CSRF on the other hand is exploited without the attacker having to
+know the value of the cookie.
+.sp
+\fI\%https://developer.mozilla.org/en\-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies\fP
+.sp
+\fBDoesn’t \(gaSameSite\(ga attribute for cookies protect us?\fP
+.sp
+We cannot solely rely on \fISameSite\fP cookie attribute as it is a client side
+protection mechanism with limited browser support.
+.sp
+What is \fISameSite\fP attribue?
+.sp
+This restricts the cookie to a first\-party or same\-site context.
+.sp
+\fI\%https://developer.mozilla.org/en\-US/docs/Web/HTTP/Headers/Set\-Cookie/SameSite\fP
+.sp
+Allowed values for the attribute are:
+.INDENT 0.0
+.IP \(bu 2
+\fILax\fP: Cookies are sent when navigating to first\-party site
+.IP \(bu 2
+\fIStrict\fP: Cookies are never sent
+.IP \(bu 2
+\fINone\fP: Cookies will always be sent
+.UNINDENT
+.sp
+I think that \fILax\fP should be a safe choice, but this depends on browser comatibility. Only modern browsers support this: \fI\%https://caniuse.com/same\-site\-cookie\-attribute\fP
+.sp
+Furthermore and apparently, this is not bullet proof as the attacker can use work arounds e.g. \fI<link rel=’prerender’>\fP can be exploited: \fI\%https://tools.ietf.org/html/draft\-ietf\-httpbis\-rfc6265bis\-02#section\-5.3.7.1\fP
+.sp
+However, keep in mind many web applications accept requests from other domains. In that case, we can’t rely solely on the auth token to be transferred via the cookie. In that case the authentication header can be used as an alternate mechanism for specifying the auth token.
+.sp
+\fBDoesn’t Cross Origin Request Sharing (CORS) configuration protect us?\fP
+.sp
+First of all, CORS only applies to ajax (or XHR) requests. Cross domain form
+posting would still work \- this is due to backwards compatibility.
+.sp
+As a side note, CORS can be configured to allow certain domains to perform cross
+domain requests but it is a security measure that requires the frontend to work
+as well i.e. the browser. Furthermore, CORS doesn’t send preflight requests for
+‘simple requests’ e.g. GET requests, POST requests with certain values for
+Content\-Type. So generally speaking, we can’t rely on CORS for protection. An
+app that has a GET endpoint making state changes could be exploited even with
+CORS.
+.INDENT 0.0
+.INDENT 3.5
+\fIsimple requests\fP: \fI\%https://developer.mozilla.org/en\-US/docs/Web/HTTP/CORS#simple_requests\fP
+.UNINDENT
+.UNINDENT
+.sp
+\fBHow about CSRF Tokens?\fP
+.sp
+All above measures rely on the browser for providing the security. If the victim
+is using an old browser, they are still susceptible to an attack. Furthermore,
+if we only rely on CORS for protection, depending on the web application, some
+GET endpoints
+.sp
+Hence, as the precautionary measure, we should have server side protection as
+well. This can be done by the server generating csrf tokens which should be
+stored by the client and should be included for requests. If the CSRF token is
+stored in the cookie, then it should be double submitted probably as a header.
+Otherwise, the attacker can rely on the csrf token to be auto\-submitted as the
+cookie, defeating the purpose (\fISameSite\fP attribute for the cookie would make
+this difficult though).
+.sp
+\fI\%https://cheatsheetseries.owasp.org/cheatsheets/Cross\-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double\-submit\-cookie\fP
+.SS Shell
+.SS awk
+.sp
+Column based editing
+.SS Get the nth column
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+echo \(aqone two three\(aq | awk \(aq{print $1}\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+evaluates to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+one
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Specify a delimier
+.sp
+The space (or multiple spaces/tabs) is the default delimiter. Specify a different delimiter:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+echo \(aqone,two,three\(aq | awk \-F , \(aq{print $1}\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Unbuffered output
+.sp
+Sometimes it is needed to flush the output  to stdout.
+.sp
+In the following example, \fIsed\fP is used to remove the first character from the output of awk:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+tail \-f nginx.log | awk \(aq{print $4 " " $9; fflush(stdout)}\(aq | sed \(aqs/.//\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Maintaining column alignment
+.sp
+Check out the \fIsplit\fP function in \fIawk\fP\&. Here is a good discussion: \fI\%https://stackoverflow.com/a/20836890/1589512\fP
+.SS Variable assignment in bash
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+echo ${VAR:=abc}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+is the same as
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+VAR=${VAR:\-abc}
+echo $VAR
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Notice the subtle difference of a \fI:=\fP vs the \fI:\-\fP\&.
+.SS Conditionals
+.sp
+Argument 1 is not specified:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+if [ \-z $1 ]; then
+  echo "Not specified"
+fi
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+One liner:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[ \-z $1 ] && echo "Not specified"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Generate a UUID
+.sp
+Uuid / Guid:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+uuidgen
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Get real path
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+realpath $0
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+I guess for a symlink, we can do:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+readlink $0
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+One liner to go to the directory where the file lives:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cd "$(dirname "$(realpath "$0")")"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+TODO: write about a solution that works for both files and symlinks
+.SS Convert images to gray scale
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+find ./ \-name *.gif \-print0 | xargs \-0 \-I _FN_ convert _FN_ \-colorspace gray _FN_
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Decode a jwt
+.sp
+Assuming that the jwt is in the \fItoken.json\fP file:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat token.json | cut \-d"." \-f2 | base64 \-\-decode \-i | jq "."
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Or create an alias:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+alias jwt\-decode=\(aqcut \-d"." \-f2 \- | base64 \-\-decode \-i | jq "."\(aq
+cat token.json | jwt\-decode
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Loops
+.sp
+For loop:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+for i in *.txt
+do
+  echo Value: $i
+done
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS parallel
+.sp
+Run a command in parallel.
+.sp
+Example: I want to monitor http request times when run in parallel:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+seq 10 | parallel time ./request.sh
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Limit the number of jobs to be run in parallel. 0 means as many as possible.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+seq 100 | parallel \-j0 time ./request.sh
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Powershell
+.sp
+Use different keybindings:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Set\-PSReadLineOption \-EditMode Emacs
+Set\-PSReadLineOption \-EditMode Vi
+Set\-PSReadLineOption \-EditMode Windows # default
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Press enter to continue
+.sp
+In zsh:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+read "?Press enter to continue... "
+echo $REPLY
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+In bash:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+read \-p "Press enter to continue... "
+echo $REPLY
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS sed
+.sp
+Stream editor. Using regular expression, editor the standard input.
+.SS Remove the first character
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+echo \(aq_Test\(aq | sed \(aqs/.//\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+evaluates to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Test
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Unbuffered output
+.sp
+Use the \fI\-u\fP switch for unbuffered output.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+echo \(aq_Test\(aq | sed \-u \(aqs/.//\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Spark
+.SS Getting Started
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# di jupyter/pyspark\-notebook bash
+# spark\-shell
+
+# Not sure why I started looking into this one instead of the one above?
+di p7hb/docker\-spark
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Concepts
+.sp
+\fIOperations\fP
+.sp
+Sparks core operations are split into \fItransformations\fP (lazy) and \fIactions\fP (eager).
+.sp
+\fISpark Context\fP
+.sp
+Like the orchestrator. Responsible for
+.INDENT 0.0
+.IP \(bu 2
+Task creation
+.IP \(bu 2
+Scheduling
+.IP \(bu 2
+Data location (send tasks to the data to reduce data movement)
+.IP \(bu 2
+Fault tolerance
+.UNINDENT
+.sp
+It is recommended to have just one context per app (but it is possible to have multiple contexts)
+.SS Talks
+.SS The AI safety mindset: 12 rules for a safer AI future by Cassie Kozyrkov
+.sp
+\fI\%https://www.youtube.com/watch?v=EjBXZrQ7fTs&feature=youtu.be&ab_channel=Robotex\fP
+.INDENT 0.0
+.IP 1. 4
+Don’t be distracted by science fiction
+.INDENT 4.0
+.INDENT 3.5
+Science fiction version of AI has to do with person hood \- autonomous
+entities. Instead, AI comes from humans like all technologies.
+.sp
+All tools are better than humans be it paper/pencil as it has more memory, a
+bucket of water as it can hold more water etc. The question is to identify
+what is it specifically that AI is better at.
+.sp
+It is about “Explain by \-instructions\- examples”
+.UNINDENT
+.UNINDENT
+.IP 2. 4
+Remember that the objective is subjective
+.INDENT 4.0
+.INDENT 3.5
+The decision is subjective to some context e.g. detecting cat / not\-cat will
+work differently for a tiger if the context is that “The detected cats need
+to be used as pets”
+.UNINDENT
+.UNINDENT
+.IP 3. 4
+Strive for decision intelligence
+.INDENT 4.0
+.INDENT 3.5
+\fI\%https://youtu.be/EjBXZrQ7fTs?t=494\fP
+Amplify the decision maker of the human
+.UNINDENT
+.UNINDENT
+.IP 4. 4
+Wish responsibly
+.sp
+This is about choice of data sets and choice of objective. We need to be
+careful of how one expresses the wish so that the true spirit of the wish is
+captured.
+.IP 5. 4
+Think like a site reliability engineer
+.IP 6. 4
+Test everything!
+.IP 7. 4
+Always use pristine data for testing
+.sp
+Just like we test humans by giving them questions they haven’t seen before in
+an exam, AI systems need to be tested in the same way.
+.IP 8. 4
+Get in the habit of splitting your data
+.IP 9. 4
+Avoid jumping to conclusions
+.IP 10. 4
+Make sure your data are representative
+.IP 11. 4
+Open the textbook with analytics
+.sp
+If the author of a textbook is prejudiced, the student will also pick up the
+same prejudices. The teacher needs to make sure that they analyze the
+textbook before giving it to the student for learning.
+.sp
+Datasets, like textbooks, also have human authors.
+.IP 12. 4
+Seek a diversity of perspectives
+.UNINDENT
+.SS Testing
+.SS Pact
+.sp
+\fI\%Pact\fP is an implementation of “consumer driven contract” testing that allows mocking of responses in the consumer codebase, and verification of the interactions in the provider codebase.
+.INDENT 0.0
+.IP \(bu 2
+The consumers initiate the discussion by specifying a pact, which the provider should conform to.
+.IP \(bu 2
+Pact follows \fI\%Postel’s Law\fP\&.
+.IP \(bu 2
+\fI\%It is specifically for teams who are in control of writing both the consumer and the provider\fP\&.
+.UNINDENT
+.SS Pact and OpenApi Specification
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Swagger / OpenAPI specification aims to standardise the description and structure of an API. It can tell you what APIs are available and what fields/structure it expects and can generate documentation/UI to interact with one. What it is not, is a testing framework.
+
+Pact on the other hand, is essentially a unit testing framework using specification by example. It just so happens that to be able to run those tests on the API consumer and provider side, it needs to generate an intermediate format to be able to communicate that structure \- this is the specification. Now we need a lot more information that just the structure (matching rules, provider states and so on) that OpenAPI documents in its spec.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fI\%https://docs.pact.io/faq/convinceme#but\-i\-use\-swagger\-openapi\fP
+.SS Testing collections
+.sp
+We have to test 5 things (\fI\%J.B. Rainsberger\fP):
+.INDENT 0.0
+.IP \(bu 2
+Getting zero items
+.IP \(bu 2
+Getting one item
+.IP \(bu 2
+Getting multiple items
+.IP \(bu 2
+Getting lots of items
+.IP \(bu 2
+Oops
+.UNINDENT
+.SS Test vs Check
+.INDENT 0.0
+.IP \(bu 2
+\fBTesting\fP is learning and exploring
+.IP \(bu 2
+\fBChecking\fP is to confirm existing beliefs
+.UNINDENT
+.sp
+Most of the times we mean checking instead of testing
+.sp
+\fI\%https://www.developsense.com/blog/2009/08/testing\-vs\-checking/\fP
+.SS Vim
+.SS Macros
+.sp
+Start recording at register, let’s say \fIq\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+qq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Do you thing … and stop recording
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+q
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Run the macro:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+@q
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Repeat the previous macro:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+@@
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Web
+.SS API Guidelines
+.sp
+\fI\%https://github.com/microsoft/api\-guidelines\fP
+.SS HTTP Response Header: X\-Content\-Type\-Options
+.sp
+This is how the \fI\%X\-Content\-Type\-Options\fP header is used:
+.INDENT 0.0
+.IP \(bu 2
+A Chrome client makes a request to a web server for an asset (e.g. image.jpg).
+.IP \(bu 2
+A response is sent back with the header X\-Content\-Type\-Options: nosniff. This prevents the client from “sniffing” the asset to try and determine if the file type is something other than what is declared by the server.
+.IP \(bu 2
+The browser then accepts the MIME type defined by the origin server and displays the asset to the viewer.
+.UNINDENT
+.SS Questions
+.SS Business
+.SS How to evaluate if a business idea is good?
+.INDENT 0.0
+.IP \(bu 2
+profit potential : all stars aligned, what is the overall potential
+.IP \(bu 2
+passion
+.IP \(bu 2
+probability of that success
+.UNINDENT
+.sp
+Don’t look at the probability first. It is statistically unwise.
+.sp
+Dharmesh (Founder Hubspot) \fI\%https://www.youtube.com/watch?v=5WOzdCZRDnU&t=3921s\fP
+.SH AUTHOR
+Ahmad Nazir Raja
+.SH COPYRIGHT
+2019, Ahmad Nazir Raja
+.\" Generated by docutils manpage writer.
+.
