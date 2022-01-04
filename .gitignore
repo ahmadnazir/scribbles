@@ -6,3 +6,15 @@ private.html
 build/doctrees
 bin
 obj
+
+# Temporarily disabling the following until I move the directories to another
+# place or delete them
+#
+## code
+laziness
+observable
+hello-world
+## categories
+notes
+# people
+# talks
