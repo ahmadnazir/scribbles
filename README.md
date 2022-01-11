@@ -26,8 +26,16 @@ cd -
 
 where `scribbles-compile` is the bash function for the compile step.
 
-## Sync
+## Publish
+
+### ahmadnazir.github.io/scribbles
 
 ```
 git push origin `git subtree split --prefix build/html source`:master --force
+```
+
+### man pages
+
+```
+sudo cp build/man/scribbles.7 /usr/share/man/man7/
 ```

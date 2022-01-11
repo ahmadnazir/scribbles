@@ -1,7 +1,0 @@
-Jobs
-====
-
-.. toctree::
-   :glob:
-
-   jobs/*

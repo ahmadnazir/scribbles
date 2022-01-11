@@ -141,6 +141,7 @@
 <li class="toctree-l2"><a class="reference internal" href="swap-partition.html">Use the swap partition instead of the swap file</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Swap space</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-swap-partition">Create a swap partition?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-swap">Enable swap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#increase-the-swap-file-size">Increase the swap file size</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
@@ -275,6 +276,22 @@
 </pre></div>
 </div>
 <p>However, I can see that everything is allocated to my ext4 partition and I can’t resize it to make room for a swap partition.</p>
+</div>
+<div class="section" id="enable-swap">
+<h2>Enable swap<a class="headerlink" href="#enable-swap" title="Permalink to this headline">¶</a></h2>
+<p>Find the swap partition:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">swap</span> <span class="o">-</span><span class="n">B1</span>
+</pre></div>
+</div>
+<p>which would return something like:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="c1"># /dev/nvme0n1p5</span>
+<span class="n">UUID</span><span class="o">=</span><span class="mi">1</span><span class="n">adfeffe</span><span class="o">-</span><span class="n">fb1f</span><span class="o">-</span><span class="mi">48</span><span class="n">dc</span><span class="o">-</span><span class="mi">8</span><span class="n">a1e</span><span class="o">-</span><span class="n">c491b8399b6d</span>    <span class="n">none</span>            <span class="n">swap</span>            <span class="n">defaults</span>        <span class="mi">0</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Use the device to enable swap:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">swapon</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p5</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="increase-the-swap-file-size">
 <h2>Increase the swap file size<a class="headerlink" href="#increase-the-swap-file-size" title="Permalink to this headline">¶</a></h2>

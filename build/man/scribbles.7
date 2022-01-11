@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "SCRIBBLES" "7" "Jan 04, 2022" "0.1" "Scribbles"
+.TH "SCRIBBLES" "7" "Jan 11, 2022" "0.1" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .
@@ -4804,6 +4804,44 @@ sudo apt install gparted
 .UNINDENT
 .sp
 However, I can see that everything is allocated to my ext4 partition and I can’t resize it to make room for a swap partition.
+.SS Enable swap
+.sp
+Find the swap partition:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat /etc/fstab | grep swap \-B1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+which would return something like:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# /dev/nvme0n1p5
+UUID=1adfeffe\-fb1f\-48dc\-8a1e\-c491b8399b6d    none            swap            defaults        0 0
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Use the device to enable swap:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+swapon /dev/nvme0n1p5
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS Increase the swap file size
 .INDENT 0.0
 .INDENT 3.5

@@ -43,7 +43,7 @@ Content
    linux
    misc
    networking
-   note
+   notes
    people
    python
    rust

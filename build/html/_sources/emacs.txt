@@ -1,7 +1,0 @@
-Emacs
-=====
-
-.. toctree::
-   :glob:
-
-   emacs/*
