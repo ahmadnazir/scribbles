@@ -47,6 +47,28 @@ This can be done with gparted:
 
 However, I can see that everything is allocated to my ext4 partition and I can't resize it to make room for a swap partition.
 
+Enable swap
+-----------
+
+Find the swap partition:
+
+.. code::
+
+   cat /etc/fstab | grep swap -B1
+
+which would return something like:
+
+.. code::
+
+   # /dev/nvme0n1p5
+   UUID=1adfeffe-fb1f-48dc-8a1e-c491b8399b6d	none      	swap      	defaults  	0 0
+
+Use the device to enable swap:
+
+.. code::
+
+   swapon /dev/nvme0n1p5
+
 Increase the swap file size
 ---------------------------
 

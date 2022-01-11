@@ -1,7 +1,0 @@
-Java
-=====
-
-.. toctree::
-   :glob:
-
-   java/*
