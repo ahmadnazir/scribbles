@@ -45,7 +45,7 @@ This can be done with gparted:
    sudo apt install gparted
 
 
-However, I can see that everything is allocated to my ext4 partition and I can't resize it to make room for a swap partition.
+If only one partition exists then it is the one being used and it is not possible to unmount it. Use a recovery disk to login as root, resize the the existing partition to make room for the swap partition.
 
 Enable swap
 -----------
