@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "SCRIBBLES" "7" "Jan 11, 2022" "0.1" "Scribbles"
+.TH "SCRIBBLES" "7" "Jan 24, 2022" "0.1" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .
@@ -4001,6 +4001,64 @@ cat /etc/initramfs\-tools/conf.d/resume && \e
 echo RESUME=UUID=0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0 | sudo tee /etc/initramfs\-tools/conf.d/resume
 
 sudo update\-initramfs \-u \-k all
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS comm
+.sp
+Compare two sorted files line by line:
+.sp
+e.g. find lines that are not common:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat a.txt
+
+1
+2
+3
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat b.txt
+
+1
+2
+3
+4
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+comm \-3 a.txt b.txt
+
+4
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+In case the files are not sorted:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+comm \-3 <(sort a.txt> <(sort b.txt)
 .ft P
 .fi
 .UNINDENT
