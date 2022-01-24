@@ -3,7 +3,7 @@ comm
 
 Compare two sorted files line by line:
 
-e.g. find lines that are not common:
+E.g. find lines that are not common:
 
 
 .. code::
