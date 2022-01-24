@@ -37,4 +37,4 @@ In case the files are not sorted:
 
 .. code::
 
-   comm -3 <(sort a.txt> <(sort b.txt)
+   comm -3 <(sort a.txt) <(sort b.txt)
