@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "SCRIBBLES" "7" "Jan 24, 2022" "0.1" "Scribbles"
+.TH "SCRIBBLES" "7" "Jan 31, 2022" "0.1" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .
@@ -206,6 +206,19 @@ SPC f E
 .UNINDENT
 .sp
 \fI\%https://develop.spacemacs.org/doc/DOCUMENTATION.html#binding\-keys\fP
+.SS org
+.sp
+Add images:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+org\-download\-clipboard
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS PlantUML
 .sp
 Spacemacs comes with a \fBplantuml\fP layer which has a major mode for modifying such files.
@@ -609,6 +622,23 @@ public static void main()
 {
   System.out.println("Hello World");
 }
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+or get the same results with using \fI::\fP at the end of the sentence::
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Some code::
+
+  public static void main()
+  {
+    System.out.println("Hello World");
+  }
 .ft P
 .fi
 .UNINDENT
@@ -4755,6 +4785,34 @@ Let’s show \fIRSS\fP in \fIMB\(gas. Create a script and invoke it as \(gawatch
 .nf
 .ft C
 ps \-ao %mem,rss,command | grep $1 | grep \-v grep | awk \(aq{$2=int($2/(1024))"MB";}{ print; }\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Microphone
+.sp
+Trying to get the microphone to work. Tried the following but in vain:
+.sp
+Update \fI/etc/modprobe/snd\-hda\-intel.conf\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+options snd\-hda\-intel enable_msi=1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Reload module:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo rmmod \-f snd\-hda\-intel # might need the \(ga\-f\(ga switch
+sudo modprobe snd\-hda\-intel
 .ft P
 .fi
 .UNINDENT
