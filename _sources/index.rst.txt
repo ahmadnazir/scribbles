@@ -53,6 +53,7 @@ Content
    spark
    talks
    testing
+   typescript
    vim
    web
    questions
