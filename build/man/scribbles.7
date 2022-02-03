@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "SCRIBBLES" "7" "Jan 31, 2022" "0.1" "Scribbles"
+.TH "SCRIBBLES" "7" "Feb 03, 2022" "0.1" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .
@@ -219,6 +219,9 @@ org\-download\-clipboard
 .fi
 .UNINDENT
 .UNINDENT
+.sp
+#+DOWNLOADED: screenshot @ 2022\-01\-31 00:36:59
+[[\fI\%file:test/mojo.png\fP]]
 .SS PlantUML
 .sp
 Spacemacs comes with a \fBplantuml\fP layer which has a major mode for modifying such files.
@@ -7072,6 +7075,50 @@ Oops
 Most of the times we mean checking instead of testing
 .sp
 \fI\%https://www.developsense.com/blog/2009/08/testing\-vs\-checking/\fP
+.SS Typescript
+.SS Index Types
+.sp
+Using raw strings to convey type information:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+function myFn<T, K extends keyof T>(
+  collection: T[],
+  propName: K,
+) {
+  // \(gapropName\(ga can only be a valid property i.e. \(gaK\(ga exists on \(gaT\(ga
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+E.g. the following function indexes a collection only the properties that are
+valid:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+function indexBy<T, K extends keyof T>(
+  collection: T[],
+  propName: K,
+): Record<K, T[]> {
+  return collection.reduce((dictionary, i) => {
+    if (dictionary[propName]) {
+      dictionary[propName].push(i);
+    } else {
+      dictionary[propName] = [i];
+    }
+    return dictionary;
+  }, {} as Record<K, T[]>);
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS Vim
 .SS Macros
 .sp

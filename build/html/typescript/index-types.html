@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>org &mdash; Scribbles 0.1 documentation</title>
+  <title>Index Types &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
-        <link rel="up" title="Emacs" href="../emacs.html"/>
-        <link rel="next" title="PlantUML" href="plantuml.html"/>
-        <link rel="prev" title="Keybindings" href="keybindings.html"/> 
+        <link rel="up" title="Typescript" href="../typescript.html"/>
+        <link rel="next" title="Vim" href="../vim.html"/>
+        <link rel="prev" title="Typescript" href="../typescript.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -92,19 +92,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../emacs.html">(Spac)emacs</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="dotnet.html">.NET on Emacs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="emacslisp.html">Terminology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="emacslisp.html#buffer">Buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="helm.html">Helm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="http.html">HTTP functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keybindings.html">Keybindings</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">org</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plantuml.html">PlantUML</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spacemacs-keybindings.html">Spacemacs Keybindings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="textern.html">Textern</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
@@ -137,7 +125,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../typescript.html">Typescript</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../typescript.html">Typescript</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Index Types</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
@@ -185,15 +176,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../emacs.html">Emacs</a> &raquo;</li>
+          <li><a href="../typescript.html">Typescript</a> &raquo;</li>
         
-      <li>org</li>
+      <li>Index Types</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/emacs/org.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/typescript/index-types.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -206,14 +197,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="org">
-<h1>org<a class="headerlink" href="#org" title="Permalink to this headline">¶</a></h1>
-<p>Add images:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">org</span><span class="o">-</span><span class="n">download</span><span class="o">-</span><span class="n">clipboard</span>
+  <div class="section" id="index-types">
+<h1>Index Types<a class="headerlink" href="#index-types" title="Permalink to this headline">¶</a></h1>
+<p>Using raw strings to convey type information:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>function myFn&lt;T, K extends keyof T&gt;(
+  collection: T[],
+  propName: K,
+) {
+  // `propName` can only be a valid property i.e. `K` exists on `T`
+}
 </pre></div>
 </div>
-<p>#+DOWNLOADED: screenshot &#64; 2022-01-31 00:36:59
-[[<a class="reference external" href="file:test/mojo.png">file:test/mojo.png</a>]]</p>
+<p>E.g. the following function indexes a collection only the properties that are
+valid:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">indexBy</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">K</span> <span class="n">extends</span> <span class="n">keyof</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">collection</span><span class="p">:</span> <span class="n">T</span><span class="p">[],</span>
+  <span class="n">propName</span><span class="p">:</span> <span class="n">K</span><span class="p">,</span>
+<span class="p">):</span> <span class="n">Record</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">collection</span><span class="o">.</span><span class="n">reduce</span><span class="p">((</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dictionary</span><span class="p">[</span><span class="n">propName</span><span class="p">])</span> <span class="p">{</span>
+      <span class="n">dictionary</span><span class="p">[</span><span class="n">propName</span><span class="p">]</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">dictionary</span><span class="p">[</span><span class="n">propName</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">dictionary</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">{}</span> <span class="k">as</span> <span class="n">Record</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 
 
@@ -226,10 +237,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plantuml.html" class="btn btn-neutral float-right" title="PlantUML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../vim.html" class="btn btn-neutral float-right" title="Vim" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="keybindings.html" class="btn btn-neutral" title="Keybindings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../typescript.html" class="btn btn-neutral" title="Typescript" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
