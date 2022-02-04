@@ -16,13 +16,10 @@ valid::
   function indexBy<T, K extends keyof T>(
     collection: T[],
     propName: K,
-  ): Record<K, T[]> {
+  ) {
     return collection.reduce((dictionary, i) => {
-      if (dictionary[propName]) {
-        dictionary[propName].push(i);
-      } else {
-        dictionary[propName] = [i];
-      }
+      const key = i[propName];
+      dictionary[key] = i;
       return dictionary;
-    }, {} as Record<K, T[]>);
+    }, {} as any);
   }
