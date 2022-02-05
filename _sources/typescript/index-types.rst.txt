@@ -23,3 +23,17 @@ valid::
       return dictionary;
     }, {} as any);
   }
+
+Also with return type::
+
+
+  function indexBy<T, K extends keyof T, G extends string | number>(
+    collection: T[],
+    propName: K,
+  ): Record<G, T> {
+    return collection.reduce((dictionary, i) => {
+      const key = i[propName];
+      dictionary[key] = i;
+      return dictionary;
+    }, {} as any);
+  }
