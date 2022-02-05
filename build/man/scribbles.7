@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "SCRIBBLES" "7" "Feb 04, 2022" "0.1" "Scribbles"
+.TH "SCRIBBLES" "7" "Feb 05, 2022" "0.1" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .
@@ -7106,6 +7106,27 @@ function indexBy<T, K extends keyof T>(
   collection: T[],
   propName: K,
 ) {
+  return collection.reduce((dictionary, i) => {
+    const key = i[propName];
+    dictionary[key] = i;
+    return dictionary;
+  }, {} as any);
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Also with return type:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+function indexBy<T, K extends keyof T, G extends string | number>(
+  collection: T[],
+  propName: K,
+): Record<G, T> {
   return collection.reduce((dictionary, i) => {
     const key = i[propName];
     dictionary[key] = i;

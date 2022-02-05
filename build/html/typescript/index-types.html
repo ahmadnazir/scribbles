@@ -222,6 +222,19 @@ valid:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>Also with return type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">indexBy</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">K</span> <span class="n">extends</span> <span class="n">keyof</span> <span class="n">T</span><span class="p">,</span> <span class="n">G</span> <span class="n">extends</span> <span class="n">string</span> <span class="o">|</span> <span class="n">number</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">collection</span><span class="p">:</span> <span class="n">T</span><span class="p">[],</span>
+  <span class="n">propName</span><span class="p">:</span> <span class="n">K</span><span class="p">,</span>
+<span class="p">):</span> <span class="n">Record</span><span class="o">&lt;</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">collection</span><span class="o">.</span><span class="n">reduce</span><span class="p">((</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">const</span> <span class="n">key</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="n">propName</span><span class="p">];</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">dictionary</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">{}</span> <span class="k">as</span> <span class="nb">any</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 
 
