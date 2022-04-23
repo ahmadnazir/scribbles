@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Show commits in a graph &mdash; Scribbles 0.1 documentation</title>
+  <title>Merge repos &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
         <link rel="up" title="Git" href="../git.html"/>
-        <link rel="next" title="Interactively discard hunks" href="interactive-discard.html"/>
-        <link rel="prev" title="Git" href="../git.html"/> 
+        <link rel="next" title="Sparse checkout" href="sparse-checkout.html"/>
+        <link rel="prev" title="Find a lost commit" href="lost-commit.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -108,11 +108,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../git.html">Git</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Show commits in a graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html">Show commits in a graph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="interactive-discard.html">Interactively discard hunks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="line-ending.html">Line Ending</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lost-commit.html">Find a lost commit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="merge-repo.html">Merge repos</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Merge repos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sparse-checkout.html">Sparse checkout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="split-subtree.html">Split subtree</a></li>
 </ul>
@@ -184,13 +184,13 @@
         
           <li><a href="../git.html">Git</a> &raquo;</li>
         
-      <li>Show commits in a graph</li>
+      <li>Merge repos</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/git/graph.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/git/merge-repo.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -203,19 +203,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="show-commits-in-a-graph">
-<h1>Show commits in a graph<a class="headerlink" href="#show-commits-in-a-graph" title="Permalink to this headline">¶</a></h1>
-<p>Use <em>adog</em> switches:</p>
-<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="nb">all</span> <span class="o">--</span><span class="n">decorate</span> <span class="o">--</span><span class="n">oneline</span> <span class="o">--</span><span class="n">graph</span>
+  <div class="section" id="merge-repos">
+<h1>Merge repos<a class="headerlink" href="#merge-repos" title="Permalink to this headline">¶</a></h1>
+<p>How to merge repos and keep the history?</p>
+<p>Assume you have two repos <cite>a</cite> and <cite>b</cite>:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>.
+├── a
+│   └── README.md
+└── b
+    └── src
+        └── main.js
 </pre></div>
 </div>
-<p><cite>–decorate</cite> controls how the names of the commits (tags / branch names) are shown
-<cite>–one line</cite> is the same as <cite>–pretty=oneline</cite></p>
-<p>Or save it as an alias:</p>
-<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">alias</span><span class="o">.</span><span class="n">ladog</span> <span class="s1">&#39;log --all --decorate --oneline --graph&#39;</span>
-<span class="n">git</span> <span class="n">ladog</span>
+<p>We want to merge <cite>b</cite> into <cite>a</cite>:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">a</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">b</span><span class="o">-</span><span class="n">origin</span> <span class="o">../</span><span class="n">b</span>
+<span class="n">git</span> <span class="n">fetch</span> <span class="n">b</span><span class="o">-</span><span class="n">origin</span> <span class="n">master</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="o">--</span><span class="n">allow</span><span class="o">-</span><span class="n">unrelated</span><span class="o">-</span><span class="n">histories</span> <span class="n">b</span><span class="o">-</span><span class="n">origin</span><span class="o">/</span><span class="n">master</span> <span class="c1"># opens the editor to commit with message</span>
 </pre></div>
 </div>
+<p>The result will look like this:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>.
+├── README.md
+└── src
+    └── main.js
+
+1 directory, 2 files
+</pre></div>
+</div>
+<p>This can be repeated to sync new changes from <cite>b-origin</cite> remote’s <cite>master</cite> branch.</p>
+<p>The same concept can be used to merge a sub-module into the main module i.e. create a remote for the submodule, remove the submodule, merge the remote branch.</p>
 </div>
 
 
@@ -228,10 +245,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="interactive-discard.html" class="btn btn-neutral float-right" title="Interactively discard hunks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sparse-checkout.html" class="btn btn-neutral float-right" title="Sparse checkout" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../git.html" class="btn btn-neutral" title="Git" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="lost-commit.html" class="btn btn-neutral" title="Find a lost commit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

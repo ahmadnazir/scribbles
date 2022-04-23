@@ -15,9 +15,17 @@ Update pacakges:
 
 Optionally, re-compile packages that were updated e.g. `xmonad`
 
-.. code:
+.. code::
 
    xmonad --recompile
+
+
+..
+   OR using yay to upgrade:
+
+   .. code::
+
+      yay -Syu
 
 
 

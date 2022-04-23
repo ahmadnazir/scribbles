@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "SCRIBBLES" "7" "Feb 05, 2022" "0.1" "Scribbles"
+.TH "SCRIBBLES" "7" "Apr 23, 2022" "0.1" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .
@@ -3320,7 +3320,6 @@ Use \fIadog\fP switches:
 .nf
 .ft C
 git log \-\-all \-\-decorate \-\-oneline \-\-graph
-git log \-adog
 .ft P
 .fi
 .UNINDENT
@@ -3328,6 +3327,19 @@ git log \-adog
 .sp
 \fI–decorate\fP controls how the names of the commits (tags / branch names) are shown
 \fI–one line\fP is the same as \fI–pretty=oneline\fP
+.sp
+Or save it as an alias:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+git config \-\-global alias.ladog \(aqlog \-\-all \-\-decorate \-\-oneline \-\-graph\(aq
+git ladog
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS Interactively discard hunks
 .SS Unstaging hunks
 .sp
@@ -3435,6 +3447,62 @@ gitk \-\-all $( git fsck \-\-no\-reflog | awk \(aq/dangling commit/ {print $3}\(
 .UNINDENT
 .sp
 Check out the discussion here: \fI\%http://stackoverflow.com/a/91795/1589512\fP
+.SS Merge repos
+.sp
+How to merge repos and keep the history?
+.sp
+Assume you have two repos \fIa\fP and \fIb\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\&.
+├── a
+│   └── README.md
+└── b
+    └── src
+        └── main.js
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+We want to merge \fIb\fP into \fIa\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cd a
+git remote add b\-origin ../b
+git fetch b\-origin master
+git merge \-\-allow\-unrelated\-histories b\-origin/master # opens the editor to commit with message
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The result will look like this:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\&.
+├── README.md
+└── src
+    └── main.js
+
+1 directory, 2 files
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This can be repeated to sync new changes from \fIb\-origin\fP remote’s \fImaster\fP branch.
+.sp
+The same concept can be used to merge a sub\-module into the main module i.e. create a remote for the submodule, remove the submodule, merge the remote branch.
 .SS Sparse checkout
 .INDENT 0.0
 .INDENT 3.5
@@ -5102,6 +5170,16 @@ sudo pacman \-Syu
 .UNINDENT
 .sp
 Optionally, re\-compile packages that were updated e.g. \fIxmonad\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xmonad \-\-recompile
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS Upgrade Ubuntu Distribution
 .sp
 Check the current release:
