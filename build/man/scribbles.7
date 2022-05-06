@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "SCRIBBLES" "7" "Apr 23, 2022" "0.1" "Scribbles"
+.TH "SCRIBBLES" "7" "May 06, 2022" "0.1" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .
@@ -7211,6 +7211,19 @@ function indexBy<T, K extends keyof T, G extends string | number>(
     return dictionary;
   }, {} as any);
 }
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Sleep
+.sp
+Await sleep
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 .ft P
 .fi
 .UNINDENT
