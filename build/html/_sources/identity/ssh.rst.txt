@@ -15,5 +15,10 @@ Remembering the password for the session:
    eval "$(ssh-agent -s)"
    ssh-add ~/.ssh/id_rsa
 
+List the keys addd to the agent:
+
+::
+
+   ssh-add -l
 
 Do it for all the shells: https://unix.stackexchange.com/a/132117/98943

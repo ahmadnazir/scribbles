@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Babashka &mdash; Scribbles 0.1 documentation</title>
+  <title>Generate client from OpenApi specification &mdash; Scribbles 0.1 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
-        <link rel="up" title="Clojure" href="../clojure.html"/>
-        <link rel="next" title="Benchmarking" href="benchmark.html"/>
-        <link rel="prev" title="Clojure" href="../clojure.html"/> 
+        <link rel="up" title="Web" href="../web.html"/>
+        <link rel="next" title="Questions" href="../questions.html"/>
+        <link rel="prev" title="HTTP Response Header: X-Content-Type-Options" href="http-header-nosniff.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -100,34 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ai.html">AI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../clojure.html">Clojure</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Babashka</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sample-clj-file">Sample clj file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#emacs">Emacs</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="benchmark.html">Benchmarking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="clj-tools.html">clj</a></li>
-<li class="toctree-l2"><a class="reference internal" href="clojars.html">Clojars</a></li>
-<li class="toctree-l2"><a class="reference internal" href="clojure-runner.html">Clojure runner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="clojure-spec.html">Clojure Spec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="collections-vs-sequences.html">Collections vs Sequences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compilation.html">Clojure compilation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="composition.html">Function composition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conj.html">conj</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html">Clojure in docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dsl.html">Writing a DSL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="graphs.html">Graphing (n more) Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iterate-hashmap.html">Iterate a hash map</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lein.html">Leiningen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="map-indexed.html">How to <cite>map</cite> while retaining the index?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pivot.html">Pivot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project-dependency-graph.html">Generate project dependency graph</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reflection.html">Reflection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spacemacs.html">Spacemacs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unmap-symbol.html">Unmap a symbol from a namespace</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
@@ -154,7 +127,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../typescript.html">Typescript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../web.html">Web</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-guidelines.html">API Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http-header-nosniff.html">HTTP Response Header: X-Content-Type-Options</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generate client from OpenApi specification</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
 </ul>
 
@@ -200,15 +178,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../clojure.html">Clojure</a> &raquo;</li>
+          <li><a href="../web.html">Web</a> &raquo;</li>
         
-      <li>Babashka</li>
+      <li>Generate client from OpenApi specification</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/clojure/babashka.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/web/openapi.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -221,29 +199,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="babashka">
-<h1>Babashka<a class="headerlink" href="#babashka" title="Permalink to this headline">¶</a></h1>
-<p>Shell scripting in clojure.</p>
-<div class="section" id="sample-clj-file">
-<h2>Sample clj file<a class="headerlink" href="#sample-clj-file" title="Permalink to this headline">¶</a></h2>
-<p><cite>test.clj</cite>:</p>
-<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bb</span>
-
-<span class="p">(</span><span class="o">-&gt;&gt;</span> <span class="o">*</span><span class="n">command</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">args</span><span class="o">*</span>
-     <span class="n">first</span><span class="p">)</span>
+  <div class="section" id="generate-client-from-openapi-specification">
+<h1>Generate client from OpenApi specification<a class="headerlink" href="#generate-client-from-openapi-specification" title="Permalink to this headline">¶</a></h1>
+<p>Generate typescript client:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>docker run \
+  -w /local \
+  --rm \
+  -u $UID:$GID \
+  -v &quot;${PWD}:/local&quot; \
+  openapitools/openapi-generator-cli generate \
+  --skip-validate-spec \
+  -i http://localhost:3000/docs/api/internal-json \
+  -g typescript-node \
+  -o src/lib
 </pre></div>
-</div>
-<p>Make the file executable and run the following:</p>
-<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">test</span><span class="o">.</span><span class="n">clj</span> <span class="n">Hello</span> <span class="n">World</span> <span class="c1"># &quot;Hello&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="emacs">
-<h2>Emacs<a class="headerlink" href="#emacs" title="Permalink to this headline">¶</a></h2>
-<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">bb</span> <span class="o">--</span><span class="n">nrepl</span><span class="o">-</span><span class="n">server</span> <span class="mi">1667</span>
-</pre></div>
-</div>
-<p>From emacs <cite>M-x cider-connect</cite> / spacemacs <cite>SPC s c</cite>.</p>
 </div>
 </div>
 
@@ -257,10 +226,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="benchmark.html" class="btn btn-neutral float-right" title="Benchmarking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../questions.html" class="btn btn-neutral float-right" title="Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../clojure.html" class="btn btn-neutral" title="Clojure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="http-header-nosniff.html" class="btn btn-neutral" title="HTTP Response Header: X-Content-Type-Options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
