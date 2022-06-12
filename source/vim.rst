@@ -1,7 +1,0 @@
-Vim
-===
-
-.. toctree::
-   :glob:
-
-   vim/*

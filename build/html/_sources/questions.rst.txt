@@ -1,7 +1,0 @@
-Questions
-=========
-
-.. toctree::
-   :glob:
-
-   questions/*
