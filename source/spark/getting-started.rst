@@ -1,6 +1,9 @@
 Getting Started
 ===============
 
+.. post:: 30/12/2020
+   :tags: spark
+
 .. code::
 
    # di jupyter/pyspark-notebook bash

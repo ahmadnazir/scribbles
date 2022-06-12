@@ -1,6 +1,9 @@
 Keybindings
 ===========
 
+.. post:: 30/12/2020
+   :tags: emacs
+
 :Sudo edit: SPC f E
 
 .. code::

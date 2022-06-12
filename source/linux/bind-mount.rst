@@ -1,6 +1,9 @@
 Bind mount
 ==========
 
+.. post:: 30/12/2020
+   :tags: linux
+
 Using a bind mount might seem to accomplish what a symlink does but it happens at a lower level and changes the `underlying topology of the filesystem`_ (and hence it requires root privileges).
 
 .. _underlying topology of the filesystem: https://www.quora.com/What-are-the-differences-between-bind-mounts-and-symlink-on-Unix

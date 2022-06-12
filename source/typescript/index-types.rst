@@ -1,6 +1,9 @@
 Index Types
 ===========
 
+.. post:: 05/02/2022
+   :tags: typescript
+
 Using raw strings to convey type information::
 
   function myFn<T, K extends keyof T>(

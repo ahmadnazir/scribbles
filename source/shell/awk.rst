@@ -1,6 +1,9 @@
 awk
 ===
 
+.. post:: 30/12/2020
+   :tags: shell
+
 Column based editing
 
 Get the nth column

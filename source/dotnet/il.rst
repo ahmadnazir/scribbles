@@ -1,6 +1,9 @@
 Intermediate Language (IL)
 ==========================
 
+.. post:: 30/12/2020
+   :tags: dotnet
+
 Also referred to CIL (Common IL) or MSIL (Microsoft IL).
 
 I think ILAsm (IL Assembly Language) is also the same thing but not really sure. (not ILASM, the assembler)

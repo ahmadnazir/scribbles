@@ -1,6 +1,9 @@
 Graphing (n more) Libraries
 ===========================
 
+.. post:: 30/12/2020
+   :tags: clojure
+
 Here are some of the graphing libraries that I have found:
 
 Loom

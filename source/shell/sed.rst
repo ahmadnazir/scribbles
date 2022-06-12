@@ -1,6 +1,9 @@
 sed
 ===
 
+.. post:: 30/12/2020
+   :tags: shell
+
 Stream editor. Using regular expression, editor the standard input.
 
 Remove the first character

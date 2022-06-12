@@ -1,6 +1,9 @@
 Pivot
 =====
 
+.. post:: 17/09/2019
+   :tags: clojure
+
 Let's say you have the following 2 vectors:
 
 .. code:: clojure

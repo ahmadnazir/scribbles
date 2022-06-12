@@ -1,6 +1,9 @@
 Upgrade Ubuntu Distribution
 ===========================
 
+.. post:: 16/10/2019
+   :tags: linux
+
 Check the current release:
 
 more /etc/lsb-release

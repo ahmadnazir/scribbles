@@ -1,6 +1,9 @@
 Test vs Check
 =============
 
+.. post:: 13/07/2019
+   :tags: testing
+
 - **Testing** is learning and exploring
 - **Checking** is to confirm existing beliefs
 

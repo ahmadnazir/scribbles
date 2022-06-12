@@ -1,6 +1,9 @@
 Disk space
 ==========
 
+.. post:: 24/10/2021
+   :tags: linux
+
 `ncdu` - NCurses Disk Usage.
 
 .. code::

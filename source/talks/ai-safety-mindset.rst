@@ -1,6 +1,9 @@
 The AI safety mindset: 12 rules for a safer AI future by Cassie Kozyrkov
 ========================================================================
 
+.. post:: 30/12/2020
+   :tags: talks
+
 https://www.youtube.com/watch?v=EjBXZrQ7fTs&feature=youtu.be&ab_channel=Robotex
 
 

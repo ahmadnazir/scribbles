@@ -1,6 +1,9 @@
 Conditionals
 ============
 
+.. post:: 30/12/2020
+   :tags: shell
+
 Argument 1 is not specified:
 
 .. code::

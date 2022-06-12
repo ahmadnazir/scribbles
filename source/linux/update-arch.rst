@@ -1,6 +1,9 @@
 Update Arch
 ===========
 
+.. post:: 23/04/2022
+   :tags: linux
+
 [Optional] Clean the cache:
 
 .. code::

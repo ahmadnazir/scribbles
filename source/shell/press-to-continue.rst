@@ -1,6 +1,9 @@
 Press enter to continue
 =======================
 
+.. post:: 30/12/2020
+   :tags: shell
+
 In zsh:
 
 .. code::

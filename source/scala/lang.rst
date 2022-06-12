@@ -1,6 +1,9 @@
 Language
 ========
 
+.. post:: 30/12/2020
+   :tags: scala
+
 - def: defines an immutable label for the right side content which is lazily evaluated - evaluate by name.
 
 - val: defines an immutable label for the right side content which is eagerly/immediately evaluated - evaluated by value.

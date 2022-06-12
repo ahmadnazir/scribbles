@@ -1,6 +1,9 @@
 Tap click not working
 =====================
 
+.. post:: 30/12/2020
+   :tags: linux
+
 :OS: Ubuntu 20.04
 
 Find the id of the input device: 

@@ -1,6 +1,9 @@
 Getting started / Emacs setup
 =============================
 
+.. post:: 30/12/2020
+   :tags: scala
+
 This is for Spacemacs.
 
 Metals

@@ -1,6 +1,9 @@
 Clojure in docker
 =================
 
+.. post:: 04/01/2022
+   :tags: clojure
+
 Container:
 
 todo : this runs as root

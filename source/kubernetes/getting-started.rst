@@ -1,6 +1,9 @@
 Getting started with Kubernetes
 ===============================
 
+.. post:: 27/05/2019
+   :tags: kubernetes
+
 Install
 -------
 

@@ -1,6 +1,9 @@
 Scribbles
 =========
 
+.. post:: 12/06/2022
+   :tags: index.rst
+
 This is where I keep all the notes that are either *too long that I would forget
 them* OR *too short for a blog post*. This is a **work in progress ... and will
 remain so** for the forseeable future.
