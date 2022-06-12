@@ -1,6 +1,9 @@
 MAGIC
 =====
 
+.. post:: 30/12/2020
+   :tags: dotnet
+
 Morgan And Grand Iron Compiler - runs on the common runtime!
 
 https://github.com/nasser/magic

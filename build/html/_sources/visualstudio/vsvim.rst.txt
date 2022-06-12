@@ -1,6 +1,9 @@
 VsVim
 =====
 
+.. post:: 30/11/2019
+   :tags: visualstudio
+
 :Version: Visual Studio 2019
 
 `VsVim` is an extension for visual studio for vim keybindings

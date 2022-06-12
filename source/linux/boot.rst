@@ -1,6 +1,9 @@
 Boot
 ====
 
+.. post:: 16/10/2019
+   :tags: linux
+
 OS : Ubuntu 18.04
 
 Grub

@@ -1,6 +1,9 @@
 Wifi
 ====
 
+.. post:: 30/12/2020
+   :tags: linux
+
 Restart wifi:
 
 .. code::

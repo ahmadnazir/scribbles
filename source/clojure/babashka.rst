@@ -1,6 +1,9 @@
 Babashka
 ========
 
+.. post:: 22/06/2020
+   :tags: clojure
+
 Shell scripting in clojure.
 
 Sample clj file

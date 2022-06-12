@@ -1,6 +1,9 @@
 Stocks vs Options vs Futures vs Bonds
 =====================================
 
+.. post:: 30/12/2020
+   :tags: misc
+
 Simple definition from: https://www.quora.com/What-are-the-differences-between-stock-options-futures-bonds-ETFs-forex
 
 .. code::

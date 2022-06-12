@@ -1,7 +1,10 @@
 HyperLogLog sketch
 ==================
 
-  HyperLogLog is an algorithm for the count-distinct problem, approximating the number of distinct elements in a multiset. [1]_
+.. post:: 30/12/2020
+   :tags: misc
+
+HyperLogLog is an algorithm for the count-distinct problem, approximating the number of distinct elements in a multiset. [1]_
 
 Transform Data by Example [DMX]_
 

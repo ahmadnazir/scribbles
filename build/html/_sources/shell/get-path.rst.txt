@@ -1,6 +1,9 @@
 Get real path
 =============
 
+.. post:: 24/10/2021
+   :tags: shell
+
 .. code::
 
    realpath $0

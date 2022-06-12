@@ -1,6 +1,9 @@
 Software Transactional Memory
 =============================
 
+.. post:: 30/12/2020
+   :tags: misc
+
 A high level abstraction to simplify concurrent programming. It allows a group of read/write instructions to execute in an atomic way.
 
 It is optimistic.

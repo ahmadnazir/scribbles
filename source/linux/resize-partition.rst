@@ -1,6 +1,9 @@
 Resize the mounted parition
 ===========================
 
+.. post:: 16/10/2019
+   :tags: linux
+
 Start the machine using a 'recovery' usb. This makes it possible to work with the partition as it is not mounted.
 
 .. code::

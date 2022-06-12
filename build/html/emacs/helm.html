@@ -1,294 +1,380 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Helm &mdash; Scribbles 0.1 documentation</title>
-  
 
-  
-  
-  
-  
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
-        <link rel="up" title="Emacs" href="../emacs.html"/>
-        <link rel="next" title="HTTP functions" href="http.html"/>
-        <link rel="prev" title="Terminology" href="emacslisp.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
+    <title>Helm &#8212; Scribbles 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
    
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> Scribbles
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../emacs.html">(Spac)emacs</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="dotnet.html">.NET on Emacs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="emacslisp.html">Terminology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="emacslisp.html#buffer">Buffer</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Helm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="http.html">HTTP functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keybindings.html">Keybindings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="org.html">org</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plantuml.html">PlantUML</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spacemacs-keybindings.html">Spacemacs Keybindings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="textern.html">Textern</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ai.html">AI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jobs.html">Jobs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security.html">Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../typescript.html">Typescript</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Scribbles</a>
-        
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../emacs.html">Emacs</a> &raquo;</li>
-        
-      <li>Helm</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/emacs/helm.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="helm">
-<h1>Helm<a class="headerlink" href="#helm" title="Permalink to this headline">¶</a></h1>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <section id="helm">
+<h1>Helm<a class="headerlink" href="#helm" title="Permalink to this heading">¶</a></h1>
 <p>Selection narrowing framework for emacs.</p>
 <p>Write an extension: <a class="reference external" href="http://wikemacs.org/wiki/How_to_write_helm_extensions">http://wikemacs.org/wiki/How_to_write_helm_extensions</a></p>
 <p>Simple usage:</p>
-<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">helm</span> <span class="p">:</span><span class="n">sources</span> <span class="s1">&#39;((name . &quot;Action:&quot;)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">helm</span> <span class="p">:</span><span class="n">sources</span> <span class="s1">&#39;((name . &quot;Action:&quot;)</span>
                  <span class="p">(</span><span class="n">candidates</span> <span class="o">.</span> <span class="p">(</span> <span class="s2">&quot;a&quot;</span> <span class="s2">&quot;b&quot;</span> <span class="s2">&quot;c&quot;</span><span class="p">))</span>
                  <span class="p">(</span><span class="n">action</span> <span class="o">.</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
                              <span class="p">(</span><span class="n">message</span> <span class="n">candidate</span><span class="p">)))))</span>
 </pre></div>
 </div>
+</section>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="../misc/hugo.html">
+       HUGO
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     Next: 
+    <a href="../misc/hll.html">
+      HyperLogLog sketch 
+    </a>
+    
+  </span>
+</div>
+  
 </div>
 
-
-           </div>
-           <div class="articleComments">
-            
-           </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="http.html" class="btn btn-neutral float-right" title="HTTP functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="emacslisp.html" class="btn btn-neutral" title="Terminology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Ahmad Nazir Raja.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
+          
         </div>
       </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
    
+  <li>
+    <a href="../typescript/sleep.html"
+      >05 June - Sleep</a
+    >
+  </li>
+  
+  <li>
+    <a href="../identity/ssh.html"
+      >31 May - SSH Key</a
+    >
+  </li>
+  
+  <li>
+    <a href="../web/openapi.html"
+      >31 May - Generate client from OpenApi specification</a
+    >
+  </li>
+  
+  <li>
+    <a href="../typescript/index-types.html"
+      >02 May - Index Types</a
+    >
+  </li>
+  
+  <li>
+    <a href="../linux/update-arch.html"
+      >23 April - Update Arch</a
+    >
+  </li>
+  
+</ul>
 
-</body>
+<h3><a href="../blog/tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/agile.html">agile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/ai.html">ai</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/azure.html">azure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/business.html">business</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../blog/tag/clojure.html">clojure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/clojurescript.html">clojurescript</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/courses.html">courses</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/csharp.html">csharp</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/docker.html">docker</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/documentation.html">documentation</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/dotnet.html">dotnet</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../blog/tag/emacs.html">emacs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/git.html">git</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/identity.html">identity</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/java.html">java</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/jobs.html">jobs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/kubernetes.html">kubernetes</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../blog/tag/linux.html">linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="../blog/tag/misc.html">misc</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/networking.html">networking</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/notes.html">notes</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/people.html">people</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/provision.html">provision</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/python.html">python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/questions.html">questions</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/restructuredtext.html">restructuredtext</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/rust.html">rust</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/scala.html">scala</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/security.html">security</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../blog/tag/shell.html">shell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/spark.html">spark</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/talks.html">talks</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/testing.html">testing</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/typescript.html">typescript</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/vim.html">vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/visualstudio.html">visualstudio</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/web.html">web</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../blog/archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../blog/2022.html">2022 (19)</a>
+  </li>
+    
+  <li>
+    <a href="../blog/2021.html">2021 (14)</a>
+  </li>
+    
+  <li>
+    <a href="../blog/2020.html">2020 (102)</a>
+  </li>
+    
+  <li>
+    <a href="../blog/2019.html">2019 (59)</a>
+  </li>
+    
+  <li>
+    <a href="../blog/2001.html">2001 (1)</a>
+  </li>
+   
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Ahmad Nazir Raja.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/emacs/helm.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
 </html>

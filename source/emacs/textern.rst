@@ -1,6 +1,9 @@
 Textern
 =======
 
+.. post:: 24/10/2021
+   :tags: emacs
+
 **NOTE**: I've been using surfkeys which seems to work.
 
 Edit any text area (firefox) with the editor of your choice.

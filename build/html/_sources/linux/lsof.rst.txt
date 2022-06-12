@@ -1,6 +1,9 @@
 lsof
 ====
 
+.. post:: 24/10/2021
+   :tags: linux
+
 **Find all ports**
 
 .. code::

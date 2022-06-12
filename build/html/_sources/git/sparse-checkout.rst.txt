@@ -1,6 +1,9 @@
 Sparse checkout
 ===============
 
+.. post:: 30/12/2020
+   :tags: git
+
 .. code::
 
    URL=" ... "

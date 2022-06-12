@@ -1,6 +1,9 @@
 Rules for the Daily Stand-up
 ============================
 
+.. post:: 30/11/2019
+   :tags: agile
+
 Rules for the meeting:
 
 - **Keep it short** - max 2 minutes. Keep standing to enforce this

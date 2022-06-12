@@ -1,237 +1,84 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Azure Data Lake &mdash; Scribbles 0.1 documentation</title>
-  
 
-  
-  
-  
-  
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Scribbles 0.1 documentation" href="../index.html"/>
-        <link rel="up" title="Azure" href="../azure.html"/>
-        <link rel="next" title="Azure Key Vault" href="resources.html"/>
-        <link rel="prev" title="Az Module (Powershell) vs az cli" href="az-powershell-vs-azcli.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
+    <title>Azure Data Lake &#8212; Scribbles 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
    
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> Scribbles
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../emacs.html">(Spac)emacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../provision.html">Package Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../restructuredtext.html">ReStructuredText Markup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../visualstudio.html">Visual studio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agile.html">Agile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ai.html">AI</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../azure.html">Azure</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="az-powershell-vs-azcli.html">Az Module (Powershell) vs az cli</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Azure Data Lake</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#extents">Extents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vertices">Vertices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#azure-data-lake-accounts">Azure Data Lake Accounts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#partitioning">Partitioning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#distribution-scheme">Distribution Scheme</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-lake-gen1-vs-gen2">Data Lake Gen1 vs Gen2</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="resources.html">Azure Key Vault</a></li>
-<li class="toctree-l2"><a class="reference internal" href="service-fabric.html">Azure Service Fabric</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wasb.html">WASB</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../business.html">Business</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clojure.html">Clojure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clojurescript.html">Clojurescript</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../csharp.html">C #</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dotnet.html">.NET</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../git.html">Git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../identity.html">Identity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jobs.html">Jobs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../kubernetes.html">Kubernetes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc.html">Misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../networking.html">Networking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../people.html">People</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust.html">Rust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scala.html">Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security.html">Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../typescript.html">Typescript</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim.html">Vim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web.html">Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../questions.html">Questions</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Scribbles</a>
-        
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../azure.html">Azure</a> &raquo;</li>
-        
-      <li>Azure Data Lake</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/azure/data-lake.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="azure-data-lake">
-<h1>Azure Data Lake<a class="headerlink" href="#azure-data-lake" title="Permalink to this headline">¶</a></h1>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <section id="azure-data-lake">
+<h1>Azure Data Lake<a class="headerlink" href="#azure-data-lake" title="Permalink to this heading">¶</a></h1>
 <p>Azure data lake can be used to store any type of data whether it is:</p>
 <ul class="simple">
-<li><strong>Unstructured data</strong> json, txt, csv, you name it</li>
-<li><strong>Semi-structured data</strong>: json or xml, along with schema definition that is read at run-time</li>
-<li><strong>Structured data</strong>: databases</li>
+<li><p><strong>Unstructured data</strong> json, txt, csv, you name it</p></li>
+<li><p><strong>Semi-structured data</strong>: json or xml, along with schema definition that is read at run-time</p></li>
+<li><p><strong>Structured data</strong>: databases</p></li>
 </ul>
 <p>Azure Data Lake helps users to take the LET (Load Extract Transform) approach instead of the ETL approach (Extract Transform Load).</p>
 <p>SQL language that you can use with Azure Data Lake is U-SQL (hybrid of T-SQL and C#). Extensible and modules can be written using C#.</p>
 <p>Data Lakes sit on HDFS.</p>
 <p>Azure data lake databases are not relational. Relationships are virtual.</p>
 <p><strong>Data Skew</strong> happens when data is partitioned in a what that one or more vertices have significantly more work to do than other vertices.</p>
-<div class="section" id="extents">
-<h2>Extents<a class="headerlink" href="#extents" title="Permalink to this headline">¶</a></h2>
+<section id="extents">
+<h2>Extents<a class="headerlink" href="#extents" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li>When uploading data, the file is split into <strong>Extents</strong></li>
-<li>usually 250MB</li>
-<li>Normally, replicated 3 times</li>
+<li><p>When uploading data, the file is split into <strong>Extents</strong></p></li>
+<li><p>usually 250MB</p></li>
+<li><p>Normally, replicated 3 times</p></li>
 </ul>
-</div>
-<div class="section" id="vertices">
-<h2>Vertices<a class="headerlink" href="#vertices" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="vertices">
+<h2>Vertices<a class="headerlink" href="#vertices" title="Permalink to this heading">¶</a></h2>
 <p>U-SQL jobs are processed by vertices
 - A vertix is a virtual machine (dual core processor and 6GB RAM - at the point of writing)
 - Each vertix performs a particular task
@@ -240,144 +87,380 @@
 - A job normally used 5 vertices to execute the task. This number is configurable.
 - A vertex must complete in 5 hours
 - Maximum memory : 5 GB</p>
-</div>
-<div class="section" id="azure-data-lake-accounts">
-<h2>Azure Data Lake Accounts<a class="headerlink" href="#azure-data-lake-accounts" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="azure-data-lake-accounts">
+<h2>Azure Data Lake Accounts<a class="headerlink" href="#azure-data-lake-accounts" title="Permalink to this heading">¶</a></h2>
 <p>Consists of:</p>
 <ul class="simple">
-<li>Store account</li>
-<li>Analytics account</li>
+<li><p>Store account</p></li>
+<li><p>Analytics account</p></li>
 </ul>
 <p>Azure Data Lake Analytics can also query data in other stores e.g. Azure Blob Storage, SQL Server in Azure etc.</p>
-</div>
-<div class="section" id="partitioning">
-<h2>Partitioning<a class="headerlink" href="#partitioning" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="partitioning">
+<h2>Partitioning<a class="headerlink" href="#partitioning" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><strong>Horizontal</strong></li>
+<li><p><strong>Horizontal</strong></p></li>
 </ul>
 <p>Also known as:</p>
 <ul class="simple">
-<li>sharding</li>
-<li>fine grained partitioning</li>
-<li>automatic partitioning</li>
+<li><p>sharding</p></li>
+<li><p>fine grained partitioning</p></li>
+<li><p>automatic partitioning</p></li>
 </ul>
-<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">Metropolitan</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Metropolitan</span>
 <span class="n">North</span> <span class="n">Wales</span>
 <span class="n">Manchester</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><strong>Vertical</strong> (coarse grained partitioning or manual partitioning)</li>
+<li><p><strong>Vertical</strong> (coarse grained partitioning or manual partitioning)</p></li>
 </ul>
 <p>Also known as:</p>
 <ul class="simple">
-<li>coarse grained partitioning</li>
-<li>manual partitioning</li>
+<li><p>coarse grained partitioning</p></li>
+<li><p>manual partitioning</p></li>
 </ul>
-<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">Metropolitan</span>  <span class="o">|</span> <span class="n">North</span> <span class="n">Wales</span> <span class="o">|</span> <span class="n">Manchester</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Metropolitan</span>  <span class="o">|</span> <span class="n">North</span> <span class="n">Wales</span> <span class="o">|</span> <span class="n">Manchester</span>
 <span class="n">Metropolitan</span>  <span class="o">|</span>             <span class="o">|</span> <span class="n">Manchester</span>
               <span class="o">|</span>             <span class="o">|</span> <span class="n">Manchester</span>
 </pre></div>
 </div>
 <p>Normalization can also be used to do vertical partitioning but this goes one step further and can be used to partition data that is already normalized (for reasons like performance, availability, etc).</p>
 <ul class="simple">
-<li><strong>Functional</strong></li>
+<li><p><strong>Functional</strong></p></li>
 </ul>
 <p>Data is grouped according to how it is used by each bounded context e.g. for an e-commerce system partition invoice data and product inventory data</p>
 <p>MS recommends that partition size should be 1GB in size for maximum performance</p>
-</div>
-<div class="section" id="distribution-scheme">
-<h2>Distribution Scheme<a class="headerlink" href="#distribution-scheme" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="distribution-scheme">
+<h2>Distribution Scheme<a class="headerlink" href="#distribution-scheme" title="Permalink to this heading">¶</a></h2>
 <p>Partitioning determines how the data is stored. Distribution determines where the data is stored and you can control that when working with Databases/U-SQL.</p>
 <p>In Azure Data Lake, distribution means how horizontal partitioning separates the data.</p>
 <p>4 ways to horizontally partition the data:</p>
 <ul class="simple">
-<li>Hash Keys: Data Lake hashes the values and distributes the data based on the hash value</li>
-<li>Direct Hash: We are responsible for providing a numeric value and then generate a hash value using an analytics function like rank or dense rank. More control this way.</li>
-<li>Range Keys</li>
-<li>Round robin: no keys are needed. Data is distributed evenly.</li>
+<li><p>Hash Keys: Data Lake hashes the values and distributes the data based on the hash value</p></li>
+<li><p>Direct Hash: We are responsible for providing a numeric value and then generate a hash value using an analytics function like rank or dense rank. More control this way.</p></li>
+<li><p>Range Keys</p></li>
+<li><p>Round robin: no keys are needed. Data is distributed evenly.</p></li>
 </ul>
 <p>Data skew can happen with hash keys, direct hash, and range keys. Round robin fixes this but can lead to more data reads as the data might not be sitting together.</p>
-</div>
-<div class="section" id="data-lake-gen1-vs-gen2">
-<h2>Data Lake Gen1 vs Gen2<a class="headerlink" href="#data-lake-gen1-vs-gen2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="data-lake-gen1-vs-gen2">
+<h2>Data Lake Gen1 vs Gen2<a class="headerlink" href="#data-lake-gen1-vs-gen2" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li>Gen1 is basically HDFS on the cloud</li>
-<li>Gen2 is Azure Blob storage on HDFS</li>
+<li><p>Gen1 is basically HDFS on the cloud</p></li>
+<li><p>Gen2 is Azure Blob storage on HDFS</p></li>
 </ul>
+</section>
+</section>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="../clojurescript/getting-started.html">
+       Getting started
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     Next: 
+    <a href="../linux/externalmonitors.html">
+      Configuring External Monitors 
+    </a>
+    
+  </span>
 </div>
+  
 </div>
 
-
-           </div>
-           <div class="articleComments">
-            
-           </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="resources.html" class="btn btn-neutral float-right" title="Azure Key Vault" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="az-powershell-vs-azcli.html" class="btn btn-neutral" title="Az Module (Powershell) vs az cli" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Ahmad Nazir Raja.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
+          
         </div>
       </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
    
+  <li>
+    <a href="../typescript/sleep.html"
+      >05 June - Sleep</a
+    >
+  </li>
+  
+  <li>
+    <a href="../identity/ssh.html"
+      >31 May - SSH Key</a
+    >
+  </li>
+  
+  <li>
+    <a href="../web/openapi.html"
+      >31 May - Generate client from OpenApi specification</a
+    >
+  </li>
+  
+  <li>
+    <a href="../typescript/index-types.html"
+      >02 May - Index Types</a
+    >
+  </li>
+  
+  <li>
+    <a href="../linux/update-arch.html"
+      >23 April - Update Arch</a
+    >
+  </li>
+  
+</ul>
 
-</body>
+<h3><a href="../blog/tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/agile.html">agile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/ai.html">ai</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/azure.html">azure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/business.html">business</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../blog/tag/clojure.html">clojure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/clojurescript.html">clojurescript</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/courses.html">courses</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/csharp.html">csharp</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/docker.html">docker</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/documentation.html">documentation</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/dotnet.html">dotnet</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../blog/tag/emacs.html">emacs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/git.html">git</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/identity.html">identity</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/java.html">java</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/jobs.html">jobs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/kubernetes.html">kubernetes</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../blog/tag/linux.html">linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="../blog/tag/misc.html">misc</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/networking.html">networking</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/notes.html">notes</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/people.html">people</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/provision.html">provision</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/python.html">python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/questions.html">questions</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/restructuredtext.html">restructuredtext</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/rust.html">rust</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/scala.html">scala</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/security.html">security</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../blog/tag/shell.html">shell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/spark.html">spark</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/talks.html">talks</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/testing.html">testing</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/typescript.html">typescript</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/vim.html">vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/visualstudio.html">visualstudio</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/web.html">web</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../blog/archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../blog/2022.html">2022 (19)</a>
+  </li>
+    
+  <li>
+    <a href="../blog/2021.html">2021 (14)</a>
+  </li>
+    
+  <li>
+    <a href="../blog/2020.html">2020 (102)</a>
+  </li>
+    
+  <li>
+    <a href="../blog/2019.html">2019 (59)</a>
+  </li>
+    
+  <li>
+    <a href="../blog/2001.html">2001 (1)</a>
+  </li>
+   
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Ahmad Nazir Raja.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/azure/data-lake.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
 </html>

@@ -1,6 +1,9 @@
 OAuth 2.0 vs OpenID Connect
 ===========================
 
+.. post:: 17/09/2019
+   :tags: identity
+
 These are different tools for different jobs, you can use both of them at the same time:
 
 - OAuth was designed for authorization

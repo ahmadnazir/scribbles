@@ -1,6 +1,9 @@
 Code Snippets
 =============
 
+.. post:: 31/01/2022
+   :tags: restructuredtext
+
 Use 3 chars to indent the code snippet.
 
 .. code::

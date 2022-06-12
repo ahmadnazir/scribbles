@@ -1,6 +1,9 @@
 Glossary
 ========
 
+.. post:: 17/02/2020
+   :tags: business
+
 Equity: "Value of shares issues by a company"
 
 Liquidation Preference: ?

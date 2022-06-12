@@ -1,6 +1,9 @@
 Tables
 ======
 
+.. post:: 04/01/2022
+   :tags: restructuredtext
+
 Two types of tables are supported:
 
 - **Grid**

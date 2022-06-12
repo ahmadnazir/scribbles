@@ -1,6 +1,9 @@
 HUGO
 ====
 
+.. post:: 30/12/2020
+   :tags: misc
+
 Static site generator.
 
 

@@ -1,6 +1,9 @@
 Introduction to Quantitative Modeling
 =====================================
 
+.. post:: 30/12/2020
+   :tags: courses
+
 :Offered By: Wharton, University of Pennsylvania
 :Website: https://www.coursera.org/learn/wharton-quantitative-modeling
 :Hours required: 7

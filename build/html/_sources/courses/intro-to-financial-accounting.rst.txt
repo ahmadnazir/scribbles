@@ -1,6 +1,9 @@
 Introduction to Financial Accounting
 ====================================
 
+.. post:: 30/12/2020
+   :tags: courses
+
 **Accounting**:
 
 - recording transactions

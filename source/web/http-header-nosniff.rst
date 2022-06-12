@@ -1,6 +1,9 @@
 HTTP Response Header: X-Content-Type-Options
 ============================================
 
+.. post:: 28/05/2019
+   :tags: web
+
 
 This is how the `X-Content-Type-Options`_ header is used:
 

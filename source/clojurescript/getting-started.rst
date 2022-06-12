@@ -1,6 +1,9 @@
 Getting started
 ===============
 
+.. post:: 13/11/2019
+   :tags: clojurescript
+
 Emacs uses `CIDER` to work with clojure. There are quirks that I am getting used to but the following is good enough to get started. CIDER comes packaged with the spacemacs clojure layer.
 
 lein vs clj

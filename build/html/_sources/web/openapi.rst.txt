@@ -1,6 +1,9 @@
 Generate client from OpenApi specification
 ==========================================
 
+.. post:: 31/05/2022
+   :tags: web
+
 Generate typescript client:
 
 .. code::

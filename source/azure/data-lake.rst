@@ -1,6 +1,9 @@
 Azure Data Lake
 ===============
 
+.. post:: 30/11/2019
+   :tags: azure
+
 Azure data lake can be used to store any type of data whether it is:
 
 - **Unstructured data** json, txt, csv, you name it

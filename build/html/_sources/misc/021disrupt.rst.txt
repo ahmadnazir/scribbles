@@ -1,6 +1,9 @@
 021Disrupt
 ==========
 
+.. post:: 30/12/2020
+   :tags: misc
+
 p@sha : Pakistan Software Houses Association
 
 rnnr.co Delivery service

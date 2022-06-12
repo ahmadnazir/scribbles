@@ -1,6 +1,9 @@
 GPG
 ===
 
+.. post:: 16/10/2019
+   :tags: identity
+
 Create a new gpg key
 --------------------
 

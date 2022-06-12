@@ -1,6 +1,9 @@
 WASB
 ====
 
+.. post:: 30/11/2019
+   :tags: azure
+
 Windows Azure Storage Blob (WASB) is a filesystem on top of HDFS. This allows persistence of the data in Azure Storage Accounts instead of local disk. This way the hadoop cluster can be shut down when no computation is taking place.
 
 WASB vs ABFS

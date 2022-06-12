@@ -1,6 +1,9 @@
 Terraform
 =========
 
+.. post:: 08/09/2019
+   :tags: provision
+
 terraform init
   Initialize the state.
 

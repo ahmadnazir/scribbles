@@ -1,6 +1,9 @@
 Name resolution
 ===============
 
+.. post:: 30/12/2020
+   :tags: networking
+
 How is information stored in a DNS server?
 ------------------------------------------
 

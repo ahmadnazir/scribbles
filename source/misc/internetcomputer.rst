@@ -1,6 +1,9 @@
 Internet Computer
 =================
 
+.. post:: 30/12/2020
+   :tags: misc
+
 Inflation?
 -
 

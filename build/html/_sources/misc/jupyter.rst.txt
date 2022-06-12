@@ -1,6 +1,9 @@
 Setting up Jupyter locally
 ==========================
 
+.. post:: 30/12/2020
+   :tags: misc
+
 .. code::
 
    docker run -it -p 8888:8888 -p 4040:4040 \

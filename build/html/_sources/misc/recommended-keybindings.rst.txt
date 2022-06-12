@@ -1,6 +1,9 @@
 At your fingertips
 ==================
 
+.. post:: 30/12/2020
+   :tags: misc
+
 Some operations should be extremely convenient - they should be second nature:
 
 **Conventions**

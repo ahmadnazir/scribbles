@@ -9,7 +9,7 @@ docker run -it --rm \
   -v $HOME:$HOME \
   -w `pwd` -v `pwd`:`pwd` \
   -u $UID:$GID \
-  suttang/sphinx-rtd-theme make html man
+  sphinxdoc/sphinx:5.0.1 make html man
 ```
 
 ### Cleanup

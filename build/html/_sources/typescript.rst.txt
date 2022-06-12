@@ -1,7 +1,0 @@
-Typescript
-==========
-
-.. toctree::
-   :glob:
-
-   typescript/*

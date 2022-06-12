@@ -1,6 +1,9 @@
 Virtual environments
 ====================
 
+.. post:: 04/01/2022
+   :tags: python
+
 Python 3.3+ comes with `venv`. Prevously, it was required to install `virtualenv` using `pip`.
 
 

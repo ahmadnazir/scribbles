@@ -1,6 +1,9 @@
 Install Arch
 ============
 
+.. post:: 02/04/2021
+   :tags: linux
+
 :machine: x1 carbon, 7th gen
 
 Bootloader

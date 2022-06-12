@@ -1,6 +1,9 @@
 Improving Language Understanding by Generative Pre-Training
 ===========================================================
 
+.. post:: 30/12/2020
+   :tags: ai
+
 :paper: https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf
 
 Framework for achieving strong natural language understanding with a single

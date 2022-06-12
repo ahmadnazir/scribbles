@@ -1,6 +1,9 @@
 SciKit vs PyTorch
 =================
 
+.. post:: 30/12/2020
+   :tags: ai
+
 SciKit it for classical machine learning, easier to use, not as configurable.
 PyTorch is for deep learning, relatively difficult to start using, more configurable
 

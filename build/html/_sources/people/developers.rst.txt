@@ -1,6 +1,9 @@
 `Alexander Lew`_
 ================
 
+.. post:: 04/01/2022
+   :tags: people
+
 - [Talk] Probabilistic scripts for automating common-sense tasks: https://www.youtube.com/watch?v=MiiWzJE0fEA&feature=youtu.be&ab_channel=StrangeLoop
 
 

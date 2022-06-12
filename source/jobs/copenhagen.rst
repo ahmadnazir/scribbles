@@ -1,6 +1,9 @@
 Market places for free lancers in Copenhagen
 ============================================
 
+.. post:: 30/12/2020
+   :tags: jobs
+
 https://www.itkonsulentjobs.dk
 
 7n.dk

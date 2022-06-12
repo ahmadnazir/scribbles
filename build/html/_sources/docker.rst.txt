@@ -1,7 +1,0 @@
-Docker
-======
-
-.. toctree::
-   :glob:
-
-   docker/*

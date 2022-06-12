@@ -1,6 +1,9 @@
 comm
 ====
 
+.. post:: 24/01/2022
+   :tags: linux
+
 Compare two sorted files line by line:
 
 E.g. find lines that are not common:
