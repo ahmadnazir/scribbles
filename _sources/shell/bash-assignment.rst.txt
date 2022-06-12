@@ -1,6 +1,9 @@
 Variable assignment in bash
 ===========================
 
+.. post:: 30/12/2020
+   :tags: shell
+
 .. code::
 
    echo ${VAR:=abc}

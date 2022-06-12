@@ -1,6 +1,9 @@
 SSH Key
 =======
 
+.. post:: 31/05/2022
+   :tags: identity
+
 Generate an ssh key:
 
 .. code::

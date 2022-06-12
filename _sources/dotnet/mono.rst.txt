@@ -1,6 +1,9 @@
 Install Mono
 ============
 
+.. post:: 14/05/2019
+   :tags: dotnet
+
 .. code::
 
    sudo apt install gnupg ca-certificates\nsudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF

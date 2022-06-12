@@ -1,6 +1,9 @@
 jq
 ===
 
+.. post:: 30/12/2020
+   :tags: misc
+
 *Filtering*
 
 Considering we have `sample.json`:

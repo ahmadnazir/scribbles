@@ -1,7 +1,0 @@
-Scala
-=====
-
-.. toctree::
-   :glob:
-
-   scala/*

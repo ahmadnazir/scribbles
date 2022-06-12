@@ -1,6 +1,9 @@
 Terminology
 -----------
 
+.. post:: 14/01/2020
+   :tags: emacs
+
 **Buffer** When you open a file in emacs, it creates a *buffer* to *visit* that file.
 **Frame** This is what I call a floating window. Emacs had a different meaning for window.
 **Window** It is that space on the screen or view that shows you the buffer. It might be that multiple buffers are open but only a few windows are showing those buffers.

@@ -1,6 +1,9 @@
 CLI
 ===
 
+.. post:: 13/07/2019
+   :tags: networking
+
 Enable / disable wifi:
 
 .. code::

@@ -1,6 +1,9 @@
 Configuring External Monitors
 =============================
 
+.. post:: 30/11/2019
+   :tags: linux
+
 `xrandr` is a popular lib. For a GUI version, use `arandr` which lets you create a screen layout and save it as a bash script.
 
 

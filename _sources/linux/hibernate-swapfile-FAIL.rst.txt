@@ -1,6 +1,9 @@
 Hibernate using a swap file
 ===========================
 
+.. post:: 17/10/2019
+   :tags: linux
+
 :OS: Ubuntu 18.04
 
 Before you begin

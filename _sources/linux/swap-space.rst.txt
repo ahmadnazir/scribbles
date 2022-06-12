@@ -1,6 +1,9 @@
 Swap space
 ==========
 
+.. post:: 11/01/2022
+   :tags: linux
+
 :OS: Ubuntu 18.04
 
 Swap space can either use a file or a partition.

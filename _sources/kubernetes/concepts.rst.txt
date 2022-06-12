@@ -1,6 +1,9 @@
 Concepts
 ========
 
+.. post:: 27/05/2019
+   :tags: kubernetes
+
 Everything within a kubernetes cluster runs inside **pods**.
 
 A pod_ is a group of one or more containers with shared network/storage. It is

@@ -1,6 +1,9 @@
 .NET on Emacs
 =============
 
+.. post:: 20/05/2019
+   :tags: emacs
+
 Install omnisharp
 -----------------
 

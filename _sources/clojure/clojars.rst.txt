@@ -1,6 +1,9 @@
 Clojars
 =======
 
+.. post:: 17/02/2020
+   :tags: clojure
+
 Clojars is a repository for clojure libraries (like `maven` for java)
 
 Deploying

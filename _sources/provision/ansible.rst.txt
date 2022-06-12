@@ -1,6 +1,9 @@
 Ansible
 =======
 
+.. post:: 08/09/2019
+   :tags: provision
+
 
 Create a play book
 -------------------

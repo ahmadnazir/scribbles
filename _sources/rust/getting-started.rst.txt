@@ -1,6 +1,9 @@
 Getting Started
 ===============
 
+.. post:: 30/12/2020
+   :tags: rust
+
 .. code::
 
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

@@ -1,6 +1,9 @@
 org
 ===
 
+.. post:: 03/02/2022
+   :tags: emacs
+
 Add images::
 
   org-download-clipboard

@@ -1,7 +1,0 @@
-Security
-========
-
-.. toctree::
-   :glob:
-
-   security/*

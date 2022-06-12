@@ -1,6 +1,9 @@
 Find a lost commit
 ==================
 
+.. post:: 16/05/2019
+   :tags: git
+
 
 Git reflog contains the complete history of everything that happened. So if you committed something and then lost the commit due to a `reset` or a `rebase`, you can still find the commit by looking into the reflog:
 

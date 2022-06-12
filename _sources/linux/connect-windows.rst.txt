@@ -1,6 +1,9 @@
 Connect to a windows machine
 ============================
 
+.. post:: 14/05/2019
+   :tags: linux
+
 .. code::
 
   xfreerdp --no-nla                           \

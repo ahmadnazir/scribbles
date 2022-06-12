@@ -1,6 +1,9 @@
 parallel
 ========
 
+.. post:: 30/12/2020
+   :tags: shell
+
 Run a command in parallel.
 
 Example: I want to monitor http request times when run in parallel:

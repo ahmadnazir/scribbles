@@ -1,6 +1,9 @@
 Authentication
 ==============
 
+.. post:: 13/07/2019
+   :tags: dotnet
+
 Validating tokens:
 https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens#validating-tokens
 

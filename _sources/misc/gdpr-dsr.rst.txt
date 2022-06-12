@@ -1,6 +1,9 @@
 GDPR Data Subject Rights
 ========================
 
+.. post:: 30/12/2020
+   :tags: misc
+
 https://www.hipaajournal.com/rights-of-data-subjects-under-gdpr/
 
 There are 8 of them:

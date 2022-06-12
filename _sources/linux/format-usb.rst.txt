@@ -1,6 +1,9 @@
 Format a usb
 ============
 
+.. post:: 30/12/2020
+   :tags: linux
+
 :OS: Ubuntu 19.04
 
 Use the GUI untity `gparted`

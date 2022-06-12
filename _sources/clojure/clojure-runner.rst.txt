@@ -1,6 +1,9 @@
 Clojure runner
 ==============
 
+.. post:: 17/02/2020
+   :tags: clojure
+
 The runner, invoked by calling `clojure` or simply `clj` is a tool/script to invoke the clojure compiler and the repl.
 
 Side note: With the `tools.deps` library, dependencies can be resolved. With this functionality, this can act as a replacement for `lein` / `boot`.
