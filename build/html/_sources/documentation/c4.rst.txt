@@ -1,0 +1,20 @@
+C4 model
+========
+
+.. post:: 14/01/2020
+   :tags: documentation
+
+Buildings have specific floor plans, site plans, etc. There is no standard for software architecture. C4 tries to solve this.
+
+It uses the following levels of abstraction (top down):
+
+- Context (Software system): e.g. banking system etc
+- Containers: e.g. webapps, databases, file systems, shell scripts etc
+- Components: e.g. collection of implementation classes
+- Code: e.g. classes, interfaces, objects, functions etc
+
+In a nutshell (from `c4model.com`_):
+
+.. image:: https://c4model.com/img/c4-overview.png
+
+.. _c4model.com: https://c4model.com
