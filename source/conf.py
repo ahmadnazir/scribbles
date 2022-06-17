@@ -122,6 +122,8 @@ html_theme_options = {
     # 'navigation_depth': 4,
     # 'includehidden': True,
     # 'titles_only': False
+    'show_powered_by': False,
+    'show_relbars': False
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
