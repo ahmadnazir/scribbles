@@ -172,7 +172,7 @@ html_sidebars = {
         'recentposts.html',
         'tagcloud.html',
         # 'categories.html',
-        'archives.html',
+        # 'archives.html',
 
         # Default
         # 'localtoc.html',
