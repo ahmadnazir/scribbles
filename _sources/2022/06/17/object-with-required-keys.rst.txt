@@ -1,5 +1,5 @@
-Object has required keys
-========================
+Object with required keys
+=========================
 
 .. post:: 17/06/2022
    :tags: typescript
@@ -14,7 +14,7 @@ Consider that we have an `enum` containing the keys:
      Orange = 'orange',
    }
 
-The following way we can ensure that the object has all keys from the `MyEnum`:
+The following way we can ensure that the object has all keys from the enum `Fruit`:
 
 ::
 
