@@ -35,19 +35,19 @@
   <section id="object-with-required-keys">
 <h1>Object with required keys<a class="headerlink" href="#object-with-required-keys" title="Permalink to this heading">¶</a></h1>
 <p>Consider that we have an <cite>enum</cite> containing the keys:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Fruit</span> <span class="p">{</span>
-  <span class="n">Apple</span> <span class="o">=</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span>
-  <span class="n">Banana</span> <span class="o">=</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span>
-  <span class="n">Orange</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">enum</span><span class="w"> </span><span class="nx">Fruit</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Apple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Banana</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;banana&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Orange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The following way we can ensure that the object has all keys from the enum <cite>Fruit</cite>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">desserts</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="n">fruit</span> <span class="ow">in</span> <span class="n">Fruit</span><span class="p">]:</span> <span class="n">string</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="p">[</span><span class="n">Fruit</span><span class="o">.</span><span class="n">Apple</span><span class="p">]:</span> <span class="s1">&#39;Apple Pie&#39;</span><span class="p">,</span>
-  <span class="p">[</span><span class="n">Fruit</span><span class="o">.</span><span class="n">Banana</span><span class="p">]:</span> <span class="s1">&#39;Banana Bread&#39;</span><span class="p">,</span>
-  <span class="p">[</span><span class="n">Fruit</span><span class="o">.</span><span class="n">Orange</span><span class="p">]:</span> <span class="s1">&#39;Orange Panna Cotta&#39;</span><span class="p">,</span>
-<span class="p">};</span>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">desserts</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="nx">fruit</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">Fruit</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="nx">Fruit</span><span class="p">.</span><span class="nx">Apple</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Apple Pie&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="nx">Fruit</span><span class="p">.</span><span class="nx">Banana</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Banana Bread&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="nx">Fruit</span><span class="p">.</span><span class="nx">Orange</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Orange Panna Cotta&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
