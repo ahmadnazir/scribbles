@@ -1,0 +1,843 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Scribbles &#8212; Scribbles 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="scribbles">
+<h1>Scribbles<a class="headerlink" href="#scribbles" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="agile/daily-standup.html">Rules for the Daily Stand-up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ai/gpt.html">Improving Language Understanding by Generative Pre-Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ai/gpt.html#textual-entailment">Textual entailment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ai/scikit-pytorch.html">SciKit vs PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/az-powershell-vs-azcli.html">Az Module (Powershell) vs az cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/data-lake.html">Azure Data Lake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="azure/data-lake.html#extents">Extents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure/data-lake.html#vertices">Vertices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure/data-lake.html#azure-data-lake-accounts">Azure Data Lake Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure/data-lake.html#partitioning">Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure/data-lake.html#distribution-scheme">Distribution Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure/data-lake.html#data-lake-gen1-vs-gen2">Data Lake Gen1 vs Gen2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="azure/resources.html">Azure Key Vault</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/service-fabric.html">Azure Service Fabric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="azure/service-fabric.html#reliable-services">Reliable Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure/service-fabric.html#service-communication">Service Communication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="azure/wasb.html">WASB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="azure/wasb.html#wasb-vs-abfs">WASB vs ABFS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="business/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business/penneo-ipo.html">The Penneo Incident</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="business/penneo-ipo.html#timeline-of-events">Timeline of events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="business/penneo-ipo.html#pre-subscription">Pre-subscription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="business/penneo-ipo.html#subscription">Subscription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="business/penneo-ipo.html#trading-begins">Trading begins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="business/ratios-liquidity-solvency.html">Ratios : Liquidity vs Solvency</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="business/ratios-liquidity-solvency.html#liquidity">Liquidity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="business/ratios-liquidity-solvency.html#solvency">Solvency</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/babashka.html">Babashka</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojure/babashka.html#sample-clj-file">Sample clj file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/babashka.html#emacs">Emacs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/clj-tools.html">clj</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/clojars.html">Clojars</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojure/clojars.html#deploying">Deploying</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/clojure-runner.html">Clojure runner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojure/clojure-runner.html#create-a-new-project">Create a new project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/clojure-runner.html#add-a-dependency">Add a dependency</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/clojure-spec.html">Clojure Spec</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojure/clojure-spec.html#instrumentation">Instrumentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/collections-vs-sequences.html">Collections vs Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/compilation.html">Clojure compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/composition.html">Function composition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojure/composition.html#comp">comp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/composition.html#juxt">juxt</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/conj.html">conj</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojure/conj.html#conj-seq-vs-conj-vector">conj seq vs conj vector</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/docker.html">Clojure in docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/dsl.html">Writing a DSL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/graphs.html">Graphing (n more) Libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojure/graphs.html#loom">Loom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/graphs.html#vijual">Vijual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/graphs.html#rhizome">Rhizome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/graphs.html#ubergraph">ubergraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/graphs.html#fc4">FC4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/graphs.html#lein-plantuml">lein-plantuml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/iterate-hashmap.html">Iterate a hash map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/lein.html">Leiningen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojure/lein.html#create-a-basic-app">Create a basic app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/lein.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/lein.html#use-the-template-to-create-a-app">Use the template to create a app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/lein.html#publish-the-template">Publish the template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/map-indexed.html">How to <cite>map</cite> while retaining the index?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/pivot.html">Pivot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojure/pivot.html#use-interleave-and-partition">Use <cite>interleave</cite> and <cite>partition</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojure/pivot.html#use-map-with-multiple-collections">Use <cite>map</cite> with multiple collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/project-dependency-graph.html">Generate project dependency graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/reflection.html">Reflection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/spacemacs.html">Spacemacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure/unmap-symbol.html">Unmap a symbol from a namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojurescript/getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clojurescript/getting-started.html#lein-vs-clj">lein vs clj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojurescript/getting-started.html#create-a-new-project">Create a new project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clojurescript/getting-started.html#create-and-connect-to-a-repl">Create and connect to a repl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="courses/financial-markets.html">Financial Markets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courses/intro-to-financial-accounting.html">Introduction to Financial Accounting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="courses/intro-to-financial-accounting.html#balance-sheet-equation">Balance Sheet Equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/intro-to-financial-accounting.html#types-of-assets">Types of Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/intro-to-financial-accounting.html#types-of-liabilities">Types of Liabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/intro-to-financial-accounting.html#accounting-cycle">Accounting Cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/intro-to-financial-accounting.html#statement-of-cash-flows">Statement of Cash Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/intro-to-financial-accounting.html#ratio-analysis">Ratio Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="courses/nlp.html">NLP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="courses/nlp.html#terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/nlp.html#feature-extraction">Feature extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/nlp.html#text-descriptors">Text descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/nlp.html#perplexity">Perplexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/nlp.html#smoothing">Smoothing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="courses/quantitative-modeling.html">Introduction to Quantitative Modeling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="courses/quantitative-modeling.html#linear-models-and-optimization">Linear Models and Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/quantitative-modeling.html#intro-to-probabilistic-models">Intro to Probabilistic Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/quantitative-modeling.html#probability-distributions">Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="courses/quantitative-modeling.html#introduction-to-regression-model">Introduction to Regression Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csharp/exceptions.html">Exception Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csharp/exceptions.html#async-functions">Async functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csharp/laziness.html">Laziness</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csharp/laziness.html#create-a-lazy-list">Create a lazy list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp/laziness.html#working-on-chunks-at-a-time">Working on chunks at a time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp/laziness.html#working-asynchronously-on-partitions">Working asynchronously on partitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp/laziness.html#how-to-flat-map">How to Flat Map ?!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csharp/resources.html">C# Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csharp/resources.html#bootstrap-web-app">Bootstrap web app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp/resources.html#secrets-for-local-dev">Secrets for local dev</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csharp/virtual-override.html">How do keywords virtual and override work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker/docker.html">Cheat sheet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker/docker.html#volumes">Volumes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker/networking.html">Networking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker/networking.html#how-to-forward-traffic-from-container-a-s-localhost-port-to-container-b-s-port">How to forward traffic from Container A’s localhost port to Container B’s port?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/c4.html">C4 model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/c4-plantuml.html">C4 PlantUML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/fc4.html">FC4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/planuml.html">Plantuml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/planuml.html#oop">OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/planuml.html#samples">Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/planuml.html#legend">Legend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dotnet/authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotnet/dtf.html">Durable Task Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotnet/fsharp-resources.html">F# Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dotnet/fsharp-resources.html#bootstrap-web-app">Bootstrap web app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dotnet/fsharp-resources.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dotnet/il.html">Intermediate Language (IL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dotnet/il.html#common-language-infrastructure-cli">Common Language Infrastructure (CLI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dotnet/magic.html">MAGIC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dotnet/magic.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dotnet/magic.html#mage">Mage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dotnet/mono.html">Install Mono</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/dotnet.html">.NET on Emacs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="emacs/dotnet.html#install-omnisharp">Install omnisharp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emacs/dotnet.html#enable-intellisense">Enable intellisense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emacs/dotnet.html#auto-complete">Auto-complete</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/emacslisp.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/emacslisp.html#buffer">Buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/helm.html">Helm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/http.html">HTTP functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/keybindings.html">Keybindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/org.html">org</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/plantuml.html">PlantUML</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="emacs/plantuml.html#local-rendering">Local rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/spacemacs-keybindings.html">Spacemacs Keybindings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="emacs/spacemacs-keybindings.html#custom">Custom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emacs/spacemacs-keybindings.html#compile-custom-command-for-current-buffer">Compile / Custom Command for Current Buffer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="emacs/textern.html">Textern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="emacs/textern.html#install-firefox-extension">Install firefox extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emacs/textern.html#install-the-backend">Install the backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emacs/textern.html#emacs-client">Emacs client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emacs/textern.html#textern-browser-extension-preferences">Textern browser extension preferences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emacs/textern.html#todo">TODO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="git/graph.html">Show commits in a graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git/interactive-discard.html">Interactively discard hunks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="git/interactive-discard.html#unstaging-hunks">Unstaging hunks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/interactive-discard.html#discarding-hunks">Discarding hunks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="git/line-ending.html">Line Ending</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="git/line-ending.html#force-line-endings-to-lf">Force line-endings to LF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/line-ending.html#keep-the-same-line-endings">Keep the same line-endings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="git/lost-commit.html">Find a lost commit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git/merge-repo.html">Merge repos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git/sparse-checkout.html">Sparse checkout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git/split-subtree.html">Split subtree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identity/gpg.html">GPG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="identity/gpg.html#create-a-new-gpg-key">Create a new gpg key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identity/gpg.html#how-to-upload-it">How to upload it?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="identity/oauth-vs-openidconnect.html">OAuth 2.0 vs OpenID Connect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identity/ssh.html">SSH Key</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java/graalvm.html">GraalVM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="java/graalvm.html#install-native-image">Install native-image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="java/maven.html">Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs/copenhagen.html">Market places for free lancers in Copenhagen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes/getting-started.html">Getting started with Kubernetes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#create-a-deployment">Create a deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#make-sure-that-it-is-created">Make sure that it is created</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#view-the-pod">View the pod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#expose-deployment">Expose deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#get-the-services">Get the services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#test-service">Test service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#cleanup">Cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/getting-started.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes/image-pull-back-off.html">Failed to pull docker image in pod - Status: ImagePullBackOff</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/image-pull-back-off.html#list-the-pods">List the pods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes/image-pull-back-off.html#inspect-specific-pod">Inspect specific pod</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes/loadbalancer.html">Load Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/bind-mount.html">Bind mount</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/bind-mount.html#unable-to-umount-target-is-busy">Unable to umount: Target is busy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/boot.html">Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/boot.html#grub">Grub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/boot.html#resume-after-hibernate">Resume after hibernate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/boot.html#initramfs">initramfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/comm.html">comm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/connect-windows.html">Connect to a windows machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/disk-space.html">Disk space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/displaylink.html">Displaylink on Ubuntu 18.04</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/displaylink.html#install-the-offical-drivers">1. Install the offical drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/displaylink.html#disable-uefi-secure-boot">2. Disable UEFI/Secure Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/displaylink.html#perfomance-issues-cpu-load">3. Perfomance Issues / CPU Load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/displaylink.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/dpkg.html">DPKG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/dpkg.html#find-installed-library">Find installed library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/expressvpn.html">Express VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/externalmonitors.html">Configuring External Monitors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/externalmonitors.html#how-to-resolve-xrandr-cannot-find-crtc-for-output-xxxx">How to resolve: <cite>xrandr: cannot find crtc for output XXXX</cite>?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/firejail.html">Firejail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/format-usb.html">Format a usb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/gif.html">Create a fig from jpegs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/gnome-settings-on-xmonad.html">Open gnome settings on Xmonad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/hibernate.html">Hibernate using a swap partition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate.html#configure-grub">Configure GRUB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate.html#hibernate">Hibernate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html">Hibernate using a swap file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html#before-you-begin">Before you begin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux/resize-partition.html">[Optional] Shrink parition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux/swap-partition.html">Create a swap parition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux/hibernate.html">Configure hibernate using swap parition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linux/hibernate.html#configure-grub">Configure GRUB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linux/hibernate.html#hibernate">Hibernate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html#configure-grub">Configure GRUB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html#uswsusp">USWSUSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/hibernate-swapfile-FAIL.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/hibernate-without-secure-boot.html">Hibernate without Secure boot?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/increase-swap-size.html">Increase swap size</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/install-arch.html">Install Arch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-arch.html#bootloader">Bootloader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-arch.html#packages">Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-arch.html#wifi">Wifi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-arch.html#users-and-access-control">Users and Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-arch.html#display">Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-arch.html#ssh">SSH</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/lsof.html">lsof</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/memory-usage.html">Track Memory Usage of a Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/microphone.html">Microphone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/ram-size.html">What is the RAM size?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/resize-partition.html">Resize the mounted parition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/sound.html">Sound</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/sound.html#pavucontrol">pavucontrol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/sound.html#alsamixer">alsamixer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/sudo-editor.html">Default editor for sudo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/swap-partition.html">Use the swap partition instead of the swap file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/swap-space.html">Swap space</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/swap-space.html#create-a-swap-partition">Create a swap partition?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/swap-space.html#enable-swap">Enable swap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/swap-space.html#increase-the-swap-file-size">Increase the swap file size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/swap-space.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux/tapclick.html">Tap click not working</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/touchscreent.html">Calibrate the touch input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/update-arch.html">Update Arch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/upgrade-ubuntu.html">Upgrade Ubuntu Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/vm.html">Virtual Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/wifi.html">Wifi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/021disrupt.html">021Disrupt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/angel-investing.html">Angel Investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/build-systems.html">Build systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/colors.html">Colors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/colors.html#colorblind">Colorblind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/colors.html#meaning">Meaning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/component-governance.html">Component Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/corecursion.html">Corecursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/fuzzy.html">Fuzzy *</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/fuzzy.html#fuzzy-join">Fuzzy join</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/game-of-life.html">Conway’s Game of Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/gdpr-dsr.html">GDPR Data Subject Rights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/graph-database.html">Graph databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#why">Why?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#why-not">Why not?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/graph-database.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/hll.html">HyperLogLog sketch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/hugo.html">HUGO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/internetcomputer.html">Internet Computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/jq.html">jq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/jq-vs-jmespath.html">JMESPath</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/jq-vs-jmespath.html#why-not-jq">Why not jq</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/jupyter.html">Setting up Jupyter locally</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/markdown-vs-rest.html">Markdown vs Restructured Text</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/markdown-vs-rest.html#markdown">Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/markdown-vs-rest.html#restructured-text">Restructured Text</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/oop-principles.html">Principles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/oop-principles.html#association">Association</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/oop-principles.html#uml">UML</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/performance-matters.html">Performance Matters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/performance-matters.html#tools">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/powershell-vs-bash.html">Powershell vs Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/recommended-keybindings.html">At your fingertips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/recommended-keybindings.html#search">Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/recommended-keybindings.html#file">File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/recommended-keybindings.html#debug">Debug</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/shaan-puri.html">Shaan Puri’s Frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/sniff.html">Traffic sniffing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/sniff.html#mitmproxy">mitmproxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/sniff.html#httpry">httpry</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/stm.html">Software Transactional Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/terms.html">Stocks vs Options vs Futures vs Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/tinker-nn.html">Tinker with the Neural Network in the Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/turing-machine.html">Turning Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="networking/check-port.html">Check for open port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="networking/dns.html">Name resolution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="networking/dns.html#how-is-information-stored-in-a-dns-server">How is information stored in a DNS server?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking/dns.html#finding-dns-records">Finding DNS records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking/dns.html#add-to-list-of-dns-servers">Add to list of DNS servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking/dns.html#cache">Cache</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="networking/my-ip.html">What is my public IP?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="networking/netstat.html">netstat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="networking/netstat.html#what-is-my-host-listening-for">What is my host listening for?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="networking/nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="networking/wifi.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes/ai-12-rules.html">AI - 12 rules for a safer AI future</a></li>
+<li class="toctree-l1"><a class="reference internal" href="people/developers.html">Alexander Lew</a></li>
+<li class="toctree-l1"><a class="reference internal" href="people/developers.html#eric-shull">Eric Shull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="people/developers.html#jay-parlar">Jay Parlar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="people/developers.html#nicholas-kariniemi">Nicholas Kariniemi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="people/developers.html#reid-mckenzie-arrdem">Reid McKenzie (arrdem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="people/entrepreneurs.html">Syed Balkhi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="provision/ansible.html">Ansible</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provision/ansible.html#create-a-play-book">Create a play book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provision/ansible.html#removing-packages">Removing packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provision/ansible.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="provision/apt.html">APT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provision/apt.html#search-for-a-package">Search for a package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provision/apt.html#details-for-a-package">Details for a package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="provision/helm.html">Helm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provision/helm.html#install-tiller-in-the-cluster">Install tiller in the cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provision/helm.html#create-a-chart">Create a chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provision/helm.html#specify-the-image">Specify the image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provision/helm.html#install-chart">Install chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provision/helm.html#try-it-out">Try it out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provision/helm.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="provision/terraform.html">Terraform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provision/terraform.html#the-state">The State!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provision/terraform.html#removing-resources">Removing resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python/format.html">Format string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/new-project.html">Create a new python project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/simple-server.html">Simple http server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/venv.html">Virtual environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="questions/business.html">Business</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="questions/business.html#how-to-evaluate-if-a-business-idea-is-good">How to evaluate if a business idea is good?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="restructuredtext/code.html">Code Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restructuredtext/headings.html">Headings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restructuredtext/images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restructuredtext/links.html">Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restructuredtext/lists.html">Lists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="restructuredtext/lists.html#numbering">Numbering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restructuredtext/lists.html#nested-list">Nested List</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="restructuredtext/references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restructuredtext/tables.html">Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="restructuredtext/tables.html#emacs-support">Emacs support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restructuredtext/tables.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rust/getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/getting-started.html#racer">Racer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scala/getting-started.html">Getting started / Emacs setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scala/getting-started.html#metals">Metals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scala/getting-started.html#spacemacs-layer">Spacemacs layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scala/getting-started.html#scala-build-tool">Scala build tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scala/getting-started.html#giter8-tempates">Giter8 tempates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scala/lang.html">Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scala/lang.html#execution">Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scala/local-setup.html">Local setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scala/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/csrf.html">Cross site request forgery (CSRF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/awk.html">awk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell/awk.html#get-the-nth-column">Get the nth column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/awk.html#specify-a-delimier">Specify a delimier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/awk.html#unbuffered-output">Unbuffered output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/awk.html#maintaining-column-alignment">Maintaining column alignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell/bash-assignment.html">Variable assignment in bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/conditions.html">Conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/generate-a-uuid.html">Generate a UUID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/get-path.html">Get real path</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/image-grayscale.html">Convert images to gray scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/jwt-decode.html">Decode a jwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/loop.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/parallel.html">parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/powershell.html">Powershell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/press-to-continue.html">Press enter to continue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell/sed.html">sed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell/sed.html#remove-the-first-character">Remove the first character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/sed.html#unbuffered-output">Unbuffered output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spark/getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spark/getting-started.html#concepts">Concepts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="talks/ai-safety-mindset.html">The AI safety mindset: 12 rules for a safer AI future by Cassie Kozyrkov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing/pact.html">Pact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing/pact.html#pact-and-openapi-specification">Pact and OpenApi Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing/test-collections.html">Testing collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing/test-vs-check.html">Test vs Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typescript/index-types.html">Index Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typescript/sleep.html">Sleep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vim/macros.html">Macros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualstudio/vsvim.html">VsVim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visualstudio/vsvim.html#chrome-tab-navigation">Chrome tab navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualstudio/vsvim.html#reload-settings">Reload settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web/api-guidelines.html">API Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web/http-header-nosniff.html">HTTP Response Header: X-Content-Type-Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web/openapi.html">Generate client from OpenApi specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2022/06/17/object-with-required-keys.html">Object with required keys</a></li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3>
+  <a href="blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2022/06/17/object-with-required-keys.html"
+      >17 June - Object with required keys</a
+    >
+  </li>
+  
+  <li>
+    <a href="typescript/sleep.html"
+      >05 June - Sleep</a
+    >
+  </li>
+  
+  <li>
+    <a href="identity/ssh.html"
+      >31 May - SSH Key</a
+    >
+  </li>
+  
+  <li>
+    <a href="web/openapi.html"
+      >31 May - Generate client from OpenApi specification</a
+    >
+  </li>
+  
+  <li>
+    <a href="typescript/index-types.html"
+      >02 May - Index Types</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="blog/tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/agile.html">agile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/ai.html">ai</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/azure.html">azure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/business.html">business</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="blog/tag/clojure.html">clojure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/clojurescript.html">clojurescript</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/courses.html">courses</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/csharp.html">csharp</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/docker.html">docker</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/documentation.html">documentation</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/dotnet.html">dotnet</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="blog/tag/emacs.html">emacs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/git.html">git</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/identity.html">identity</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/java.html">java</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/jobs.html">jobs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/kubernetes.html">kubernetes</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="blog/tag/linux.html">linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="blog/tag/misc.html">misc</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/networking.html">networking</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/notes.html">notes</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/people.html">people</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/provision.html">provision</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/python.html">python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/questions.html">questions</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/restructuredtext.html">restructuredtext</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/rust.html">rust</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/scala.html">scala</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/security.html">security</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="blog/tag/shell.html">shell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/spark.html">spark</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/talks.html">talks</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/testing.html">testing</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/typescript.html">typescript</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/vim.html">vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/visualstudio.html">visualstudio</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="blog/tag/web.html">web</a>
+  </li>
+   
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Ahmad Nazir Raja.
+      
+      |
+      <a href="_sources/manpage.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
