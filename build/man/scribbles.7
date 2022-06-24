@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jun 18, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jun 24, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -7329,6 +7329,71 @@ const desserts: { [fruit in Fruit]: string } = {
   [Fruit.Banana]: \(aqBanana Bread\(aq,
   [Fruit.Orange]: \(aqOrange Panna Cotta\(aq,
 };
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Get installed packages in Arch Linux
+.sp
+Get all the installed packages. Use the query \fI\-Q\fP switch:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+pacman \-Q
+yay \-Q
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+List the native packages i.e. installed using \fIpacman\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+pacman \-Qn # or
+yay \-Qn
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Get foreign packages installed i.e. not installed using \fIpacman\fP\&. Specify the query \fI\-Q\fP and foreign \fI\-m\fP switches.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+pacman \-Qm # or
+yay \-Qm
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Update a package in Arch Linux
+.sp
+For packages installed using the native package manager i.e. \fIpacman\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+pacman \-S PACKAGE_NAME
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Let’s say we want to upgrade chrome. It is probably installed as a foreign package e.g. using \fIyay\fP\&. Use the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+yay \-S google\-chrome
 .ft P
 .fi
 .UNINDENT
