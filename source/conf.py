@@ -127,7 +127,7 @@ html_theme_options = {
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ["/usr/local/lib/python2.7/dist-packages"]
+# html_theme_path = ["/usr/local/lib/python2.7/dist-packages"]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -167,17 +167,17 @@ html_static_path = ['_static']
 # html_sidebars = {}
 html_sidebars = {
     '**': [
+        # Default
+        # 'localtoc.html',
+        # 'sourcelink.html',
+        'searchbox.html',
+
         # `ablog`
         # 'postcard.html',
         'recentposts.html',
         'tagcloud.html',
         # 'categories.html',
         # 'archives.html',
-
-        # Default
-        # 'localtoc.html',
-        # 'sourcelink.html',
-        'searchbox.html',
 
     ],
 }

@@ -1,0 +1,17 @@
+<!-- Modified from: https://github.com/sunpy/ablog/blob/main/ablog/templates/recentposts.html -->
+{% if ablog %}
+<br />
+<h3>
+    <a href="{{ pathto(ablog.blog_path) }}">{{ gettext('Recent Posts') }}</a>
+</h3>
+<ul>
+    {% set pcount = 1 %} {% for recent in ablog.recent(10, pagename) %}
+    <li>
+        <a href="{{ pathto(recent.docname) }}{{ anchor(recent) }}"
+        >{{ recent.date.strftime(ablog.post_date_format_short) + " - " +
+            recent.title }}</a
+                           >
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
