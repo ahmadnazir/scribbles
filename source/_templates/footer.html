@@ -1,0 +1,6 @@
+{% if pagename in ablog %} {% set fa = ablog.fontawesome %} {% set post =
+ablog[pagename] %}
+<ul>
+    {% include "postcard2.html" %}
+</ul>
+{% endif %}

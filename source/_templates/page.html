@@ -1,3 +1,15 @@
-{% extends '!page.html' %}
+{%- extends "!page.html" %}
 
-<!-- disable footer with the previous and next links -->
+{% block body %}
+
+
+{{ super() }}
+
+
+<br/>
+<hr/>
+<br/>
+
+{% include "footer.html" %}
+
+{% endblock %}
