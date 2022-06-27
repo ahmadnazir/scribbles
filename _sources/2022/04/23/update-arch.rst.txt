@@ -2,7 +2,13 @@ Update Arch
 ===========
 
 .. post:: 23/04/2022
-   :tags: linux
+   :tags: linux,arch
+
+Checking vulnerable pacakges:
+
+.. code::
+
+   arch-audit
 
 [Optional] Clean the cache:
 
@@ -29,6 +35,3 @@ Optionally, re-compile packages that were updated e.g. `xmonad`
    .. code::
 
       yay -Syu
-
-
-
