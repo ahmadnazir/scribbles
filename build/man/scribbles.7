@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jun 25, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jun 27, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -3564,31 +3564,6 @@ xfreerdp \-\-no\-nla                           \e
 .fi
 .UNINDENT
 .UNINDENT
-.SS Disk space
-.sp
-\fIncdu\fP \- NCurses Disk Usage.
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-ncdu
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-To check the memory for the file system you are on:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-ncdu \-x
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
 .SS Displaylink on Ubuntu 18.04
 .sp
 I want to use additional monitors and I got a \fI\%ThinkPad Hybrid USB\-C with USB\-A Dock\fP
@@ -4509,43 +4484,6 @@ Calibrate:
 .ft C
 xinput map\-to\-output 18 eDP\-1
 xinput map\-to\-output 22 eDP\-1
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.SS Update Arch
-.sp
-[Optional] Clean the cache:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-sudo pacman \-Sc
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Update pacakges:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-sudo pacman \-Syu
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Optionally, re\-compile packages that were updated e.g. \fIxmonad\fP
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-xmonad \-\-recompile
 .ft P
 .fi
 .UNINDENT
@@ -7296,6 +7234,80 @@ docker run \e
   \-i http://localhost:3000/docs/api/internal\-json \e
   \-g typescript\-node \e
   \-o src/lib
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Disk space
+.sp
+\fIncdu\fP \- NCurses Disk Usage.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ncdu
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+To check the memory for the file system you are on:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ncdu \-x
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Update Arch
+.sp
+Checking vulnerable pacakges:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+arch\-audit
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+[Optional] Clean the cache:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo pacman \-Sc
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update pacakges:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo pacman \-Syu
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Optionally, re\-compile packages that were updated e.g. \fIxmonad\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xmonad \-\-recompile
 .ft P
 .fi
 .UNINDENT
