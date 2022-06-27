@@ -1,5 +1,5 @@
-Update Arch
-===========
+Upgrade Arch
+============
 
 .. post:: 23/04/2022
    :tags: linux,arch
@@ -16,7 +16,7 @@ Checking vulnerable pacakges:
 
    sudo pacman -Sc
 
-Update pacakges:
+Upgrade arch i.e. sync the packages from the repositories and update them:
 
 .. code::
 
