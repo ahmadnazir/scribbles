@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jun 27, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jun 30, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -7409,6 +7409,33 @@ yay \-S google\-chrome
 .ft P
 .fi
 .UNINDENT
+.UNINDENT
+.SS Find open ports
+.sp
+Use \fInetcat\fP (from the package \fInet\-tools\fP)
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+netstat \-tulpn
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The switches \fI\-tulpn\fP stand for:
+.INDENT 0.0
+.IP \(bu 2
+\fI\-t\fP: TCP
+.IP \(bu 2
+\fI\-u\fP: UDP
+.IP \(bu 2
+\fI\-l\fP: Show only listening sockets
+.IP \(bu 2
+\fI\-p\fP: Show the PID and name of the program to which the sokcet belongs
+.IP \(bu 2
+\fI\-n\fP: Show numerical addresses instead of tyring to determine symbolic host, port or user names
 .UNINDENT
 .SH AUTHOR
 Ahmad Nazir Raja
