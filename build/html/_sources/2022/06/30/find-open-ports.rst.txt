@@ -1,5 +1,5 @@
-Find open ports
-===============
+Find open ports locally
+=======================
 
 .. post:: 30/06/2022
    :tags: linux,networking
