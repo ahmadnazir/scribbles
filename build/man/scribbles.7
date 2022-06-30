@@ -5441,23 +5441,6 @@ netstat \-tulpn
 .fi
 .UNINDENT
 .UNINDENT
-.SS Nginx
-.sp
-Good article for tuning the proxy buffer sizes:
-.sp
-\fI\%https://www.getpagespeed.com/server\-setup/nginx/tuning\-proxy_buffer_size\-in\-nginx\fP
-.sp
-In order to find the header size of the requests:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-\-w \e%{size_header} \-o /dev/null \-s
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
 .SS CLI
 .sp
 Enable / disable wifi:
