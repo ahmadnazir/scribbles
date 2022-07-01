@@ -1,8 +1,8 @@
-Name resolution
-===============
+Domain name resolution
+======================
 
 .. post:: 30/12/2020
-   :tags: networking
+   :tags: networking,linux
 
 How is information stored in a DNS server?
 ------------------------------------------
@@ -23,8 +23,6 @@ The same name can point to different ip addresses e.g:
 
    acme.com -> x.x.x.x
    acme.com -> y.y.y.y
-
-_is the above round robined?_
 
 *CNAME*
 

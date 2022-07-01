@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jun 30, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jul 01, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -5291,128 +5291,6 @@ Forex: Short for foreign exchange. Trading currencies. Usually highly leveraged 
 .SS Turing Machine
 .sp
 \fI\%https://www.youtube.com/watch?v=PLVCscCY4xI\fP
-.SS Name resolution
-.SS How is information stored in a DNS server?
-.sp
-Information is stored in the form of \fBDNS records\fP\&. There are different types of records and some of them required for our discussion are mentioned below:
-.sp
-\fIA\fP
-.sp
-Map a name to an IP adderss e.g.
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-acme.com \-> x.x.x.x
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-The same name can point to different ip addresses e.g:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-acme.com \-> x.x.x.x
-acme.com \-> y.y.y.y
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-_is the above round robined?_
-.sp
-\fICNAME\fP
-.sp
-Map a name to another name e.g.
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-blog.acme.com \-> acme.com
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-There should be only one such mapping. Mapping two names to the same name is not
-allowed but you can create a chain of cnames:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-eng.blog.acme.com \-> blog.acme.com
-blog.acme.com     \-> acme.com
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.SS Finding DNS records
-.sp
-2 tools come to mind: \fIdig\fP and \fInslookup\fP\&.
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-dig acme.com
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-The default dns name used is in \fI/etc/resolv.conf\fP
-.sp
-However, you can overwrite the DNS server to use for querying a domain name e.g.
-if you explicitly want Google’s DNS server \fI8.8.8.8\fP to fetch information from,
-then use can specify it as:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-dig @8.8.8.8 acme.com
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-With \fInslookup\fP:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-# use the default server
-nslookup acme.com
-
-# explicitly specify a server
-nslookup acme.com 8.8.8.8
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.SS Add to list of DNS servers
-.sp
-Add or update \fI/etc/resolv.conf\fP:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-nameserver 8.8.8.8
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.SS Cache
-.sp
-DNS records are cached. For chrome, reset it from \fIchrome://net\-internals/#dns\fP
 .SS What is my public IP?
 .INDENT 0.0
 .INDENT 3.5
