@@ -1,7 +1,7 @@
 HTTP Response Header: X-Content-Type-Options
 ============================================
 
-.. post:: 28/05/2019
+.. post:: 05/28/2019
    :tags: web
 
 

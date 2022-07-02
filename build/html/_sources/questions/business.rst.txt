@@ -1,7 +1,7 @@
 Business
 ========
 
-.. post:: 24/10/2021
+.. post:: 10/24/2021
    :tags: questions
 
 How to evaluate if a business idea is good?

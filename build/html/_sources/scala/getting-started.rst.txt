@@ -1,7 +1,7 @@
 Getting started / Emacs setup
 =============================
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: scala
 
 This is for Spacemacs.

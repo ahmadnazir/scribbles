@@ -7298,6 +7298,21 @@ convert 01.jpg 02.jpg 03.jpg output.pdf
 .fi
 .UNINDENT
 .UNINDENT
+.SS Do something when a file is modified
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+while inotifywait \-e close_write $file; do
+
+  # Run your command here!
+
+done
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT

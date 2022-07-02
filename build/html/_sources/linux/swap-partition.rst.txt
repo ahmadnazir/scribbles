@@ -1,7 +1,7 @@
 Use the swap partition instead of the swap file
 ===============================================
 
-.. post:: 16/10/2019
+.. post:: 10/16/2019
    :tags: linux
 
 .. code::

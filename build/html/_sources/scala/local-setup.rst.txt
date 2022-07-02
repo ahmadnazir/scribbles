@@ -1,7 +1,7 @@
 Local setup
 ===========
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: scala
 
 https://hub.docker.com/r/bitnami/spark/

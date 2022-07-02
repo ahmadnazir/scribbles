@@ -1,7 +1,7 @@
 Split subtree
 =============
 
-.. post:: 20/05/2019
+.. post:: 05/20/2019
    :tags: git
 
 Consider you have the following repo:

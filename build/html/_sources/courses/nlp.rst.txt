@@ -1,7 +1,7 @@
 NLP
 ===
 
-.. post:: 04/01/2022
+.. post:: 01/04/2022
    :tags: courses
 
 Terminology

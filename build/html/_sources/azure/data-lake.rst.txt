@@ -1,7 +1,7 @@
 Azure Data Lake
 ===============
 
-.. post:: 30/11/2019
+.. post:: 11/30/2019
    :tags: azure
 
 Azure data lake can be used to store any type of data whether it is:

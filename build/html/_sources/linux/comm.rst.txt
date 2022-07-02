@@ -1,7 +1,7 @@
 comm
 ====
 
-.. post:: 24/01/2022
+.. post:: 01/24/2022
    :tags: linux
 
 Compare two sorted files line by line:

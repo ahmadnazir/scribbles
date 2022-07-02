@@ -1,7 +1,7 @@
 Keybindings
 ===========
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: emacs
 
 :Sudo edit: SPC f E
