@@ -6,7 +6,6 @@ Create a gif from jpegs
 
 Use `convert` (from package `ImageMagick`) as follows:
 
-
 .. code::
 
    convert -delay 400 -loop 0 *.jpg output.gif
