@@ -1,7 +1,7 @@
 SSH Key
 =======
 
-.. post:: 31/05/2022
+.. post:: 05/31/2022
    :tags: identity
 
 Generate an ssh key:

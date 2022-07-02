@@ -1,7 +1,7 @@
 Hibernate using a swap partition
 ================================
 
-.. post:: 17/10/2019
+.. post:: 10/17/2019
    :tags: linux
 
 :OS: Ubuntu 19.04

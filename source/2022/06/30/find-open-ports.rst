@@ -1,7 +1,7 @@
 Find open ports locally
 =======================
 
-.. post:: 30/06/2022
+.. post:: 06/30/2022
    :tags: linux,networking
 
 Use `netcat` (from the package `net-tools`)

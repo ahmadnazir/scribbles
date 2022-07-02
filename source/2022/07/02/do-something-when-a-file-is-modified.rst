@@ -1,7 +1,7 @@
 Do something when a file is modified
 ====================================
 
-.. post:: 02/07/2022
+.. post:: 07/02/2022
    :tags: linux,shell
 
 .. code::

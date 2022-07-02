@@ -1,7 +1,7 @@
 Terminology
 -----------
 
-.. post:: 14/01/2020
+.. post:: 01/14/2020
    :tags: emacs
 
 **Buffer** When you open a file in emacs, it creates a *buffer* to *visit* that file.
