@@ -1,7 +1,7 @@
 Decode a jwt
 ============
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: shell
 
 Assuming that the jwt is in the `token.json` file:

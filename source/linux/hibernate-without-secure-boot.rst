@@ -1,7 +1,7 @@
 Hibernate without Secure boot?
 ==============================
 
-.. post:: 27/05/2019
+.. post:: 05/27/2019
    :tags: linux
 
 Apparently, this can't be done with kernel

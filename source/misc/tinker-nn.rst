@@ -1,7 +1,7 @@
 Tinker with the Neural Network in the Browser
 =============================================
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: misc
 
 https://playground.tensorflow.org

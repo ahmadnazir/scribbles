@@ -1,7 +1,7 @@
 Track Memory Usage of a Process
 ===============================
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: linux
 
 Image that you want to track the memory usage of `dotnet`, use the `watch` command with `ps` to get an overview of the memory usage:

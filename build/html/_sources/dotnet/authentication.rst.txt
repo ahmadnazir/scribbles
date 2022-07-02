@@ -1,7 +1,7 @@
 Authentication
 ==============
 
-.. post:: 13/07/2019
+.. post:: 07/13/2019
    :tags: dotnet
 
 Validating tokens:

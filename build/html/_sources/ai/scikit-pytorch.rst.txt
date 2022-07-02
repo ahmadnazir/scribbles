@@ -1,7 +1,7 @@
 SciKit vs PyTorch
 =================
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: ai
 
 SciKit it for classical machine learning, easier to use, not as configurable.

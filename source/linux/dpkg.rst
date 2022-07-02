@@ -1,7 +1,7 @@
 DPKG
 ====
 
-.. post:: 16/10/2019
+.. post:: 10/16/2019
    :tags: linux
 
 Debian's package manager

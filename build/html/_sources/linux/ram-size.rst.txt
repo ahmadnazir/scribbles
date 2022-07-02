@@ -1,7 +1,7 @@
 What is the RAM size?
 =====================
 
-.. post:: 27/05/2019
+.. post:: 05/27/2019
    :tags: linux
 
 .. code::

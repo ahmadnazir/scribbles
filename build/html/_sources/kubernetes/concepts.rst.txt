@@ -1,7 +1,7 @@
 Concepts
 ========
 
-.. post:: 27/05/2019
+.. post:: 05/27/2019
    :tags: kubernetes
 
 Everything within a kubernetes cluster runs inside **pods**.

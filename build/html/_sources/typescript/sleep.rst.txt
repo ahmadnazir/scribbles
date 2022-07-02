@@ -1,7 +1,7 @@
 Sleep
 =====
 
-.. post:: 06/05/2022
+.. post:: 05/06/2022
    :tags: typescript
 
 Await sleep

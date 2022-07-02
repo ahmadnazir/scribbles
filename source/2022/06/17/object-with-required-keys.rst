@@ -1,7 +1,7 @@
 Object with required keys
 =========================
 
-.. post:: 17/06/2022
+.. post:: 06/17/2022
    :tags: typescript
 
 Consider that we have an `enum` containing the keys:

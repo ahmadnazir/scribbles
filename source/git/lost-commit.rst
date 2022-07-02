@@ -1,7 +1,7 @@
 Find a lost commit
 ==================
 
-.. post:: 16/05/2019
+.. post:: 05/16/2019
    :tags: git
 
 

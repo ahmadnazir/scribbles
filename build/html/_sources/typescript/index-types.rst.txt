@@ -1,7 +1,7 @@
 Index Types
 ===========
 
-.. post:: 05/02/2022
+.. post:: 02/05/2022
    :tags: typescript
 
 Using raw strings to convey type information::

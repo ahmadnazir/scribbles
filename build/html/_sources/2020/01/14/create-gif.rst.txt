@@ -1,7 +1,7 @@
 Create a gif from jpegs
 =======================
 
-.. post:: 14/01/2020
+.. post:: 01/14/2020
    :tags: linux,shell,imagemagick
 
 Use `convert` (from package `imagemagick`):

@@ -1,7 +1,7 @@
 Merge repos
 ===========
 
-.. post:: 23/04/2022
+.. post:: 04/23/2022
    :tags: git
 
 How to merge repos and keep the history?

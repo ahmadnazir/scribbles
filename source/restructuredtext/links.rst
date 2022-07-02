@@ -1,7 +1,7 @@
 Links
 =====
 
-.. post:: 30/11/2019
+.. post:: 11/30/2019
    :tags: restructuredtext
 
 .. code::
