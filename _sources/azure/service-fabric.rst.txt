@@ -1,7 +1,7 @@
 Azure Service Fabric
 ====================
 
-.. post:: 13/11/2019
+.. post:: 11/13/2019
    :tags: azure
 
 Plural site course (focusing on 'Reliable Services')

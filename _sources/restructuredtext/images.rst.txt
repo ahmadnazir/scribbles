@@ -1,7 +1,7 @@
 Images
 ======
 
-.. post:: 17/02/2020
+.. post:: 02/17/2020
    :tags: restructuredtext
 
 .. code::

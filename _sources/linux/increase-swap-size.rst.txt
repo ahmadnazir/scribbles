@@ -1,7 +1,7 @@
 Increase swap size
 ==================
 
-.. post:: 13/07/2019
+.. post:: 07/13/2019
    :tags: linux
 
 GUI tool that I used on Ubuntu: `gparted`

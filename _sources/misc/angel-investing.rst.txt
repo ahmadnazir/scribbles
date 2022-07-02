@@ -1,7 +1,7 @@
 Angel Investing
 ===============
 
-.. post:: 02/04/2021
+.. post:: 04/02/2021
    :tags: misc
 
 Best way to get into it is to get involved into a fund managed by someone else.

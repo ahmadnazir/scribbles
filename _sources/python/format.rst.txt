@@ -1,7 +1,7 @@
 Format string
 =============
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: python
 
 https://pyformat.info/

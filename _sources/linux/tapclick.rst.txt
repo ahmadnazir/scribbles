@@ -1,7 +1,7 @@
 Tap click not working
 =====================
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: linux
 
 :OS: Ubuntu 20.04

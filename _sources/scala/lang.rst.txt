@@ -1,7 +1,7 @@
 Language
 ========
 
-.. post:: 30/12/2020
+.. post:: 12/30/2020
    :tags: scala
 
 - def: defines an immutable label for the right side content which is lazily evaluated - evaluate by name.

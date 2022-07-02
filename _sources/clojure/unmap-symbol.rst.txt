@@ -1,7 +1,7 @@
 Unmap a symbol from a namespace
 ===============================
 
-.. post:: 17/02/2020
+.. post:: 02/17/2020
    :tags: clojure
 
 The simplest would be to update the expression that loads everything e.g.:
