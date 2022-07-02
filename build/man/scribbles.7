@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jul 01, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jul 02, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -3714,19 +3714,6 @@ sudo mkfs.ntfs /dev/sdc1 # Got stuck at volume creation
 .fi
 .UNINDENT
 .UNINDENT
-.SS Create a fig from jpegs
-.sp
-\fIImageMagick\fP can be used from the command line as follows:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-convert \-delay 400 \-loop 0 *.jpg output.gif
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
 .SS Open gnome settings on Xmonad
 .sp
 On xmonad
@@ -7082,6 +7069,19 @@ docker run \e
   \-i http://localhost:3000/docs/api/internal\-json \e
   \-g typescript\-node \e
   \-o src/lib
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Create a gif from jpegs
+.sp
+Use \fIconvert\fP (from package \fIImageMagick\fP) as follows:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+convert \-delay 400 \-loop 0 *.jpg output.gif
 .ft P
 .fi
 .UNINDENT
