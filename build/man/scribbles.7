@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jul 02, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jul 06, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -7309,6 +7309,17 @@ while inotifywait \-e close_write $file; do
   # Run your command here!
 
 done
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Tree structure without node_modules
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+tree \-L 2 \-I node_modules
 .ft P
 .fi
 .UNINDENT
