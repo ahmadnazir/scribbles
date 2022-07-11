@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jul 06, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jul 11, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -4935,10 +4935,16 @@ evaluates to:
 \fIPiping\fP
 .sp
 This is how the following pipeline looks:
-\- Select \fIitems\fP
-\- Select \fIone\fP
-\- Filter out nulls
-\- Get the first element from \fIvalues\fP : \fI\&.values | .[0]\fP or simply \fI\&.values[0]\fP
+.INDENT 0.0
+.IP \(bu 2
+Select \fIitems\fP
+.IP \(bu 2
+Select \fIone\fP
+.IP \(bu 2
+Filter out nulls
+.IP \(bu 2
+Get the first element from \fIvalues\fP : \fI\&.values | .[0]\fP or simply \fI\&.values[0]\fP
+.UNINDENT
 .INDENT 0.0
 .INDENT 3.5
 .sp

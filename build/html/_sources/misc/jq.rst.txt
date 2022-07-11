@@ -39,6 +39,7 @@ evaluates to:
 
 
 This is how the following pipeline looks:
+
 - Select `items`
 - Select `one`
 - Filter out nulls
