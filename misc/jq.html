@@ -65,11 +65,13 @@
 </pre></div>
 </div>
 <p><em>Piping</em></p>
-<p>This is how the following pipeline looks:
-- Select <cite>items</cite>
-- Select <cite>one</cite>
-- Filter out nulls
-- Get the first element from <cite>values</cite> : <cite>.values | .[0]</cite> or simply <cite>.values[0]</cite></p>
+<p>This is how the following pipeline looks:</p>
+<ul class="simple">
+<li><p>Select <cite>items</cite></p></li>
+<li><p>Select <cite>one</cite></p></li>
+<li><p>Filter out nulls</p></li>
+<li><p>Get the first element from <cite>values</cite> : <cite>.values | .[0]</cite> or simply <cite>.values[0]</cite></p></li>
+</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">&lt;&lt;</span><span class="n">EOT</span> <span class="o">|</span> <span class="n">jq</span> <span class="s1">&#39;.items[] | .one | select(. != null) | .values[0]&#39;</span>
 <span class="p">{</span>
   <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
