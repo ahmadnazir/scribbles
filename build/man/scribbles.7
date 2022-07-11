@@ -7092,6 +7092,88 @@ convert \-delay 400 \-loop 0 *.jpg output.gif
 .fi
 .UNINDENT
 .UNINDENT
+.SS jq
+.sp
+\fIFiltering\fP
+.sp
+Considering we have \fIsample.json\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat <<EOT | jq \(aq.items[] | select(.key == "one")\(aq
+{
+  "items": [
+    {
+      "key": "one",
+      "value": "value for one"
+    },
+    {
+      "key": "two",
+      "value": "value for two"
+    }
+  ]
+}
+EOT
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+evaluates to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{
+  "key": "one",
+  "value": "one value"
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fIPiping\fP
+.sp
+This is how the following pipeline looks:
+.INDENT 0.0
+.IP \(bu 2
+Select \fIitems\fP
+.IP \(bu 2
+Select \fIone\fP
+.IP \(bu 2
+Filter out nulls
+.IP \(bu 2
+Get the first element from \fIvalues\fP : \fI\&.values | .[0]\fP or simply \fI\&.values[0]\fP
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat <<EOT | jq \(aq.items[] | .one | select(. != null) | .values[0]\(aq
+{
+  "items": [
+    {
+      "one": {
+        "values": ["a", "b"]
+      }
+    },
+    {
+      "two": {
+        "values": ["c", "d"]
+      }
+    }
+  ]
+}
+EOT
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS Disk space
 .sp
 \fIncdu\fP \- NCurses Disk Usage.
