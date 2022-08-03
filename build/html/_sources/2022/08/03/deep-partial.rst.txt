@@ -10,7 +10,7 @@ There is no native `Partial` functionality if we want to apply it to the nested 
 
    type DeepPartial<Thing> = Thing extends Array<infer InferredArrayMember>
      ? DeepPartialArray<InferredArrayMember>
-     Thing extends object
+     : Thing extends object
      ? DeepPartialObject<Thing>
      : Thing | undefined;
 

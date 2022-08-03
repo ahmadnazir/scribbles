@@ -7558,7 +7558,7 @@ There is no native \fIPartial\fP functionality if we want to apply it to the nes
 .ft C
 type DeepPartial<Thing> = Thing extends Array<infer InferredArrayMember>
   ? DeepPartialArray<InferredArrayMember>
-  Thing extends object
+  : Thing extends object
   ? DeepPartialObject<Thing>
   : Thing | undefined;
 
