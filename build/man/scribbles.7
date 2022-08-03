@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Aug 02, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Aug 03, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -7544,6 +7544,28 @@ I would also like to compare the \fIlspci\fP output to the following \- I suspec
 06:04.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
 07:00.0 System peripheral: Intel Corporation JHL6540 Thunderbolt 3 NHI (C step) [Alpine Ridge 4C 2016] (rev 02)
 2d:00.0 USB controller: Intel Corporation JHL6540 Thunderbolt 3 USB Controller (C step) [Alpine Ridge 4C 2016] (rev 02) <<<\-\-\- Is this present when it fails?
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Deep partial
+.sp
+There is no native \fIPartial\fP functionality if we want to apply it to the nested properties of an object as well. The following is take from: \fI\%https://twitter.com/mattpocockuk/status/1505892984658743300?s=20&t=NaylAKSz2yuiiGibIeAnVw\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+type DeepPartial<Thing> = Thing extends Array<infer InferredArrayMember>
+  ? DeepPartialArray<InferredArrayMember>
+  Thing extends object
+  ? DeepPartialObject<Thing>
+  : Thing | undefined;
+
+type DeepPartialArray<Thing> = Array<DeepPartial<Thing>>;
+type DeepPartialObject<Thing> = {
+  [Key in keyof Thing]?: DeepPartial<Thing[Key]>;
+};
 .ft P
 .fi
 .UNINDENT
