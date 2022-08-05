@@ -38,9 +38,9 @@
 
   <section id="deep-partial">
 <h1>Deep partial<a class="headerlink" href="#deep-partial" title="Permalink to this heading">¶</a></h1>
-<p>There is no native <cite>Partial</cite> functionality if we want to apply it to the nested properties of an object as well. The following is take from: <a class="reference external" href="https://twitter.com/mattpocockuk/status/1505892984658743300?s=20&amp;t=NaylAKSz2yuiiGibIeAnVw">https://twitter.com/mattpocockuk/status/1505892984658743300?s=20&amp;t=NaylAKSz2yuiiGibIeAnVw</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>type DeepPartial&lt;Thing&gt; = Thing extends Array&lt;infer InferredArrayMember&gt;
-  ? DeepPartialArray&lt;InferredArrayMember&gt;
+<p>There is no native <cite>Partial</cite> functionality if we want to apply it to the nested properties of an object as well.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>type DeepPartial&lt;Thing&gt; = Thing extends Array&lt;infer ArrayMember&gt;
+  ? DeepPartialArray&lt;ArrayMember&gt;
   : Thing extends object
   ? DeepPartialObject&lt;Thing&gt;
   : Thing | undefined;
@@ -51,6 +51,7 @@ type DeepPartialObject&lt;Thing&gt; = {
 };
 </pre></div>
 </div>
+<p>Reference: <a class="reference external" href="https://twitter.com/mattpocockuk/status/1505892984658743300?s=20&amp;t=NaylAKSz2yuiiGibIeAnVw">https://twitter.com/mattpocockuk/status/1505892984658743300?s=20&amp;t=NaylAKSz2yuiiGibIeAnVw</a></p>
 </section>
 
 

@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Aug 03, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Aug 05, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -7550,14 +7550,14 @@ I would also like to compare the \fIlspci\fP output to the following \- I suspec
 .UNINDENT
 .SS Deep partial
 .sp
-There is no native \fIPartial\fP functionality if we want to apply it to the nested properties of an object as well. The following is take from: \fI\%https://twitter.com/mattpocockuk/status/1505892984658743300?s=20&t=NaylAKSz2yuiiGibIeAnVw\fP
+There is no native \fIPartial\fP functionality if we want to apply it to the nested properties of an object as well.
 .INDENT 0.0
 .INDENT 3.5
 .sp
 .nf
 .ft C
-type DeepPartial<Thing> = Thing extends Array<infer InferredArrayMember>
-  ? DeepPartialArray<InferredArrayMember>
+type DeepPartial<Thing> = Thing extends Array<infer ArrayMember>
+  ? DeepPartialArray<ArrayMember>
   : Thing extends object
   ? DeepPartialObject<Thing>
   : Thing | undefined;
@@ -7570,6 +7570,8 @@ type DeepPartialObject<Thing> = {
 .fi
 .UNINDENT
 .UNINDENT
+.sp
+Reference: \fI\%https://twitter.com/mattpocockuk/status/1505892984658743300?s=20&t=NaylAKSz2yuiiGibIeAnVw\fP
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT
