@@ -39,7 +39,11 @@
 
   <section id="debugging-external-monitor-issues-in-linux">
 <h1>Debugging external monitor issues in Linux<a class="headerlink" href="#debugging-external-monitor-issues-in-linux" title="Permalink to this heading">¶</a></h1>
-<p>I am trying to see the different between the logs when the external monitor is detected vs when it is not detected.</p>
+<p>Sometimes when I connect the external monitor using usb-c, it gives the following error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xrandr</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">find</span> <span class="n">mode</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>It works when I restart the machine so it must be a software bug.</p>
 <p>How do I know if the external monitor is detected?</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xrandr</span>
 </pre></div>
@@ -56,12 +60,11 @@
 <span class="n">Disconnect</span> <span class="ow">and</span> <span class="n">connect</span> <span class="n">the</span> <span class="n">external</span> <span class="n">monitor</span><span class="p">,</span> <span class="ow">and</span> <span class="n">view</span> <span class="n">the</span> <span class="n">kernel</span> <span class="n">ring</span> <span class="n">buffer</span><span class="p">:</span>
 </pre></div>
 </div>
-<p>I looked at kernel ring buffer <cite>sudo dmesg -w</cite> but the output is the same for the two cases:</p>
-<p>However, <cite>udevadm</cite> output shows a difference:</p>
+<p>Let’s monitoring the kernel devices:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">udevadm</span> <span class="n">monitor</span>
 </pre></div>
 </div>
-<p>When it works (monitor gets detected), I can _also_ see the following lines:</p>
+<p>When it works (i.e. monitor gets detected), the following lines are also included in the log output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KERNEL</span><span class="p">[</span><span class="mf">144.856250</span><span class="p">]</span> <span class="n">change</span>   <span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="n">USBC000</span><span class="p">:</span><span class="mi">00</span><span class="o">/</span><span class="n">typec</span><span class="o">/</span><span class="n">port1</span> <span class="p">(</span><span class="n">typec</span><span class="p">)</span>
 <span class="n">KERNEL</span><span class="p">[</span><span class="mf">144.856323</span><span class="p">]</span> <span class="n">add</span>      <span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="n">USBC000</span><span class="p">:</span><span class="mi">00</span><span class="o">/</span><span class="n">typec</span><span class="o">/</span><span class="n">port1</span><span class="o">/</span><span class="n">port1</span><span class="o">-</span><span class="n">partner</span> <span class="p">(</span><span class="n">typec</span><span class="p">)</span>
 <span class="n">KERNEL</span><span class="p">[</span><span class="mf">144.856360</span><span class="p">]</span> <span class="n">change</span>   <span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="n">USBC000</span><span class="p">:</span><span class="mi">00</span><span class="o">/</span><span class="n">typec</span><span class="o">/</span><span class="n">port1</span> <span class="p">(</span><span class="n">typec</span><span class="p">)</span>
@@ -73,10 +76,8 @@
 <span class="o">...</span>
 </pre></div>
 </div>
-<p>What I plan on doing when this fails again:</p>
-<ul class="simple">
-<li><p>Can I reload some kernel module to avoid a restart?</p></li>
-</ul>
+<p>So it seems like there is some problem with typec. I wonder it it would work if I simply reinstall the relevant kernel level module.</p>
+<p>What are the related kernel level modules?</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lsmod</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">typec</span>
 </pre></div>
 </div>
@@ -86,35 +87,9 @@
 <span class="n">roles</span>                  <span class="mi">16384</span>  <span class="mi">1</span> <span class="n">typec_ucsi</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>I would also like to compare the <cite>lspci</cite> output to the following - I suspect that <cite>Thunderbolt 3</cite> won’t be present:</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>00:00.0 Host bridge: Intel Corporation Coffee Lake HOST and DRAM Controller (rev 0c)
-00:02.0 VGA compatible controller: Intel Corporation WhiskeyLake-U GT2 [UHD Graphics 620] (rev 02)
-00:04.0 Signal processing controller: Intel Corporation Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Thermal Subsystem (rev 0c)
-00:08.0 System peripheral: Intel Corporation Xeon E3-1200 v5/v6 / E3-1500 v5 / 6th/7th/8th Gen Core Processor Gaussian Mixture Model
-00:12.0 Signal processing controller: Intel Corporation Cannon Point-LP Thermal Controller (rev 11)
-00:14.0 USB controller: Intel Corporation Cannon Point-LP USB 3.1 xHCI Controller (rev 11)
-00:14.2 RAM memory: Intel Corporation Cannon Point-LP Shared SRAM (rev 11)
-00:14.3 Network controller: Intel Corporation Cannon Point-LP CNVi [Wireless-AC] (rev 11)
-00:15.0 Serial bus controller: Intel Corporation Cannon Point-LP Serial IO I2C Controller #0 (rev 11)
-00:15.1 Serial bus controller: Intel Corporation Cannon Point-LP Serial IO I2C Controller #1 (rev 11)
-00:16.0 Communication controller: Intel Corporation Cannon Point-LP MEI Controller #1 (rev 11)
-00:1d.0 PCI bridge: Intel Corporation Cannon Point-LP PCI Express Root Port #9 (rev f1)
-00:1d.4 PCI bridge: Intel Corporation Cannon Point-LP PCI Express Root Port #13 (rev f1)
-00:1f.0 ISA bridge: Intel Corporation Cannon Point-LP LPC Controller (rev 11)
-00:1f.3 Audio device: Intel Corporation Cannon Point-LP High Definition Audio Controller (rev 11)
-00:1f.4 SMBus: Intel Corporation Cannon Point-LP SMBus Controller (rev 11)
-00:1f.5 Serial bus controller: Intel Corporation Cannon Point-LP SPI Controller (rev 11)
-00:1f.6 Ethernet controller: Intel Corporation Ethernet Connection (6) I219-LM (rev 11)
-03:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd NVMe SSD Controller SM981/PM981/PM983
-05:00.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-06:00.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-06:01.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-06:02.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-06:04.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-07:00.0 System peripheral: Intel Corporation JHL6540 Thunderbolt 3 NHI (C step) [Alpine Ridge 4C 2016] (rev 02)
-2d:00.0 USB controller: Intel Corporation JHL6540 Thunderbolt 3 USB Controller (C step) [Alpine Ridge 4C 2016] (rev 02) &lt;&lt;&lt;--- Is this present when it fails?
+<p>So … I waited patiently to fail again .. and when it did I reinstalled <cite>typec_displayport</cite> (first on the list) as a start, and that worked:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo rmmod typec_displayport
+sudo insmod /usr/lib/modules/`uname -r`/kernel/drivers/usb/typec/altmodes/typec_displayport.ko.zst
 </pre></div>
 </div>
 </section>

@@ -4,7 +4,13 @@ Debugging external monitor issues in Linux
 .. post:: 08/02/2022
    :tags: linux
 
-I am trying to see the different between the logs when the external monitor is detected vs when it is not detected.
+Sometimes when I connect the external monitor using usb-c, it gives the following error:
+
+::
+
+   xrandr: cannot find mode ...
+
+It works when I restart the machine so it must be a software bug.
 
 How do I know if the external monitor is detected?
 
@@ -26,16 +32,14 @@ How do I know if the external monitor is detected?
    Disconnect and connect the external monitor, and view the kernel ring buffer:
 
 
-I looked at kernel ring buffer `sudo dmesg -w` but the output is the same for the two cases:
-
-However, `udevadm` output shows a difference:
+Let's monitoring the kernel devices:
 
 ::
 
    udevadm monitor
 
 
-When it works (monitor gets detected), I can _also_ see the following lines:
+When it works (i.e. monitor gets detected), the following lines are also included in the log output:
 
 ::
 
@@ -49,13 +53,14 @@ When it works (monitor gets detected), I can _also_ see the following lines:
    UDEV  [144.866247] change   /devices/platform/USBC000:00/typec/port1 (typec)
    ...
 
-What I plan on doing when this fails again:
+So it seems like there is some problem with typec. I wonder it it would work if I simply reinstall the relevant kernel level module.
 
-- Can I reload some kernel module to avoid a restart?
+What are the related kernel level modules?
 
 ::
 
    lsmod | grep typec
+
 
 ::
 
@@ -64,33 +69,9 @@ What I plan on doing when this fails again:
    typec                  69632  2 typec_displayport,typec_ucsi
    roles                  16384  1 typec_ucsi
 
-- I would also like to compare the `lspci` output to the following - I suspect that `Thunderbolt 3` won't be present:
+So ... I waited patiently to fail again .. and when it did I reinstalled `typec_displayport` (first on the list) as a start, and that worked:
 
 ::
 
-   00:00.0 Host bridge: Intel Corporation Coffee Lake HOST and DRAM Controller (rev 0c)
-   00:02.0 VGA compatible controller: Intel Corporation WhiskeyLake-U GT2 [UHD Graphics 620] (rev 02)
-   00:04.0 Signal processing controller: Intel Corporation Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Thermal Subsystem (rev 0c)
-   00:08.0 System peripheral: Intel Corporation Xeon E3-1200 v5/v6 / E3-1500 v5 / 6th/7th/8th Gen Core Processor Gaussian Mixture Model
-   00:12.0 Signal processing controller: Intel Corporation Cannon Point-LP Thermal Controller (rev 11)
-   00:14.0 USB controller: Intel Corporation Cannon Point-LP USB 3.1 xHCI Controller (rev 11)
-   00:14.2 RAM memory: Intel Corporation Cannon Point-LP Shared SRAM (rev 11)
-   00:14.3 Network controller: Intel Corporation Cannon Point-LP CNVi [Wireless-AC] (rev 11)
-   00:15.0 Serial bus controller: Intel Corporation Cannon Point-LP Serial IO I2C Controller #0 (rev 11)
-   00:15.1 Serial bus controller: Intel Corporation Cannon Point-LP Serial IO I2C Controller #1 (rev 11)
-   00:16.0 Communication controller: Intel Corporation Cannon Point-LP MEI Controller #1 (rev 11)
-   00:1d.0 PCI bridge: Intel Corporation Cannon Point-LP PCI Express Root Port #9 (rev f1)
-   00:1d.4 PCI bridge: Intel Corporation Cannon Point-LP PCI Express Root Port #13 (rev f1)
-   00:1f.0 ISA bridge: Intel Corporation Cannon Point-LP LPC Controller (rev 11)
-   00:1f.3 Audio device: Intel Corporation Cannon Point-LP High Definition Audio Controller (rev 11)
-   00:1f.4 SMBus: Intel Corporation Cannon Point-LP SMBus Controller (rev 11)
-   00:1f.5 Serial bus controller: Intel Corporation Cannon Point-LP SPI Controller (rev 11)
-   00:1f.6 Ethernet controller: Intel Corporation Ethernet Connection (6) I219-LM (rev 11)
-   03:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd NVMe SSD Controller SM981/PM981/PM983
-   05:00.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-   06:00.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-   06:01.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-   06:02.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-   06:04.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-   07:00.0 System peripheral: Intel Corporation JHL6540 Thunderbolt 3 NHI (C step) [Alpine Ridge 4C 2016] (rev 02)
-   2d:00.0 USB controller: Intel Corporation JHL6540 Thunderbolt 3 USB Controller (C step) [Alpine Ridge 4C 2016] (rev 02) <<<--- Is this present when it fails?
+   sudo rmmod typec_displayport
+   sudo insmod /usr/lib/modules/`uname -r`/kernel/drivers/usb/typec/altmodes/typec_displayport.ko.zst

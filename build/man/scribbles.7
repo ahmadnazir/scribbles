@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Aug 08, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Aug 09, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -7420,7 +7420,19 @@ tree \-L 2 \-I node_modules
 .UNINDENT
 .SS Debugging external monitor issues in Linux
 .sp
-I am trying to see the different between the logs when the external monitor is detected vs when it is not detected.
+Sometimes when I connect the external monitor using usb\-c, it gives the following error:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xrandr: cannot find mode ...
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+It works when I restart the machine so it must be a software bug.
 .sp
 How do I know if the external monitor is detected?
 .INDENT 0.0
@@ -7453,9 +7465,7 @@ Disconnect and connect the external monitor, and view the kernel ring buffer:
 .UNINDENT
 .UNINDENT
 .sp
-I looked at kernel ring buffer \fIsudo dmesg \-w\fP but the output is the same for the two cases:
-.sp
-However, \fIudevadm\fP output shows a difference:
+Let’s monitoring the kernel devices:
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -7467,7 +7477,7 @@ udevadm monitor
 .UNINDENT
 .UNINDENT
 .sp
-When it works (monitor gets detected), I can _also_ see the following lines:
+When it works (i.e. monitor gets detected), the following lines are also included in the log output:
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -7487,11 +7497,9 @@ UDEV  [144.866247] change   /devices/platform/USBC000:00/typec/port1 (typec)
 .UNINDENT
 .UNINDENT
 .sp
-What I plan on doing when this fails again:
-.INDENT 0.0
-.IP \(bu 2
-Can I reload some kernel module to avoid a restart?
-.UNINDENT
+So it seems like there is some problem with typec. I wonder it it would work if I simply reinstall the relevant kernel level module.
+.sp
+What are the related kernel level modules?
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -7515,41 +7523,15 @@ roles                  16384  1 typec_ucsi
 .fi
 .UNINDENT
 .UNINDENT
-.INDENT 0.0
-.IP \(bu 2
-I would also like to compare the \fIlspci\fP output to the following \- I suspect that \fIThunderbolt 3\fP won’t be present:
-.UNINDENT
+.sp
+So … I waited patiently to fail again .. and when it did I reinstalled \fItypec_displayport\fP (first on the list) as a start, and that worked:
 .INDENT 0.0
 .INDENT 3.5
 .sp
 .nf
 .ft C
-00:00.0 Host bridge: Intel Corporation Coffee Lake HOST and DRAM Controller (rev 0c)
-00:02.0 VGA compatible controller: Intel Corporation WhiskeyLake\-U GT2 [UHD Graphics 620] (rev 02)
-00:04.0 Signal processing controller: Intel Corporation Xeon E3\-1200 v5/E3\-1500 v5/6th Gen Core Processor Thermal Subsystem (rev 0c)
-00:08.0 System peripheral: Intel Corporation Xeon E3\-1200 v5/v6 / E3\-1500 v5 / 6th/7th/8th Gen Core Processor Gaussian Mixture Model
-00:12.0 Signal processing controller: Intel Corporation Cannon Point\-LP Thermal Controller (rev 11)
-00:14.0 USB controller: Intel Corporation Cannon Point\-LP USB 3.1 xHCI Controller (rev 11)
-00:14.2 RAM memory: Intel Corporation Cannon Point\-LP Shared SRAM (rev 11)
-00:14.3 Network controller: Intel Corporation Cannon Point\-LP CNVi [Wireless\-AC] (rev 11)
-00:15.0 Serial bus controller: Intel Corporation Cannon Point\-LP Serial IO I2C Controller #0 (rev 11)
-00:15.1 Serial bus controller: Intel Corporation Cannon Point\-LP Serial IO I2C Controller #1 (rev 11)
-00:16.0 Communication controller: Intel Corporation Cannon Point\-LP MEI Controller #1 (rev 11)
-00:1d.0 PCI bridge: Intel Corporation Cannon Point\-LP PCI Express Root Port #9 (rev f1)
-00:1d.4 PCI bridge: Intel Corporation Cannon Point\-LP PCI Express Root Port #13 (rev f1)
-00:1f.0 ISA bridge: Intel Corporation Cannon Point\-LP LPC Controller (rev 11)
-00:1f.3 Audio device: Intel Corporation Cannon Point\-LP High Definition Audio Controller (rev 11)
-00:1f.4 SMBus: Intel Corporation Cannon Point\-LP SMBus Controller (rev 11)
-00:1f.5 Serial bus controller: Intel Corporation Cannon Point\-LP SPI Controller (rev 11)
-00:1f.6 Ethernet controller: Intel Corporation Ethernet Connection (6) I219\-LM (rev 11)
-03:00.0 Non\-Volatile memory controller: Samsung Electronics Co Ltd NVMe SSD Controller SM981/PM981/PM983
-05:00.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-06:00.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-06:01.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-06:02.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-06:04.0 PCI bridge: Intel Corporation JHL6540 Thunderbolt 3 Bridge (C step) [Alpine Ridge 4C 2016] (rev 02)
-07:00.0 System peripheral: Intel Corporation JHL6540 Thunderbolt 3 NHI (C step) [Alpine Ridge 4C 2016] (rev 02)
-2d:00.0 USB controller: Intel Corporation JHL6540 Thunderbolt 3 USB Controller (C step) [Alpine Ridge 4C 2016] (rev 02) <<<\-\-\- Is this present when it fails?
+sudo rmmod typec_displayport
+sudo insmod /usr/lib/modules/\(gauname \-r\(ga/kernel/drivers/usb/typec/altmodes/typec_displayport.ko.zst
 .ft P
 .fi
 .UNINDENT
