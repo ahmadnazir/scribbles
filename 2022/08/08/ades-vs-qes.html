@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Levels of Electronic Signatures &#8212; Scribbles 0.2 documentation</title>
+    <title>AdES vs QES &#8212; Scribbles 0.2 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
@@ -36,17 +36,68 @@
 
 
 
-  <section id="levels-of-electronic-signatures">
-<h1>Levels of Electronic Signatures<a class="headerlink" href="#levels-of-electronic-signatures" title="Permalink to this heading">¶</a></h1>
+  <section id="ades-vs-qes">
+<h1>AdES vs QES<a class="headerlink" href="#ades-vs-qes" title="Permalink to this heading">¶</a></h1>
 <p>There are 3 levels:</p>
-<p>1. Simple Electronic Signatures: “data in electronic form which is attached to or logically associated with other data in electronic form and which is used by the signatory to sign”.
-<a class="reference external" href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910&amp;from=EN#d1e791-73-1">https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910&amp;from=EN#d1e791-73-1</a></p>
-<ol class="arabic simple" start="2">
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Simple Electronic Signatures: “data in electronic form which is attached to or logically associated with other data in electronic form and which is used by the signatory to sign”. <a class="reference external" href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910&amp;from=EN#d1e791-73-1#:~:text=%E2%80%98electronic%20signature%E2%80%99%20means%20data%20in%20electronic%20form">source</a></p></li>
 <li><p>Advanced Electronic Signatures (AdES): identifies the signatory / non-repudiation</p></li>
 <li><p>Qualified Electronic Signatures (QES): created by a qualified signature creation device (QSCD) / uses qualified certificates</p></li>
 </ol>
+</div></blockquote>
 <p>QES at a minimum is legally equal to a hand-written signature. That doesn’t mean that simple signatures or AdES is not - the court can decide on a case to case basis.</p>
 <p>Reference: <a class="reference external" href="https://ec.europa.eu/digital-building-blocks/wikis/display/ESIGKB/What+are+the+levels,+simple,+advanced+and+qualified+of+electronic+signatures">https://ec.europa.eu/digital-building-blocks/wikis/display/ESIGKB/What+are+the+levels,+simple,+advanced+and+qualified+of+electronic+signatures</a></p>
+<p>The question is that why doesn’t NemID/MitID and other eID providers just generate QES? They know the identity of the signer - so it should be a straightforward process to generate QES.</p>
+<p>This is my thoughts on it - let’s take a step back and talk about some standards for signing data and representing the signature information:</p>
+<ul class="simple">
+<li><p>XMLDSIG: XML Digital signature processing rules and syntax <a class="reference external" href="https://www.w3.org/TR/xmldsig-core1/">https://www.w3.org/TR/xmldsig-core1/</a></p></li>
+<li><p>CMS: Cryptographic Message Syntax. <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc5652">https://datatracker.ietf.org/doc/html/rfc5652</a></p></li>
+</ul>
+<p>They are not compatible with each other since the value being signed is not the same according to the standards.</p>
+<p>No matter, on a conceptual level the idea is to sign digital content (i.e.
+encrypt the hash of the content). In order for any third party to ensure that
+the data is signed by some individual, a public key is also stored with the
+signature but just storing the public key isn’t enough. Some proof is required
+to assure that the public key belongs to a certain individual (the signer in
+this case). This is called the public key certificate or the digital
+certificate. In some cases, a certificate chain is needed which would contain
+all the certificates - all the way to the root certificate - which is considered
+trusted by all parties.</p>
+<p>So, a xmldsig or cms signature must have at least the following:</p>
+<ul class="simple">
+<li><p>signed value</p></li>
+<li><p>public key certificate</p></li>
+<li><p>Optionally, additional certificates (certificate chain) going all the way to the root certificate</p></li>
+</ul>
+<p>This is what AdES is and works well if the signature is required for short
+periods e.g. I provide the signature as proof of who I am to login to a website.
+However, if I want to sign documents using this method then we need to make sure
+that the signature stays valid of the life time of the document.</p>
+<p>How can a signature not stay valid after signing? It can happen if the certificate used (or any certificate in the chain) either gets expired or revoked for any other reason.</p>
+<p>For this reason, it is important to make sure that the signature stays valid over a long term - also called Long Term Validation (LTV). This can be done as follows:</p>
+<ul class="simple">
+<li><p>Check the OCSP responses against all the certificates / or check the certificate revocation lists to make sure that the certifcates are valid at that point in time</p></li>
+<li><p>Get a timestamp from a trusted authority - called a Time Stamp Authority (TSA)</p></li>
+</ul>
+<p>This information needs to be present with the signature for it to be considered LTV enabled.</p>
+<p>xmldsig or cms don’t support mechanisms to store this information. However, their extensions do:</p>
+<ul class="simple">
+<li><p>XAdES</p></li>
+<li><p>CAdES</p></li>
+</ul>
+<p>And similar standards also exist for pdf and json:</p>
+<ul class="simple">
+<li><p>PAdES</p></li>
+<li><p>JAdES</p></li>
+</ul>
+<p>Anyway, having LTV information is expensive and not always needed - which is why services like NemID/MitID don’t need to generate signatures containing this info.</p>
+<p>Qualified Signatures (QES) contain this information and I imagine they also
+contain other guarantees (which I don’t know of). So the creators of the
+standard just made the specification simple by asking that qualified signatures
+should be generated by a Qualifiec Signature Creation Device (QSCD) which
+probably ensures that the signature contains all the proof needed like ltv, etc.</p>
+<p>Maybe there is more to it - but this is what I understand as of now.</p>
 </section>
 
 
@@ -382,7 +433,7 @@
       &copy;2019, Ahmad Nazir Raja.
       
       |
-      <a href="../../../_sources/2022/08/08/levels-of-electronic-signatures.rst.txt"
+      <a href="../../../_sources/2022/08/08/ades-vs-qes.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
