@@ -4,7 +4,7 @@ AdES vs QES
 .. post:: 08/08/2022
    :tags: signatures
 
-There are 3 levels:
+There are `3 levels`_:
 
   #. Simple Electronic Signatures: "data in electronic form which is attached to or logically associated with other data in electronic form and which is used by the signatory to sign". `source`_ 
 
@@ -15,28 +15,28 @@ There are 3 levels:
 QES at a minimum is legally equal to a hand-written signature. That doesn't mean that simple signatures or AdES is not - the court can decide on a case to case basis.
 
 
-Reference: https://ec.europa.eu/digital-building-blocks/wikis/display/ESIGKB/What+are+the+levels,+simple,+advanced+and+qualified+of+electronic+signatures
+.. _3 levels: https://ec.europa.eu/digital-building-blocks/wikis/display/ESIGKB/What+are+the+levels,+simple,+advanced+and+qualified+of+electronic+signatures
 
 .. _source: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910&from=EN#d1e791-73-1#:~:text=%E2%80%98electronic%20signature%E2%80%99%20means%20data%20in%20electronic%20form
 
-The question is that why doesn't NemID/MitID and other eID providers just generate QES? They know the identity of the signer - so it should be a straightforward process to generate QES.
+The question is that why doesn't NemID/MitID and other eID providers just generate QES? They know the identity of the signer - so it should be a straightforward process to generate QES - no? Here are my thoughts on it...
 
-This is my thoughts on it - let's take a step back and talk about some standards for signing data and representing the signature information:
+Let's take a step back and talk about some standards for signing data and representing the signature information:
 
 - XMLDSIG: XML Digital signature processing rules and syntax https://www.w3.org/TR/xmldsig-core1/
 - CMS: Cryptographic Message Syntax. https://datatracker.ietf.org/doc/html/rfc5652
 
 They are not compatible with each other since the value being signed is not the same according to the standards.
 
-No matter, on a conceptual level the idea is to sign digital content (i.e.
-encrypt the hash of the content). In order for any third party to ensure that
-the data is signed by some individual, a public key is also stored with the
-signature but just storing the public key isn't enough. Some proof is required
-to assure that the public key belongs to a certain individual (the signer in
-this case). This is called the public key certificate or the digital
-certificate. In some cases, a certificate chain is needed which would contain
-all the certificates - all the way to the root certificate - which is considered
-trusted by all parties.
+Anyway, on a conceptual level the idea is to sign digital content (i.e. encrypt
+the hash of the content). In order for any third party to ensure that the data
+is signed by some individual, a public key is also stored with the signature -
+but just storing the public key isn't enough. Additional proof is required to
+assure that the public key belongs to the signer. This proof comes in the form
+of a certificate (i.e. public key certificate or simply digital certificate). A
+certificate chain is probably also needed which would contain all the
+certificates - all the way to the root certificate - which is trusted by all
+parties.
 
 So, a xmldsig or cms signature must have at least the following:
 
@@ -44,19 +44,23 @@ So, a xmldsig or cms signature must have at least the following:
 - public key certificate
 - Optionally, additional certificates (certificate chain) going all the way to the root certificate
 
-This is what AdES is and works well if the signature is required for short
-periods e.g. I provide the signature as proof of who I am to login to a website.
-However, if I want to sign documents using this method then we need to make sure
-that the signature stays valid of the life time of the document.
+This is what AdES contains and it works well if the signature is required for
+short periods e.g. login. However, if I want to sign documents using AdES then
+we need to make sure that the signature stays valid at least for the life time
+of the document.
 
-How can a signature not stay valid after signing? It can happen if the certificate used (or any certificate in the chain) either gets expired or revoked for any other reason.
+How can a signature not stay valid after signing? It can happen if the
+certificate (any certificate in the chain) either gets expired or revoked for
+some reason.
 
-For this reason, it is important to make sure that the signature stays valid over a long term - also called Long Term Validation (LTV). This can be done as follows:
+This is why it is important to ensure that the signature stays valid over a long
+term. The concept is called Long Term Validation (LTV). It can be achieved as
+follows:
 
 - Check the OCSP responses against all the certificates / or check the certificate revocation lists to make sure that the certifcates are valid at that point in time
 - Get a timestamp from a trusted authority - called a Time Stamp Authority (TSA)
 
-This information needs to be present with the signature for it to be considered LTV enabled.
+This information needs to be present with the signature to enable LTV.
 
 xmldsig or cms don't support mechanisms to store this information. However, their extensions do:
 
@@ -70,10 +74,10 @@ And similar standards also exist for pdf and json:
 
 Anyway, having LTV information is expensive and not always needed - which is why services like NemID/MitID don't need to generate signatures containing this info.
 
-Qualified Signatures (QES) contain this information and I imagine they also
-contain other guarantees (which I don't know of). So the creators of the
-standard just made the specification simple by asking that qualified signatures
-should be generated by a Qualifiec Signature Creation Device (QSCD) which
-probably ensures that the signature contains all the proof needed like ltv, etc.
+Qualified Signatures (QES) contain this information (and I imagine they also
+contain other guarantees). So the creators of the standard probably just made
+the specification easy to understand by asking that qualified signatures should
+be generated by a Qualifiec Signature Creation Device (QSCD) which probably
+ensures that the signature contains all the proof needed like ltv, etc.
 
 Maybe there is more to it - but this is what I understand as of now.
