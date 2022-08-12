@@ -40,8 +40,8 @@ parties.
 
 So, a xmldsig or cms signature must have at least the following:
 
-- signed value
-- public key certificate
+- Signed value (encrypted hash)
+- Public key certificate
 - Optionally, additional certificates (certificate chain) going all the way to the root certificate
 
 This is what AdES contains and it works well if the signature is required for
