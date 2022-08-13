@@ -4,7 +4,7 @@ AdES vs QES
 .. post:: 08/12/2022
    :tags: signatures
 
-There are `3 levels`_:
+According to the eiDAS regulation, there are `3 levels`_ of electronic signatures:
 
   #. Simple Electronic Signatures: "data in electronic form which is attached to or logically associated with other data in electronic form and which is used by the signatory to sign". `source`_ 
 
