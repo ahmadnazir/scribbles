@@ -65,8 +65,8 @@ certificates - all the way to the root certificate - which is trusted by all
 parties.</p>
 <p>So, a xmldsig or cms signature must have at least the following:</p>
 <ul class="simple">
-<li><p>signed value</p></li>
-<li><p>public key certificate</p></li>
+<li><p>Signed value (encrypted hash)</p></li>
+<li><p>Public key certificate</p></li>
 <li><p>Optionally, additional certificates (certificate chain) going all the way to the root certificate</p></li>
 </ul>
 <p>This is what AdES contains and it works well if the signature is required for
@@ -436,7 +436,7 @@ ensures that the signature contains all the proof needed like ltv, etc.</p>
       &copy;2019, Ahmad Nazir Raja.
       
       |
-      <a href="../../../_sources/2022/08/08/ades-vs-qes.rst.txt"
+      <a href="../../../_sources/2022/08/12/ades-vs-qes.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
