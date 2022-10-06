@@ -5,12 +5,18 @@
     <a href="{{ pathto(ablog.blog_path) }}">{{ gettext('Recent Posts') }}</a>
 </h3>
 <ul>
-    {% set pcount = 1 %} {% for recent in ablog.recent(10, pagename) %}
+    {% set pcount = 1 %} {% for recent in ablog.recent(10) %}
     <li>
+        {% if recent.docname == pagename %}
+          <b>
+        {% endif %}
         <a href="{{ pathto(recent.docname) }}{{ anchor(recent) }}"
         >{{ recent.date.strftime(ablog.post_date_format_short) + " - " +
             recent.title }}</a
                            >
+        {% if recent.docname == pagename %}
+          </b>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>
