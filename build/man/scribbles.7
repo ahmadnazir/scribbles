@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Aug 24, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Oct 06, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -4138,6 +4138,11 @@ ssh\-keygen \-t rsa \-C "mandark"
 .fi
 .UNINDENT
 .UNINDENT
+.SS References
+.INDENT 0.0
+.IP \(bu 2
+\fI\%https://wiki.archlinux.org/title/installation_guide\fP
+.UNINDENT
 .SS lsof
 .sp
 \fBFind all ports\fP
@@ -5971,7 +5976,29 @@ Item C
 .UNINDENT
 .SS References
 .sp
-\fI\%http://docutils.sourceforge.net/docs/ref/rst/directives.html\fP
+Create a reference at the beginning of a file:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\&.. _my\-ref:
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Then you can link to it from any other file:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+:ref:\(gaClick here<my\-ref>\(ga to see my reference.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS Tables
 .sp
 Two types of tables are supported:
@@ -7717,6 +7744,7 @@ ensures that the signature contains all the proof needed like ltv, etc.
 .sp
 Maybe there is more to it \- but this is what I understand as of now.
 .SS Mermaid
+.SS Install
 .sp
 Insall npm package (Requires node 14):
 .INDENT 0.0
@@ -7737,6 +7765,536 @@ npm install @mermaid\-js/mermaid\-cli
 .nf
 .ft C
 watch\-file mermaid.mmd ./node_modules/.bin/mmdc \-i mermaid.mmd \-o mermaid.png
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Flowchart
+.sp
+\fI\%https://mermaid\-js.github.io/mermaid/#/flowchart\fP?id=graph
+.SS Dual boot (UEFI)
+.sp
+\fIupdate\-grub\fP automatically takes care of this by probing the \fIEFI\fP directory.
+.sp
+It adds the following in \fI/boot/grub/grub.cfg\fP which makes it possible to load windows using Grub:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+### BEGIN /etc/grub.d/30_os\-prober ###
+menuentry \(aqWindows Boot Manager (on /dev/nvme0n1p1)\(aq \-\-class windows \-\-class os $menuentry_id_option \(aqosprober\-efi\-62F9\-0A97\(aq {
+     insmod part_gpt
+     insmod fat
+     search \-\-no\-floppy \-\-fs\-uuid \-\-set=root 62F9\-0A97
+     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+}
+### END /etc/grub.d/30_os\-prober ###
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Needless to say, EFI partition needs to exist \- this can be seen in the \fI/etc/fstab\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cat /etc/fstab | grep \-i efi
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+UUID=62F9\-0A97       /efi            vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount\-ro   0 2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Reference
+.sp
+Arch boot process: \fI\%https://wiki.archlinux.org/title/Arch_boot_process\fP
+.SS Install Debian
+.sp
+Download the complete iso from: \fI\%https://cdimage.debian.org/cdimage/weekly\-builds/amd64/iso\-dvd/\fP
+.sp
+For setting up disk encryption, see \fI\%Disk Encryption\fP\&.
+.sp
+Mount other devices from the host
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+PARTITION=/dev/mapper/crypt # change it according to the setup
+sudo mount ${PARTITION} /mnt
+for i in proc sys dev run efi;
+  do sudo mount \-\-make\-rslave \-\-rbind /$i /mnt/$i;
+done
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Install deboostrap from \fIhttp://ftp.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.127_all.deb\fP (pick relevant version)
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+mkdir /tmp/debian\-extracted
+cd /tmp/debian\-extracted
+wget http://ftp.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.127_all.deb
+ar \-x debootstrap_1.0.127_all.deb
+PATH_TO_DS=\(gapwd\(ga
+cd /
+zcat ${PATH_TO_DS}/data.tar.gz | sudo tar xv
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Run debootsrap
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ARCH=amd64
+sudo /usr/sbin/debootstrap \-\-arch=${ARCH} bullseye /mnt http://ftp.us.debian.org/debian
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Chroot
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+LANG=C.UTF\-8 sudo chroot /mnt /bin/bash
+export TERM=xterm\-color
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Setup vim as default editor
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install vim
+update\-alternatives \-\-config editor
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Fstab
+.sp
+Get the UUID for the decrypted disk
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+lsblk \-f /dev/mapper/crypt
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Create the fstab file \fI/etc/fstab\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# /etc/fstab: static file system information.
+#
+# file system       mount point   type    options                  dump pass
+UUID=62cf6415\-e1de\-4f3f\-bc80\-642bc21a3a90   /          ext4        rw,relatime                                                                                           0 1
+UUID=4d6fa38b\-e3ce\-4158\-9a54\-e6ea1f85dce5     none           swap            defaults                                                                                                  0 0
+UUID=62F9\-0A97                              /efi             vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount\-ro   0 2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+For setting up crypttab, see \fI\%Disk Encryption\fP\&.
+.sp
+Sources
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install lsb\-release
+CODENAME=$(lsb_release \-\-codename \-\-short)
+cat > /etc/apt/sources.list << HEREDOC
+deb https://deb.debian.org/debian/ $CODENAME main contrib non\-free
+deb\-src https://deb.debian.org/debian/ $CODENAME main contrib non\-free
+
+deb https://security.debian.org/debian\-security $CODENAME\-security main contrib non\-free
+deb\-src https://security.debian.org/debian\-security $CODENAME\-security main contrib non\-free
+
+deb https://deb.debian.org/debian/ $CODENAME\-updates main contrib non\-free
+deb\-src https://deb.debian.org/debian/ $CODENAME\-updates main contrib non\-free
+HEREDOC
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt update
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Timezone
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+su \- # as binaries in /sbin are not part of PATH https://wiki.debian.org/NewInBuster
+dpkg\-reconfigure tzdata
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Current default time zone: \(aqEurope/Copenhagen\(aq
+Local time is now:      Wed Oct  5 18:49:04 CEST 2022.
+Universal Time is now:  Wed Oct  5 16:49:04 UTC 2022.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install locales
+dpkg\-reconfigure locales # Select \(gaen_US.UTF\-8\(ga and make \(gaC.UTF\-8\(ga as default
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Find kernel images
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt search linux\-image\-5.10.0\-18\-amd64
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Install kernel
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install linux\-image\-5.10.0\-18\-amd64
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Install firmware
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install firmware\-linux
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Network
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install network\-manager
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Root password
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+passwd
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Additional packages
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+tasksel install standard
+apt clean
+apt install iwlwifi
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Create user
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+su \-l
+adduser USERNAME
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Install grub2
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install grub2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If disk is encrypted, follow the guide on \fI\%Disk Encryption\fP\&.
+.sp
+Update the EFI boot director:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install grub\-efi
+grub\-install \-\-target=x86_64\-efi \-\-efi\-directory=/efi \-\-bootloader\-id=DEBIAN
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Verify
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ls /efi/EFI/
+Boot  DEBIAN  GRUB  Microsoft
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Exit and unmount
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo umount \-R /mnt/
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Reference
+.INDENT 0.0
+.IP \(bu 2
+\fI\%https://www.debian.org/releases/stable/i386/apds03.en.html\fP
+.IP \(bu 2
+\fI\%https://gist.github.com/varqox/42e213b6b2dde2b636ef\fP
+.UNINDENT
+.SS Disk encryption
+.SS Create an encrypted partition
+.sp
+Create a partition using \fIgparted\fP\&.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo cryptsetup luksFormat \-\-type=luks1 /dev/nvme0n1p7
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+WARNING: Device /dev/nvme0n1p7 already contains a \(aqext4\(aq superblock signature.
+
+WARNING!
+========
+This will overwrite data on /dev/nvme0n1p7 irrevocably.
+
+Are you sure? (Type \(aqyes\(aq in capital letters): YES
+Enter passphrase for /dev/nvme0n1p7:
+Verify passphrase:
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Open
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo cryptsetup open /dev/nvme0n1p7 crypt
+# sudo cryptsetup close crypt
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Format the drive as ext4 using \fIgparted\fP\&.
+.sp
+Mount
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo mount /dev/mapper/crypt /mnt
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Set Crypttab
+.sp
+Use the UUID of the encrypted disk (and NOT the decrypted one). Modify \fI/etc/crypttab\fP as follows:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+crypt UUID=de81b7a0\-ef6e\-4aba\-b45e\-0a21a08a09c0    none                    luks
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Update the boot loader (UEFI setup)
+.sp
+Install \fIgrub2\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install grub2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
+update\-grub
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz\-5.10.0\-18\-amd64
+Found initrd image: /boot/initrd.img\-5.10.0\-18\-amd64
+Warning: os\-prober will be executed to detect other bootable partitions.
+Its output will be used to detect bootable binaries on them and create new boot entries.
+Found Windows Boot Manager on /dev/nvme0n1p1@/EFI/Microsoft/Boot/bootmgfw.efi
+Found Arch Linux on /dev/nvme0n1p4
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Crypt setup for initramfs?
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install cryptsetup\-initramfs
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update the init ramdisk (\fImkinitcpio\fP for arch, \fIupdate\-initramfs\fP for debian)
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+update\-initramfs \-u \-k all # for Debian
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update the EFI boot directory:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+apt install grub\-efi
+BOOTLOADER_ID=? # customize accordingly
+grub\-install \-\-target=x86_64\-efi \-\-efi\-directory=/efi \-\-bootloader\-id=${BOOTLOADER_ID}
 .ft P
 .fi
 .UNINDENT
