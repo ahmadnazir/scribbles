@@ -2,7 +2,7 @@ Install Arch
 ============
 
 .. post:: 04/02/2021
-   :tags: linux
+   :tags: linux,arch
 
 :machine: x1 carbon, 7th gen
 
@@ -104,3 +104,8 @@ Generate key:
 .. code::
 
    ssh-keygen -t rsa -C "mandark"
+
+References
+----------
+
+- https://wiki.archlinux.org/title/installation_guide

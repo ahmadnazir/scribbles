@@ -2,7 +2,7 @@ Boot
 ====
 
 .. post:: 10/16/2019
-   :tags: linux
+   :tags: linux,ubuntu
 
 OS : Ubuntu 18.04
 

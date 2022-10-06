@@ -5,6 +5,9 @@ Mermaid
    :tags: documentation 
 
 
+Install
+-------
+
 Insall npm package (Requires node 14):
 
 ::
@@ -18,3 +21,8 @@ Insall npm package (Requires node 14):
 
    watch-file mermaid.mmd ./node_modules/.bin/mmdc -i mermaid.mmd -o mermaid.png
 
+
+Flowchart
+---------
+
+https://mermaid-js.github.io/mermaid/#/flowchart?id=graph
