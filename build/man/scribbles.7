@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Oct 06, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Oct 10, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -473,7 +473,7 @@ Make the file executable and run the following:
 .sp
 .nf
 .ft C
-\&./test.clj Hello World # "Hello"
+\&./test.clj Hello World # \(dqHello\(dq
 .ft P
 .fi
 .UNINDENT
@@ -599,7 +599,7 @@ Now, when we call \fIadder\fP with the wrong arguments, we get a relatively help
 1. Unhandled clojure.lang.ExceptionInfo
    Spec assertion failed.
 
-         Spec: #object[clojure.spec.alpha$regex_spec_impl$reify__2510 0x6c0f16e3 "clojure.spec.alpha$regex_spec_impl$reify__2510@6c0f16e3"]
+         Spec: #object[clojure.spec.alpha$regex_spec_impl$reify__2510 0x6c0f16e3 \(dqclojure.spec.alpha$regex_spec_impl$reify__2510@6c0f16e3\(dq]
         Value: (1 2 4)
 
      Problems:
@@ -646,9 +646,9 @@ Note that the order of the functions is reversed, e.g:
 .sp
 .nf
 .ft C
-(\->> { :a {:in\-a "a\(aqs value"} :c "c\(aqs value"}
+(\->> { :a {:in\-a \(dqa\(aqs value\(dq} :c \(dqc\(aqs value\(dq}
     ((comp :in\-a :a)))
-;; "a\(aqs value"
+;; \(dqa\(aqs value\(dq
 .ft P
 .fi
 .UNINDENT
@@ -661,9 +661,9 @@ Given a collection of functions: \fI[ fa fb ]\fP and a value \fIx\fP, juxt appli
 .sp
 .nf
 .ft C
-(\->> { :a {:in\-a "a\(aqs value"} :c "c\(aqs value"}
+(\->> { :a {:in\-a \(dqa\(aqs value\(dq} :c \(dqc\(aqs value\(dq}
      ((juxt :a :c)))
-;; [{:in\-a "a\(aqs value"} "c\(aqs value"]
+;; [{:in\-a \(dqa\(aqs value\(dq} \(dqc\(aqs value\(dq]
 .ft P
 .fi
 .UNINDENT
@@ -715,8 +715,8 @@ Be careful when using conj with functions that return a string:
 .sp
 .nf
 .ft C
-(conj (drop\-last [ 1 "_" ]) 2)       ;; [2 1]
-(conj (vec (drop\-last [ 1 "_" ])) 2) ;; [1 2]
+(conj (drop\-last [ 1 \(dq_\(dq ]) 2)       ;; [2 1]
+(conj (vec (drop\-last [ 1 \(dq_\(dq ])) 2) ;; [1 2]
 .ft P
 .fi
 .UNINDENT
@@ -799,8 +799,8 @@ Dependencies:
 .sp
 .nf
 .ft C
-[instaparse "1.4.10"]
-[org.clojure/core.match "0.3.0\-alpha5"]
+[instaparse \(dq1.4.10\(dq]
+[org.clojure/core.match \(dq0.3.0\-alpha5\(dq]
 .ft P
 .fi
 .UNINDENT
@@ -829,9 +829,9 @@ EXPR := NUMBER <ws*> OP <ws*> NUMBER
 
 OP := ADD | SUB
 
-ADD :=  "+"
-SUB :=  "\-"
-NUMBER :=  #"[0\-9]+"
+ADD :=  \(dq+\(dq
+SUB :=  \(dq\-\(dq
+NUMBER :=  #\(dq[0\-9]+\(dq
 
 ws := #\(aq\es+\(aq   (* whitespace *)
 .ft P
@@ -845,8 +845,8 @@ Parse the grammar:
 .sp
 .nf
 .ft C
-(def parse (\->> (System/getProperty "user.dir")
-                (format "%s/grammar.bnf" )
+(def parse (\->> (System/getProperty \(dquser.dir\(dq)
+                (format \(dq%s/grammar.bnf\(dq )
                 slurp
                 insta/parser
                 ))
@@ -861,7 +861,7 @@ Test it:
 .sp
 .nf
 .ft C
-(parse "1 + 2")
+(parse \(dq1 + 2\(dq)
 ;; [:EXPR [:NUMBER 1] [:OP [:ADD +]] [:NUMBER 3]]
 .ft P
 .fi
@@ -875,10 +875,10 @@ Generate the ast:
 .nf
 .ft C
 (defn evaluate
-  "Convert parse tree to abstract syntax tree"
+  \(dqConvert parse tree to abstract syntax tree\(dq
   [parsed]
   (match parsed [:EXPR [:NUMBER l] [:OP op] [:NUMBER r]] (+ (read\-string l) (read\-string r) ) ;; hardcode the operator
-         :else  {:error (format "Matching rules incomplete for: %s" parsed)}
+         :else  {:error (format \(dqMatching rules incomplete for: %s\(dq parsed)}
          ))
 .ft P
 .fi
@@ -891,7 +891,7 @@ Evaluate:
 .sp
 .nf
 .ft C
-(\->> "1 + 2"
+(\->> \(dq1 + 2\(dq
      parse
      evaluate)
 .ft P
@@ -979,7 +979,7 @@ A lein plugin to generate visualizations from \fIplantuml\fP source
 .sp
 .nf
 .ft C
-(seq {:a "one" :b "two"}) ;; => ([:a "one"] [:b "two"])
+(seq {:a \(dqone\(dq :b \(dqtwo\(dq}) ;; => ([:a \(dqone\(dq] [:b \(dqtwo\(dq])
 .ft P
 .fi
 .UNINDENT
@@ -1166,7 +1166,7 @@ Let’s see what methods are available on a string with value “foo”:
 .sp
 .nf
 .ft C
-(ac "foo")
+(ac \(dqfoo\(dq)
 .ft P
 .fi
 .UNINDENT
@@ -1236,7 +1236,7 @@ Create a \fI\&.dir\-locals.el\fP file in the root of the project:
 .nf
 .ft C
 ((clojurescript\-mode . ((cider\-default\-cljs\-repl . figwheel\-main)
-                        (cider\-clojure\-cli\-global\-options . "\-A:fig")
+                        (cider\-clojure\-cli\-global\-options . \(dq\-A:fig\(dq)
                         )))
 .ft P
 .fi
@@ -1950,7 +1950,7 @@ Let’s add functions that will operate on the partitions:
 .ft C
 public static IEnumerable<int> Increment(IEnumerable<int> list)
 {
-    Console.WriteLine($"Incrementing...");
+    Console.WriteLine($\(dqIncrementing...\(dq);
     Thread.Sleep(500);
     return list.Select(i => i+1);
 }
@@ -1972,7 +1972,7 @@ static void Main(string[] args)
         .Select(Increment)
         ;
 
-    Console.WriteLine($"Total number of partitions: {result.Count()}");
+    Console.WriteLine($\(dqTotal number of partitions: {result.Count()}\(dq);
 }
 .ft P
 .fi
@@ -2032,7 +2032,7 @@ public static async Task<IEnumerable<int>> ToAsync(IEnumerable<int> list)
 
 public static async Task<IEnumerable<int>> IncrementAsync(Task<IEnumerable<int>> task)
 {
-    Console.WriteLine("Incrementing...");
+    Console.WriteLine(\(dqIncrementing...\(dq);
     Thread.Sleep(500);
     var list = await task;
     return list.Select(i => i+1);
@@ -2112,12 +2112,12 @@ Consider the following classes:
 .ft C
 public class A {
   public void test() {
-    Console.WriteLine("This is class A");
+    Console.WriteLine(\(dqThis is class A\(dq);
   }
 }
 public class B : A {
   public void test() {
-    Console.WriteLine("This is class B");
+    Console.WriteLine(\(dqThis is class B\(dq);
   }
 }
 .ft P
@@ -2161,12 +2161,12 @@ In order to override the function, \fIA’s test\fP will have to be marked as \f
 .ft C
 public class A {
     public virtual void test() {
-        Console.WriteLine("This is class A");
+        Console.WriteLine(\(dqThis is class A\(dq);
     }
 }
 public class B : A {
     public override void test() {
-        Console.WriteLine("This is class B");
+        Console.WriteLine(\(dqThis is class B\(dq);
     }
 }
 .ft P
@@ -2391,7 +2391,7 @@ Magic uses mage to emit bytecode \- and probably also optimizes it before emitti
 .nf
 .ft C
 sudo apt install gnupg ca\-certificates\ensudo apt\-key adv \-\-keyserver hkp://keyserver.ubuntu.com:80 \-\-recv\-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-echo "deb https://download.mono\-project.com/repo/ubuntu stable\-bionic main" | sudo tee /etc/apt/sources.list.d/mono\-official\-stable.list\ensudo apt update
+echo \(dqdeb https://download.mono\-project.com/repo/ubuntu stable\-bionic main\(dq | sudo tee /etc/apt/sources.list.d/mono\-official\-stable.list\ensudo apt update
 sudo apt install mono\-devel
 .ft P
 .fi
@@ -2445,7 +2445,7 @@ M\-x omnisharp\-auto\-complete
 .nf
 .ft C
 ;; fn \-> f \-> b!
-(find\-file "/tmp/..")
+(find\-file \(dq/tmp/..\(dq)
 .ft P
 .fi
 .UNINDENT
@@ -2533,8 +2533,8 @@ Simple usage:
 .sp
 .nf
 .ft C
-(helm :sources \(aq((name . "Action:")
-                 (candidates . ( "a" "b" "c"))
+(helm :sources \(aq((name . \(dqAction:\(dq)
+                 (candidates . ( \(dqa\(dq \(dqb\(dq \(dqc\(dq))
                  (action . (lambda (candidate)
                              (message candidate)))))
 .ft P
@@ -2555,9 +2555,9 @@ SPC f E
 .sp
 .nf
 .ft C
-(spacemacs/declare\-prefix "o" "custom")
-(spacemacs/declare\-prefix "op" "pumlator")
-(spacemacs/set\-leader\-keys "opr" \(aqanr\-pumlator\-\-render)
+(spacemacs/declare\-prefix \(dqo\(dq \(dqcustom\(dq)
+(spacemacs/declare\-prefix \(dqop\(dq \(dqpumlator\(dq)
+(spacemacs/set\-leader\-keys \(dqopr\(dq \(aqanr\-pumlator\-\-render)
 .ft P
 .fi
 .UNINDENT
@@ -2655,7 +2655,7 @@ make native\-install USER=1\en
 .nf
 .ft C
 #!/bin/sh
-emacsclient \-c \-a "" \-\- "$@"
+emacsclient \-c \-a \(dq\(dq \-\- \(dq$@\(dq
 .ft P
 .fi
 .UNINDENT
@@ -2666,7 +2666,7 @@ emacsclient \-c \-a "" \-\- "$@"
 .sp
 .nf
 .ft C
-["emacsclient.sh", "%s", "\-\-eval", "(progn (goto\-line %l) (move\-to\-column (1\- %c)))"]
+[\(dqemacsclient.sh\(dq, \(dq%s\(dq, \(dq\-\-eval\(dq, \(dq(progn (goto\-line %l) (move\-to\-column (1\- %c)))\(dq]
 .ft P
 .fi
 .UNINDENT
@@ -2872,9 +2872,9 @@ The same concept can be used to merge a sub\-module into the main module i.e. cr
 .sp
 .nf
 .ft C
-URL=" ... "
-DIR=" ... "
-FOLDERS="a/test.txt b/test.txt"
+URL=\(dq ... \(dq
+DIR=\(dq ... \(dq
+FOLDERS=\(dqa/test.txt b/test.txt\(dq
 git clone $URL \-\-no\-checkout $DIR
 cd $DIR
 git sparse\-checkout init \-\-cone # to fetch only root files
@@ -2968,14 +2968,14 @@ gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
-Note: Use "gpg \-\-full\-generate\-key" for a full featured key generation dialog.
+Note: Use \(dqgpg \-\-full\-generate\-key\(dq for a full featured key generation dialog.
 
 GnuPG needs to construct a user ID to identify your key.
 
 Real name: Ahmad Nazir Raja
 Email address: ahmadnazir@gmail.com
 You selected this USER\-ID:
-    "Ahmad Nazir Raja <ahmadnazir@gmail.com>"
+    \(dqAhmad Nazir Raja <ahmadnazir@gmail.com>\(dq
 
 Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
 We need to generate a lot of random bytes. It is a good idea to perform
@@ -2988,7 +2988,7 @@ gpg: revocation certificate stored as \(aq~/.gnupg/openpgp\-revocs.d/1F7BFED782E
 public and secret key created and signed.
 
 Note that this key cannot be used for encryption.  You may want to use
-the command "\-\-edit\-key" to generate a subkey for this purpose.
+the command \(dq\-\-edit\-key\(dq to generate a subkey for this purpose.
 pub   rsa4096 2019\-10\-01 [SC] [expires: 2021\-09\-30]
       1F7BFED782E9E540432E3F48E28E7DA5BE1BAEBF
 uid
@@ -3088,7 +3088,7 @@ Generate an ssh key:
 .sp
 .nf
 .ft C
-ssh\-keygen \-t rsa \-C "ahmadnazir@gmail.com"
+ssh\-keygen \-t rsa \-C \(dqahmadnazir@gmail.com\(dq
 .ft P
 .fi
 .UNINDENT
@@ -3100,7 +3100,7 @@ Remembering the password for the session:
 .sp
 .nf
 .ft C
-eval "$(ssh\-agent \-s)"
+eval \(dq$(ssh\-agent \-s)\(dq
 ssh\-add ~/.ssh/id_rsa
 .ft P
 .fi
@@ -3277,7 +3277,7 @@ my\-deployment      NodePort    10.152.183.73   <none>        8088:31821/TCP   2
 .nf
 .ft C
 IP=\(gak get services | grep my\-service  | awk \(aq{print $3}\(aq\(ga
-curl \-i \-XGET "http://${IP}:8088"
+curl \-i \-XGET \(dqhttp://${IP}:8088\(dq
 .ft P
 .fi
 .UNINDENT
@@ -3305,7 +3305,7 @@ k delete deployment my\-deployment
 .sp
 .nf
 .ft C
-alias k="/usr/bin/snap run kubectl $@"
+alias k=\(dq/usr/bin/snap run kubectl $@\(dq
 .ft P
 .fi
 .UNINDENT
@@ -3339,11 +3339,11 @@ Events:
   Type     Reason             Age                    From               Message
   \-\-\-\-     \-\-\-\-\-\-             \-\-\-\-                   \-\-\-\-               \-\-\-\-\-\-\-
   Normal   Scheduled          3m38s                  default\-scheduler  Successfully assigned default/dummy\-5dfb4dd68b\-2k5lz to darkman
-  Normal   Pulling            2m57s (x3 over 3m37s)  kubelet, darkman   Pulling image "ahmadnazir/dummy\-server"
-  Warning  Failed             2m56s (x3 over 3m36s)  kubelet, darkman   Failed to pull image "ahmadnazir/dummy\-server": rpc error: code = Unknown desc = failed to resolve image "docker.io/ahmadnazir/dummy\-server:latest": no available registry endpoint: docker.io/ahmadnazir/dummy\-server:latest not found
+  Normal   Pulling            2m57s (x3 over 3m37s)  kubelet, darkman   Pulling image \(dqahmadnazir/dummy\-server\(dq
+  Warning  Failed             2m56s (x3 over 3m36s)  kubelet, darkman   Failed to pull image \(dqahmadnazir/dummy\-server\(dq: rpc error: code = Unknown desc = failed to resolve image \(dqdocker.io/ahmadnazir/dummy\-server:latest\(dq: no available registry endpoint: docker.io/ahmadnazir/dummy\-server:latest not found
   Warning  Failed             2m56s (x3 over 3m36s)  kubelet, darkman   Error: ErrImagePull
-  Warning  MissingClusterDNS  2m33s (x8 over 3m37s)  kubelet, darkman   pod: "dummy\-5dfb4dd68b\-2k5lz_default(b6b34966\-7614\-11e9\-802c\-482ae332735d)". kubelet does not have ClusterDNS IP configured and cannot create Pod using "ClusterFirst" policy. Falling back to "Default" policy.
-  Normal   BackOff            2m33s (x4 over 3m35s)  kubelet, darkman   Back\-off pulling image "ahmadnazir/dummy\-server"
+  Warning  MissingClusterDNS  2m33s (x8 over 3m37s)  kubelet, darkman   pod: \(dqdummy\-5dfb4dd68b\-2k5lz_default(b6b34966\-7614\-11e9\-802c\-482ae332735d)\(dq. kubelet does not have ClusterDNS IP configured and cannot create Pod using \(dqClusterFirst\(dq policy. Falling back to \(dqDefault\(dq policy.
+  Normal   BackOff            2m33s (x4 over 3m35s)  kubelet, darkman   Back\-off pulling image \(dqahmadnazir/dummy\-server\(dq
   Warning  Failed             2m33s (x4 over 3m35s)  kubelet, darkman   Error: ImagePullBackOff
 .ft P
 .fi
@@ -3557,9 +3557,9 @@ xfreerdp \-\-no\-nla                           \e
     /cert\-ignore                            \e
     /auto\-reconnect                         \e
     /auto\-reconnect\-max\-retries:3           \e
-    /u:"$user"                              \e
-    /v:"$url"                               \e
-    /p:"$password"
+    /u:\(dq$user\(dq                              \e
+    /v:\(dq$url\(dq                               \e
+    /p:\(dq$password\(dq
 .ft P
 .fi
 .UNINDENT
@@ -3751,7 +3751,7 @@ Find the UUID
 .ft C
 sudo blkid | grep swap
 
-/dev/nvme0n1p3: UUID="0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0" TYPE="swap" PARTLABEL="swap" PARTUUID="27c4a0d6\-687d\-4a29\-a0d3\-5304829dfbff"
+/dev/nvme0n1p3: UUID=\(dq0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0\(dq TYPE=\(dqswap\(dq PARTLABEL=\(dqswap\(dq PARTUUID=\(dq27c4a0d6\-687d\-4a29\-a0d3\-5304829dfbff\(dq
 .ft P
 .fi
 .UNINDENT
@@ -3763,7 +3763,7 @@ Update \fI/etc/default/grub\fP:
 .sp
 .nf
 .ft C
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0"
+GRUB_CMDLINE_LINUX_DEFAULT=\(dqquiet splash resume=UUID=0b784ace\-b11c\-4e78\-9a90\-e4601d6a03c0\(dq
 .ft P
 .fi
 .UNINDENT
@@ -3886,7 +3886,7 @@ Update \fI/etc/default/grub\fP:
 .sp
 .nf
 .ft C
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=5c056ca5\-14ee\-4c9a\-b3c7\-87f0c6998d8f resume_offset=36827136"
+GRUB_CMDLINE_LINUX_DEFAULT=\(dqquiet splash resume=UUID=5c056ca5\-14ee\-4c9a\-b3c7\-87f0c6998d8f resume_offset=36827136\(dq
 .ft P
 .fi
 .UNINDENT
@@ -4133,7 +4133,7 @@ Generate key:
 .sp
 .nf
 .ft C
-ssh\-keygen \-t rsa \-C "mandark"
+ssh\-keygen \-t rsa \-C \(dqmandark\(dq
 .ft P
 .fi
 .UNINDENT
@@ -4192,7 +4192,7 @@ Let’s show \fIRSS\fP in \fIMB\(gas. Create a script and invoke it as \(gawatch
 .sp
 .nf
 .ft C
-ps \-ao %mem,rss,command | grep $1 | grep \-v grep | awk \(aq{$2=int($2/(1024))"MB";}{ print; }\(aq
+ps \-ao %mem,rss,command | grep $1 | grep \-v grep | awk \(aq{$2=int($2/(1024))\(dqMB\(dq;}{ print; }\(aq
 .ft P
 .fi
 .UNINDENT
@@ -4385,48 +4385,6 @@ grep SwapTotal /proc/meminfo
 .SS References
 .sp
 \fI\%https://bogdancornianu.com/change\-swap\-size\-in\-ubuntu/\fP
-.SS Tap click not working
-.INDENT 0.0
-.TP
-.B OS
-Ubuntu 20.04
-.UNINDENT
-.sp
-Find the id of the input device:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-xinput | grep \-i touchpad
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Get the properties for the input device:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-xinput list\-props 23
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-If the tap click is disabled, enable it like this (property name can obviously be different):
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-xinput set\-prop 23 "libinput Tapping Enabled" 1
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
 .SS Calibrate the touch input
 .sp
 This is a problem when dual screen is being used.
@@ -4837,7 +4795,7 @@ hugo new site my\-project
 cd my\-project
 git init .
 git submodule add https://github.com/mitrichius/hugo\-theme\-anubis.git themes/anubis
-echo \(aqtheme = "anubis"\(aq >> config.toml
+echo \(aqtheme = \(dqanubis\(dq\(aq >> config.toml
 hugo new section/topic.md
 hugo server \-w \-D
 .ft P
@@ -4873,16 +4831,16 @@ Considering we have \fIsample.json\fP:
 .sp
 .nf
 .ft C
-cat <<EOT | jq \(aq.items[] | select(.key == "one")\(aq
+cat <<EOT | jq \(aq.items[] | select(.key == \(dqone\(dq)\(aq
 {
-  "items": [
+  \(dqitems\(dq: [
     {
-      "key": "one",
-      "value": "value for one"
+      \(dqkey\(dq: \(dqone\(dq,
+      \(dqvalue\(dq: \(dqvalue for one\(dq
     },
     {
-      "key": "two",
-      "value": "value for two"
+      \(dqkey\(dq: \(dqtwo\(dq,
+      \(dqvalue\(dq: \(dqvalue for two\(dq
     }
   ]
 }
@@ -4899,8 +4857,8 @@ evaluates to:
 .nf
 .ft C
 {
-  "key": "one",
-  "value": "one value"
+  \(dqkey\(dq: \(dqone\(dq,
+  \(dqvalue\(dq: \(dqone value\(dq
 }
 .ft P
 .fi
@@ -4927,15 +4885,15 @@ Get the first element from \fIvalues\fP : \fI\&.values | .[0]\fP or simply \fI\&
 .ft C
 cat <<EOT | jq \(aq.items[] | .one | select(. != null) | .values[0]\(aq
 {
-  "items": [
+  \(dqitems\(dq: [
     {
-      "one": {
-        "values": ["a", "b"]
+      \(dqone\(dq: {
+        \(dqvalues\(dq: [\(dqa\(dq, \(dqb\(dq]
       }
     },
     {
-      "two": {
-        "values": ["c", "d"]
+      \(dqtwo\(dq: {
+        \(dqvalues\(dq: [\(dqc\(dq, \(dqd\(dq]
       }
     }
   ]
@@ -4981,25 +4939,25 @@ Configuration:
 .nf
 .ft C
 {
-  "kernel_python_credentials" : {
-    "username": "{USERNAME}",
-    "base64_password": "{BASE64ENCODEDPASSWORD}",
-    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
+  \(dqkernel_python_credentials\(dq : {
+    \(dqusername\(dq: \(dq{USERNAME}\(dq,
+    \(dqbase64_password\(dq: \(dq{BASE64ENCODEDPASSWORD}\(dq,
+    \(dqurl\(dq: \(dqhttps://{CLUSTERDNSNAME}.azurehdinsight.net/livy\(dq
   },
 
-  "kernel_scala_credentials" : {
-    "username": "{USERNAME}",
-    "base64_password": "{BASE64ENCODEDPASSWORD}",
-    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
+  \(dqkernel_scala_credentials\(dq : {
+    \(dqusername\(dq: \(dq{USERNAME}\(dq,
+    \(dqbase64_password\(dq: \(dq{BASE64ENCODEDPASSWORD}\(dq,
+    \(dqurl\(dq: \(dqhttps://{CLUSTERDNSNAME}.azurehdinsight.net/livy\(dq
   },
 
-  "custom_headers" : {
-    "X\-Requested\-By": "livy"
+  \(dqcustom_headers\(dq : {
+    \(dqX\-Requested\-By\(dq: \(dqlivy\(dq
   },
 
-  "heartbeat_refresh_seconds": 5,
-  "livy_server_heartbeat_timeout_seconds": 60,
-  "heartbeat_retry_seconds": 1
+  \(dqheartbeat_refresh_seconds\(dq: 5,
+  \(dqlivy_server_heartbeat_timeout_seconds\(dq: 60,
+  \(dqheartbeat_retry_seconds\(dq: 1
 }
 .ft P
 .fi
@@ -5636,8 +5594,8 @@ zealous\-mongoose\-my\-service  ClusterIP  10.152.183.114  <none>       80/TCP  
 
 NOTES:
 1. Get the application URL by running these commands:
-  export POD_NAME=$(kubectl get pods \-\-namespace default \-l "app.kubernetes.io/name=my\-service,app.kubernetes.io/instance=zealous\-mongoose" \-o jsonpath="{.items[0].metadata.name}")
-  echo "Visit http://127.0.0.1:8080 to use your application"
+  export POD_NAME=$(kubectl get pods \-\-namespace default \-l \(dqapp.kubernetes.io/name=my\-service,app.kubernetes.io/instance=zealous\-mongoose\(dq \-o jsonpath=\(dq{.items[0].metadata.name}\(dq)
+  echo \(dqVisit http://127.0.0.1:8080 to use your application\(dq
   kubectl port\-forward $POD_NAME 8080:80
 .ft P
 .fi
@@ -5651,7 +5609,7 @@ In order to access the service, it needs to be exposed:
 .sp
 .nf
 .ft C
-export POD_NAME=$(k get pods \-\-namespace default \-l "app.kubernetes.io/name=my\-service,app.kubernetes.io/instance=zealous\-mongoose" \-o jsonpath="{.items[0].metadata.name}")
+export POD_NAME=$(k get pods \-\-namespace default \-l \(dqapp.kubernetes.io/name=my\-service,app.kubernetes.io/instance=zealous\-mongoose\(dq \-o jsonpath=\(dq{.items[0].metadata.name}\(dq)
 k port\-forward $POD_NAME 8088:8088
 .ft P
 .fi
@@ -5673,7 +5631,7 @@ curl localhost:8088
 .sp
 .nf
 .ft C
-alias k="/usr/bin/snap run kubectl $@"
+alias k=\(dq/usr/bin/snap run kubectl $@\(dq
 .ft P
 .fi
 .UNINDENT
@@ -5796,7 +5754,7 @@ Use 3 chars to indent the code snippet.
 
    public static void main()
    {
-     System.out.println("Hello World");
+     System.out.println(\(dqHello World\(dq);
    }
 .ft P
 .fi
@@ -5811,7 +5769,7 @@ Use 3 chars to indent the code snippet.
 .ft C
 public static void main()
 {
-  System.out.println("Hello World");
+  System.out.println(\(dqHello World\(dq);
 }
 .ft P
 .fi
@@ -5828,7 +5786,7 @@ Some code::
 
   public static void main()
   {
-    System.out.println("Hello World");
+    System.out.println(\(dqHello World\(dq);
   }
 .ft P
 .fi
@@ -6235,7 +6193,7 @@ docker run \-it \e
        \-w \(gapwd\(ga \e
        \-v \(gapwd\(ga:\(gapwd\(ga \e
        \-u $UID:$GID \e
-       mozilla/sbt sbt "$@"
+       mozilla/sbt sbt \(dq$@\(dq
 .ft P
 .fi
 .UNINDENT
@@ -6497,7 +6455,7 @@ In the following example, \fIsed\fP is used to remove the first character from t
 .sp
 .nf
 .ft C
-tail \-f nginx.log | awk \(aq{print $4 " " $9; fflush(stdout)}\(aq | sed \(aqs/.//\(aq
+tail \-f nginx.log | awk \(aq{print $4 \(dq \(dq $9; fflush(stdout)}\(aq | sed \(aqs/.//\(aq
 .ft P
 .fi
 .UNINDENT
@@ -6540,7 +6498,7 @@ Argument 1 is not specified:
 .nf
 .ft C
 if [ \-z $1 ]; then
-  echo "Not specified"
+  echo \(dqNot specified\(dq
 fi
 .ft P
 .fi
@@ -6553,7 +6511,7 @@ One liner:
 .sp
 .nf
 .ft C
-[ \-z $1 ] && echo "Not specified"
+[ \-z $1 ] && echo \(dqNot specified\(dq
 .ft P
 .fi
 .UNINDENT
@@ -6601,7 +6559,7 @@ One liner to go to the directory where the file lives:
 .sp
 .nf
 .ft C
-cd "$(dirname "$(realpath "$0")")"
+cd \(dq$(dirname \(dq$(realpath \(dq$0\(dq)\(dq)\(dq
 .ft P
 .fi
 .UNINDENT
@@ -6627,7 +6585,7 @@ Assuming that the jwt is in the \fItoken.json\fP file:
 .sp
 .nf
 .ft C
-cat token.json | cut \-d"." \-f2 | base64 \-\-decode \-i | jq "."
+cat token.json | cut \-d\(dq.\(dq \-f2 | base64 \-\-decode \-i | jq \(dq.\(dq
 .ft P
 .fi
 .UNINDENT
@@ -6639,7 +6597,7 @@ Or create an alias:
 .sp
 .nf
 .ft C
-alias jwt\-decode=\(aqcut \-d"." \-f2 \- | base64 \-\-decode \-i | jq "."\(aq
+alias jwt\-decode=\(aqcut \-d\(dq.\(dq \-f2 \- | base64 \-\-decode \-i | jq \(dq.\(dq\(aq
 cat token.json | jwt\-decode
 .ft P
 .fi
@@ -6711,7 +6669,7 @@ In zsh:
 .sp
 .nf
 .ft C
-read "?Press enter to continue... "
+read \(dq?Press enter to continue... \(dq
 echo $REPLY
 .ft P
 .fi
@@ -6724,7 +6682,7 @@ In bash:
 .sp
 .nf
 .ft C
-read \-p "Press enter to continue... "
+read \-p \(dqPress enter to continue... \(dq
 echo $REPLY
 .ft P
 .fi
@@ -7098,7 +7056,7 @@ docker run \e
   \-w /local \e
   \-\-rm \e
   \-u $UID:$GID \e
-  \-v "${PWD}:/local" \e
+  \-v \(dq${PWD}:/local\(dq \e
   openapitools/openapi\-generator\-cli generate \e
   \-\-skip\-validate\-spec \e
   \-i http://localhost:3000/docs/api/internal\-json \e
@@ -7167,16 +7125,16 @@ Considering we have \fIsample.json\fP:
 .sp
 .nf
 .ft C
-cat <<EOT | jq \(aq.items[] | select(.key == "one")\(aq
+cat <<EOT | jq \(aq.items[] | select(.key == \(dqone\(dq)\(aq
 {
-  "items": [
+  \(dqitems\(dq: [
     {
-      "key": "one",
-      "value": "value for one"
+      \(dqkey\(dq: \(dqone\(dq,
+      \(dqvalue\(dq: \(dqvalue for one\(dq
     },
     {
-      "key": "two",
-      "value": "value for two"
+      \(dqkey\(dq: \(dqtwo\(dq,
+      \(dqvalue\(dq: \(dqvalue for two\(dq
     }
   ]
 }
@@ -7193,8 +7151,8 @@ evaluates to:
 .nf
 .ft C
 {
-  "key": "one",
-  "value": "one value"
+  \(dqkey\(dq: \(dqone\(dq,
+  \(dqvalue\(dq: \(dqone value\(dq
 }
 .ft P
 .fi
@@ -7221,15 +7179,15 @@ Get the first element from \fIvalues\fP : \fI\&.values | .[0]\fP or simply \fI\&
 .ft C
 cat <<EOT | jq \(aq.items[] | .one | select(. != null) | .values[0]\(aq
 {
-  "items": [
+  \(dqitems\(dq: [
     {
-      "one": {
-        "values": ["a", "b"]
+      \(dqone\(dq: {
+        \(dqvalues\(dq: [\(dqa\(dq, \(dqb\(dq]
       }
     },
     {
-      "two": {
-        "values": ["c", "d"]
+      \(dqtwo\(dq: {
+        \(dqvalues\(dq: [\(dqc\(dq, \(dqd\(dq]
       }
     }
   ]
@@ -8237,7 +8195,7 @@ apt install grub2
 .sp
 .nf
 .ft C
-echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
+echo \(dqGRUB_ENABLE_CRYPTODISK=y\(dq >> /etc/default/grub
 update\-grub
 .ft P
 .fi
@@ -8295,6 +8253,53 @@ Update the EFI boot directory:
 apt install grub\-efi
 BOOTLOADER_ID=? # customize accordingly
 grub\-install \-\-target=x86_64\-efi \-\-efi\-directory=/efi \-\-bootloader\-id=${BOOTLOADER_ID}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Tap click / Natural Scrolling
+.sp
+Find the id of the input device:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xinput | grep \-i touchpad
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Get the properties for the input device:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xinput list\-props 22
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If the tap click is disabled, enable it like this (property name can obviously be different):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xinput set\-prop 22 \(dqlibinput Tapping Enabled\(dq 1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xinput set\-prop 22 \(dqlibinput Natural Scrolling Enabled\(dq 1
 .ft P
 .fi
 .UNINDENT
