@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Oct 10, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Nov 08, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -8300,6 +8300,45 @@ xinput set\-prop 22 \(dqlibinput Tapping Enabled\(dq 1
 .nf
 .ft C
 xinput set\-prop 22 \(dqlibinput Natural Scrolling Enabled\(dq 1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS NVM
+.sp
+NVM is node version manager
+.sp
+Current node version:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nvm current
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Set default node version:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nvm alias default 16
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Use version specific to a repo (or pick from \fI\&.nvmrc\fP file):
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nvm use
 .ft P
 .fi
 .UNINDENT
