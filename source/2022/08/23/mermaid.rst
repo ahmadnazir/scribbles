@@ -21,6 +21,18 @@ Insall npm package (Requires node 14):
 
    watch-file mermaid.mmd ./node_modules/.bin/mmdc -i mermaid.mmd -o mermaid.png
 
+Example
+-------
+
+`example.mmd`:
+
+::
+
+   ```mermaid
+   flowchart TB
+     A-->B
+     A-->C
+   ```
 
 Flowchart
 ---------
