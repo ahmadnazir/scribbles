@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Nov 08, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Nov 17, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -7723,6 +7723,23 @@ npm install @mermaid\-js/mermaid\-cli
 .nf
 .ft C
 watch\-file mermaid.mmd ./node_modules/.bin/mmdc \-i mermaid.mmd \-o mermaid.png
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Example
+.sp
+\fIexample.mmd\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\(ga\(ga\(gamermaid
+flowchart TB
+  A\-\->B
+  A\-\->C
+\(ga\(ga\(ga
 .ft P
 .fi
 .UNINDENT
