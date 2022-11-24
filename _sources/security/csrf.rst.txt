@@ -82,8 +82,8 @@ domain requests but it is a security measure that requires the frontend to work
 as well i.e. the browser. Furthermore, CORS doesn't send preflight requests for
 'simple requests' e.g. GET requests, POST requests with certain values for
 Content-Type. So generally speaking, we can't rely on CORS for protection. An
-app that has a GET endpoint making state changes could be exploited even with
-CORS.
+app that has a GET endpoint that is doing state changes behind the scenes could
+be exploited even if CORS is configured:
 
  `simple requests`: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests
 
