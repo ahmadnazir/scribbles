@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Nov 17, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Nov 24, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -6382,8 +6382,8 @@ domain requests but it is a security measure that requires the frontend to work
 as well i.e. the browser. Furthermore, CORS doesn’t send preflight requests for
 ‘simple requests’ e.g. GET requests, POST requests with certain values for
 Content\-Type. So generally speaking, we can’t rely on CORS for protection. An
-app that has a GET endpoint making state changes could be exploited even with
-CORS.
+app that has a GET endpoint that is doing state changes behind the scenes could
+be exploited even if CORS is configured:
 .INDENT 0.0
 .INDENT 3.5
 \fIsimple requests\fP: \fI\%https://developer.mozilla.org/en\-US/docs/Web/HTTP/CORS#simple_requests\fP
@@ -8360,6 +8360,60 @@ nvm use
 .fi
 .UNINDENT
 .UNINDENT
+.SS Think clearly
+.SS Books
+.INDENT 0.0
+.IP \(bu 2
+“Influence” by Robert B. Cialdini: \fI\%https://www.goodreads.com/book/show/28815.Influence\fP
+.IP \(bu 2
+“The ARt of Thinking Clearly” by Rolf Dobelli: \fI\%https://www.goodreads.com/book/show/16248196\-the\-art\-of\-thinking\-clearly\fP
+.UNINDENT
+.SS Talks
+.INDENT 0.0
+.IP \(bu 2
+“Psychology of human misjudgement” by Charlie Munger: \fI\%https://youtu.be/Jv7sLrON7QY\fP
+.UNINDENT
+.SS Tools
+.INDENT 0.0
+.IP \(bu 2
+Untools: \fI\%https://untools.co/\fP
+.UNINDENT
+.SS Preflight Requests
+.sp
+A preflight request is a CORS (Cross Origin Request Sharing) request to check if the CORS protocol is understood by the server.
+.sp
+Understanding CORS is a prerequisite for understanding preflight requests. Here are some rules:
+.INDENT 0.0
+.IP \(bu 2
+CORS is basically a front\-end safety mechanism. For older browsers, this doesn’t work even if the server supports it.
+.IP \(bu 2
+CORS only applies to AJAX (XHR) requests.
+.IP \(bu 2
+CORS for cross domain form posting doesn’t apply (for backward compatibility reasons)
+.UNINDENT
+.sp
+For \fIsimple requests\fP, preflight requests are not sent. In a nut\-shell, a simple request can be either:
+.INDENT 0.0
+.IP \(bu 2
+A request with method \fIGET\fP, \fIHEAD\fP, or \fIPOST\fP
+.IP \(bu 2
+POST requests with certain values for \fIContent\-Type\fP header
+.IP \(bu 2
+Only some headers are allowed
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+\fIsimple requests\fP: \fI\%https://developer.mozilla.org/en\-US/docs/Web/HTTP/CORS#simple_requests\fP
+.UNINDENT
+.UNINDENT
+.SS Caching preflight requests
+.sp
+Caching pre\-flight requests can be done using the header: \fIAccess\-Control\-Max\-Age\fP\&.
+.sp
+The cache works for exactly the same url used before. If anything changes e.g.
+query param due to search, the cache isn’t used.
+.sp
+\fI\%https://developer.mozilla.org/en\-US/docs/Web/HTTP/Headers/Access\-Control\-Max\-Age\fP
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT
