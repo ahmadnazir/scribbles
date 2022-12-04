@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Nov 24, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Dec 04, 2022" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -8414,6 +8414,35 @@ The cache works for exactly the same url used before. If anything changes e.g.
 query param due to search, the cache isn’t used.
 .sp
 \fI\%https://developer.mozilla.org/en\-US/docs/Web/HTTP/Headers/Access\-Control\-Max\-Age\fP
+.SS HTTP
+.SS HTTP 1
+.sp
+Published in 1996.
+.sp
+Each request requires a separate TCP connection.
+.SS HTTP 1.1
+.sp
+Published one year later in 1997.
+.sp
+Introduced a \fIkeep\-alive\fP mechanism which make it possible to use the same TCP connection for multiple requests. This reduces network latencies (no need to initiate expensive TCP handshake for every request).
+.sp
+Also introduced \fIpipelining\fP\&. In theory, this allows the client to send multiple requests before getting each response. The response must be received in the same order as the request. Tricky to implement and support was eventually removed from browsers.
+.sp
+Also suffers from \fIhead\-of\-line\-blocking\fP (HOL blocking). Requests should wait for the previous requests to complete on the same connection. If a request is blocked from any reason (packet loss, etc), affects performance.
+.SS HTTP 2
+.sp
+Published in 2015.
+.sp
+Introduces \fIstreams\fP\&. Multiple streams in the same connection and they are independent. This solves the issue of HOL blocking on the application layer but the issue still exists on the tcp layer.
+.sp
+Also introduces \fIpush capability\fP\&.
+.SS HTTP 3
+.sp
+Draft in 2020. Published in 2022.
+.sp
+Uses \fIQUIC\fP instead of \fITCP\fP\&. QUIC uses UDP. Packet stream affecting one stream doesn’t affect the other.
+.sp
+With TCP, network switching is sluggish. With QUIC, there is a concept called \fIconnection id\fP which does network switching reliably.
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT
