@@ -7,14 +7,31 @@ Images
 .. code::
 
 
-    |ImageLink|_
+    |RemoteImage|_
 
-    .. |ImageLink| image:: https://www.brainonfire.net/files/seqs-and-colls/collection-properties-venn.png
-    .. _ImageLink: https://www.brainonfire.net/files/seqs-and-colls/main.html
+    .. |RemoteImage| image:: https://www.brainonfire.net/files/seqs-and-colls/collection-properties-venn.png
+    .. _RemoteImage: https://www.brainonfire.net/files/seqs-and-colls/main.html
 
 renders to:
 
-|ImageLink|_
+|RemoteImage|_
 
-.. |ImageLink| image:: https://www.brainonfire.net/files/seqs-and-colls/collection-properties-venn.png
-.. _ImageLink: https://www.brainonfire.net/files/seqs-and-colls/main.html
+.. |RemoteImage| image:: https://www.brainonfire.net/files/seqs-and-colls/collection-properties-venn.png
+.. _RemoteImage: https://www.brainonfire.net/files/seqs-and-colls/main.html
+
+
+To use a local image, use:
+
+
+.. code::
+
+
+    |LocalImage|_
+
+    .. |LocalImage| image:: local.jpg
+    .. _LocalImage: https://www.tripadvisor.dk/Restaurant_Review-g189158-d12936952-Reviews-Local-Lisbon_Lisbon_District_Central_Portugal.html
+
+|LocalImage|_
+
+.. |LocalImage| image:: local.jpg
+.. _LocalImage: https://www.tripadvisor.dk/Restaurant_Review-g189158-d12936952-Reviews-Local-Lisbon_Lisbon_District_Central_Portugal.html
