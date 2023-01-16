@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Dec 24, 2022" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jan 16, 2023" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -5818,10 +5818,10 @@ This project uses \fI=\fP and \fI\-\fP as there are no parts or chapters.
 .sp
 .nf
 .ft C
-|ImageLink|_
+|RemoteImage|_
 
-\&.. |ImageLink| image:: https://www.brainonfire.net/files/seqs\-and\-colls/collection\-properties\-venn.png
-\&.. _ImageLink: https://www.brainonfire.net/files/seqs\-and\-colls/main.html
+\&.. |RemoteImage| image:: https://www.brainonfire.net/files/seqs\-and\-colls/collection\-properties\-venn.png
+\&.. _RemoteImage: https://www.brainonfire.net/files/seqs\-and\-colls/main.html
 .ft P
 .fi
 .UNINDENT
@@ -5829,7 +5829,24 @@ This project uses \fI=\fP and \fI\-\fP as there are no parts or chapters.
 .sp
 renders to:
 .sp
-\fI\%ImageLink\fP
+\fI\%RemoteImage\fP
+.sp
+To use a local image, use:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+|LocalImage|_
+
+\&.. |LocalImage| image:: local.jpg
+\&.. _LocalImage: https://www.tripadvisor.dk/Restaurant_Review\-g189158\-d12936952\-Reviews\-Local\-Lisbon_Lisbon_District_Central_Portugal.html
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fI\%LocalImage\fP
 .SS Links
 .SS External links
 .INDENT 0.0
@@ -8294,7 +8311,7 @@ Get the properties for the input device:
 .sp
 .nf
 .ft C
-xinput list\-props 22
+xinput list\-props 18
 .ft P
 .fi
 .UNINDENT
@@ -8306,7 +8323,7 @@ If the tap click is disabled, enable it like this (property name can obviously b
 .sp
 .nf
 .ft C
-xinput set\-prop 22 \(dqlibinput Tapping Enabled\(dq 1
+xinput set\-prop 18 \(dqlibinput Tapping Enabled\(dq 1
 .ft P
 .fi
 .UNINDENT
@@ -8316,7 +8333,7 @@ xinput set\-prop 22 \(dqlibinput Tapping Enabled\(dq 1
 .sp
 .nf
 .ft C
-xinput set\-prop 22 \(dqlibinput Natural Scrolling Enabled\(dq 1
+xinput set\-prop 18 \(dqlibinput Natural Scrolling Enabled\(dq 1
 .ft P
 .fi
 .UNINDENT
@@ -8449,6 +8466,54 @@ With TCP, network switching is sluggish. With QUIC, there is a concept called \f
 .sp
 Copy a link: \fIorg\-store\-link\fP or \fISPC a o l\fP
 Past the link: \fIorg\-insert\-link\-global\fP
+.SS nmcli
+.sp
+Wifi Status
+.sp
+\fB\(ga
+# general
+nmcli g
+\(ga\fP
+.sp
+Rescan
+\fB\(ga
+# device
+nmcli d wifi rescan
+\(ga\fP
+.sp
+Get all wifi networks
+\fB\(ga
+# device
+nmcli d wifi
+\(ga\fP
+.sp
+Connect to a network where \fINAME\fP is the name of the network
+\fB\(ga
+# device
+nmcli d wifi connect ${NAME} \-\-ask
+\(ga\fP
+.SS myers\-briggs
+.sp
+Myers\-Briggs Type Indicator (MBTI) is a type of personality tests that categorizes people in the following groups:
+.INDENT 0.0
+.IP \(bu 2
+Extraversion (E) vs Introversion (I) : Do you get energy from outside vs inside?
+.IP \(bu 2
+Sensing (S) vs Intuition (N) : Do you evaluate based on reality or what could be?
+.IP \(bu 2
+Thinking (T) vs Feeling (F) : For making decisions, do you use logic vs personal values?
+.IP \(bu 2
+Judging (J) vs Perceiving (P) : Do you live your life with a plan or spontaneously?
+.UNINDENT
+.sp
+Using the categories above, there are a total of 16 possibilities. I am a ISTJ
+(also referred to as a ‘Logistician’ or ‘Inspector’). Accoring to
+\fI\%https://personalitymax.com/personality\-types/population\-gender/\fP, it is about
+11.6% of the population (US?).
+.sp
+\fI\%ImageLink\fP
+.sp
+\fI\%https://personalitymax.com/personality\-types/population\-gender/\fP
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT

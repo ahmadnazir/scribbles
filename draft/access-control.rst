@@ -8,14 +8,19 @@ Following are the different types of access control mechanisms:
 
 #. Mandatory Access Control (MAC)
 
-   The policy is centrally controlled by an admin. A `subject` trying to access an `object`
-   can't do didly squat to change the policy.
+   Controlled by an admin.
 
-#. RBAC
+#. Discretionary Access Control (DAC)
 
-   test
+   Controlled by the users who own the data (or at the discretion of the owner).
 
-#. DAC
+#. Role based Access Control (RBAC)
 
-#. RuBAC
+   Users with specific roles can access the data.
+   It is usually the admins who assign roles to users.
+
+
+#. Rule based Access Control (RuBAC)
+
+   I think this is the same as policy based.
 
