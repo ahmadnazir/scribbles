@@ -11,15 +11,9 @@ Myers-Briggs Type Indicator (MBTI) is a type of personality tests that categoriz
 - Thinking (T) vs Feeling (F) : For making decisions, do you use logic vs personal values?
 - Judging (J) vs Perceiving (P) : Do you live your life with a plan or spontaneously?
 
-Using the categories above, there are a total of 16 possibilities. I am a ISTJ
-(also referred to as a 'Logistician' or 'Inspector'). Accoring to
-https://personalitymax.com/personality-types/population-gender/, it is about
-11.6% of the population (US?).
+Apparently, I am an `INTJ`.
 
 |ImageLink|_
 
 .. |ImageLink| image:: mbti.png
 .. _ImageLink: https://blog.adioma.com/16-personality-types/
-
-
-https://personalitymax.com/personality-types/population-gender/
