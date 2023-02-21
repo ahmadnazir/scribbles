@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>NPM Dependencies &#8212; Scribbles 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Code formatting" href="../29/code-formatting.html" />
+    <link rel="prev" title="myers-briggs" href="../16/myers-briggs.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+
+
+
+  <section id="npm-dependencies">
+<h1>NPM Dependencies<a class="headerlink" href="#npm-dependencies" title="Permalink to this heading">¶</a></h1>
+<section id="dependencies">
+<h2>dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
+<p>Installed transitively e.g. two packages <cite>A</cite> and <cite>B</cite> have to be installed and each depend on a different version of <cite>C</cite>, then the following graph is installed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="n">_</span> <span class="n">A</span>
+<span class="o">|</span>  <span class="o">|</span><span class="n">_</span> <span class="n">C</span> <span class="o">@</span> <span class="mf">1.0</span>
+<span class="o">|</span>
+<span class="o">|</span><span class="n">_</span> <span class="n">B</span>
+   <span class="o">|</span><span class="n">_</span> <span class="n">C</span> <span class="o">@</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+<p>Two different versions of <cite>C</cite> are installed and everything works.</p>
+</section>
+<section id="devdependencies">
+<h2>devDependencies<a class="headerlink" href="#devdependencies" title="Permalink to this heading">¶</a></h2>
+<p>Not installed transitively</p>
+</section>
+<section id="peerdependencies">
+<h2>peerDependencies<a class="headerlink" href="#peerdependencies" title="Permalink to this heading">¶</a></h2>
+<p>However, this handles the <em>plugin</em> scenario i.e. when installing a dependencies that implements some interface determined by the host library, then we have to make sure that the dependency works correctly. Having multiple versions of the host might create problems.</p>
+<p>Consider the case as before but this time we also want to install <cite>C*</cite> which can only work with a specific version of <cite>C*</cite>, then we need to make sure to specify which version D is compatible with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span>
+ <span class="o">|</span><span class="n">_</span> <span class="n">A</span>
+ <span class="o">|</span>  <span class="o">|</span><span class="n">_</span> <span class="n">C</span> <span class="o">@</span> <span class="mf">1.0</span>
+ <span class="o">|</span>
+ <span class="o">|</span><span class="n">_</span> <span class="n">B</span>
+ <span class="o">|</span>  <span class="o">|</span><span class="n">_</span> <span class="n">C</span> <span class="o">@</span> <span class="mf">2.0</span>
+ <span class="o">|</span>
+ <span class="o">|</span><span class="n">_</span> <span class="n">C</span><span class="o">*</span>          <span class="o">&lt;--</span> <span class="n">Plugin</span> <span class="n">of</span> <span class="n">C</span>
+     <span class="o">|</span><span class="n">_</span> <span class="n">C</span> <span class="o">@</span> <span class="mf">2.0</span>
+
+<span class="n">peerDependencies</span>
+ <span class="o">|</span><span class="n">_</span> <span class="n">C</span> <span class="o">@</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+<p>Now, <cite>npm install</cite> will throw a conflict error because <cite>A</cite> depends on an incompatible version of <cite>C</cite>.</p>
+</section>
+<section id="optionaldependencies">
+<h2>optionalDependencies<a class="headerlink" href="#optionaldependencies" title="Permalink to this heading">¶</a></h2>
+<p>As the name suggests, they are optional, which means that when running <cite>npm install</cite>, no error is thrown if the dependency can’t be resolved for some reason.</p>
+</section>
+<section id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Permalink to this heading">¶</a></h2>
+<section id="what-is-transitivity">
+<h3>What is transitivity?<a class="headerlink" href="#what-is-transitivity" title="Permalink to this heading">¶</a></h3>
+<p>If <cite>A</cite> depends on <cite>B</cite>, <cite>B</cite> depends on <cite>C</cite>, then <cite>C</cite> also gets installed</p>
+</section>
+<section id="are-peer-dependencies-installed-on-npm-install">
+<h3>Are peer dependencies installed on <cite>npm install</cite>?<a class="headerlink" href="#are-peer-dependencies-installed-on-npm-install" title="Permalink to this heading">¶</a></h3>
+<p>Not sure, I have to try it out. The documentation is a bit confusing. It mentions that they are installed by default but then you can also say that they are optional using <cite>peerDependenciesMeta</cite> - so I am not sure.</p>
+</section>
+</section>
+</section>
+
+
+
+
+<br/>
+<hr/>
+<br/>
+
+  
+<ul>
+         
+<li id="tags">
+  <span
+    >Tag:</span
+  >
+   
+  <a href="../../../blog/tag/npm.html">npm</a>  
+</li>
+ 
+</ul>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YC5DWCFPCW"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'G-YC5DWCFPCW');
+</script>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script><!-- Modified from: https://github.com/sunpy/ablog/blob/main/ablog/templates/recentposts.html -->
+
+<br />
+<h3>
+    <a href="../../../blog.html">Recent Posts</a>
+</h3>
+<ul>
+     
+    <li>
+        
+        <a href="../../02/21/watch-and-run-typescript-file.html"
+        >21 February - Watch and run typescript file</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../29/nx.html"
+        >29 January - nx</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../29/code-formatting.html"
+        >29 January - Code formatting</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+          <b>
+        
+        <a href="#"
+        >21 January - NPM Dependencies</a
+                           >
+        
+          </b>
+        
+    </li>
+    
+    <li>
+        
+        <a href="../16/myers-briggs.html"
+        >16 January - myers-briggs</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2022/12/28/nmcli.html"
+        >28 December - nmcli</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2022/12/24/org-links.html"
+        >24 December - Org links</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2022/11/24/pre-flight-requests.html"
+        >24 November - Preflight Requests</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2022/11/21/think-clearly.html"
+        >21 November - Think clearly</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2022/10/10/tap-click-and-natural-scrolling.html"
+        >10 October - Tap click / Natural Scrolling</a
+                           >
+        
+    </li>
+    
+</ul>
+
+<h3><a href="../../../blog/tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/agile.html">agile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/ai.html">ai</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/arch.html">arch</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/azure.html">azure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/business.html">business</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../../../blog/tag/clojure.html">clojure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/clojurescript.html">clojurescript</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/code.html">code</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/courses.html">courses</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/cs.html">cs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/csharp.html">csharp</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/debian.html">debian</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/docker.html">docker</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/documentation.html">documentation</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/dotnet.html">dotnet</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/emacs.html">emacs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/framework.html">framework</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/git.html">git</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/grub.html">grub</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/http.html">http</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/identity.html">identity</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/imagemagick.html">imagemagick</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/java.html">java</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/jobs.html">jobs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/kubernetes.html">kubernetes</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/lint.html">lint</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../../../blog/tag/linux.html">linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../../../blog/tag/misc.html">misc</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/networking.html">networking</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/nmcli.html">nmcli</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/node.html">node</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/notes.html">notes</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/npm.html">npm</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/nx.html">nx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/org.html">org</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/pacman.html">pacman</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/people.html">people</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/personality.html">personality</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/provision.html">provision</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/python.html">python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/questions.html">questions</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/restructuredtext.html">restructuredtext</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/rust.html">rust</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/scala.html">scala</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/security.html">security</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../../../blog/tag/shell.html">shell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/signatures.html">signatures</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/spark.html">spark</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/talks.html">talks</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/testing.html">testing</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/typescript.html">typescript</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/ubuntu.html">ubuntu</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/vim.html">vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/visualstudio.html">visualstudio</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/web.html">web</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/wifi.html">wifi</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/windows.html">windows</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/yay.html">yay</a>
+  </li>
+   
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Ahmad Nazir Raja.
+      
+      |
+      <a href="../../../_sources/2023/01/21/npm-dependencies.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

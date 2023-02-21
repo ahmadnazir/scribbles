@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jan 17, 2023" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Feb 21, 2023" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -4510,71 +4510,6 @@ sudo virt\-install \-\-name=win10 \-\-os\-variant=win10 \-\-vcpu=4 \-\-ram=12288
 .fi
 .UNINDENT
 .UNINDENT
-.SS Wifi
-.sp
-Restart wifi:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-sudo service network\-manager restart
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Scan the network:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-sudo iwlist wlp2s0 scan | grep SSID
-
-# or maybe use the newer:
-
-nmcli \-\-ask dev wifi rescan
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-List the networks
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-nmcli dev wifi list
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Connect to a network:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-nmcli \-\-ask dev wifi connect
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Disconnect the device:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-nmcli dev disconnect wlp2s0
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
 .SS 021Disrupt
 .sp
 \fI\%p@sha\fP : Pakistan Software Houses Association
@@ -8311,7 +8246,7 @@ Get the properties for the input device:
 .sp
 .nf
 .ft C
-xinput list\-props 18
+xinput list\-props 22
 .ft P
 .fi
 .UNINDENT
@@ -8323,7 +8258,7 @@ If the tap click is disabled, enable it like this (property name can obviously b
 .sp
 .nf
 .ft C
-xinput set\-prop 18 \(dqlibinput Tapping Enabled\(dq 1
+xinput set\-prop 22 \(dqlibinput Tapping Enabled\(dq 1
 .ft P
 .fi
 .UNINDENT
@@ -8333,7 +8268,7 @@ xinput set\-prop 18 \(dqlibinput Tapping Enabled\(dq 1
 .sp
 .nf
 .ft C
-xinput set\-prop 18 \(dqlibinput Natural Scrolling Enabled\(dq 1
+xinput set\-prop 22 \(dqlibinput Natural Scrolling Enabled\(dq 1
 .ft P
 .fi
 .UNINDENT
@@ -8470,28 +8405,54 @@ Past the link: \fIorg\-insert\-link\-global\fP
 .sp
 Wifi Status
 .sp
-\fB\(ga
-# general
+General
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
 nmcli g
-\(ga\fP
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .sp
 Rescan
-\fB\(ga
-# device
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
 nmcli d wifi rescan
-\(ga\fP
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .sp
 Get all wifi networks
-\fB\(ga
-# device
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
 nmcli d wifi
-\(ga\fP
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .sp
 Connect to a network where \fINAME\fP is the name of the network
-\fB\(ga
-# device
-nmcli d wifi connect ${NAME} \-\-ask
-\(ga\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nmcli d wifi connect ${NAME} password PASSWORD
+nmcli d wifi connect ${NAME} \-\-ask # this didn\(aqt work for some reason \- will try again
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS myers\-briggs
 .sp
 Myers\-Briggs Type Indicator (MBTI) is a type of personality tests that categorizes people in the following groups:
@@ -8509,6 +8470,125 @@ Judging (J) vs Perceiving (P) : Do you live your life with a plan or spontaneous
 Apparently, I am an \fIINTJ\fP\&.
 .sp
 \fI\%ImageLink\fP
+.SS NPM Dependencies
+.SS dependencies
+.sp
+Installed transitively e.g. two packages \fIA\fP and \fIB\fP have to be installed and each depend on a different version of \fIC\fP, then the following graph is installed:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+|_ A
+|  |_ C @ 1.0
+|
+|_ B
+   |_ C @ 2.0
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Two different versions of \fIC\fP are installed and everything works.
+.SS devDependencies
+.sp
+Not installed transitively
+.SS peerDependencies
+.sp
+However, this handles the \fIplugin\fP scenario i.e. when installing a dependencies that implements some interface determined by the host library, then we have to make sure that the dependency works correctly. Having multiple versions of the host might create problems.
+.sp
+Consider the case as before but this time we also want to install \fIC*\fP which can only work with a specific version of \fIC*\fP, then we need to make sure to specify which version D is compatible with
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dependencies
+ |_ A
+ |  |_ C @ 1.0
+ |
+ |_ B
+ |  |_ C @ 2.0
+ |
+ |_ C*          <\-\- Plugin of C
+     |_ C @ 2.0
+
+peerDependencies
+ |_ C @ 2.0
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Now, \fInpm install\fP will throw a conflict error because \fIA\fP depends on an incompatible version of \fIC\fP\&.
+.SS optionalDependencies
+.sp
+As the name suggests, they are optional, which means that when running \fInpm install\fP, no error is thrown if the dependency can’t be resolved for some reason.
+.SS Questions
+.SS What is transitivity?
+.sp
+If \fIA\fP depends on \fIB\fP, \fIB\fP depends on \fIC\fP, then \fIC\fP also gets installed
+.SS Are peer dependencies installed on \fInpm install\fP?
+.sp
+Not sure, I have to try it out. The documentation is a bit confusing. It mentions that they are installed by default but then you can also say that they are optional using \fIpeerDependenciesMeta\fP \- so I am not sure.
+.SS Code formatting
+.sp
+There are a number of tools to format code with potentially overlapping features:
+.SS Editor Config
+.sp
+Ensures that code rules are followed as code is being written e.g. spaces vs tabs, indentation, etc
+.sp
+Rules are stored in \fI\&.editorconfig\fP
+.SS Prettier
+.sp
+Fixes code after it has been written by transforming code accoring to the rules.
+.sp
+e.g. rules are stored in \fI\&.prettierrc\fP
+.SS Eslint
+.sp
+Ensures code quality according to the configured rules by statically analyzing the code.
+.sp
+e.g. rules are store in \fI\&.eslintrc\fP
+.sp
+Reference: \fI\%https://stackoverflow.com/q/48363647\fP
+.SS nx
+.sp
+Create a new project:
+.sp
+\fB\(ga
+npx create\-nx\-workspace \-\-preset=ts
+\(ga\fP
+.sp
+Create a cli app:
+.sp
+\fB\(ga
+npm install \-\-save\-dev @nrwl/node
+nx generate @nrwl/node:app cli
+nx serve cli
+\(ga\fP
+.SS Watch and run typescript file
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+npx tsc \-\-init
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Assuming that you want to compile and watch \fImain.ts\fP, then compile it and run the \fI\&.js\fP equivalent:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+npx tsc\-watch \-\-project . \-\-onSuccess \(aqnpx ts\-node main.js\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT

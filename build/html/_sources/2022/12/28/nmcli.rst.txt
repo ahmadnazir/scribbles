@@ -6,25 +6,27 @@ nmcli
 
 Wifi Status
 
-```
-# general
-nmcli g
-```
+General
+
+::
+
+   nmcli g
 
 Rescan
-```
-# device
-nmcli d wifi rescan
-```
+
+::
+
+   nmcli d wifi rescan
 
 Get all wifi networks
-```
-# device
-nmcli d wifi
-```
+
+::
+
+   nmcli d wifi
 
 Connect to a network where `NAME` is the name of the network
-```
-# device
-nmcli d wifi connect ${NAME} --ask
-```
+
+::
+
+   nmcli d wifi connect ${NAME} password PASSWORD
+   nmcli d wifi connect ${NAME} --ask # this didn't work for some reason - will try again
