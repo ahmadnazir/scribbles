@@ -15,16 +15,16 @@ Get the properties for the input device:
 
 ::
 
-   xinput list-props 18
+   xinput list-props 22
 
 
 If the tap click is disabled, enable it like this (property name can obviously be different):
 
 ::
 
-   xinput set-prop 18 "libinput Tapping Enabled" 1
+   xinput set-prop 22 "libinput Tapping Enabled" 1
 
 
 ::
 
-   xinput set-prop 18 "libinput Natural Scrolling Enabled" 1
+   xinput set-prop 22 "libinput Natural Scrolling Enabled" 1

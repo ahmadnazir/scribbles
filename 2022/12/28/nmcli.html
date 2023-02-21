@@ -40,25 +40,23 @@
   <section id="nmcli">
 <h1>nmcli<a class="headerlink" href="#nmcli" title="Permalink to this heading">¶</a></h1>
 <p>Wifi Status</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">#</span> <span class="pre">general</span>
-<span class="pre">nmcli</span> <span class="pre">g</span>
-<span class="pre">`</span></code></p>
-<p>Rescan
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">#</span> <span class="pre">device</span>
-<span class="pre">nmcli</span> <span class="pre">d</span> <span class="pre">wifi</span> <span class="pre">rescan</span>
-<span class="pre">`</span></code></p>
-<p>Get all wifi networks
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">#</span> <span class="pre">device</span>
-<span class="pre">nmcli</span> <span class="pre">d</span> <span class="pre">wifi</span>
-<span class="pre">`</span></code></p>
-<p>Connect to a network where <cite>NAME</cite> is the name of the network
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">#</span> <span class="pre">device</span>
-<span class="pre">nmcli</span> <span class="pre">d</span> <span class="pre">wifi</span> <span class="pre">connect</span> <span class="pre">${NAME}</span> <span class="pre">--ask</span>
-<span class="pre">`</span></code></p>
+<p>General</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">g</span>
+</pre></div>
+</div>
+<p>Rescan</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">d</span> <span class="n">wifi</span> <span class="n">rescan</span>
+</pre></div>
+</div>
+<p>Get all wifi networks</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">d</span> <span class="n">wifi</span>
+</pre></div>
+</div>
+<p>Connect to a network where <cite>NAME</cite> is the name of the network</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>nmcli d wifi connect ${NAME} password PASSWORD
+nmcli d wifi connect ${NAME} --ask # this didn&#39;t work for some reason - will try again
+</pre></div>
+</div>
 </section>
 
 
@@ -76,9 +74,9 @@
     >Tags: </span
   >
    
-  <a href="../../../blog/tag/wifi.html">wifi</a>   
+  <a href="../../../blog/tag/linux.html">linux</a>   
   <a href="../../../blog/tag/nmcli.html">nmcli</a>   
-  <a href="../../../blog/tag/linux.html">linux</a>  
+  <a href="../../../blog/tag/wifi.html">wifi</a>  
 </li>
  
 </ul>
@@ -118,6 +116,38 @@
 </h3>
 <ul>
      
+    <li>
+        
+        <a href="../../../2023/02/21/watch-and-run-typescript-file.html"
+        >21 February - Watch and run typescript file</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2023/01/29/nx.html"
+        >29 January - nx</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2023/01/29/code-formatting.html"
+        >29 January - Code formatting</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2023/01/21/npm-dependencies.html"
+        >21 January - NPM Dependencies</a
+                           >
+        
+    </li>
+    
     <li>
         
         <a href="../../../2023/01/16/myers-briggs.html"
@@ -166,38 +196,6 @@
         
         <a href="../../10/10/tap-click-and-natural-scrolling.html"
         >10 October - Tap click / Natural Scrolling</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../10/06/disk-encryption.html"
-        >06 October - Disk encryption</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../09/24/install-debian.html"
-        >24 September - Install Debian</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../09/24/dual-boot.html"
-        >24 September - Dual boot (UEFI)</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../08/23/mermaid.html"
-        >23 August - Mermaid</a
                            >
         
     </li>
@@ -264,6 +262,10 @@
     
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/clojurescript.html">clojurescript</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/code.html">code</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
@@ -334,6 +336,10 @@
     <a href="../../../blog/tag/kubernetes.html">kubernetes</a>
   </li>
     
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/lint.html">lint</a>
+  </li>
+    
   <li class="ablog-cloud ablog-cloud-5">
     <a href="../../../blog/tag/linux.html">linux</a>
   </li>
@@ -356,6 +362,14 @@
     
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/notes.html">notes</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/npm.html">npm</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/nx.html">nx</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
