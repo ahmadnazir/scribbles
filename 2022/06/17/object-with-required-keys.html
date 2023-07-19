@@ -40,19 +40,29 @@
   <section id="object-with-required-keys">
 <h1>Object with required keys<a class="headerlink" href="#object-with-required-keys" title="Permalink to this heading">¶</a></h1>
 <p>Consider that we have an <cite>enum</cite> containing the keys:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">enum</span><span class="w"> </span><span class="nx">Fruit</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Apple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Banana</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;banana&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Orange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Fruit</span> <span class="p">{</span>
+  <span class="n">Apple</span> <span class="o">=</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span>
+  <span class="n">Banana</span> <span class="o">=</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span>
+  <span class="n">Orange</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The following way we can ensure that the object has all keys from the enum <cite>Fruit</cite>:</p>
-<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">desserts</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="nx">fruit</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">Fruit</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="p">[</span><span class="nx">Fruit</span><span class="p">.</span><span class="nx">Apple</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Apple Pie&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="p">[</span><span class="nx">Fruit</span><span class="p">.</span><span class="nx">Banana</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Banana Bread&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="p">[</span><span class="nx">Fruit</span><span class="p">.</span><span class="nx">Orange</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Orange Panna Cotta&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">desserts</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="n">fruit</span> <span class="ow">in</span> <span class="n">Fruit</span><span class="p">]:</span> <span class="n">string</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">Fruit</span><span class="o">.</span><span class="n">Apple</span><span class="p">]:</span> <span class="s1">&#39;Apple Pie&#39;</span><span class="p">,</span>
+  <span class="p">[</span><span class="n">Fruit</span><span class="o">.</span><span class="n">Banana</span><span class="p">]:</span> <span class="s1">&#39;Banana Bread&#39;</span><span class="p">,</span>
+  <span class="p">[</span><span class="n">Fruit</span><span class="o">.</span><span class="n">Orange</span><span class="p">]:</span> <span class="s1">&#39;Orange Panna Cotta&#39;</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>We can also use an object instead of an enum:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span> <span class="k">as</span> <span class="n">const</span><span class="p">;</span>
+<span class="nb">type</span> <span class="n">Fruit</span> <span class="o">=</span> <span class="n">typeof</span> <span class="n">fruits</span><span class="p">[</span><span class="n">number</span><span class="p">];</span>
+<span class="n">const</span> <span class="n">desserts</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="n">key</span> <span class="ow">in</span> <span class="n">Fruit</span><span class="p">]:</span> <span class="n">string</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">apple</span><span class="p">:</span> <span class="s1">&#39;Apple Pie&#39;</span><span class="p">,</span>
+  <span class="n">banana</span><span class="p">:</span> <span class="s1">&#39;Banana Bread&#39;</span><span class="p">,</span>
+  <span class="n">orange</span><span class="p">:</span> <span class="s1">&#39;Orange Panna Cotta&#39;</span><span class="p">,</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </section>
@@ -114,6 +124,62 @@
      
     <li>
         
+        <a href="../../../2023/07/19/screen-brightness.html"
+        >19 July - Screen brightness</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2023/07/04/vs-code-and-copilot-on-debian.html"
+        >07 April - VS Code and Copilot on Debian</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2023/03/26/merge-pd-fs.html"
+        >26 March - Merge PDFs</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2023/03/22/printer.html"
+        >22 March - printer</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2023/03/20/xdg.html"
+        >20 March - xdg</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2023/04/03/principles-of-communicating-with-your-line-manager.html"
+        >04 March - Principles of communicating with your line manager</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../../../2023/02/24/andrej-k.html"
+        >24 February - Andrej K</a
+                           >
+        
+    </li>
+    
+    <li>
+        
         <a href="../../../2023/02/21/watch-and-run-typescript-file.html"
         >21 February - Watch and run typescript file</a
                            >
@@ -132,62 +198,6 @@
         
         <a href="../../../2023/01/29/code-formatting.html"
         >29 January - Code formatting</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../../2023/01/21/npm-dependencies.html"
-        >21 January - NPM Dependencies</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../../2023/01/16/myers-briggs.html"
-        >16 January - myers-briggs</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../12/28/nmcli.html"
-        >28 December - nmcli</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../12/24/org-links.html"
-        >24 December - Org links</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../11/24/pre-flight-requests.html"
-        >24 November - Preflight Requests</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../11/21/think-clearly.html"
-        >21 November - Think clearly</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../10/10/tap-click-and-natural-scrolling.html"
-        >10 October - Tap click / Natural Scrolling</a
                            >
         
     </li>
@@ -261,6 +271,10 @@
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/copilot.html">copilot</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/courses.html">courses</a>
   </li>
     
@@ -270,6 +284,10 @@
     
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/csharp.html">csharp</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/cups.html">cups</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
@@ -373,11 +391,23 @@
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/pdf.html">pdf</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/people.html">people</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/personality.html">personality</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/principles.html">principles</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/printer.html">printer</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
@@ -427,7 +457,7 @@
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/testing.html">testing</a>
   </li>
-    
+      
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/typescript.html">typescript</a>
   </li>
@@ -442,6 +472,10 @@
     
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/visualstudio.html">visualstudio</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/vscode.html">vscode</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
