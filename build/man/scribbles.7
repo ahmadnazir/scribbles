@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Feb 21, 2023" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jul 19, 2023" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -7256,6 +7256,24 @@ const desserts: { [fruit in Fruit]: string } = {
 .fi
 .UNINDENT
 .UNINDENT
+.sp
+We can also use an object instead of an enum:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+const fruits = [\(aqapple\(aq, \(aqbanana\(aq, \(aqorange\(aq] as const;
+type Fruit = typeof fruits[number];
+const desserts: { [key in Fruit]: string } = {
+  apple: \(aqApple Pie\(aq,
+  banana: \(aqBanana Bread\(aq,
+  orange: \(aqOrange Panna Cotta\(aq,
+};
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS Get installed packages in Arch Linux
 .sp
 Get all the installed packages. Use the query \fI\-Q\fP switch:
@@ -8585,6 +8603,174 @@ Assuming that you want to compile and watch \fImain.ts\fP, then compile it and r
 .nf
 .ft C
 npx tsc\-watch \-\-project . \-\-onSuccess \(aqnpx ts\-node main.js\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Andrej K
+.sp
+Using re\-inforcement learning give you too sparse of a reward signal.
+.SS xdg
+.sp
+XDG (or Cross Desktop Group)
+.sp
+“…freedesktop.org is a project to work on interoperability and shared base technology for free\-software desktop environments for the X Window System…” \fI\%https://en.wikipedia.org/wiki/Freedesktop.org\fP
+.SS Default file manager
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xdg\-mime query default inode/directory
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS printer
+.sp
+sudo apt\-get install cups
+.sp
+localhost:631
+.sp
+Check that group exists:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+grep lpadmin /etc/group
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Add user to group:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo usermod \-a \-G lpadmin mandark
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Cups server:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+http://localhost:631
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Go to \fIAdministration\fP and add the printer of your choice. I found the IP
+address of the printer connected to the network and added it as
+\fIhttps://IP_ADDRESS_HERE\fP and could print without having to install any device
+specific driver.
+.SS Merge PDFs
+.sp
+Merge \fIa.pdf\fP and \fIb.pdf\fP into \fIc.pdf\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+pdftk a.pdf b.pdf cat output c.pdf
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Principles of communicating with your line manager
+.sp
+Make the communication effective by using one of the following 4 cases:
+.INDENT 0.0
+.IP 1. 3
+I am doing this, just FYI
+.IP 2. 3
+I am doing this and would like your approval
+.IP 3. 3
+I am evaluating between A and B and would like your opinion
+.IP 4. 3
+Remember we talked about that thing, this is what happened
+.UNINDENT
+.sp
+Source: Shaan Puri from MFM
+.SS timesyncd
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo apt install systemd\-timesyncd
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Update \fI/etc/systemd/timesyncd.conf\fP with:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[Time]
+NTP=0.dk.pool.ntp.org
+FallbackNTP=1.debian.pool.ntp.org 2.dk.pool.ntp.org 3.dk.pool.ntp.org
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+systemctl restart systemd\-timesyncd
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS VS Code and Copilot on Debian
+.sp
+Run the daemons and export the env variables for \fIdbus\fP and the keyring:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+export $(dbus\-launch)
+export $(gnome\-keyring\-daemon)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Tell vscode that gnome is being used for managing passwords:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+code \-\-password=\(dqgnome\(dq # OR
+code\-insiders \-\-password=\(dqgnome\(dq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+I had to signout of github the first time (bottom left of vscode)
+.SS Screen brightness
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+xrandr \-\-output eDP\-1 \-\-brightness 0.3
 .ft P
 .fi
 .UNINDENT
