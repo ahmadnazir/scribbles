@@ -39,9 +39,14 @@
 
   <section id="nmcli">
 <h1>nmcli<a class="headerlink" href="#nmcli" title="Permalink to this heading">¶</a></h1>
-<p>Wifi Status</p>
-<p>General</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">g</span>
+<p>Enable / disable the device:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">radio</span> <span class="n">wifi</span> <span class="n">off</span>
+<span class="n">nmcli</span> <span class="n">radio</span> <span class="n">wifi</span> <span class="n">on</span>
+</pre></div>
+</div>
+<p>Enable / disable wifi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">device</span> <span class="n">connect</span> <span class="n">wlp2s0</span>
+<span class="n">nmcli</span> <span class="n">device</span> <span class="n">disconnect</span> <span class="n">wlp2s0</span>
 </pre></div>
 </div>
 <p>Rescan</p>
@@ -53,8 +58,9 @@
 </pre></div>
 </div>
 <p>Connect to a network where <cite>NAME</cite> is the name of the network</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>nmcli d wifi connect ${NAME} password PASSWORD
-nmcli d wifi connect ${NAME} --ask # this didn&#39;t work for some reason - will try again
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>nmcli d wifi connect ${NAME} --ask
+# or explicitly provide the passwork
+nmcli d wifi connect ${NAME} password PASSWORD
 </pre></div>
 </div>
 </section>
@@ -75,8 +81,8 @@ nmcli d wifi connect ${NAME} --ask # this didn&#39;t work for some reason - will
   >
    
   <a href="../../../blog/tag/nmcli.html">nmcli</a>   
-  <a href="../../../blog/tag/wifi.html">wifi</a>   
-  <a href="../../../blog/tag/linux.html">linux</a>  
+  <a href="../../../blog/tag/linux.html">linux</a>   
+  <a href="../../../blog/tag/wifi.html">wifi</a>  
 </li>
  
 </ul>
@@ -116,6 +122,14 @@ nmcli d wifi connect ${NAME} --ask # this didn&#39;t work for some reason - will
 </h3>
 <ul>
      
+    <li>
+        
+        <a href="../../../2023/07/22/how-to-do-interfaces-in-clojure-protocols.html"
+        >22 July - How to do interfaces in clojure? protocols</a
+                           >
+        
+    </li>
+    
     <li>
         
         <a href="../../../2023/07/19/screen-brightness.html"
@@ -184,14 +198,6 @@ nmcli d wifi connect ${NAME} --ask # this didn&#39;t work for some reason - will
         
         <a href="../../../2023/01/29/code-formatting.html"
         >29 January - Code formatting</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../../../2023/01/21/npm-dependencies.html"
-        >21 January - NPM Dependencies</a
                            >
         
     </li>
