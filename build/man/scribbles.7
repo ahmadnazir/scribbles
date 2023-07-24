@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jul 19, 2023" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jul 24, 2023" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -5180,32 +5180,6 @@ netstat \-tulpn
 .fi
 .UNINDENT
 .UNINDENT
-.SS CLI
-.sp
-Enable / disable wifi:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-nmcli device connect wlp2s0
-nmcli device disconnect wlp2s0
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Connect to a wifi:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-nmcli \-\-ask dev wifi connect
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
 .SS AI \- 12 rules for a safer AI future
 .INDENT 0.0
 .TP
@@ -8421,15 +8395,27 @@ Copy a link: \fIorg\-store\-link\fP or \fISPC a o l\fP
 Past the link: \fIorg\-insert\-link\-global\fP
 .SS nmcli
 .sp
-Wifi Status
-.sp
-General
+Enable / disable the device:
 .INDENT 0.0
 .INDENT 3.5
 .sp
 .nf
 .ft C
-nmcli g
+nmcli radio wifi off
+nmcli radio wifi on
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Enable / disable wifi:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+nmcli device connect wlp2s0
+nmcli device disconnect wlp2s0
 .ft P
 .fi
 .UNINDENT
@@ -8465,8 +8451,9 @@ Connect to a network where \fINAME\fP is the name of the network
 .sp
 .nf
 .ft C
+nmcli d wifi connect ${NAME} \-\-ask
+# or explicitly provide the passwork
 nmcli d wifi connect ${NAME} password PASSWORD
-nmcli d wifi connect ${NAME} \-\-ask # this didn\(aqt work for some reason \- will try again
 .ft P
 .fi
 .UNINDENT
@@ -8768,6 +8755,39 @@ I had to signout of github the first time (bottom left of vscode)
 .nf
 .ft C
 xrandr \-\-output eDP\-1 \-\-brightness 0.3
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS How to do interfaces in clojure? protocols
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+(defprotocol Vehicle
+  \(dqVehicle\(dq
+  (get\-number\-of\-wheels [this] \(dqHow many wheel?\(dq)
+  (get\-model [this] \(dqWhat is the model?\(dq)
+  (get\-color [this] \(dqWhat is the color?\(dq)
+  )
+
+(deftype Car [model]
+  Vehicle
+  (get\-number\-of\-wheels [this] 4)
+  (get\-model [this] model)
+  (get\-color [this] \(dqred\(dq)
+  )
+
+(deftype Bike [model]
+  Vehicle
+  (get\-number\-of\-wheels [this] 2)
+  (get\-model [this] model)
+  (get\-color [this] \(dqblackish\(dq)
+  )
+
+(def car (Car. \(dqTesla\(dq))
+(def bike (Bike. \(dqHarley\(dq))
 .ft P
 .fi
 .UNINDENT
