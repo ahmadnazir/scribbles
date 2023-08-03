@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Jul 24, 2023" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Aug 03, 2023" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -3080,46 +3080,6 @@ From an implementation point of view, when you authenticate yourself against an
 Authorization server (google, facebook, github, etc), the \fIid_token\fP identifies
 you and the \fIaccess_token\fP authorizes you. In experience, I have seen them to be
 exactly the same but they can differ because they serve difference purposes.
-.SS SSH Key
-.sp
-Generate an ssh key:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-ssh\-keygen \-t rsa \-C \(dqahmadnazir@gmail.com\(dq
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Remembering the password for the session:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-eval \(dq$(ssh\-agent \-s)\(dq
-ssh\-add ~/.ssh/id_rsa
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-List the keys addd to the agent:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-ssh\-add \-l
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Do it for all the shells: \fI\%https://unix.stackexchange.com/a/132117/98943\fP
 .SS GraalVM
 .SS Install native\-image
 .sp
@@ -8792,6 +8752,55 @@ xrandr \-\-output eDP\-1 \-\-brightness 0.3
 .fi
 .UNINDENT
 .UNINDENT
+.SS ssh
+.sp
+Generate an ssh key:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ssh\-keygen \-t rsa \-C \(dqmy_email@domain.com\(dq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Calculate the fingerprint:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ssh\-keygen \-l
+# or for a specific file
+ssh\-keygen \-lf ~/.ssh/id_rsa.pub
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Remembering the password for the session:
+.INDENT 0.0
+.TP
+.B ::
+eval “$(ssh\-agent \-s)”
+ssh\-add ~/.ssh/id_rsa
+.UNINDENT
+.sp
+List the keys added to the agent:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ssh\-add \-l
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Do it for all the shells: \fI\%https://unix.stackexchange.com/a/132117/98943\fP
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT
