@@ -8782,10 +8782,15 @@ ssh\-keygen \-lf ~/.ssh/id_rsa.pub
 .sp
 Remembering the password for the session:
 .INDENT 0.0
-.TP
-.B ::
-eval “$(ssh\-agent \-s)”
+.INDENT 3.5
+.sp
+.nf
+.ft C
+eval \(dq$(ssh\-agent \-s)\(dq
 ssh\-add ~/.ssh/id_rsa
+.ft P
+.fi
+.UNINDENT
 .UNINDENT
 .sp
 List the keys added to the agent:
