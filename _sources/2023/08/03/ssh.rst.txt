@@ -22,6 +22,7 @@ Calculate the fingerprint:
 Remembering the password for the session:
 
 ::
+
    eval "$(ssh-agent -s)"
    ssh-add ~/.ssh/id_rsa
 
