@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Aug 03, 2023" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Aug 14, 2023" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -2564,22 +2564,6 @@ SPC f E
 .UNINDENT
 .sp
 \fI\%https://develop.spacemacs.org/doc/DOCUMENTATION.html#binding\-keys\fP
-.SS org
-.sp
-Add images:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-org\-download\-clipboard
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-#+DOWNLOADED: screenshot @ 2022\-01\-31 00:36:59
-[[\fI\%file:test/mojo.png\fP]]
 .SS PlantUML
 .sp
 Spacemacs comes with a \fBplantuml\fP layer which has a major mode for modifying such files.
@@ -8806,6 +8790,51 @@ ssh\-add \-l
 .UNINDENT
 .sp
 Do it for all the shells: \fI\%https://unix.stackexchange.com/a/132117/98943\fP
+.SS Readonly role for Postgres
+.sp
+Let’s create a readonly role for a database called \fIpostgres\fP and schema \fIpublic\fP\&.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+CREATE ROLE readonly WITH PASSWORD \(aqxxxxxxxxxx\(aq;
+ALTER ROLE readonly WITH LOGIN;
+GRANT CONNECT ON DATABASE postgres TO readonly;
+GRANT USAGE ON SCHEMA public       TO readonly;
+GRANT SELECT ON ALL TABLES IN SCHEMA public       TO readonly;
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Paste images from clipboard in org
+.sp
+Add images:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+org\-download\-clipboard
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+#+DOWNLOADED: screenshot @ 2022\-01\-31 00:36:59
+[[\fI\%file:test/mojo.png\fP]]
+.sp
+Toggle inline images from emacs (spacemacs shortcut \fI, T i\fP)
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+M\-x org\-toggle\-inline\-images
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT
