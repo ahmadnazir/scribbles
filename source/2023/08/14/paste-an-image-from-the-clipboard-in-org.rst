@@ -1,5 +1,5 @@
-Paste images from clipboard in org
-==================================
+Paste an image from the clipboard in org
+========================================
 
 .. post:: 14/08/2023
    :tags: org
