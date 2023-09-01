@@ -1,7 +1,7 @@
 Domain name resolution
 ======================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: networking,linux
 
 How is information stored in a DNS server?

@@ -1,7 +1,7 @@
 Preflight Requests
 ==================
 
-.. post:: 24/11/2022
+.. post:: Nov 24, 2022
    :tags: http
 
 

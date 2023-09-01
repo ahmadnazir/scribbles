@@ -1,7 +1,7 @@
 Clojure Spec
 ============
 
-.. post:: 10/24/2021
+.. post:: Oct 24, 2021
    :tags: clojure
 
 Instrumentation

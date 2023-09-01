@@ -1,7 +1,7 @@
 NVM
 ===
 
-.. post:: 08/11/2022
+.. post:: Nov 08, 2022
    :tags: node
 
 NVM is node version manager

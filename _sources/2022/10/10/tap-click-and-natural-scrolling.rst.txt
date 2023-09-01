@@ -1,7 +1,7 @@
 Tap click / Natural Scrolling
 =============================
 
-.. post:: 10/10/2022
+.. post:: Oct 10, 2022
    :tags: linux,debian
 
 

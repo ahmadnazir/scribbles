@@ -1,7 +1,7 @@
 Dual boot (UEFI)
 ================
 
-.. post:: 09/24/2022
+.. post:: Sep 24, 2022
    :tags: linux,windows,grub
 
 `update-grub` automatically takes care of this by probing the `EFI` directory.

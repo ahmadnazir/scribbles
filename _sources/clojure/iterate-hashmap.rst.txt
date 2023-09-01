@@ -1,7 +1,7 @@
 Iterate a hash map
 ==================
 
-.. post:: 09/17/2019
+.. post:: Sep 17, 2019
    :tags: clojure
 
 .. code:: clojure

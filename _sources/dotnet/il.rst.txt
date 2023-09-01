@@ -1,7 +1,7 @@
 Intermediate Language (IL)
 ==========================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: dotnet
 
 Also referred to CIL (Common IL) or MSIL (Microsoft IL).

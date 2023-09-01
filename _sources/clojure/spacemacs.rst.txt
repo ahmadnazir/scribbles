@@ -1,7 +1,7 @@
 Spacemacs
 =========
 
-.. post:: 01/31/2020
+.. post:: Jan 31, 2020
    :tags: clojure
 
 A lot of cool cider goodies!

@@ -1,7 +1,7 @@
 nmcli
 =====
 
-.. post:: 28/12/2022
+.. post:: Dec 28, 2022
    :tags: linux,wifi,nmcli
 
 Enable / disable the device:

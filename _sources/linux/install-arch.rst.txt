@@ -1,7 +1,7 @@
 Install Arch
 ============
 
-.. post:: 04/02/2021
+.. post:: Apr 02, 2021
    :tags: linux,arch
 
 :machine: x1 carbon, 7th gen

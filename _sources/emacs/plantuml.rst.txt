@@ -1,7 +1,7 @@
 PlantUML
 ========
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: emacs
 
 Spacemacs comes with a ``plantuml`` layer which has a major mode for modifying such files.

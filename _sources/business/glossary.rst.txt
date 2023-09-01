@@ -1,7 +1,7 @@
 Glossary
 ========
 
-.. post:: 02/17/2020
+.. post:: Feb 17, 2020
    :tags: business
 
 Equity: "Value of shares issues by a company"

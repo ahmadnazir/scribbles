@@ -1,7 +1,7 @@
 Connect to the host from a docker container
 ===========================================
 
-.. post:: 01/09/2023
+.. post:: Sep 01, 2023
    :tags: linux,docker
 
 

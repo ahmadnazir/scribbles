@@ -1,7 +1,7 @@
 Convert images to a pdf
 =======================
 
-.. post:: 07/02/2022
+.. post:: Jul 02, 2022
    :tags: linux,shell,imagemagick
 
 Use `convert` (from the package `imagemagick`):

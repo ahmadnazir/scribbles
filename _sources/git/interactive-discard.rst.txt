@@ -1,7 +1,7 @@
 Interactively discard hunks
 ===========================
 
-.. post:: 02/17/2020
+.. post:: Feb 17, 2020
    :tags: git
 
 Unstaging hunks

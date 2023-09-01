@@ -1,7 +1,7 @@
 FC4
 ===
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: documentation
 
 A tool and methodology that builds on top of C4 methodology.

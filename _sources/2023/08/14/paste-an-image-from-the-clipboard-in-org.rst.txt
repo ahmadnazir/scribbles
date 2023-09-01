@@ -1,7 +1,7 @@
 Paste an image from the clipboard in org
 ========================================
 
-.. post:: 14/08/2023
+.. post:: Aug 14, 2023
    :tags: org
 
 

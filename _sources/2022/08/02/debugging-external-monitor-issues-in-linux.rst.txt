@@ -1,7 +1,7 @@
 Debugging external monitor issues in Linux
 ==========================================
 
-.. post:: 08/02/2022
+.. post:: Aug 02, 2022
    :tags: linux
 
 Sometimes when I connect the external monitor using usb-c, it gives the following error:

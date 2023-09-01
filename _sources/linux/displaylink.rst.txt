@@ -1,7 +1,7 @@
 Displaylink on Ubuntu 18.04
 ===========================
 
-.. post:: 05/14/2019
+.. post:: May 14, 2019
    :tags: linux
 
 

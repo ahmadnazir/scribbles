@@ -1,7 +1,7 @@
 Rules for the Daily Stand-up
 ============================
 
-.. post:: 11/30/2019
+.. post:: Nov 30, 2019
    :tags: agile
 
 Rules for the meeting:

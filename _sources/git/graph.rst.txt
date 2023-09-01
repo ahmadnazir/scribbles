@@ -1,7 +1,7 @@
 Show commits in a graph
 =======================
 
-.. post:: 04/23/2022
+.. post:: Apr 23, 2022
    :tags: git
 
 Use *adog* switches:

@@ -1,7 +1,7 @@
 Readonly role for Postgres
 ==========================
 
-.. post:: 09/08/2023
+.. post:: Aug 09, 2023
    :tags: postgres
 
 Let's create a readonly role for a database called `postgres` and schema `public`.

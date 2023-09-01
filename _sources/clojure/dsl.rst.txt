@@ -1,7 +1,7 @@
 Writing a DSL
 =============
 
-.. post:: 02/17/2020
+.. post:: Feb 17, 2020
    :tags: clojure
 
 Let us make a calculator that would evaluate expressions like:

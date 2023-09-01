@@ -1,7 +1,7 @@
 Helm
 ====
 
-.. post:: 05/27/2019
+.. post:: May 27, 2019
    :tags: provision
 
 **Helm is the package manager for Kubernetes.**

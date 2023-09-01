@@ -1,7 +1,7 @@
 Performance Matters
 ===================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: misc
 
 `Emery D. Berger`_

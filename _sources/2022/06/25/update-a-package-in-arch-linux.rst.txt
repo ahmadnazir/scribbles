@@ -1,7 +1,7 @@
 Update a package in Arch Linux
 ==============================
 
-.. post:: 06/25/2022
+.. post:: Jun 25, 2022
    :tags: arch,pacman,yay
 
 For packages installed using the native package manager i.e. `pacman`:

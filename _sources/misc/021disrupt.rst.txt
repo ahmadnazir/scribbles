@@ -1,7 +1,7 @@
 021Disrupt
 ==========
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: misc
 
 p@sha : Pakistan Software Houses Association

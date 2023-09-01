@@ -1,7 +1,7 @@
 Get installed packages in Arch Linux
 ====================================
 
-.. post:: 06/25/2022
+.. post:: Jun 25, 2022
    :tags: arch,pacman,yay,linux
 
 Get all the installed packages. Use the query `-Q` switch:

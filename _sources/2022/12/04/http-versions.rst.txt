@@ -1,7 +1,7 @@
 HTTP Versions
 =============
 
-.. post:: 04/12/2022
+.. post:: Dec 04, 2022
    :tags: http
 
 https://youtu.be/a-sBfyiXysI

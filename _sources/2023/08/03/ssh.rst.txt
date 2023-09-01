@@ -1,7 +1,7 @@
 ssh
 ===
 
-.. post:: 03/08/2023
+.. post:: Aug 03, 2023
    :tags: linux,ssh
 
 

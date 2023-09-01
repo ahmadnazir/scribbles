@@ -1,7 +1,7 @@
 AdES vs QES
 ===========
 
-.. post:: 08/12/2022
+.. post:: Aug 12, 2022
    :tags: signatures
 
 According to the eiDAS regulation, there are `3 levels`_ of electronic signatures:

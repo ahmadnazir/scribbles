@@ -1,7 +1,7 @@
 GDPR Data Subject Rights
 ========================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: misc
 
 https://www.hipaajournal.com/rights-of-data-subjects-under-gdpr/

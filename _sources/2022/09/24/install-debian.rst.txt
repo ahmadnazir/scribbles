@@ -1,7 +1,7 @@
 Install Debian
 ==============
 
-.. post:: 09/24/2022
+.. post:: Sep 24, 2022
    :tags: linux,debian
 
 

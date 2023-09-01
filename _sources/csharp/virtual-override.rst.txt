@@ -1,7 +1,7 @@
 How do keywords virtual and override work?
 ===========================================
 
-.. post:: 07/13/2019
+.. post:: Jul 13, 2019
    :tags: csharp
 
 Consider the following classes:

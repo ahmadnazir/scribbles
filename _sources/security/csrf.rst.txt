@@ -1,7 +1,7 @@
 Cross site request forgery (CSRF)
 =================================
 
-.. post:: 10/24/2021
+.. post:: Oct 24, 2021
    :tags: security
 
 An exploit when the attacker lures the victim on a legit domain e.g. `acme.com`,
