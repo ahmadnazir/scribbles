@@ -1,7 +1,7 @@
 Macros
 ======
 
-.. post:: 04/02/2021
+.. post:: Apr 02, 2021
    :tags: vim
 
 Start recording at register, let's say `q`:

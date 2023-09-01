@@ -1,7 +1,7 @@
 Reflection
 ==========
 
-.. post:: 02/17/2020
+.. post:: Feb 17, 2020
    :tags: clojure
 
 Get all the methods on a symbol - like the auto-complete functionality:

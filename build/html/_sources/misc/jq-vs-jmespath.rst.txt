@@ -1,7 +1,7 @@
 JMESPath
 ========
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: misc
 
 JMESPath is a query language for JSON.

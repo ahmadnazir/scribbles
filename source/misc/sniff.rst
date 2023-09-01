@@ -1,7 +1,7 @@
 Traffic sniffing
 =================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: misc
 
 When all fails, wireshark is the tool. However, I just found out about mitmproxy which seems to be the winner ... hands down!

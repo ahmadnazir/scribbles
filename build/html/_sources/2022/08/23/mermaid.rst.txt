@@ -1,7 +1,7 @@
 Mermaid
 =======
 
-.. post:: 08/23/2022
+.. post:: Aug 23, 2022
    :tags: documentation 
 
 

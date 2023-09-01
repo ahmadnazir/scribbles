@@ -1,7 +1,7 @@
 Generate project dependency graph
 =================================
 
-.. post:: 11/13/2019
+.. post:: Nov 13, 2019
    :tags: clojure
 
 `ns-dep-graph`_ is a `lein` plugin for visualizing the dependency graph of a project.

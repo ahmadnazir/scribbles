@@ -1,7 +1,7 @@
 printer
 =======
 
-.. post:: 22/03/2023
+.. post:: Mar 22, 2023
    :tags: printer,cups,linux
 
 sudo apt-get install cups

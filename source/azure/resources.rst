@@ -1,7 +1,7 @@
 Azure Key Vault
 ===============
 
-.. post:: 05/14/2019
+.. post:: May 14, 2019
    :tags: azure
 
 Get the value of the secret:

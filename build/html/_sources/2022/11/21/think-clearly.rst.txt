@@ -1,7 +1,7 @@
 Think clearly
 =============
 
-.. post:: 21/11/2022
+.. post:: Nov 21, 2022
    :tags: framework
 
 Books

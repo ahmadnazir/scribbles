@@ -1,7 +1,7 @@
 Babashka
 ========
 
-.. post:: 06/22/2020
+.. post:: Jun 22, 2020
    :tags: clojure
 
 Shell scripting in clojure.

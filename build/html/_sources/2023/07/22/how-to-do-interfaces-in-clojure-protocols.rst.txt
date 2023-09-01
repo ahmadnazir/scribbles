@@ -1,7 +1,7 @@
 How to do interfaces in clojure? protocols
 ==========================================
 
-.. post:: 22/07/2023
+.. post:: Jul 22, 2023
    :tags: clojure
 
 

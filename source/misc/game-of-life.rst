@@ -1,7 +1,7 @@
 Conway's Game of Life
 =====================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: misc
 
 Dylan Beattie on Game of Life:

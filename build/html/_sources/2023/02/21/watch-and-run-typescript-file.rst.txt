@@ -1,7 +1,7 @@
 Watch and run typescript file
 =============================
 
-.. post:: 21/02/2023
+.. post:: Feb 21, 2023
    :tags: typescript
 
 ::

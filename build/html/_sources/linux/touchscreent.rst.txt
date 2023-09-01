@@ -1,7 +1,7 @@
 Calibrate the touch input
 =========================
 
-.. post:: 01/04/2022
+.. post:: Jan 04, 2022
    :tags: linux
 
 This is a problem when dual screen is being used.

@@ -1,7 +1,7 @@
 Function composition
 ====================
 
-.. post:: 12/04/2019
+.. post:: Dec 04, 2019
    :tags: clojure
 
 Here are a few ways to create new functions from existing functions:

@@ -1,7 +1,7 @@
 Tables
 ======
 
-.. post:: 01/04/2022
+.. post:: Jan 04, 2022
    :tags: restructuredtext
 
 Two types of tables are supported:

@@ -1,7 +1,7 @@
 Microphone
 ==========
 
-.. post:: 01/31/2022
+.. post:: Jan 31, 2022
    :tags: linux
 
 Trying to get the microphone to work. Tried the following but in vain:

@@ -1,7 +1,7 @@
 netstat
 =======
 
-.. post:: 05/15/2019
+.. post:: May 15, 2019
    :tags: networking
 
 

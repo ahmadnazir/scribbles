@@ -1,7 +1,7 @@
 Microservices
 =============
 
-.. post:: 04/02/2021
+.. post:: Apr 02, 2021
    :tags: misc
 
 Use it if you care about independent deployability!

@@ -1,7 +1,7 @@
 Code formatting
 ===============
 
-.. post:: 29/01/2023
+.. post:: Jan 29, 2023
    :tags: code,lint
 
 There are a number of tools to format code with potentially overlapping features:

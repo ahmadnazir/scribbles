@@ -1,7 +1,7 @@
 OAuth 2.0 vs OpenID Connect
 ===========================
 
-.. post:: 09/17/2019
+.. post:: Sep 17, 2019
    :tags: identity
 
 These are different tools for different jobs, you can use both of them at the same time:

@@ -1,7 +1,7 @@
 Merge PDFs
 ==========
 
-.. post:: 26/03/2023
+.. post:: Mar 26, 2023
    :tags: pdf,linux
 
 Merge `a.pdf` and `b.pdf` into `c.pdf`

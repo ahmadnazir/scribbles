@@ -1,7 +1,7 @@
 Firejail
 ========
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: linux
 
 Run linux apps in a sandbox:

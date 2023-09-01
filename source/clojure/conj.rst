@@ -1,7 +1,7 @@
 conj
 ====
 
-.. post:: 01/14/2020
+.. post:: Jan 14, 2020
    :tags: clojure
 
 Append to list.

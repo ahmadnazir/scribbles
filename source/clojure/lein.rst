@@ -1,7 +1,7 @@
 Leiningen
 =========
 
-.. post:: 01/31/2020
+.. post:: Jan 31, 2020
    :tags: clojure
 
 Create a basic app

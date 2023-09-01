@@ -1,7 +1,7 @@
 Upgrade Arch
 ============
 
-.. post:: 04/23/2022
+.. post:: Apr 23, 2022
    :tags: linux,arch
 
 Checking vulnerable pacakges:

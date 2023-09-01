@@ -1,7 +1,7 @@
 ==============
 API Guidelines
 ==============
-.. post:: 05/31/2019
+.. post:: May 31, 2019
    :tags: web
 
 

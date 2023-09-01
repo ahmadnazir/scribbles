@@ -1,7 +1,7 @@
 timesyncd
 =========
 
-.. post:: 12/05/2023
+.. post:: Dec 05, 2023
    :tags: linux,time
 
 ::

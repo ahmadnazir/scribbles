@@ -1,7 +1,7 @@
 Powershell
 ==========
 
-.. post:: 04/02/2021
+.. post:: Apr 02, 2021
    :tags: shell
 
 Use different keybindings:

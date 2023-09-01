@@ -1,7 +1,7 @@
 Headings
 ========
 
-.. post:: 02/17/2020
+.. post:: Feb 17, 2020
    :tags: restructuredtext
 
 From https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#headings:

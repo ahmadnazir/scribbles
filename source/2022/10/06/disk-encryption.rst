@@ -3,7 +3,7 @@
 Disk encryption
 ===============
 
-.. post:: 10/06/2022
+.. post:: Oct 06, 2022
    :tags: linux,grub
 
 

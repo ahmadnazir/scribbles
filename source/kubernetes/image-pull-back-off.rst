@@ -1,7 +1,7 @@
 Failed to pull docker image in pod - Status: ImagePullBackOff
 =============================================================
 
-.. post:: 05/20/2019
+.. post:: May 20, 2019
    :tags: kubernetes
 
 List the pods

@@ -1,7 +1,7 @@
 Connect to a windows machine
 ============================
 
-.. post:: 05/14/2019
+.. post:: May 14, 2019
    :tags: linux
 
 .. code::

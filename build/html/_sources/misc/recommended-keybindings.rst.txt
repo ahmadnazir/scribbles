@@ -1,7 +1,7 @@
 At your fingertips
 ==================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: misc
 
 Some operations should be extremely convenient - they should be second nature:

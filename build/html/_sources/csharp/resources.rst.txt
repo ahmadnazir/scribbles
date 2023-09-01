@@ -1,7 +1,7 @@
 C# Resources
 ============
 
-.. post:: 07/13/2019
+.. post:: Jul 13, 2019
    :tags: csharp
 
 - `C# Coding Conventions (C# Programming Guide)`_

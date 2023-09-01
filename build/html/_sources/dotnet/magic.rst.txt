@@ -1,7 +1,7 @@
 MAGIC
 =====
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: dotnet
 
 Morgan And Grand Iron Compiler - runs on the common runtime!

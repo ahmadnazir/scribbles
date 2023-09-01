@@ -1,7 +1,7 @@
 xdg
 ===
 
-.. post:: 20/03/2023
+.. post:: Mar 20, 2023
    :tags: linux
 
 XDG (or Cross Desktop Group)

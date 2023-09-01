@@ -1,7 +1,7 @@
 Line Ending
 ===========
 
-.. post:: 05/16/2019
+.. post:: May 16, 2019
    :tags: git
 
 Force line-endings to LF

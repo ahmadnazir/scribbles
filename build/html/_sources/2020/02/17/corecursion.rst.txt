@@ -1,7 +1,7 @@
 Corecursion
 ===========
 
-.. post:: 02/17/2020
+.. post:: Feb 17, 2020
    :tags: cs
 
 The `co-` is to indicate that it is opposite of recursion (e.g. `sine` and `cosine`).

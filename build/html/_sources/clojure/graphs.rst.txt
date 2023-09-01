@@ -1,7 +1,7 @@
 Graphing (n more) Libraries
 ===========================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: clojure
 
 Here are some of the graphing libraries that I have found:

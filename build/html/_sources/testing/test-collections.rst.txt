@@ -1,7 +1,7 @@
 Testing collections
 ===================
 
-.. post:: 07/13/2019
+.. post:: Jul 13, 2019
    :tags: testing
 
 We have to test 5 things (`J.B. Rainsberger`_):

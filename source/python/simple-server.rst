@@ -1,7 +1,7 @@
 Simple http server
 ==================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: python
 
 .. code::

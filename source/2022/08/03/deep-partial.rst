@@ -1,7 +1,7 @@
 Deep partial
 ============
 
-.. post:: 08/03/2022
+.. post:: Aug 03, 2022
    :tags: typescript
 
 There is no native `Partial` functionality if we want to apply it to the nested properties of an object as well. 

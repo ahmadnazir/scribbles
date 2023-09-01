@@ -1,7 +1,7 @@
 VS Code and Copilot on Debian
 =============================
 
-.. post:: 04/07/2023
+.. post:: Jul 04, 2023
    :tags: linux,debian,copilot,vscode
 
 Run the daemons and export the env variables for `dbus` and the keyring:

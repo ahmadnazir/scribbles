@@ -1,7 +1,7 @@
 Clojure runner
 ==============
 
-.. post:: 02/17/2020
+.. post:: Feb 17, 2020
    :tags: clojure
 
 The runner, invoked by calling `clojure` or simply `clj` is a tool/script to invoke the clojure compiler and the repl.

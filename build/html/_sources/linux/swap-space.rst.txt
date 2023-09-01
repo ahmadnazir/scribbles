@@ -1,7 +1,7 @@
 Swap space
 ==========
 
-.. post:: 01/11/2022
+.. post:: Jan 11, 2022
    :tags: linux
 
 :OS: Ubuntu 18.04

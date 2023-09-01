@@ -1,7 +1,7 @@
 NPM Dependencies
 ================
 
-.. post:: 21/01/2023
+.. post:: Jan 21, 2023
    :tags: npm
 
 dependencies

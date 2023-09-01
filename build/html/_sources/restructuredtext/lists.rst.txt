@@ -1,7 +1,7 @@
 Lists
 =====
 
-.. post:: 11/30/2019
+.. post:: Nov 30, 2019
    :tags: restructuredtext
 
 Numbering

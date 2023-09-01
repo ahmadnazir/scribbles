@@ -1,7 +1,7 @@
 Collections vs Sequences
 ========================
 
-.. post:: 02/17/2020
+.. post:: Feb 17, 2020
    :tags: clojure
 
 Taken from `Brain on fire blog`_:

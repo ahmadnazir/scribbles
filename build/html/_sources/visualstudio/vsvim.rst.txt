@@ -1,7 +1,7 @@
 VsVim
 =====
 
-.. post:: 11/30/2019
+.. post:: Nov 30, 2019
    :tags: visualstudio
 
 :Version: Visual Studio 2019

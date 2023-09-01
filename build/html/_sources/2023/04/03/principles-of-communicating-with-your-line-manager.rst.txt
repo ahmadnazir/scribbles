@@ -1,7 +1,7 @@
 Principles of communicating with your line manager
 ==================================================
 
-.. post:: 03/04/2023
+.. post:: Mar 04, 2023
    :tags: principles
 
 

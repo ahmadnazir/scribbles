@@ -1,7 +1,7 @@
 AI - 12 rules for a safer AI future
 ===================================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: notes
 
 :speaker: Cassie Kozyrkov

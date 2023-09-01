@@ -1,7 +1,7 @@
 The Penneo Incident
 ===================
 
-.. post:: 12/30/2020
+.. post:: Dec 30, 2020
    :tags: business
 
 Penneo started trading on the 2nd June, 2020.

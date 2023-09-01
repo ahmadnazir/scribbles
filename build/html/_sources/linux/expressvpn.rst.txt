@@ -1,7 +1,7 @@
 Express VPN
 ===========
 
-.. post:: 01/04/2022
+.. post:: Jan 04, 2022
    :tags: linux
 
 Get package from https://www.expressvpn.com/setup#linux

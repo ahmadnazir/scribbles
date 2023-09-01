@@ -1,7 +1,7 @@
 GPG
 ===
 
-.. post:: 10/16/2019
+.. post:: Oct 16, 2019
    :tags: identity
 
 Create a new gpg key

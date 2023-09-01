@@ -1,7 +1,7 @@
 F# Resources
 ============
 
-.. post:: 05/14/2019
+.. post:: May 14, 2019
    :tags: dotnet
 
 Bootstrap web app

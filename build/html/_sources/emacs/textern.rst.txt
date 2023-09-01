@@ -1,7 +1,7 @@
 Textern
 =======
 
-.. post:: 10/24/2021
+.. post:: Oct 24, 2021
    :tags: emacs
 
 **NOTE**: I've been using surfkeys which seems to work.

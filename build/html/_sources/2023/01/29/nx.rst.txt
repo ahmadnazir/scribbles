@@ -1,7 +1,7 @@
 nx
 ==
 
-.. post:: 29/01/2023
+.. post:: Jan 29, 2023
    :tags: typescript,nx
 
 

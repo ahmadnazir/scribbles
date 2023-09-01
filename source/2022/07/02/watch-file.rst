@@ -3,7 +3,7 @@
 Watch file
 ==========
 
-.. post:: 07/02/2022
+.. post:: Jul 02, 2022
    :tags: linux,shell
 
 .. code::

@@ -1,7 +1,7 @@
 Ansible
 =======
 
-.. post:: 09/08/2019
+.. post:: Sep 08, 2019
    :tags: provision
 
 

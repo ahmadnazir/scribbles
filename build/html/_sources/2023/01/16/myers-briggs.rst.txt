@@ -1,7 +1,7 @@
 myers-briggs
 ============
 
-.. post:: 16/01/2023
+.. post:: Jan 16, 2023
    :tags: personality
 
 Myers-Briggs Type Indicator (MBTI) is a type of personality tests that categorizes people in the following groups:

@@ -1,7 +1,7 @@
 Screen brightness
 =================
 
-.. post:: 19/07/2023
+.. post:: Jul 19, 2023
    :tags: linux
 
 ::
