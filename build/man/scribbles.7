@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Aug 14, 2023" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Sep 01, 2023" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -8845,6 +8845,41 @@ M\-x org\-toggle\-inline\-images
 .fi
 .UNINDENT
 .UNINDENT
+.SS Connect to the host from a docker container
+.sp
+Use the \fIextra_hosts\fP option in docker\-compose:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+extra_hosts:
+\- \(dqhost.docker.internal:host\-gateway\(dq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This works in Linux but I am not sure about a Mac. Should work with the correct version of docker I think.
+.sp
+Make sure that this workds by pinging the host from the container e.g.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+docker exec \-it pine\-lang_app_1 bash
+ping host.docker.internal
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+I think the way it works is that docker understands the special string
+\fIhost\-gateway\fP and converts it into the actual ip to be used in order to talk to
+the host. Then it is upto the user to use the custom domain name i.e.
+\fIhost.docker.internal\fP \- so it means that there is nothing special about that
+domain name and it is just a convention.
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT
