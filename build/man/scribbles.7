@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Sep 01, 2023" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Nov 02, 2023" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -2241,67 +2241,6 @@ Run as follows \- change the \fIexample.yaml\fP and watch the images as it updat
 .fi
 .UNINDENT
 .UNINDENT
-.SS Plantuml
-.SS OOP
-.INDENT 0.0
-.TP
-.B aggregation
-\fBA o\-\- B\fP
-.TP
-.B composition
-\fBA *\-\- B\fP
-.TP
-.B inheritance
-\fBA <|\-\- B\fP
-.TP
-.B association
-\fBA <\-\- B\fP
-.UNINDENT
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-@startuml
-
-A *\-right\- B : Composition
-C o\-right\- D : Aggregation
-E <|\-right\- F : Inheritance
-
-A \-[hidden]\-> C
-B \-[hidden]\-> D
-
-hide class circle
-hide class members
-hide class methods
-
-@enduml
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.SS Samples
-.sp
-Checkout samples:
-\- \fI\%https://real\-world\-plantuml.com/?type=class\fP
-\- \fI\%https://real\-world\-plantuml.com/?type=activity\fP
-.SS Legend
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-legend
-|= field |= method |=  |
-|  \-     |   \-     | private |
-|  #     |   #     | protected |
-|  ~     |   ~     | package private |
-|  +     |   +     | public |
-endlegend
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
 .SS Authentication
 .sp
 Validating tokens:
@@ -2568,7 +2507,7 @@ SPC f E
 .sp
 Spacemacs comes with a \fBplantuml\fP layer which has a major mode for modifying such files.
 .sp
-Files with extension \fB\&.pum\fP are recognized.
+Files with extension \fB\&.puml\fP are recognized.
 .sp
 Once installed, set the output type to \fBpng\fP (\fBM\-x plantuml\-set\-output\-type\fP)
 Generate a preview: \fBplantuml\-preview\fP or \fB, c c\fP
@@ -2589,6 +2528,66 @@ A few more variables that might need customizing:
 .UNINDENT
 .sp
 Now the preview will be generated locally.
+.SS Class Diagrams
+.INDENT 0.0
+.TP
+.B aggregation
+\fBA o\-\- B\fP
+.TP
+.B composition
+\fBA *\-\- B\fP
+.TP
+.B inheritance
+\fBA <|\-\- B\fP
+.TP
+.B association
+\fBA <\-\- B\fP
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+@startuml
+
+A *\-right\- B : Composition
+C o\-right\- D : Aggregation
+E <|\-right\- F : Inheritance
+
+A \-[hidden]\-> C
+B \-[hidden]\-> D
+
+hide class circle
+hide class members
+hide class methods
+
+@enduml
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Samples
+.sp
+Checkout samples:
+\- \fI\%https://real\-world\-plantuml.com/?type=class\fP
+\- \fI\%https://real\-world\-plantuml.com/?type=activity\fP
+.SS Legend
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+legend
+|= field |= method |=  |
+|  \-     |   \-     | private |
+|  #     |   #     | protected |
+|  ~     |   ~     | package private |
+|  +     |   +     | public |
+endlegend
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SS Spacemacs Keybindings
 .sp
 \fISPC t m c\fP toggle mode\-line org\-clock
@@ -8880,6 +8879,123 @@ I think the way it works is that docker understands the special string
 the host. Then it is upto the user to use the custom domain name i.e.
 \fIhost.docker.internal\fP \- so it means that there is nothing special about that
 domain name and it is just a convention.
+.SS How to send notifications from server to client?
+.sp
+There are 3 ways of getting notified by the server:
+.INDENT 0.0
+.IP \(bu 2
+Polling: client keeps checking in
+.IP \(bu 2
+Websockets: Bi\-directional connection between server and client
+.IP \(bu 2
+Server Side Events: One directional connection \- from server to client
+.UNINDENT
+.sp
+Polling is the simplest but it doesn’t scale as the client need to know about the active processes and check\-in with the server to get an update.
+.sp
+WS and SSE are more interesting in that sense \- but the question is how can the server inform the relevant clients instead of broadcasting the event e.g. if something happened for \fIJohn\fP, the server shouldn’t notify \fIJane\fP or anybody else. Consider this:
+.sp
+Many clients connect to an http server
+\- The server is a group of nodes (i.e. Node A, Node B, etc) behind a load balancer
+\- A client subscribes to an event stream using server\-side\-events (e.g. GET /event\-stream) and gets connected to Node A
+\- The same client schedules a job (e.g. POST /prepare\-zip) that is a heavy process and needs to be handled asynchronously. This request happens to land with Node B randomly
+\- Once Node B finishes, we would like to notify the client \- but only Node A can do it as it is maintaining the connection with the client.
+.sp
+How do we do that?
+.INDENT 0.0
+.IP \(bu 2
+Do we broadcast from Node B to all other nodes hoping that the relevant node will pick it up? If we use a queue for broadcasting, then all the nodes will be polling for it (including Node B) and most will reject the messages because it is only meant for Node A. Also, it seems like we are mixing responsibilities i.e. serving http requests, and processing events in the queue.
+.IP \(bu 2
+Do we keep track of the the active connections in a shared store/db e.g. so that we can notify the relevant server?
+.UNINDENT
+.sp
+This requires that we have a broker that supports pub/sub messaging. Nodes can subscribe to channels and listen to changes.
+.SS Reference
+.sp
+I asked this question on stackoverflow as well: \fI\%https://stackoverflow.com/questions/77319044/scaling\-with\-server\-side\-events\fP
+.SS Json in Postgres
+.sp
+Let’s say you have a json object stored in a table called \fIprocess\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{
+  \(dqf33d3b3e\-0b0b\-4b0b\-8b0b\-0b0b0b0b0b0b\(dq: {
+    \(dqcandidates\(dq: 1,
+    \(dqaffected\(dq: 1,
+    \(dqskipped\(dq: 0,
+    \(dqfailed\(dq: 0
+  },
+  \(dqf22d3b3e\-0b0b\-4b0b\-8b0b\-0b0b0b0b0b0b\(dq: {
+    \(dqcandidates\(dq: 22,
+    \(dqaffected\(dq: 22,
+    \(dqskipped\(dq: 0,
+    \(dqfailed\(dq: 0
+  }
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Get each object as follows:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+SELECT jsonb_each(stats) as entry from process;
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+                                                   entry
+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+ (f22d3b3e\-0b0b\-4b0b\-8b0b\-0b0b0b0b0b0b,\(dq{\(dq\(dqfailed\(dq\(dq: 0, \(dq\(dqskipped\(dq\(dq: 0, \(dq\(dqaffected\(dq\(dq: 12, \(dq\(dqcandidates\(dq\(dq: 12}\(dq)
+ (f33d3b3e\-0b0b\-4b0b\-8b0b\-0b0b0b0b0b0b,\(dq{\(dq\(dqfailed\(dq\(dq: 1, \(dq\(dqskipped\(dq\(dq: 0, \(dq\(dqaffected\(dq\(dq: 10, \(dq\(dqcandidates\(dq\(dq: 11}\(dq)
+(2 rows)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Or as separate columns:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+                 key                  |                             value
+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+ f22d3b3e\-0b0b\-4b0b\-8b0b\-0b0b0b0b0b0b | {\(dqfailed\(dq: 0, \(dqskipped\(dq: 0, \(dqaffected\(dq: 12, \(dqcandidates\(dq: 12}
+ f33d3b3e\-0b0b\-4b0b\-8b0b\-0b0b0b0b0b0b | {\(dqfailed\(dq: 1, \(dqskipped\(dq: 0, \(dqaffected\(dq: 10, \(dqcandidates\(dq: 11}
+(2 rows)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Let’s say we want to sum thet \fIcandidates\fP in the \fIvalue\fP of the entry
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+SELECT sum((value\->>\(aqcandidates\(aq)::int) from process, jsonb_each(stats) as x;
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Reference
+.sp
+What operators to use e.g. \fI\->\fP vs \fI\->>\fP, see: \fI\%https://www.postgresql.org/docs/9.5/functions\-json.html\fP
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT

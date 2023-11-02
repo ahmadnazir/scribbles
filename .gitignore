@@ -6,6 +6,7 @@ private.html
 build/doctrees
 bin
 obj
+tmp
 
 # Temporarily disabling the following until I move the directories to another
 # place or delete them

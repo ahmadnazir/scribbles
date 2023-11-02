@@ -40,7 +40,7 @@
   <section id="plantuml">
 <h1>PlantUML<a class="headerlink" href="#plantuml" title="Permalink to this heading">¶</a></h1>
 <p>Spacemacs comes with a <code class="docutils literal notranslate"><span class="pre">plantuml</span></code> layer which has a major mode for modifying such files.</p>
-<p>Files with extension <code class="docutils literal notranslate"><span class="pre">.pum</span></code> are recognized.</p>
+<p>Files with extension <code class="docutils literal notranslate"><span class="pre">.puml</span></code> are recognized.</p>
 <p>Once installed, set the output type to <code class="docutils literal notranslate"><span class="pre">png</span></code> (<code class="docutils literal notranslate"><span class="pre">M-x</span> <span class="pre">plantuml-set-output-type</span></code>)
 Generate a preview: <code class="docutils literal notranslate"><span class="pre">plantuml-preview</span></code> or <code class="docutils literal notranslate"><span class="pre">,</span> <span class="pre">c</span> <span class="pre">c</span></code></p>
 <section id="local-rendering">
@@ -55,6 +55,57 @@ Generate a preview: <code class="docutils literal notranslate"><span class="pre"
 <li><p><code class="docutils literal notranslate"><span class="pre">plantuml-jar-path</span></code> : path where you download the jar. If you want to manually download the jar, checkout: <a class="reference external" href="https://plantuml.com/download">https://plantuml.com/download</a></p></li>
 </ul>
 <p>Now the preview will be generated locally.</p>
+</section>
+<section id="class-diagrams">
+<h2>Class Diagrams<a class="headerlink" href="#class-diagrams" title="Permalink to this heading">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">aggregation<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">o--</span> <span class="pre">B</span></code></p>
+</dd>
+<dt class="field-even">composition<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*--</span> <span class="pre">B</span></code></p>
+</dd>
+<dt class="field-odd">inheritance<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&lt;|--</span> <span class="pre">B</span></code></p>
+</dd>
+<dt class="field-even">association<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&lt;--</span> <span class="pre">B</span></code></p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@startuml</span>
+
+<span class="n">A</span> <span class="o">*-</span><span class="n">right</span><span class="o">-</span> <span class="n">B</span> <span class="p">:</span> <span class="n">Composition</span>
+<span class="n">C</span> <span class="n">o</span><span class="o">-</span><span class="n">right</span><span class="o">-</span> <span class="n">D</span> <span class="p">:</span> <span class="n">Aggregation</span>
+<span class="n">E</span> <span class="o">&lt;|-</span><span class="n">right</span><span class="o">-</span> <span class="n">F</span> <span class="p">:</span> <span class="n">Inheritance</span>
+
+<span class="n">A</span> <span class="o">-</span><span class="p">[</span><span class="n">hidden</span><span class="p">]</span><span class="o">-&gt;</span> <span class="n">C</span>
+<span class="n">B</span> <span class="o">-</span><span class="p">[</span><span class="n">hidden</span><span class="p">]</span><span class="o">-&gt;</span> <span class="n">D</span>
+
+<span class="n">hide</span> <span class="k">class</span> <span class="nc">circle</span>
+<span class="n">hide</span> <span class="k">class</span> <span class="nc">members</span>
+<span class="n">hide</span> <span class="k">class</span> <span class="nc">methods</span>
+
+<span class="nd">@enduml</span>
+</pre></div>
+</div>
+</section>
+<section id="samples">
+<h2>Samples<a class="headerlink" href="#samples" title="Permalink to this heading">¶</a></h2>
+<p>Checkout samples:
+- <a class="reference external" href="https://real-world-plantuml.com/?type=class">https://real-world-plantuml.com/?type=class</a>
+- <a class="reference external" href="https://real-world-plantuml.com/?type=activity">https://real-world-plantuml.com/?type=activity</a></p>
+</section>
+<section id="legend">
+<h2>Legend<a class="headerlink" href="#legend" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">legend</span>
+<span class="o">|=</span> <span class="n">field</span> <span class="o">|=</span> <span class="n">method</span> <span class="o">|=</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">-</span>     <span class="o">|</span>   <span class="o">-</span>     <span class="o">|</span> <span class="n">private</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="c1">#     |   #     | protected |</span>
+<span class="o">|</span>  <span class="o">~</span>     <span class="o">|</span>   <span class="o">~</span>     <span class="o">|</span> <span class="n">package</span> <span class="n">private</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="o">+</span>     <span class="o">|</span>   <span class="o">+</span>     <span class="o">|</span> <span class="n">public</span> <span class="o">|</span>
+<span class="n">endlegend</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -113,6 +164,22 @@ Generate a preview: <code class="docutils literal notranslate"><span class="pre"
 </h3>
 <ul>
      
+    <li>
+        
+        <a href="../2023/11/02/json-in-postgres.html"
+        >02 November - Json in Postgres</a
+                           >
+        
+    </li>
+    
+    <li>
+        
+        <a href="../2023/10/17/how-to-send-notifications-from-server-to-client.html"
+        >17 October - How to send notifications from server to client?</a
+                           >
+        
+    </li>
+    
     <li>
         
         <a href="../2023/09/01/connect-to-the-host-from-a-docker-container.html"
@@ -177,22 +244,6 @@ Generate a preview: <code class="docutils literal notranslate"><span class="pre"
         
     </li>
     
-    <li>
-        
-        <a href="../2023/03/22/printer.html"
-        >22 March - printer</a
-                           >
-        
-    </li>
-    
-    <li>
-        
-        <a href="../2023/03/20/xdg.html"
-        >20 March - xdg</a
-                           >
-        
-    </li>
-    
 </ul>
 
 <h3><a href="../blog/tag.html">Tags</a></h3>
@@ -239,6 +290,10 @@ Generate a preview: <code class="docutils literal notranslate"><span class="pre"
     
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../blog/tag/arch.html">arch</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/architecture.html">architecture</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
@@ -331,6 +386,10 @@ Generate a preview: <code class="docutils literal notranslate"><span class="pre"
     
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../blog/tag/jobs.html">jobs</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/json.html">json</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
@@ -443,6 +502,10 @@ Generate a preview: <code class="docutils literal notranslate"><span class="pre"
     
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../blog/tag/spark.html">spark</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../blog/tag/sql.html">sql</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
