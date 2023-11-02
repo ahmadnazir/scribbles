@@ -8951,6 +8951,8 @@ SELECT jsonb_each(stats) as entry from process;
 .fi
 .UNINDENT
 .UNINDENT
+.sp
+returns a single column for the \fIentry\fP containing the key and value as a pair:
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -8966,7 +8968,19 @@ SELECT jsonb_each(stats) as entry from process;
 .UNINDENT
 .UNINDENT
 .sp
-Or as separate columns:
+Or:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+SELECT entry.* from process, jsonb_each(stats) as entry ;
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+returns separate columns for the \fIkey\fP and the \fIvalue\fP:
 .INDENT 0.0
 .INDENT 3.5
 .sp
