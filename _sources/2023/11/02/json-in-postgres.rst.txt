@@ -30,6 +30,8 @@ Get each object as follows:
 
    SELECT jsonb_each(stats) as entry from process;
 
+returns a single column for the `entry` containing the key and value as a pair:
+
 ::
 
 
@@ -40,8 +42,13 @@ Get each object as follows:
    (2 rows)
 
 
-Or as separate columns:
+Or:
 
+::
+
+   SELECT entry.* from process, jsonb_each(stats) as entry ;
+
+returns separate columns for the `key` and the `value`:
 ::
 
 

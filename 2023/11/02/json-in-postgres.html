@@ -59,6 +59,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">jsonb_each</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span> <span class="k">as</span> <span class="n">entry</span> <span class="kn">from</span> <span class="nn">process</span><span class="p">;</span>
 </pre></div>
 </div>
+<p>returns a single column for the <cite>entry</cite> containing the key and value as a pair:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                                                   <span class="n">entry</span>
 <span class="o">----------------------------------------------------------------------------------------------------------------</span>
  <span class="p">(</span><span class="n">f22d3b3e</span><span class="o">-</span><span class="mb">0b0</span><span class="n">b</span><span class="o">-</span><span class="mi">4</span><span class="n">b0b</span><span class="o">-</span><span class="mi">8</span><span class="n">b0b</span><span class="o">-</span><span class="mb">0b0</span><span class="n">b0b0b0b0b</span><span class="p">,</span><span class="s2">&quot;{&quot;&quot;failed&quot;&quot;: 0, &quot;&quot;skipped&quot;&quot;: 0, &quot;&quot;affected&quot;&quot;: 12, &quot;&quot;candidates&quot;&quot;: 12}&quot;</span><span class="p">)</span>
@@ -66,7 +67,11 @@
 <span class="p">(</span><span class="mi">2</span> <span class="n">rows</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Or as separate columns:</p>
+<p>Or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">entry</span><span class="o">.*</span> <span class="kn">from</span> <span class="nn">process</span><span class="p">,</span> <span class="n">jsonb_each</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span> <span class="k">as</span> <span class="n">entry</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>returns separate columns for the <cite>key</cite> and the <cite>value</cite>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                 <span class="n">key</span>                  <span class="o">|</span>                             <span class="n">value</span>
 <span class="o">--------------------------------------+---------------------------------------------------------------</span>
  <span class="n">f22d3b3e</span><span class="o">-</span><span class="mb">0b0</span><span class="n">b</span><span class="o">-</span><span class="mi">4</span><span class="n">b0b</span><span class="o">-</span><span class="mi">8</span><span class="n">b0b</span><span class="o">-</span><span class="mb">0b0</span><span class="n">b0b0b0b0b</span> <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;failed&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;skipped&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;affected&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;candidates&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
@@ -99,9 +104,9 @@
     >Tags: </span
   >
    
-  <a href="../../../blog/tag/sql.html">sql</a>   
+  <a href="../../../blog/tag/json.html">json</a>   
   <a href="../../../blog/tag/postgres.html">postgres</a>   
-  <a href="../../../blog/tag/json.html">json</a>  
+  <a href="../../../blog/tag/sql.html">sql</a>  
 </li>
  
 </ul>
