@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Nov 02, 2023" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Apr 04, 2024" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -8169,31 +8169,7 @@ Find the id of the input device:
 .sp
 .nf
 .ft C
-xinput | grep \-i touchpad
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-Get the properties for the input device:
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-xinput list\-props 22
-.ft P
-.fi
-.UNINDENT
-.UNINDENT
-.sp
-If the tap click is disabled, enable it like this (property name can obviously be different):
-.INDENT 0.0
-.INDENT 3.5
-.sp
-.nf
-.ft C
-xinput set\-prop 22 \(dqlibinput Tapping Enabled\(dq 1
+:
 .ft P
 .fi
 .UNINDENT
@@ -8203,7 +8179,9 @@ xinput set\-prop 22 \(dqlibinput Tapping Enabled\(dq 1
 .sp
 .nf
 .ft C
-xinput set\-prop 22 \(dqlibinput Natural Scrolling Enabled\(dq 1
+DEVICE_ID=\(gaxinput | grep \-i touchpad | grep \-E \(aqid.(..)\(aq \-o | awk \-F \(aq=\(aq \(aq{print $2}\(aq\(ga
+xinput set\-prop $DEVICE_ID \(dqlibinput Tapping Enabled\(dq 1
+xinput set\-prop $DEVICE_ID \(dqlibinput Natural Scrolling Enabled\(dq 1
 .ft P
 .fi
 .UNINDENT
@@ -9010,6 +8988,68 @@ SELECT sum((value\->>\(aqcandidates\(aq)::int) from process, jsonb_each(stats) a
 .SS Reference
 .sp
 What operators to use e.g. \fI\->\fP vs \fI\->>\fP, see: \fI\%https://www.postgresql.org/docs/9.5/functions\-json.html\fP
+.SS 4 levels of luck
+.sp
+4 levels:
+.INDENT 0.0
+.IP \(bu 2
+Blind Luck : i.e. winning a lottery
+.IP \(bu 2
+Luck from Motion : Increase the surface area of being lucky by taking relevant action
+.IP \(bu 2
+Luck from Awareness : Be so skillful that you can see the opportunities that others don’t
+.IP \(bu 2
+Luck from Uniqueness : Be so known for your skill that people reach out to you when an opportunity arrises
+.UNINDENT
+.sp
+So, one can improve their chances of being lucky.
+.sp
+“If opportunity doesn’t knock, build a door.” Milton Berle
+.SS Appendix
+.INDENT 0.0
+.IP \(bu 2
+\fI\%https://www.sahilbloom.com/newsletter/the\-4\-types\-of\-luck#:~:text=The%204%20types%20of%20luck%20are%20(1)%20Blind%20Luck%2C,(4)%20Luck%20from%20Uniqueness\fP\&.
+.IP \(bu 2
+The concept is taken from “Chase, Chance, & Creativity: The Lucky Art of Novelty” by Dr. James Astin
+.UNINDENT
+.SS Implementing One\-to\-Many relationship
+.sp
+Let’s say we have to implement a relationship between a \fIFolder\fP and a \fIFile\fP\&.
+.sp
+One folder can contain many files.
+.sp
+Either we can have the \fIfile_id\fP on the folder
+.SS QES
+.sp
+Penneo is a qualified trust provider:
+\fI\%https://eidas.ec.europa.eu/efda/tl\-browser/#/screen/tl/DK/3\fP
+.SS Q11 Keychron
+.sp
+Layers that work for Linux (and probably also a mac) are 0 and 1.
+.sp
+I think for windows, it is 2 and 3.
+.sp
+Configure the keyboard from the browser: \fI\%https://usevia.app/\fP
+.sp
+When connecting, it will probably show an error due to lack of permissions.
+.sp
+See what is failing from chrome logs: chrome://device\-log
+.sp
+Give permissions as follows:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo chmod a+rw /dev/hidraw5
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Now load the pre\-saved configuration: \fI\%https://github.com/ahmadnazir/dotfiles/blob/master/keychron_q11.layout.json\fP
+.sp
+Make sure that the keyboard is on the \fImac\fP settings (manual switch close to the usb cable)
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT
