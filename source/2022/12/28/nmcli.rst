@@ -37,5 +37,5 @@ Connect to a network where `NAME` is the name of the network
 ::
 
    nmcli d wifi connect ${NAME} --ask
-   # or explicitly provide the passwork
+   # or explicitly provide the password
    nmcli d wifi connect ${NAME} password PASSWORD
