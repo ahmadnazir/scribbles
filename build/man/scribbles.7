@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "SCRIBBLES" "7" "Apr 04, 2024" "0.2" "Scribbles"
+.TH "SCRIBBLES" "7" "Jun 13, 2024" "0.2" "Scribbles"
 .SH NAME
 scribbles \- Scribbles
 .sp
@@ -8373,7 +8373,7 @@ Connect to a network where \fINAME\fP is the name of the network
 .nf
 .ft C
 nmcli d wifi connect ${NAME} \-\-ask
-# or explicitly provide the passwork
+# or explicitly provide the password
 nmcli d wifi connect ${NAME} password PASSWORD
 .ft P
 .fi
@@ -9050,6 +9050,93 @@ sudo chmod a+rw /dev/hidraw5
 Now load the pre\-saved configuration: \fI\%https://github.com/ahmadnazir/dotfiles/blob/master/keychron_q11.layout.json\fP
 .sp
 Make sure that the keyboard is on the \fImac\fP settings (manual switch close to the usb cable)
+.SS Expression programming languages
+.sp
+According the Chomsky hierarchy, there are 4 categories. From most expressive to least:
+.INDENT 0.0
+.IP \(bu 2
+Type\-0: Recursively Enumerable Grammar
+.IP \(bu 2
+Type\-1: Context Sensitive Grammar
+.IP \(bu 2
+Type\-3: Context Free Grammar
+.IP \(bu 2
+Type\-4: Regular Grammar
+.UNINDENT
+.sp
+These grammars are used to express the syntax of the programming language.
+Semantics, on the other hand \- which deals with how we evaluate the constructs \- gives the programming language ability to do things. In practice, programming languages like C, JS, etc can be expressed with a Type\-3 grammar (CFG) but are turning complete (i.e. most powerful machines we know).
+.sp
+Example of a Type\-4 \- Regular Grammar is during the lexical analysis stage of the compilation process of a language i.e. break the input into tokens. Also, pattern matching using simple regular expressions are an example. RegExps using lookahead and backtracking are a different story.
+.SS Kill process listening on a specific port
+.sp
+Let’s say a process is listening on port 33333 and we don’t know what it is, then kill the process in one line as:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sudo kill \-9 $(sudo lsof \-t \-i :33333)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Using regexp in emacs
+.sp
+Sometimes it is easier to use a regular expression to convert lines.
+But using regexps in emacs is complicated \- it requires a lot of escaping for special chars.
+.sp
+e.g. convert the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+1
+2
+3
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\(aq1\(aq,
+\(aq2\(aq,
+\(aq3\(aq,
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Use the regexp to capture:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\e(.*\e)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and the following to use the value captured and replace it:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\(aq\e1\(aq,
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SH AUTHOR
 Ahmad Nazir Raja
 .SH COPYRIGHT
